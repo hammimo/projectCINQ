@@ -38,9 +38,16 @@ public class HomeController {
 		return "home";
 	}
 	
-	@GetMapping("login")
-	public String login() {
-		return "login";
+	@RequestMapping("index")
+	public String index() {
+		return "index";
 	}
+	
+	@RequestMapping("login")
+	public String login() {
+		return "member/login";
+	}
+	
+	
 	
 }
