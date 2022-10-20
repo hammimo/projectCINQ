@@ -17,7 +17,7 @@
  
 .rentPlace {
    width: 500px;
-   margin: auto;
+   margin: auto; 
 }
 
 </style>
