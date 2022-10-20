@@ -48,6 +48,10 @@ public class HomeController {
 		return "member/login";
 	}
 	
+	@RequestMapping("form/artistForm")
+	public String artistForm() {
+		return "form/artistForm";
+	}
 	
 	
 }
