@@ -20,7 +20,7 @@
    margin: auto;
 }
 
-</style>
+</style> 
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
