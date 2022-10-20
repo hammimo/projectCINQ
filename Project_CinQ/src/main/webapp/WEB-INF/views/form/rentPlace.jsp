@@ -12,7 +12,7 @@
 
 <style type="text/css">
 .rentPlace_title {
-   text-align: center;
+   text-align: center; 
 }
  
 .rentPlace {
