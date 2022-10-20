@@ -26,7 +26,7 @@
    <c:import url="../default/header.jsp"/>
    <h1 class="rentPlace_title">장소 등록</h1>
    <div class="rentPlace" align="center">
-      <form  class="artist_form" action="#" method="post">      
+      <form  class="artist_form" action="#" method="post">       
          <b>작성자</b>
          	<input type="text" name="id" value="loginUser" readonly><br><br>
          <b>제 목</b>
