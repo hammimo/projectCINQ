@@ -38,15 +38,15 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("index")
-	public String index() {
-		return "index";
-	}
+//	@RequestMapping("index")
+//	public String index() {
+//		return "index";
+//	}
 	
-	@RequestMapping("login")
-	public String login() {
-		return "member/login";
-	}
+//	@RequestMapping("login")
+//	public String login() {
+//		return "member/login";
+//	}
 	
 	
 	
