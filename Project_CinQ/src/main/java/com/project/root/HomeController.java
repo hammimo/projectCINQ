@@ -43,10 +43,19 @@ public class HomeController {
 		return "index";
 	}
 	
-//	@RequestMapping("login")
-//	public String login() {
-//		return "member/login";
-//	}
+	@RequestMapping("login")
+	public String login() {
+		return "member/login";
+	}
+	@RequestMapping("form/artistForm")
+	public String artistForm() {
+		return "form/artistForm";
+	}
+	
+	@RequestMapping("form/rentPlace")
+	public String rentPlace() {
+		return "form/rentPlace";
+	}
 	
 	
 	
