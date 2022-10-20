@@ -6,5 +6,7 @@
 
 <mapper namespace="com.project.root.mybatis.member.MemberMapper">
 
-	
+	<insert id="register" parameterType="com.project.root.member.dto.MemberDTO">
+		insert into member values(#{name},#{id}, #{pw}, #{pid}, #{tel}, #{gender}, #{nickname})
+	</insert>
 </mapper>
