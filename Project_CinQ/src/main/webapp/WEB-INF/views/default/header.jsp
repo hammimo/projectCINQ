@@ -15,27 +15,32 @@
 	margin: 0;
 }
 .wrap {
-	width: 1000px;
+	width: auto;
 	margin: auto;
+	text-align: center;
 	background-color: gray;
 }
 .header {
-	width: 1000px;
+	margin: 0;
 }
 .title {
 	font-size: 50px;
 	text-align: center;
-	margin-top: 40px;
-	padding-bottom: 20px;
 	background-color: orange;
 }
-.navdiv {
-	width: 100%;
-	background-color: green
-}
+
 nav {
-	width: 1000px;
+	margin: 0;
+	width: 100%;
 	background-color: olive;
+}
+nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: end;
+}
+nav ul li {
+	padding: 10px;
 }
 
 </style>
@@ -47,12 +52,14 @@ nav {
 		</div>
 	</div>
 	<!-- // wrap -->
-	<div class="navdiv">
 		<div class="wrap">
-
-
+			<nav>
+				<ul>
+					<li><a href = "/root/index">HOME</a></li>
+					<li><a href = "/root/member/login">LOGIN</a></li>
+				</ul>
+			</nav>
 		</div>
-	</div>
 	<!-- // navdiv -->
 </body>
 </html>
