@@ -9,4 +9,21 @@
 	<insert id="register" parameterType="com.project.root.member.dto.MemberDTO">
 		insert into member values(#{name},#{id}, #{pw}, #{pid}, #{tel}, #{gender}, #{nickname})
 	</insert>
+	
+	<resultMap type="com.project.root.member.dto.MemberDTO" id="member">
+		
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="pw" column="pw"/>
+		<result property="pid" column="pid"/>
+		<result property="tel" column="tel"/>
+		<result property="gender" column="gender"/>
+		<result property="nickname" column="nickname"/>
+		
+	</resultMap>
+	 
+	
+	<select id="user_check" resultMap="member">
+		select * from member where id=#{id}
+	</select>
 </mapper>
