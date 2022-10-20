@@ -48,6 +48,11 @@ public class HomeController {
 		return "member/login";
 	}
 	
+	@RequestMapping("rentPlace")
+	public String rentPlace() {
+		return "form/rentPlace";
+	}
+
 	
 	
 }
