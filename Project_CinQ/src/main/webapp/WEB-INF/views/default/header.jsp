@@ -57,6 +57,7 @@ nav ul li {
 				<ul>
 					<li><a href = "/root/index">HOME</a></li>
 					<li><a href = "/root/member/login">LOGIN</a></li>
+					<li><a href = "/root/member/register_form">회원가입</a></li>
 				</ul>
 			</nav>
 		</div>
