@@ -1,3 +1,0 @@
-SQL 파일 등록시 규칙
-
-이름 : DBCINQ_00.sql, DBCINQ_00.txt 로 두개 저장.
