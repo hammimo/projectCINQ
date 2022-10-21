@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.root.mybatis.join.JoinMapper">
+	<resultMap type="com.project.root.join.dto.JoinDTO" id="join">
+		<id property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="image" column="image"/>
+		<result property="loc_name" column="loc_name"/>
+		<result property="gender" column="gender"/>
+		<result property="max_count" column="max_count"/>
+		<result property="cur_count" column="cur_count"/>
+	</resultMap>
+	
+	<insert id="joinSave">
+		insert into Join(id, title, content, image, loc_name, gender, max_count, cur_count)
+		values(#id, #{title}, #{content}, #{image},#{loc_name},#{gender},#{max_count},#{cur_count})
+	</insert>
+</mapper>
