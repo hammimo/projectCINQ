@@ -5,7 +5,7 @@
 
 ALTER TABLE join ADD Id varchar2(20) primary key;
 
-desc join;
+desc join; 
 1. 
 location 테이블과 place 테이블이 완전히 똑같은 테이블이어서
 location 테이블을 삭제하기로 했습니다.

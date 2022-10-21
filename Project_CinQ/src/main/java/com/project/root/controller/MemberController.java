@@ -63,4 +63,11 @@ public class MemberController implements MemberSession {
 		session.setAttribute(LOGIN, id);
 		return "member/successLogin";
 	} 
+	
+	@GetMapping("join/artistForm")
+	public String rentPlace() {
+		return "join/artistForm";
+	}
+	
+	
 }

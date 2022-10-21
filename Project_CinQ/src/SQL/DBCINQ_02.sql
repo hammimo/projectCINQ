@@ -159,3 +159,6 @@ SELECT * FROM    ALL_CONSTRAINTS where owner = 'DBCINQ';
 
 commit;
 
+select * from place; 
+desc place;
+select * from 

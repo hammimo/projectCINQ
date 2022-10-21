@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  
+create table place (
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+loc_name varchar2(20),
+addr varchar2(100),
+max_count number(3)
+);
+-->
+<!-- mappers/place/rentPlaceMapper.xml -->
+
+<mapper namespace="com.project.root.mybatis.place.PlaceMapper">
+
+	
+	<resultMap type="com.project.root.place.dto.PlaceDTO" id="place">
+		
+		<id property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="image" column="image"/>
+		<result property="loc_name" column="loc_name"/>
+		<result property="addr" column="addr"/>
+		<result property="max_count" column="max_count"/>
+
+	</resultMap>
+	
+	<select id="placeAllList" resultMap="place">
+		select * from place
+	</select>
+	 
+	 <insert id="rentPlaceSave">
+		insert into place(title, content, image, loc_name, addr, max_count)
+		 values(#{title},#{content}, #{image}, #{loc_name}, #{addr}, #{max_count})
+	</insert>
+	
+	
+</mapper>
