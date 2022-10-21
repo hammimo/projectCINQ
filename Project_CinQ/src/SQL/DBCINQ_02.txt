@@ -1,0 +1,168 @@
+/*\
+<공지!! 변경된 사항이 있으니 꼭 확인해 주세요>
+1. 
+location 테이블과 place 테이블이 완전히 똑같은 테이블이어서
+location 테이블을 삭제하기로 했습니다.
+drop table location cascade constraints;
+ 을 실행해 주시고
+location 테이블의 생성 내용들과 desc, select 부분들은 지워주시면 됩니다
+
+2.
+join 테이블과 place 테이블의 loc_name 컬럼의 데이터 값이 모자란 것 같아서
+데이터 크기를 늘리기로 했습니다.
+alter table join MODIFY loc_name varchar2(50);
+alter table place MODIFY loc_name varchar2(50);
+을 실행해 주시면 됩니다.
+
+위에 실행하여야 하는 코드들은 모두 실행하여야 하는 위치에도 적어 놓았습니다.
+
+*/
+--계정생성
+create user DBCINQ identified by a1234;
+--접속 권한 조작 권한 부여
+grant connect,resource,DBA to DBCINQ;
+
+--접속 테스트
+conn DBCINQ/a1234;
+
+--유저 삭제
+drop user DBCINQ;
+
+
+---- DBCINQ 접속 후 테이블 생성
+
+--memeber table 생성
+
+create table member(
+Name varchar2(20),
+Id varchar2(20) primary key,
+Pw varchar2(20),
+Pid varchar2(30) unique,
+Tel number(11),
+Gender varchar2(2),
+Nickname varchar2(30) unique
+);
+
+desc member;
+select * from member;
+
+--관리자 계정생성
+insert into member values('admin','admin','admin1','nan','000','nn','admin');
+
+
+-- loc table
+create table loc(
+loc_code number(2) primary key,
+loc_name varchar2(20)
+);
+
+desc loc;
+select * from loc;
+
+--join table 
+create table join(
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+loc_name varchar2(20),
+gender varchar2(2),
+age number(3),
+max_count number(3),
+cur_count number(3)
+);
+
+alter table join MODIFY loc_name varchar2(50);
+-- 지역 이름이 생각보다 들어가는 글씨가 많아져서 데이터 크기를 20에서 50으로 추가하였습니다. 위에 코드를 실행해서 변경해주세요
+
+desc join;
+select * from join;
+
+--place 테이블
+
+create table place (
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+loc_name varchar2(20),
+addr varchar2(100),
+max_count number(3)
+);
+
+alter table place MODIFY loc_name varchar2(50);
+-- 지역 이름이 생각보다 들어가는 글씨가 많아져서 데이터 크기를 20에서 50으로 추가하였습니다. 위에 코드를 실행해서 변경해주세요
+
+desc place;
+select * from place;
+
+
+--location 테이블
+create table location (
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+loc_name varchar2(20),
+addr varchar2(100),
+max_count number(3)
+);
+
+desc location;
+select * from location;
+
+drop table location cascade constraints;
+-- location과 place 테이블이 내용이 겹쳐서 place 테이블만 사용하기로 했습니다. location 테이블 지워 주시면 됩니다.
+
+--reservation 테이블 
+create table reservation (
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+max_count number(3),
+show_date date,
+pay_date date default sysdate,
+price number(7),
+show_num number(7) primary key
+);
+
+
+desc reservation;
+select * from reservation;
+
+
+--review 테이블
+create table review (
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+show_date date,
+show_num number(7)
+);
+
+desc review;
+select * from review;
+
+--history_viewer 테이블
+create table history_viewer (
+title varchar2(100),
+show_date date,
+price number(7),
+show_num number(7)
+);
+
+desc history_viewer;
+select * from history_viewer;
+
+--history_artist 테이블
+create table history_artist (
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+show_start_date date,
+show_date date,
+show_num number(7)
+);
+
+desc history_artist;
+select * from history_artist;
+
+-- 주인이 DBCINQ 인 테이블의 제약조건 확인. U = unique , P = primary key , R = Foreign key
+SELECT * FROM    ALL_CONSTRAINTS where owner = 'DBCINQ';
