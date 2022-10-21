@@ -150,6 +150,6 @@ function writeSave(){
          <input type="button" onclick="writeSave()" value="작성완료"><br><br>
       </form>
    </div>
-   <c:import url="../default/footer.jsp"/>
+   <c:import url="../default/footer.jsp"/> 
 </body>
 </html>
