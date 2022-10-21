@@ -8,5 +8,5 @@ public interface MemberService {
 
 	int register(MemberDTO member);
 	public int user_check(HttpServletRequest request);
-
+ 
 }

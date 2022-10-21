@@ -16,5 +16,5 @@
 		<h1>로그인 성공 : ${loginUser}님 안녕하세요 ^^</h1>
 	</div>
 	<c:import url="../default/footer.jsp"/>
-</body>
+</body> 
 </html>

@@ -6,5 +6,5 @@ public interface MemberMapper {
 
 	int register(MemberDTO member);
 	public MemberDTO user_check(String id);
-
+ 
 }

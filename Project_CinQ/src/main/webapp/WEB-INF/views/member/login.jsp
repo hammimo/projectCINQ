@@ -31,5 +31,5 @@
 		
 	</div>
 	<c:import url="../default/footer.jsp"/>
-</body>
+</body> 
 </html>

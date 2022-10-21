@@ -62,5 +62,5 @@ public class MemberController implements MemberSession {
 	public String successLogin(@RequestParam("id") String id, HttpSession session) {
 		session.setAttribute(LOGIN, id);
 		return "member/successLogin";
-	}
+	} 
 }

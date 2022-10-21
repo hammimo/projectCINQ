@@ -25,5 +25,5 @@
 	
 	<select id="user_check" resultMap="member">
 		select * from member where id=#{id}
-	</select>
+	</select> 
 </mapper>
