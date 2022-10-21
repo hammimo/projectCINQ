@@ -1,5 +1,10 @@
 /*\
 <공지!! 변경된 사항이 있으니 꼭 확인해 주세요>
+-- Join table 에 ID 컬럼 추가 primary key
+
+ALTER TABLE join ADD Id varchar2(20) primary key;
+
+desc join;
 1. 
 location 테이블과 place 테이블이 완전히 똑같은 테이블이어서
 location 테이블을 삭제하기로 했습니다.
@@ -95,21 +100,6 @@ desc place;
 select * from place;
 
 
---location 테이블
-create table location (
-title varchar2(100),
-content varchar2(300),
-image varchar2(50),
-loc_name varchar2(20),
-addr varchar2(100),
-max_count number(3)
-);
-
-desc location;
-select * from location;
-
-drop table location cascade constraints;
--- location과 place 테이블이 내용이 겹쳐서 place 테이블만 사용하기로 했습니다. location 테이블 지워 주시면 됩니다.
 
 --reservation 테이블 
 create table reservation (
@@ -166,3 +156,6 @@ select * from history_artist;
 
 -- 주인이 DBCINQ 인 테이블의 제약조건 확인. U = unique , P = primary key , R = Foreign key
 SELECT * FROM    ALL_CONSTRAINTS where owner = 'DBCINQ';
+
+commit;
+

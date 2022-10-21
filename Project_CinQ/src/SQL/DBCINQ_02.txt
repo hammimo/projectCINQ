@@ -1,5 +1,11 @@
 /*\
+
 <공지!! 변경된 사항이 있으니 꼭 확인해 주세요>
+-- Join table 에 ID 컬럼 추가 primary key
+
+ALTER TABLE join ADD Id varchar2(20) primary key;
+
+desc join;
 1. 
 location 테이블과 place 테이블이 완전히 똑같은 테이블이어서
 location 테이블을 삭제하기로 했습니다.
