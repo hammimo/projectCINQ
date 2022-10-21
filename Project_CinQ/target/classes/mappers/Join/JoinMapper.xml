@@ -8,14 +8,13 @@
 		<result property="title" column="title"/>
 		<result property="content" column="content"/>
 		<result property="image" column="image"/>
+		<result property="age" column="age"/>
+		<result property="gender" column ="gender"/>
 		<result property="loc_name" column="loc_name"/>
-		<result property="gender" column="gender"/>
 		<result property="max_count" column="max_count"/>
 		<result property="cur_count" column="cur_count"/>
 	</resultMap>
 	
 	<insert id="joinSave">
-		insert into Join(id, title, content, image, loc_name, gender, max_count, cur_count)
-		values(#id, #{title}, #{content}, #{image},#{loc_name},#{gender},#{max_count},#{cur_count})
-	</insert>
+		insert into Join values( #{title}, #{content}, #{image},#{loc_name},#{gender},#{age},#{max_count},#{cur_count},#{id})	</insert>
 </mapper>

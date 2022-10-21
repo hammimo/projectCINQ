@@ -85,6 +85,12 @@ var areaSelectMaker = function(target){
         }
     }
 }
+function joinTry(){
+	var addr = $("#addressSiGunGu").val();
+	$("#loc_name").val(addr);
+	artistForm.submit();
+}
+
 </script>
 <style type="text/css">
 .artist_title {
@@ -114,7 +120,7 @@ p {
    <br><br><br>
    <div class ="artist_img"><img src="#" id="preview" width="200px" height="200px"></div>
    <div class="artist" align="center">
-      <form  class="artist_form" action="${contextPath }/join/JoinSave" enctype="multipart/form-data" method="post">      
+      <form  class="artist_form" id="artistForm" action="${contextPath }/join/JoinSave" enctype="multipart/form-data" method="post">      
          <b>작성자</b>
          <input type="text" name="id" value= "${loginUser}" readonly><br><br>
          <b>제 목</b>
@@ -124,7 +130,8 @@ p {
          <b>지 역</b>&nbsp;
          <select name="addressRegion" id="addressRegion"></select>
           <select name="addressDo" id="addressDo"></select>
-          <select name="addressSiGunGu" id="addressSiGunGu1"></select>
+          <select name="addressSiGunGu" id="addressSiGunGu"></select>
+          <input type="hidden" id="loc_name" name="loc_name">
           <p>현재 모집가능한 지역은 <b>수도권</b> 입니다.</p> <!-- 아직 동적으로 변환 구현 X  -->
           <br/>
           <br/>
@@ -149,13 +156,13 @@ p {
       -->
       
          <b>현재인원</b>
-         <input type="number" min="0" max="100" />      
+         <input type="number" min="0" max="100" name="cur_count"/>      
          <b>모집인원</b>
-         <input type="number" min="0" max="100" />      
+         <input type="number" min="0" max="100" name="max_count" />      
          <br><br>   
          <b>프로필 올리기</b>
-         <input type="file" name="image_file_name" value="팀장프로필" onchange="readURL(this)"><br><br>
-         <input type="submit" value="완료"> &nbsp;
+         <input type="file" name="image" value="팀장프로필" onchange="readURL(this)"><br><br>
+         <input type="button" value="완료" onclick="joinTry()"> &nbsp;
          <input type="button" value="돌아가기" onclick="location.href='../index'"><br><br><br>
       </form>
    </div>
