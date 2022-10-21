@@ -9,7 +9,7 @@ public interface PlaceService {
 
 	public void placeAllList(Model model, int num);
 	
-	public String rentPlaceSave(MultipartHttpServletRequest mul, HttpServletRequest request);
+	public String rentPlaceSave(MultipartHttpServletRequest mul, HttpServletRequest request); 
 	
 
 }

@@ -43,7 +43,7 @@ public class PlaceDTO {
 		return max_count;
 	}
 	public void setMax_count(int max_count) {
-		this.max_count = max_count;
+		this.max_count = max_count; 
 	}
 	
 	

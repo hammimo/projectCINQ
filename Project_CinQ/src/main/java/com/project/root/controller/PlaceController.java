@@ -43,7 +43,7 @@ public class PlaceController {
 	      String message = ps.rentPlaceSave(mul, request);
 	      response.setContentType("text/html; charset=utf-8");
 	      PrintWriter out = response.getWriter();
-	      out.println(message);
+	      out.println(message); 
 	 }
 	 
 	 

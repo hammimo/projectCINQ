@@ -35,8 +35,9 @@ public class PlaceServiceImpl implements PlaceService{
 		PlaceDTO dto = new PlaceDTO();
 		dto.setTitle(mul.getParameter("title"));
 		dto.setContent(mul.getParameter("content"));
-		dto.setAddr(mul.getParameter("addr"));
 		dto.setLoc_name(mul.getParameter("loc_name"));
+		dto.setAddr(mul.getParameter("addrResult"));
+		
 		MultipartFile file = mul.getFile("image");
 		
 		try {

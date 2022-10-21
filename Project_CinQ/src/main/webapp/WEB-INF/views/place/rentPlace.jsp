@@ -35,13 +35,13 @@ function readURL(input){
    }
 }
 
-$(function(){
-    areaSelectMaker("select[name=addr]");
+ $(function(){
+    areaSelectMaker("select[name=addrRegion]");
 });
 
 var areaSelectMaker = function(target){
     if(target == null || $(target).length == 0){
-        console.warn("Unkwon Area Tag");
+        console.warn("Unknown Area Tag");
         return;
     }
 
@@ -98,15 +98,18 @@ var areaSelectMaker = function(target){
         }
         
     }
-}
+} 
 function writeSave(){
-	addr1 =$("#addr").val();
-	addr2 =$("#addressDo").val();
-	addr3 =$("#addressSiGunGu1").val();
-	addr4 =$("#addrPlus").val(); 
 	
-	addr1 = addr1 + "/" + addr2 + "/" + addr3 + "/"  + addr4;
-	$("#addr").val(addr1);
+  	 var addrRegion = $("#addrRegion").val(); 
+	 var addressDo = $("#addressDo").val();
+	 var addressSiGunGu = $("#addressSiGunGu").val();
+	 var addrPlus = $("#addrPlus").val(); 
+	
+	 var addrResult = "";
+	 
+ 	addrResult = addrRegion + "/" + addressDo + "/" + addressSiGunGu + "/" + addrPlus;
+	$("#addrResult").val(addrResult);   
 	rentPlace_form.submit();
 }
 
@@ -128,19 +131,21 @@ function writeSave(){
 		 <b>내 용</b>
          	<textarea rows="10" cols="50" name="content" placeholder="모집 분야, 일시, 희망 가격을 입력해 주세요"></textarea><br><br>
          <b>지 역</b>&nbsp;
-         <select name="addr" id="addr"></select>
-          <select name="addressDo" id="addressDo"></select>
-          <select name="addressSiGunGu" id="addressSiGunGu1"></select>
+          <select id="addrRegion" name="addrRegion" ></select>
+          <select id="addressDo" name="addressDo" ></select>
+          <select id="addressSiGunGu" name="addressSiGunGu" ></select> 
+ 		  <input type="hidden" id="addrResult" name="addrResult">        
+          <!-- <input type="text" id="addrRegion" name="addrRegion"> -->
           <p>현재 모집가능한 지역은 <b>수도권</b> 입니다.</p> <!-- 아직 동적으로 변환 구현 X  -->
           <br/>
           <br/>
           <b>지역명</b>
-          <input type="text" name="loc_name" id="loc_name">
+          <input type="text" id="loc_name" name="loc_name">
          	<p>현재 전시/공연 가능한 지역은 //// 입니다.</p><br><br>
          <b>상세 주소</b>
-        	 <input type="text" name="addrPlus" size="50"><br><br>    
+        	 <input type="text" id="addrPlus" name="addrPlus" size="50"><br><br>    
          <b>모집인원</b>
-         <input type="number" min="0" max="100" />      
+         <input type="number" min="0" max="100" id="max_count" name="max_count" />      
          <br><br>   
          <input type="button" onclick="writeSave()" value="작성완료"><br><br>
       </form>
