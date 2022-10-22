@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.project.root.join.dto.JoinDTO;
+import com.project.root.join.dto.JoinDTO; 
 import com.project.root.join.service.JoinService;
 import com.project.root.session.join.JoinSession;
 
@@ -26,11 +26,11 @@ import com.project.root.session.join.JoinSession;
 public class Joincontroller implements JoinSession{
 	
 	@Autowired
-	private JoinService js;
+	private JoinService js;  
 	
 	@GetMapping("/artistForm")
 	public String artistForm() {
-		return "join/artistForm";  
+		return "join/artistForm";    
 	}
 	
 	@PostMapping("JoinSave")

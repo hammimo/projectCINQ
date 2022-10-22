@@ -21,7 +21,7 @@ span {
 </style>
 </head>
 <body>
-	<div class="footer">
+	<div class="footer"> 
 		<hr>
 		<span> Copyright &copy; CINQ </span>
 	</div>

@@ -17,7 +17,7 @@ public class JoinFileServiceImpl implements JoinFileService{
 		message = "<script>alert('" + msg + "');";
 		message += "location.href='" + path + url + "';</script>";
 		return message;
-	} 
+	}   
 
 	@Override
 	public String saveFile(MultipartFile file) {

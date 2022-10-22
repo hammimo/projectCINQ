@@ -10,7 +10,7 @@ public class JoinDTO {
 	private int age;
 	private int max_count;
 	private int cur_count;
-	private String id;  
+	private String id;   
 	
 	
 	public String getTitle() {
