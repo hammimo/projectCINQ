@@ -6,3 +6,4 @@ public interface JoinMapper {
 
 	public int joinSave(JoinDTO dto);
 }
+ 

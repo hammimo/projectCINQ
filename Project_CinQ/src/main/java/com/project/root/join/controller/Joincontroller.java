@@ -30,7 +30,7 @@ public class Joincontroller implements JoinSession{
 	
 	@GetMapping("/artistForm")
 	public String artistForm() {
-		return "join/artistForm";
+		return "join/artistForm";  
 	}
 	
 	@PostMapping("JoinSave")

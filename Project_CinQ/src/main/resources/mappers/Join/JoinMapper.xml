@@ -17,4 +17,4 @@
 	
 	<insert id="joinSave">
 		insert into Join values( #{title}, #{content}, #{image},#{loc_name},#{gender},#{age},#{max_count},#{cur_count},#{id})	</insert>
-</mapper>
+</mapper> 

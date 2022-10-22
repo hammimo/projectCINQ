@@ -11,3 +11,4 @@ public interface JoinService {
 
 	public String JoinSave(MultipartHttpServletRequest mul, HttpServletRequest request);
 }
+ 

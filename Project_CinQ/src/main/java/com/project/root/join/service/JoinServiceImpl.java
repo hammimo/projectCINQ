@@ -17,7 +17,7 @@ public class JoinServiceImpl implements JoinService{
 	@Autowired
 	JoinMapper mapper;
 	
-	@Autowired
+	@Autowired 
 	JoinFileService jfs;
 
 	@Override
