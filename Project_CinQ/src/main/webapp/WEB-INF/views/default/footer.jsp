@@ -24,7 +24,6 @@ span {
 	<div class="footer">
 		<hr>
 		<span> Copyright &copy; CINQ </span>
-		<a href="../join/artistForm">글 작성하기</a>
 	</div>
 </body>
 </html>
