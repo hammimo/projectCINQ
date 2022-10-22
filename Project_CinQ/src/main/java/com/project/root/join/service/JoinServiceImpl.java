@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -56,9 +57,16 @@ public class JoinServiceImpl implements JoinService{
 		}
 		return jfs.getMessage(request, msg, url);
 	}
+	
 
-	
-	
+	@Override
+	public void myJoinView(String id, Model model) {
+		JoinDTO dto = mapper.myJoinView(id);
+		model.addAttribute("ProjectInfo", dto);
 	}
+	
+	
+	
+}
 
 	

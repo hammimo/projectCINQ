@@ -1,7 +1,9 @@
-package com.project.root.join.controller;
+package com.project.root.controller;
 
 
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -11,13 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.project.root.join.dto.JoinDTO; 
+import com.project.root.join.dto.JoinDTO;
+import com.project.root.join.service.JoinFileService;
 import com.project.root.join.service.JoinService;
 import com.project.root.session.join.JoinSession;
 
@@ -43,6 +47,20 @@ public class Joincontroller implements JoinSession{
 		PrintWriter out = response.getWriter();
 		out.println(message);
 		
+	}
+	@GetMapping("download")
+	public void download(@RequestParam String imageFileName, HttpServletResponse response)throws Exception {
+		
+		response.addHeader("Content-disposition", "attachment; fileName="+imageFileName);
+		File file = new File(JoinFileService.IMAGE_REPO+"\\"+imageFileName);
+		FileInputStream in = new FileInputStream(file);
+		FileCopyUtils.copy(in, response.getOutputStream());
+		in.close();
+		
+	}
+	@GetMapping("joinsuccess")
+	public String successJoin() {
+		return "/successJoin";
 	}
 }
 
