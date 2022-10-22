@@ -1,4 +1,3 @@
-
 <!-- default/header.jsp -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -12,55 +11,65 @@
 <title>default/header.jsp</title>
 <style type="text/css">
 * { 
-	margin: 0;
+    margin: 0;
 }
 .wrap {
-	width: auto;
-	margin: auto;
-	text-align: center;
-	background-color: gray;
+    width: auto;
+    margin: auto;
+    text-align: center;
+    background-color: gray;
 }
 .header {
-	margin: 0;
+    margin: 0;
 }
 .title {
-	font-size: 50px;
-	text-align: center;
-	background-color: orange;
+    font-size: 50px;
+    text-align: center;
+    background-color: orange;
 }
 
 nav {
-	margin: 0;
-	width: 100%;
-	background-color: olive;
+    margin: 0;
+    width: 100%;
+    background-color: olive;
 }
 nav ul {
-	list-style: none;
-	display: flex;
-	justify-content: end;
+    list-style: none;
+    display: flex;
+    justify-content: end;
 }
 nav ul li {
-	padding: 10px;
+    padding: 10px;
 }
 
 </style>
 </head>
 <body>
-	<div class="wrap">
-		<div class="header">
-			<h1 class="title">CINQ</h1>
-		</div>
-	</div>
-	<!-- // wrap -->
-		<div class="wrap">
-			<nav>
-				<ul>
-					<li><a href = "/root/index">HOME</a></li>
-					<li><a href = "/root/member/login">LOGIN</a></li>
-					<li><a href = "/root/member/register_form">회원가입</a></li>
-				</ul>
-			</nav>
-		</div>
-	<!-- // navdiv -->
+    <div class="wrap">
+        <div class="header">
+            <h1 class="title">CINQ</h1>
+        </div>
+    </div>
+    <!-- // wrap -->
+        <div class="wrap">
+            <nav>
+                <ul>
+                    <li><a href = "/root/index">HOME</a></li>
+                    <li>
+                        <c:if test="${loginUser == null}">
+                            <a href="/root/member/login">로그인</a>
+                        </c:if>
+                        <c:if test="${loginUser != null}">
+                            <a href="/root/member/myinfo2?id= ${loginUser}">마이페이지</a>&nbsp;
+                            <a href="/root/member/logout">로그아웃</a>
+                        </c:if>
+                    </li>
+                    <li><a href = "/root/member/register_form">회원가입</a></li>
+
+
+                </ul>
+            </nav>
+        </div>
+    <!-- // navdiv -->
 </body>
 </html>
