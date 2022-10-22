@@ -11,6 +11,6 @@ public interface PlaceMapper {
 	
 	public int rentPlaceSave(PlaceDTO dto);
 
-	 
+	  
 
 }

@@ -11,5 +11,5 @@ public interface PlaceService {
 	
 	public String rentPlaceSave(MultipartHttpServletRequest mul, HttpServletRequest request); 
 	
-
+ 
 }

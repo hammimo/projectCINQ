@@ -44,6 +44,7 @@ public class PlaceController {
 	      response.setContentType("text/html; charset=utf-8");
 	      PrintWriter out = response.getWriter();
 	      out.println(message); 
+	      
 	 }
 	 
 	 

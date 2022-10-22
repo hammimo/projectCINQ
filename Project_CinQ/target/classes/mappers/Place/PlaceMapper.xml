@@ -12,7 +12,7 @@ addr varchar2(100),
 max_count number(3)
 );
 -->
-<!-- mappers/place/rentPlaceMapper.xml -->
+<!-- mappers/place/PlaceMapper.xml -->
 
 <mapper namespace="com.project.root.mybatis.place.PlaceMapper">
 
@@ -32,10 +32,9 @@ max_count number(3)
 		select * from place
 	</select>
 	 
-	 <insert id="rentPlaceSave">
-		insert into place(title, content, image, loc_name, addr, max_count)
-		 values(#{title},#{content}, #{image}, #{loc_name}, #{addr}, #{max_count})
+	 <insert id="rentPlaceSave" parameterType="com.project.root.place.dto.PlaceDTO">
+		insert into place values(#{title},#{content}, #{image}, #{loc_name}, #{addr }, #{max_count})
 	</insert>
 	
-	
+	 
 </mapper>

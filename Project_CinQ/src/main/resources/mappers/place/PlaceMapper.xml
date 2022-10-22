@@ -36,5 +36,5 @@ max_count number(3)
 		insert into place values(#{title},#{content}, #{image}, #{loc_name}, #{addr }, #{max_count})
 	</insert>
 	
-	
+	 
 </mapper>

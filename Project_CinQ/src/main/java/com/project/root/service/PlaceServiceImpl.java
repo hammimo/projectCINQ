@@ -71,7 +71,7 @@ public class PlaceServiceImpl implements PlaceService{
 		
 		return pfs.getMessage(request, msg, url);
 	}
-	
+	 
 }
 	
 
