@@ -21,6 +21,19 @@
 	
 	<select id="myJoinView" resultMap="join">
 		select * from join where id=#{id}
-	</select> 
+	</select>
+	 
+	<update id="modify">
+		update join set title=#{title},
+		content=#{content},
+		image=#{image}
+		where id=#{id}
+	</update>
+
+	
+	
+	<delete id="delete">
+		delete join where id=#{id}
+	</delete>
 </mapper> 
    
