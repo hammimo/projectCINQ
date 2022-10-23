@@ -14,5 +14,9 @@ public interface JoinService {
 
 	public void myJoinView(String id, Model model);
 
+	public String modify(MultipartHttpServletRequest mul, HttpServletRequest request);
+
+	public String joinDelete(String id, String imageFileName, HttpServletRequest request);
+
 }
    

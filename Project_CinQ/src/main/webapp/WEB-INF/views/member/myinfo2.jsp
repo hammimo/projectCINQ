@@ -83,6 +83,9 @@
 			<div class="info">
 	           <p>프로젝트 이름 : ${ProjectInfo.title }</p><br>
 	           <p>프로젝트 내용 : ${ProjectInfo.content }</p><br>
+	        	<input type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?id=${ProjectInfo.id}'">&nbsp;
+				<input type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${ProjectInfo.id}&imageFileName=${ProjectInfo.image}'">
+					
 	        </div>
 		</c:if> 
 	</div>

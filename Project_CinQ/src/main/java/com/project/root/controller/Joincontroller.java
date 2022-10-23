@@ -58,9 +58,37 @@ public class Joincontroller implements JoinSession{
 		in.close();
 		
 	}
-	@GetMapping("joinsuccess")
-	public String successJoin() {
-		return "/successJoin";
+
+	@GetMapping("modify_form")
+	public  String modify_form(@RequestParam("id") String id, Model model) {
+		js.myJoinView(id, model);
+		return "join/modify_form";
+	
 	}
+	
+	@PostMapping("modify")
+	public void modify(MultipartHttpServletRequest mul, 
+							HttpServletResponse response,
+							HttpServletRequest request) throws IOException {
+		
+		String message = js.modify(mul, request);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(message);
+		
+	}
+	
+	@GetMapping("delete")
+	public  void delete(@RequestParam("id") String id, @RequestParam String imageFileName, 
+										HttpServletResponse response,
+										HttpServletRequest request) throws Exception {
+
+		String message = js.joinDelete(id, imageFileName, request );
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(message);
+		
+	}
+	
 }
 
