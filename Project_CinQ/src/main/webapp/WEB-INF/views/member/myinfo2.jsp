@@ -51,7 +51,7 @@
 <body>
 	<c:import url="../default/header.jsp"/>
 	<section>
-		<p><a href="#">내 정보</a></p>
+		<p><a href="/root/member/myinfo1?id=${loginUser}">내 정보</a></p>
 		<p><a href="/root/member/myinfo2?id=${loginUser}">진행중인 프로젝트</a></p>
 	</section>
 	<div class="wrap1">
