@@ -16,4 +16,4 @@
     <a href="/root/place/rentPlace"><input type="button" value="장소등록" name="rent"></a>
 </div> 
 </body> 
-</html>
+</html> 
