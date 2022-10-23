@@ -118,6 +118,7 @@ public class JoinServiceImpl implements JoinService{
 		}
 		
 		return jfs.getMessage(request, msg, url);
+	
 	}
 	
 	

@@ -58,10 +58,7 @@ public class Joincontroller implements JoinSession{
 		in.close();
 		
 	}
-	@GetMapping("joinsuccess")
-	public String successJoin() {
-		return "/successJoin";
-	}
+
 	@GetMapping("modify_form")
 	public  String modify_form(@RequestParam("id") String id, Model model) {
 		js.myJoinView(id, model);
@@ -80,6 +77,7 @@ public class Joincontroller implements JoinSession{
 		out.println(message);
 		
 	}
+	
 	@GetMapping("delete")
 	public  void delete(@RequestParam("id") String id, @RequestParam String imageFileName, 
 										HttpServletResponse response,

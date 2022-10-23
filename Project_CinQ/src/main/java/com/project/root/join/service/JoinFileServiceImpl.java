@@ -31,6 +31,7 @@ public class JoinFileServiceImpl implements JoinFileService{
         }
         return sysFileName;
     }
+	
 	@Override
 	public void deleteImage(String originFileName) {
 		File file = new File(IMAGE_REPO + "/" + originFileName);

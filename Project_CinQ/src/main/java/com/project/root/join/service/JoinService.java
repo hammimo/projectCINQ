@@ -17,5 +17,6 @@ public interface JoinService {
 	public String modify(MultipartHttpServletRequest mul, HttpServletRequest request);
 
 	public String joinDelete(String id, String imageFileName, HttpServletRequest request);
+
 }
    
