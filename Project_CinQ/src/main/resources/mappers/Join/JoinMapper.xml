@@ -47,6 +47,9 @@
 		where write_no=#{write_no}
 	</update>
 	
+	<select id="joinView" resultMap="join">
+		select * from join where title=#{title}
+	</select>
 	
 	<delete id="delete">
 		delete join where write_no =#{write_no}

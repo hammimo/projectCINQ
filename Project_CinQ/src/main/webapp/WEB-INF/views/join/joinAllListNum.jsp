@@ -45,6 +45,7 @@ a:visited {color:#000069;}
    <table class="joinTable">
       <tr class= "title1">
          <th width="100px">ID</th>
+         <th width="300px">PROFILE</th>
          <th width="300px">PROJECT</th>
          <th width="1100px">CONTENT</th>
       </tr>
@@ -55,16 +56,27 @@ a:visited {color:#000069;}
       </c:if>
       <c:forEach var="dto" items="${joinList}">
             <tr>
-               <td>${dto.id}</td>
-               <td><a href="/root/join/joinView?title=${dto.title}">${dto.title}</a></td>
-               <td>${dto.content}</td>
+				<td>${dto.id}</td>
+				<td><a href="/root/join/joinView?title=${dto.title}">${dto.title}</a></td>
+				  
+				  <c:if test="${dto.image == 'nan'}">
+                    <td>
+                     	<b>이미지가 없습니다..</b>
+                  	</td>
+                  </c:if>
+                  <c:if test="${dto.image != 'nan'}">
+                 	<td>
+                 	<a href="/root/join/joinView?title=${dto.title}">${dto.title}><img src="${contextPath}/join/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
+                  	</td>
+                  </c:if>
+				<td><a href="/root/join/joinView?title=${dto.title}">${dto.content}</a></td>
             </tr>
       </c:forEach>
       <tr>
          <tr>
             <td colspan="6" align="center">
                <c:forEach var="num" begin="1" end="${repeat}">
-                  <a href="joinAllList?num=${num}">[  ${num} ]</a>
+                  <a href="joinAllListNum?num=${num}">[  ${num} ]</a>
                </c:forEach>
             </td>
          </tr>

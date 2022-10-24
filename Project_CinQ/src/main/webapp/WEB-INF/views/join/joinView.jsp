@@ -26,7 +26,7 @@ td {padding: 5px;}
 <body>
    <c:import url="../default/header.jsp"/>
       <br><br>
-      <h1 class="view_title" align="center">프로젝트가 만들어졌습니다!</h1>
+      <h1 class="view_title" align="center">구인중인 프로젝트</h1>
       <br><br>
       <div class ="join_view" align="center">
          <table class="Sproject" >
@@ -43,20 +43,20 @@ td {padding: 5px;}
                      <b>이미지가 없습니다..</b>
                   </c:if>
                   <c:if test="${data.image != 'nan'}">
-                     <img src="${contextPath}/join/download?image=${data.image}" width="200px" height="200px">
+                 	<img src="${contextPath}/join/download?imageFileName=${data.image}" width="200px" height="200px">
                   </c:if>
                </td>
                <td>${data.content}</td>
             </tr>
             <tr>
-               <td colspan="4" align="center">
-                  <div id="reply"></div>
+				<td colspan="4" align="center">
+				<div id="reply"></div>
                   <c:if test="${data.id == loginUser}">
-                     <input type="button" value="수정하기" onclick="location.href='${contextPath}/join/join_modify_form?title=${data.title}'">&nbsp;
-                     <input type="button" value="삭제하기" onclick="location.href='${contextPath}/join/join_delete?title=${data.title}&image=${data.image}'">
+					<input type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
+					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">
                   </c:if> &nbsp;
                   <input type="button" value="답글달기" onclick="slide_click()"> &nbsp;
-                  <input type="button" value="글목록" onclick="location.href='${contextPath}/join/joinAllList'">
+                  <input type="button" value="글목록" onclick="location.href='${contextPath}/join/joinAllListNum'">
                </td>
             </tr>
          </table>

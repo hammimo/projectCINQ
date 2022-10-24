@@ -119,9 +119,14 @@ public class JoinServiceImpl implements JoinService{
 		return jfs.getMessage(request, msg, url);
 	
 	}
+	@Override
+	public void joinView(String title, Model model) {
+		model.addAttribute("data", mapper.joinView(title));
+		
+	}
 	
 	@Override
-	public void myJoinVeiwDetail(int write_no, Model model) {
+	public void myJoinViewDetail(int write_no, Model model) {
 
 		model.addAttribute("ProjectInfo",mapper.myJoinViewDetail(write_no));
 	}

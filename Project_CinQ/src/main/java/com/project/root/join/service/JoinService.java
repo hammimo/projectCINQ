@@ -14,7 +14,7 @@ public interface JoinService {
 
 	public void myJoinView(String id, Model model);
 	
-	public void myJoinVeiwDetail(int write_no, Model model);
+	public void myJoinViewDetail(int write_no, Model model);
 
 	public String modify(MultipartHttpServletRequest mul, HttpServletRequest request);
 
@@ -23,6 +23,8 @@ public interface JoinService {
 	public void JoinAllListNum(Model model, int num);
 	
 	public void JoinAllList(Model model);
+
+	public void joinView(String title, Model model);
 	
 }
    

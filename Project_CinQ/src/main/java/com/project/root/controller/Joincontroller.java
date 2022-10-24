@@ -67,7 +67,7 @@ public class Joincontroller implements MemberSession{
 
 	@GetMapping("modify_form")
 	public  String modify_form(@RequestParam int write_no, Model model) {
-		js.myJoinVeiwDetail(write_no, model);
+		js.myJoinViewDetail(write_no, model);
 		return "join/modify_form";
 	
 	}
@@ -82,6 +82,12 @@ public class Joincontroller implements MemberSession{
 		PrintWriter out = response.getWriter();
 		out.println(message);
 		
+	}
+	
+	@GetMapping("joinView")
+	public String contentView(@RequestParam("title") String title, Model model) {
+		js.joinView(title, model);
+		return "join/joinView";
 	}
 	
 	@GetMapping("delete")

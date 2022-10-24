@@ -26,6 +26,8 @@ public interface JoinMapper {
 
 	public int selectJoinCount();
 
+	public JoinDTO joinView(String title);
+
 	
 }
    
