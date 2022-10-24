@@ -1,4 +1,4 @@
-package com.project.root.service;
+package com.project.root.place.service;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,20 +19,15 @@ public class PlaceServiceImpl implements PlaceService{
 	
 	@Autowired
 	PlaceFileService pfs;
-
-	@Override
-	public void placeAllList(Model model, int num) {
-		model.addAttribute("placeList", mapper.placeAllList());		
-	}
-	
 	
 		
-		@Override
+	@Override
 	public String rentPlaceSave(MultipartHttpServletRequest mul, HttpServletRequest request) {
 		
 			int num = 0;
 	
 		PlaceDTO dto = new PlaceDTO();
+		dto.setId(mul.getParameter("id"));
 		dto.setTitle(mul.getParameter("title"));
 		dto.setContent(mul.getParameter("content"));
 		dto.setLoc_name(mul.getParameter("loc_name"));
@@ -63,13 +58,18 @@ public class PlaceServiceImpl implements PlaceService{
 		String msg, url;
 		if(result == 1) {
 			msg = "새글이 등록 되었습니다...";
-			url = "/place/placeAllList";
+			url = "/member/myinfo2?id="+dto.getId();
 		} else {
 			msg = "문제가 생겼습니다~";
 			url = "/place/rentPlace";
 		}
 		
 		return pfs.getMessage(request, msg, url);
+	}
+	
+	@Override
+	public void placeAllList(Model model) {
+		model.addAttribute("placeList", mapper.placeAllList());		
 	}
 	 
 }

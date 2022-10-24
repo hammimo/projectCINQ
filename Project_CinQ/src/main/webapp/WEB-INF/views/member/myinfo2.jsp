@@ -50,6 +50,7 @@
 </head>
 <body>
 	<c:import url="../default/header.jsp"/>
+	<c:import url="../default/directButton.jsp"/>
 	<section>
 		<p><a href="#">내 정보</a></p>
 		<p><a href="/root/member/myinfo2?id=${loginUser}">진행중인 프로젝트</a></p>
@@ -71,22 +72,22 @@
         </c:if> 
         
 		 <c:if test="${ProjectInfo != null}">	 
-		
+			<c:forEach var="data" items="${ProjectInfo}">
 			<div class="img">
-	           <c:if test="${ProjectInfo.image == 'nan'}">
+	           <c:if test="${data.image == 'nan'}">
 					<b>이미지가 없습니다</b>
 				</c:if>
-				<c:if test="${ProjectInfo.image != 'nan'}">
-					<img src="${contextPath}/join/download?imageFileName=${ProjectInfo.image}" width="200px" height="200px">
+				<c:if test="${data.image != 'nan'}">
+					<img src="${contextPath}/join/download?imageFileName=${data.image}" width="200px" height="200px">
 				</c:if> 
 	        </div>
 			<div class="info">
-	           <p>프로젝트 이름 : ${ProjectInfo.title }</p><br>
-	           <p>프로젝트 내용 : ${ProjectInfo.content }</p><br>
-	        	<input type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?id=${ProjectInfo.id}'">&nbsp;
-				<input type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${ProjectInfo.id}&imageFileName=${ProjectInfo.image}'">
-					
+	           <p>프로젝트 이름 : ${data.title }</p><br>
+	           <p>프로젝트 내용 : ${data.content }</p><br>
+	        	<input type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
+				<input type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">	
 	        </div>
+	        </c:forEach>
 		</c:if> 
 	</div>
     <br>
@@ -102,11 +103,7 @@
 	</div>
     </div>
     <br><br>
-    <div class="submit">
-	<a href="/root/join/artistForm?id=${loginUser}"><input type="button" value="프로젝트생성" name="createP" ></a>
-	<input type="button" value="예매하기" name="ticketing">
-	<input type="button" value="대관하기" name="rent">
-    </div>
+
 	<c:import url="../default/footer.jsp"/>
 </body>
 </html>

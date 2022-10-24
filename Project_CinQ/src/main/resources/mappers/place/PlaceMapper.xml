@@ -19,7 +19,9 @@ max_count number(3)
 	
 	<resultMap type="com.project.root.place.dto.PlaceDTO" id="place">
 		
-		<id property="title" column="title"/>
+		<id property="id" column="id"/>
+		<result property="write_no" column="write_no"/>
+		<result property="title" column="title"/>
 		<result property="content" column="content"/>
 		<result property="image" column="image"/>
 		<result property="loc_name" column="loc_name"/>
@@ -31,9 +33,9 @@ max_count number(3)
 	<select id="placeAllList" resultMap="place">
 		select * from place
 	</select>
-	 
+
 	 <insert id="rentPlaceSave" parameterType="com.project.root.place.dto.PlaceDTO">
-		insert into place values(#{title},#{content}, #{image}, #{loc_name}, #{addr }, #{max_count})
+		insert into place values(place_seq.nextval,#{id}, #{title}, #{content}, #{image}, #{loc_name}, #{addr}, #{max_count})
 	</insert>
 	
 	 

@@ -1,4 +1,4 @@
-package com.project.root.service;
+package com.project.root.place.service;
 
 import javax.servlet.http.HttpServletRequest;
 

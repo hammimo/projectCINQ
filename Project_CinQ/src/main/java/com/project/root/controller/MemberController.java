@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.root.join.service.JoinService;
 import com.project.root.member.dto.MemberDTO;
-import com.project.root.service.MemberService;
+import com.project.root.member.service.MemberService;
 import com.project.root.session.name.MemberSession;
 
 @Controller

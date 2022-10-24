@@ -15,20 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.project.root.service.PlaceService;
+import com.project.root.place.service.PlaceService;
+import com.project.root.session.name.MemberSession;
 
 @Controller
 @RequestMapping("place")
-public class PlaceController {
+public class PlaceController implements MemberSession{
 	
-	 @Autowired 
+	 @Autowired
 	 PlaceService ps;
 	 
-	 @GetMapping("placeAllList")
-	   public String placeAllList(Model model, @RequestParam(value="num", required = false, defaultValue="1")int num) {
-	      ps.placeAllList(model, num);
-	      return "place/placeAllList";
-	   }
 	 
 	 @RequestMapping("rentPlace")
 	   public String rentPlace() {
@@ -44,7 +40,6 @@ public class PlaceController {
 	      response.setContentType("text/html; charset=utf-8");
 	      PrintWriter out = response.getWriter();
 	      out.println(message); 
-	   
 	 }
 	 
 	 

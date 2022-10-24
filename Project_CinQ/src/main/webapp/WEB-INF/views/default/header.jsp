@@ -57,6 +57,7 @@ nav ul li {
                     <li><a href = "/root/index">HOME</a></li>
                     <li>
                         <c:if test="${loginUser == null}">
+                            <a href = "/root/member/register_form">회원가입</a>&nbsp;
                             <a href="/root/member/login">로그인</a>
                         </c:if>
                         <c:if test="${loginUser != null}">
@@ -64,7 +65,7 @@ nav ul li {
                             <a href="/root/member/logout">로그아웃</a>
                         </c:if>
                     </li>
-                    <li><a href = "/root/member/register_form">회원가입</a></li>
+                    
 
 
                 </ul>

@@ -5,35 +5,51 @@
 <mapper namespace="com.project.root.mybatis.join.JoinMapper">
 	<resultMap type="com.project.root.join.dto.JoinDTO" id="join">
 		<id property="id" column="id"/>
+		<result property="write_no" column="write_no"/>
 		<result property="title" column="title"/>
 		<result property="content" column="content"/>
 		<result property="image" column="image"/>
-		<result property="age" column="age"/>
-		<result property="gender" column ="gender"/>
 		<result property="loc_name" column="loc_name"/>
 		<result property="max_count" column="max_count"/>
 		<result property="cur_count" column="cur_count"/>
 	</resultMap>
 	
 	<insert id="joinSave">
-		insert into Join values( #{title}, #{content}, #{image},#{loc_name},#{gender},#{age},#{max_count},#{cur_count},#{id})	
+		insert into Join values(join_seq.nextval,#{id}, #{title}, #{content}, #{image},#{loc_name},#{max_count},#{cur_count})	
 	</insert>
 	
 	<select id="myJoinView" resultMap="join">
-		select * from join where id=#{id}
+		select * from join where id= #{id}
 	</select>
+	
+	<select id="myJoinViewDetail" resultMap="join">
+		select * from join where write_no= #{write_no}
+	</select>
+	
+	<select id="joinAllListNum" resultMap="join">
+      select B.* from
+      (select rownum rn, A. * from   
+      (select * from join order by title desc) A) B <!-- date추가해야할지 생각해봐야함 -->
+      where rn between #{s} and #{e}
+   </select>
+   
+   <select id="selectJoinCount" resultType="Integer">
+      select count(*) from join
+   </select>
+	<select id="JoinAllList" resultMap="join">
+		select * from join
+	</select> 
 	 
 	<update id="modify">
 		update join set title=#{title},
 		content=#{content},
 		image=#{image}
-		where id=#{id}
+		where write_no=#{write_no}
 	</update>
-
 	
 	
 	<delete id="delete">
-		delete join where id=#{id}
+		delete join where write_no =#{write_no}
 	</delete>
 </mapper> 
    

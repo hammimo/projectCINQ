@@ -2,17 +2,21 @@ package com.project.root.join.dto;
 
 public class JoinDTO {
 
+	private int write_no;
 	private String title;
 	private String content;
 	private String image;
 	private String loc_name;
-	private String gender;
-	private int age;
 	private int max_count;
 	private int cur_count;
-	private String id;   
+	private String id;
 	
-	
+	public int getWrite_no() {
+		return write_no;
+	}
+	public void setWrite_no(int write_no) {
+		this.write_no = write_no;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -37,18 +41,6 @@ public class JoinDTO {
 	public void setLoc_name(String loc_name) {
 		this.loc_name = loc_name;
 	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
 	public int getMax_count() {
 		return max_count;
 	}
@@ -66,8 +58,10 @@ public class JoinDTO {
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
+	}   
 	
+	
+
 	
 	
 }

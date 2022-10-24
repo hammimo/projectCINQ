@@ -6,16 +6,27 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.project.root.join.service.JoinService;
+import com.project.root.place.service.PlaceService;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
+	
+	@Autowired
+	JoinService js;
+	
+	@Autowired
+	PlaceService ps;
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -37,29 +48,12 @@ public class HomeController {
 	}
 	
 	@RequestMapping("index")
-	public String index() {
+	public String index(Model model) {
+		js.JoinAllList(model);
+		ps.placeAllList(model);
 		return "index";
 	}
-	
-//	@RequestMapping("login")
-//	public String login() {
-//		return "member/login";
-//	}
-	
-//	@RequestMapping("place/rentPlace")
-//	public String rentPlace() {
-//		return "place/rentPlace";
-//	}
-	
-	@RequestMapping("join/artistForm")
-	public String artistForm() {
-		return "join/artistForm";
-	}
-	
-	
-	
 
-	
 }
 
 

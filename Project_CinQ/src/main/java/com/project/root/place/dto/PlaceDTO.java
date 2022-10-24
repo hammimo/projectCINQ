@@ -2,13 +2,27 @@ package com.project.root.place.dto;
 
 public class PlaceDTO {
 
-	
+	private int write_no;
+	private String id;
 	private String title;
 	private String content;
 	private String image;
 	private String loc_name;
 	private String addr;
 	private int max_count;
+	
+	public int getWrite_no() {
+		return write_no;
+	}
+	public void setWrite_no(int write_no) {
+		this.write_no = write_no;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -43,8 +57,10 @@ public class PlaceDTO {
 		return max_count;
 	}
 	public void setMax_count(int max_count) {
-		this.max_count = max_count;  
+		this.max_count = max_count;
 	}
+	
+	
 	
 	
 }

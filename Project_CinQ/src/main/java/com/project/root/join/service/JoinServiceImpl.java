@@ -1,5 +1,6 @@
 package com.project.root.join.service;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,6 @@ public class JoinServiceImpl implements JoinService{
 		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
 		dto.setCur_count(Integer.parseInt(mul.getParameter("cur_count")));
 		dto.setId(mul.getParameter("id"));
-		dto.setGender("M");
-		dto.setAge(10);
 		
 		MultipartFile file = mul.getFile("image");
 		if(file.getSize() != 0) {
@@ -50,7 +49,7 @@ public class JoinServiceImpl implements JoinService{
 		String msg, url;
 		if(result == 1) {
 			msg = "새글이 등록 되었습니다.";
-			url = "/member/myinfo2?id="+dto.getId();
+			url = "/join/joinAllListNum?id="+dto.getId();
 		} else {
 			msg = "문제가 생겼습니다~";
 			url = "/join/artistForm";
@@ -61,8 +60,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public void myJoinView(String id, Model model) {
-		JoinDTO dto = mapper.myJoinView(id);
-		model.addAttribute("ProjectInfo", dto);
+		model.addAttribute("ProjectInfo",mapper.myJoinView(id));
 	}
 	
 	@Override
@@ -70,6 +68,7 @@ public class JoinServiceImpl implements JoinService{
 		
 		JoinDTO dto = new JoinDTO();
 		dto.setId(mul.getParameter("id"));
+		dto.setWrite_no(Integer.parseInt(mul.getParameter("write_no")));
 		dto.setTitle(mul.getParameter("title"));
 		dto.setContent(mul.getParameter("content"));
 		MultipartFile file = mul.getFile("image_file_name");
@@ -101,9 +100,9 @@ public class JoinServiceImpl implements JoinService{
 	}
 	
 	@Override
-	public String joinDelete(String id, String imageFileName, HttpServletRequest request) {
+	public String joinDelete(String id,int write_no, String imageFileName, HttpServletRequest request) {
 		
-		int result = mapper.delete(id);
+		int result = mapper.delete(write_no);
 		String msg, url;
 		if(result == 1) {
 			if(imageFileName != "nan") {
@@ -121,7 +120,32 @@ public class JoinServiceImpl implements JoinService{
 	
 	}
 	
+	@Override
+	public void myJoinVeiwDetail(int write_no, Model model) {
+
+		model.addAttribute("ProjectInfo",mapper.myJoinViewDetail(write_no));
+	}
 	
+	@Override
+	public void JoinAllListNum(Model model, int num) {
+		
+		
+		int pageLetter = 3;// 한 페이지 당 글 목록수
+		int allCount = mapper.selectJoinCount();// 전체 글수
+		int repeat = allCount/pageLetter;
+		if(allCount % pageLetter != 0)
+			repeat += 1;
+			int end = num * pageLetter;
+			int start = end + 1 - pageLetter;
+			model.addAttribute("repeat", repeat);
+			model.addAttribute("joinList", mapper.joinAllListNum(start, end));   
+	}
+	
+	@Override
+	public void JoinAllList(Model model) {
+		model.addAttribute("joinList", mapper.JoinAllList());
+			
+	}
 	
 }
 

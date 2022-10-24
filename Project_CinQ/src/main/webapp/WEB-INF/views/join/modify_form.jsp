@@ -40,7 +40,9 @@
 		<div class="modify_save">
 		<form action="${contextPath }/join/modify" enctype="multipart/form-data" method="post">
 			<input type="hidden" name="id" value="${ProjectInfo.id}">
-			<input type="hidden" name="originFileName" value="${ProjectInfo.image}"><!-- 이미지 변경 시 삭제에 사용  -->
+			<input type="hidden" name="originFileName" value="${ProjectInfo.image}">
+			<input type="hidden" name="write_no" value="${ProjectInfo.write_no}">
+			<!-- 이미지 변경 시 삭제에 사용  -->
 			<b>제 목</b><br>
 			<input type="text" name="title" value="${ProjectInfo.title}" size="50"><br>
 			<b>내 용</b><br>

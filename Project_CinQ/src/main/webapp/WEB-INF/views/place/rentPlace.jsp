@@ -121,7 +121,7 @@ function writeSave(){
    <div class="Place" align="center"> 
       <form id="rentPlace_form" action="rentPlaceSave" method="post" enctype='multipart/form-data'>      
          <b>작성자</b>
-         	<input type="text" name="id" value="loginUser" readonly><br><br>
+         	<input type="text" name="id" value="${loginUser}" readonly><br><br>
          <b>제 목</b>
          	<input type="text" name="title" size="50"><br><br>
          <b>장소 이미지</b>

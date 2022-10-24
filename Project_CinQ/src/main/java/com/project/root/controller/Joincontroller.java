@@ -23,11 +23,11 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.project.root.join.dto.JoinDTO;
 import com.project.root.join.service.JoinFileService;
 import com.project.root.join.service.JoinService;
-import com.project.root.session.join.JoinSession;
+import com.project.root.session.name.MemberSession;
 
 @Controller
 @RequestMapping("join")
-public class Joincontroller implements JoinSession{
+public class Joincontroller implements MemberSession{
 	
 	@Autowired
 	private JoinService js;  
@@ -58,10 +58,16 @@ public class Joincontroller implements JoinSession{
 		in.close();
 		
 	}
+	
+	@GetMapping("joinAllListNum")
+	public String joinAllList(Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
+	      js.JoinAllListNum(model, num);
+	      return "join/joinAllListNum";
+	}
 
 	@GetMapping("modify_form")
-	public  String modify_form(@RequestParam("id") String id, Model model) {
-		js.myJoinView(id, model);
+	public  String modify_form(@RequestParam int write_no, Model model) {
+		js.myJoinVeiwDetail(write_no, model);
 		return "join/modify_form";
 	
 	}
@@ -79,11 +85,11 @@ public class Joincontroller implements JoinSession{
 	}
 	
 	@GetMapping("delete")
-	public  void delete(@RequestParam("id") String id, @RequestParam String imageFileName, 
+	public  void delete(@RequestParam("id") String id, @RequestParam int write_no, @RequestParam String imageFileName, 
 										HttpServletResponse response,
 										HttpServletRequest request) throws Exception {
 
-		String message = js.joinDelete(id, imageFileName, request );
+		String message = js.joinDelete(id, write_no, imageFileName, request );
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println(message);
