@@ -1,6 +1,10 @@
 package com.project.root.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.root.join.service.JoinService;
@@ -75,6 +80,12 @@ public class MemberController implements MemberSession {
 	@Autowired
 	JoinService js;
 	
+	@RequestMapping("/myinfo1")
+	public String myinfo1(@RequestParam("id") String id, Model model) {
+		ms.info(id, model);
+		return "member/myinfo1";
+	}
+	
 	
 	@GetMapping("myinfo2")
 	public String myinfo2(@RequestParam("id") String id, Model model) {
@@ -88,6 +99,37 @@ public class MemberController implements MemberSession {
 			session.invalidate();
 		}
 		return "redirect:/index"; // index 는 기본 컨트롤러에 있으기 때문에 '/' 붙여줍니다
+	}
+	
+	@RequestMapping("/modify_form")
+	public String modify_form(@RequestParam("id") String id, Model model) {
+		ms.info(id, model);
+		return "member/modify_form";
+	}
+	
+	
+	@PostMapping("modify")
+	public void modify(MultipartHttpServletRequest mul, 
+							HttpServletResponse response,
+							HttpServletRequest request) throws IOException {
+		
+		String message = ms.modify(mul, request);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(message);
+		
+	}
+	
+	@GetMapping("delete")
+	public void delete(@RequestParam String id,
+						HttpServletResponse response,
+						HttpServletRequest request) throws Exception {
+
+		String message = ms.memberDelete(id, request);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(message);
+	
 	}
 	
 	

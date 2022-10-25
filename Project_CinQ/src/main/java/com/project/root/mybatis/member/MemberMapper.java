@@ -6,5 +6,7 @@ public interface MemberMapper {
 
 	int register(MemberDTO member);
 	public MemberDTO user_check(String id);
- 
+	public MemberDTO getMember(String id);
+	public int modify(MemberDTO dto);
+	public int delete(String id);
 }

@@ -99,10 +99,10 @@
 		<c:forEach var="dto" items="${joinList }">
 			<div class="join_list">
 				<div class="Join_Image">
-					<img src="${contextPath}/join/download?imageFileName=${dto.image}"><br>
+					<a href="${contextPath}/join/joinView?title=${dto.title}"><img src="${contextPath}/join/download?imageFileName=${dto.image}"></a><br>
 				</div>
 				<div class="Join_Title">
-					<a href="#">${dto.title}</a>
+					<a href="${contextPath}/join/joinView?title=${dto.title}">${dto.title}</a>
 				</div>
 				<div class="Join_Content">${dto.content}</div>
 			</div>

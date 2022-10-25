@@ -62,7 +62,7 @@
     <div class="participating"> 
     
    
- 		<c:if test="${ProjectInfo == null}">
+ 		<c:if test="${ProjectInfo.size() == 0}">
 		<div class="img">
             <p>진행중인 프로젝트가 없습니다</p>
         </div>
@@ -71,7 +71,7 @@
         </div>
         </c:if> 
         
-		 <c:if test="${ProjectInfo != null}">	 
+		 <c:if test="${ProjectInfo.size() != 0}">	 
 			<c:forEach var="data" items="${ProjectInfo}">
 			<div class="img">
 	           <c:if test="${data.image == 'nan'}">

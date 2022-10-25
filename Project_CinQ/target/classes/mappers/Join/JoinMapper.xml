@@ -19,7 +19,7 @@
 	</insert>
 	
 	<select id="myJoinView" resultMap="join">
-		select * from join where id= #{id}
+		select * from join where id= #{id} order by write_no desc
 	</select>
 	
 	<select id="myJoinViewDetail" resultMap="join">
@@ -29,7 +29,7 @@
 	<select id="joinAllListNum" resultMap="join">
       select B.* from
       (select rownum rn, A. * from   
-      (select * from join order by title desc) A) B <!-- date추가해야할지 생각해봐야함 -->
+      (select * from join order by write_no desc) A) B <!-- date추가해야할지 생각해봐야함 -->
       where rn between #{s} and #{e}
    </select>
    
@@ -37,7 +37,7 @@
       select count(*) from join
    </select>
 	<select id="JoinAllList" resultMap="join">
-		select * from join
+		select * from join order by write_no desc
 	</select> 
 	 
 	<update id="modify">

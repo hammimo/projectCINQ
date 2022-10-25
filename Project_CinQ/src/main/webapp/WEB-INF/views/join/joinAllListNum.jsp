@@ -66,10 +66,10 @@ a:visited {color:#000069;}
                   </c:if>
                   <c:if test="${dto.image != 'nan'}">
                  	<td>
-                 	<a href="/root/join/joinView?title=${dto.title}">${dto.title}><img src="${contextPath}/join/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
+                 	<a href="${contextPath}/join/joinView?title=${dto.title}"><img src="${contextPath}/join/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
                   	</td>
                   </c:if>
-				<td><a href="/root/join/joinView?title=${dto.title}">${dto.content}</a></td>
+				<td><a href="${contextPath}/join/joinView?title=${dto.title}">${dto.content}</a></td>
             </tr>
       </c:forEach>
       <tr>
