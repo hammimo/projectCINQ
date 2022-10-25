@@ -9,4 +9,5 @@ public interface MemberMapper {
 	public MemberDTO getMember(String id);
 	public int modify(MemberDTO dto);
 	public int delete(String id);
+	public MemberDTO id_check(String id);
 }

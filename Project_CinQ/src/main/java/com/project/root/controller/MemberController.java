@@ -65,6 +65,18 @@ public class MemberController implements MemberSession {
 		return "redirect:login";
 	}
 	
+	@GetMapping("id_check")
+	public void idCheck(HttpServletRequest request, HttpServletResponse response) {
+		int result = ms.id_check(request);
+		String msg = "";
+		if(result == 0) {
+			msg = "<script> alert('중복된 아이디 입니다.')</script>";
+		}
+		if(msg == "") {
+			
+		}
+		
+	}
 	@RequestMapping("successLogin")
 	public String successLogin(@RequestParam("id") String id, HttpSession session) {
 		session.setAttribute(LOGIN, id);
@@ -116,8 +128,7 @@ public class MemberController implements MemberSession {
 		String message = ms.modify(mul, request);
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		out.println(message);
-		
+		out.println(message);	
 	}
 	
 	@GetMapping("delete")

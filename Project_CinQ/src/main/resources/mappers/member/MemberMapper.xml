@@ -7,7 +7,7 @@
 <mapper namespace="com.project.root.mybatis.member.MemberMapper">
 
 	<insert id="register" parameterType="com.project.root.member.dto.MemberDTO">
-		insert into member values(#{name},#{id}, #{pw}, #{pid}, #{tel}, #{gender}, #{nickname})
+		insert into member values(#{name},#{id}, #{pw}, #{pid}, #{telResult}, #{gender}, #{nickname})
 	</insert>
 	<resultMap type="com.project.root.member.dto.MemberDTO" id="member">
 		
@@ -25,6 +25,9 @@
 	<select id="user_check" resultMap="member">
 		select * from member where id=#{id}
 	</select> 
+	<select id="id_check" resultMap="member">
+		select * from member where id=#{id}
+	</select>
 	<select id="getMember" resultMap="member">
 		select * from member where id=#{id}
 	</select>

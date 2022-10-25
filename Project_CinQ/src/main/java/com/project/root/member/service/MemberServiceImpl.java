@@ -26,15 +26,23 @@ public class MemberServiceImpl implements MemberService {
 		}
 		
 	}
+	@Override
+	public int id_check(HttpServletRequest request) {
+		MemberDTO dto = mapper.id_check(request.getParameter("id"));
+			if(dto == null) {
+				return 1;
+			}else {
+				return 0;	
+			}
+	}
+	
 	
 	@Override
 	public int user_check(HttpServletRequest request) {
 		MemberDTO dto = mapper.user_check(request.getParameter("id"));
-		if(dto != null) {
 			if(request.getParameter("pw").equals(dto.getPw())) {
 				return 0;
 			}
-		}
 		return 1;
 	}
 	

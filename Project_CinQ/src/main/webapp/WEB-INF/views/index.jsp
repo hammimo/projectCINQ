@@ -94,7 +94,7 @@
 		<h3>진행중인 프로젝트</h3>
 	</div>
 	<div class="pre_projects">
-		<h3>구인중인 프로젝트</h3>
+		<h3><a href="/root/join/joinAllListNum">구인중인 프로젝트</a></h3>
 		<div class="slider">
 		<c:forEach var="dto" items="${joinList }">
 			<div class="join_list">
@@ -125,8 +125,7 @@
 		</c:forEach>
 		</div>
 	</div>
-	<br><br><br>
-	<a href="/root/join/joinAllListNum">게시판</a>
+
 	<c:import url="default/footer.jsp"/>
 </body>
 </html>
