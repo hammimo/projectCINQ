@@ -2,21 +2,14 @@ package com.project.root.member.dto;
 
 public class MemberDTO {
 	
-	private String name;
 	private String id;
 	private String pw;
-	private String pid;
-	private int tel;
+	private String name;
+	private String email;
+	private String tel;
 	private String gender;
-	private String nickname;
+	private String birthday;
 	
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public String getId() {
 		return id;
 	}
@@ -29,16 +22,22 @@ public class MemberDTO {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public String getPid() {
-		return pid;
+	public String getName() {
+		return name;
 	}
-	public void setPid(String pid) {
-		this.pid = pid;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public int getTel() {
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getTel() {
 		return tel;
 	}
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 	public String getGender() {
@@ -47,12 +46,14 @@ public class MemberDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getNickname() {
-		return nickname;
+	public String getBirthday() {
+		return birthday;
 	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
+	
+	
 	
 	
 }

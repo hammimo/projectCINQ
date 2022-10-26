@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.project.root.join.dto.JoinDTO;
+import com.project.root.join.dto.JoinRepDTO;
 
 public interface JoinMapper {
 
@@ -28,6 +29,8 @@ public interface JoinMapper {
 
 	public JoinDTO joinView(String title);
 
-	
+	public void addReply(JoinRepDTO dto);
+
+	public List<JoinRepDTO> getRepList(int write_group);
 }
    

@@ -11,7 +11,6 @@ public interface MemberService {
 
 	int register(MemberDTO member);
 	public int user_check(HttpServletRequest request);
-	public int id_check(HttpServletRequest request);
 	public String modify(MultipartHttpServletRequest mul, HttpServletRequest request);
 	public void info(String id, Model model);
 	public String getMessage(HttpServletRequest request, String msg, String url);

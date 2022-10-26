@@ -2,10 +2,14 @@ package com.project.root.join.service;
 
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import com.project.root.join.dto.JoinRepDTO;
 
 public interface JoinService {
 	
@@ -25,6 +29,10 @@ public interface JoinService {
 	public void JoinAllList(Model model);
 
 	public void joinView(String title, Model model);
+	
+	public void addReply(JoinRepDTO dto);
+	
+	public List<JoinRepDTO> getRepList(int write_group);
 	
 }
    

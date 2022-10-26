@@ -6,39 +6,24 @@
 
 <mapper namespace="com.project.root.mybatis.member.MemberMapper">
 
-	<insert id="register" parameterType="com.project.root.member.dto.MemberDTO">
-		insert into member values(#{name},#{id}, #{pw}, #{pid}, #{telResult}, #{gender}, #{nickname})
-	</insert>
 	<resultMap type="com.project.root.member.dto.MemberDTO" id="member">
-		
 		<id property="id" column="id"/>
-		<result property="name" column="name"/>
 		<result property="pw" column="pw"/>
-		<result property="pid" column="pid"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
 		<result property="tel" column="tel"/>
-		<result property="gender" column="gender"/>
-		<result property="nickname" column="nickname"/>
-		
+		<result property="gender" column="gender"/>		
+		<result property="birthday" column="birthday"/>		
 	</resultMap>
-	 
 	
 	<select id="user_check" resultMap="member">
 		select * from member where id=#{id}
-	</select> 
-	<select id="id_check" resultMap="member">
-		select * from member where id=#{id}
 	</select>
+	
 	<select id="getMember" resultMap="member">
 		select * from member where id=#{id}
 	</select>
-	
-	<update id="modify">
-		update member set tel=#{tel}, 
-		nickname=#{nickname}, 
-		pw=#{pw}
-		where id=#{id}
-	</update>
-	
+
 	<delete id="delete">
 		delete from member where id=#{id}
 	</delete>

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -21,17 +20,14 @@ function readURL(input){
       }
    }   
 }
-
 $(function(){
     areaSelectMaker("select[name=addressRegion]");
 });
-
 var areaSelectMaker = function(target){
     if(target == null || $(target).length == 0){
         console.warn("Unkwon Area Tag");
         return;
     }
-
     var area = {
         "수도권" :{
             "서울특별시" : [ "강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구" ],
@@ -41,22 +37,18 @@ var areaSelectMaker = function(target){
             "인천광역시" : [ "계양구", "미추홀구", "남동구", "동구", "부평구", "서구", "연수구", "중구", "강화군", "옹진군" ]      
         }
     };
-
     for(i=0; i<$(target).length; i++){
         (function(z){
             var a1 = $(target).eq(z);
             var a2 = a1.next();
             var a3 = a2.next();
-
             //초기화
             init(a1, true);
-
             //권역 기본 생성
             var areaKeys1 = Object.keys(area);
             areaKeys1.forEach(function(Region){
                 a1.append("<option value="+Region+">"+Region+"</option>");
             });
-
             //변경 이벤트
             $(a1).on("change", function(){
                 init($(this), false);
@@ -66,7 +58,6 @@ var areaSelectMaker = function(target){
                     a2.append("<option value="+Do+">"+Do+"</option>");    
                 });
             });
-
             $(a2).on("change", function(){
                 a3.empty().append("<option value=''>선택</option>");
                 var Region = a1.val();
@@ -77,7 +68,6 @@ var areaSelectMaker = function(target){
                 });
             });
         })(i);        
-
         function init(t, first){
             first ? t.empty().append("<option value=''>선택</option>") : "";
             t.next().empty().append("<option value=''>선택</option>");
@@ -86,11 +76,16 @@ var areaSelectMaker = function(target){
     }
 }
 function joinTry(){
-	var addr = $("#addressSiGunGu").val();
-	$("#loc_name").val(addr);
+	
+	 var addressSiGunGu = $("#addressSiGunGu").val();
+	 var addrPlus = $("#addrPlus").val(); 
+	
+	 
+ 	
+ 	$("#loc_name").val(addressDo); 
+ 	$("#loc_seq_name").val(addressSiGunGu);
 	artistForm.submit();
 }
-
 </script>
 <style type="text/css">
 .artist_title {
@@ -132,6 +127,7 @@ p {
           <select name="addressDo" id="addressDo"></select>
           <select name="addressSiGunGu" id="addressSiGunGu"></select>
           <input type="hidden" id="loc_name" name="loc_name">
+          <input type="hidden" id="loc_seq_name" name="loc_seq_name">
           <p>현재 모집가능한 지역은 <b>수도권</b> 입니다.</p> <!-- 아직 동적으로 변환 구현 X  -->
           <br/>
           <br/>
@@ -165,7 +161,7 @@ p {
          <input type="button" value="완료" onclick="joinTry()"> &nbsp;
          <input type="button" value="돌아가기" onclick="location.href='../index'"><br><br><br>
       </form>
-   </div>
+   </div> 
    <c:import url="../default/footer.jsp"/>
 </body>
 </html>

@@ -73,8 +73,12 @@
 			</c:otherwise>
 		</c:choose>
 		<br>
-		<p>닉네임 : ${info.nickname } </p>
+		<p>이메일 : ${info.email } </p>
 		<br>
+		<p>전화번호 : ${info.tel } </p>
+		<br>
+		<p>생일 : ${info.birthday } </p>
+		
 	</div>
 	<div class="member_info_btn">
 		<a href="/root/member/modify_form?id=${loginUser}"><input type="button" value="회원정보 수정"></a>

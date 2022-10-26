@@ -24,25 +24,19 @@ public class MemberServiceImpl implements MemberService {
 		}catch (Exception e) {
 			return 0;
 		}
-		
-	}
-	@Override
-	public int id_check(HttpServletRequest request) {
-		MemberDTO dto = mapper.id_check(request.getParameter("id"));
-			if(dto == null) {
-				return 1;
-			}else {
-				return 0;	
-			}
 	}
 	
 	
 	@Override
 	public int user_check(HttpServletRequest request) {
 		MemberDTO dto = mapper.user_check(request.getParameter("id"));
-			if(request.getParameter("pw").equals(dto.getPw())) {
-				return 0;
+		if(dto != null) {
+			 if(request.getParameter("pw").equals(dto.getPw())) { 
+				 return 0; 
 			}
+			
+		}
+		
 		return 1;
 	}
 	
@@ -68,9 +62,12 @@ public class MemberServiceImpl implements MemberService {
 		
 		MemberDTO dto = new MemberDTO();
 		dto.setId(mul.getParameter("id"));
-		dto.setTel(Integer.parseInt(mul.getParameter("tel")));
-		dto.setNickname(mul.getParameter("nickname"));
 		dto.setPw(mul.getParameter("pw"));
+		dto.setName(mul.getParameter("name"));
+		dto.setEmail(mul.getParameter("email"));
+		dto.setTel(mul.getParameter("tel"));
+		dto.setGender(mul.getParameter("gender"));
+		dto.setBirthday(mul.getParameter("birthday"));
 		
 		int result = 0;
 		try {

@@ -1,6 +1,8 @@
 package com.project.root.join.service;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.project.root.join.dto.JoinDTO;
+import com.project.root.join.dto.JoinRepDTO;
 import com.project.root.mybatis.join.JoinMapper;
 
 
@@ -25,13 +28,13 @@ public class JoinServiceImpl implements JoinService{
 	@Override
 	public String JoinSave(MultipartHttpServletRequest mul, HttpServletRequest request) {
 		JoinDTO dto = new JoinDTO();
+		dto.setId(mul.getParameter("id"));
 		dto.setTitle(mul.getParameter("title"));
 		dto.setContent(mul.getParameter("content"));
 		dto.setLoc_name(mul.getParameter("loc_name"));
+		dto.setLoc_sep_name(mul.getParameter("loc_seq_name"));
 		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
 		dto.setCur_count(Integer.parseInt(mul.getParameter("cur_count")));
-		dto.setId(mul.getParameter("id"));
-		
 		MultipartFile file = mul.getFile("image");
 		if(file.getSize() != 0) {
 		            dto.setImage(jfs.saveFile(file));
@@ -151,6 +154,19 @@ public class JoinServiceImpl implements JoinService{
 		model.addAttribute("joinList", mapper.JoinAllList());
 			
 	}
+	
+	@Override
+	public void addReply(JoinRepDTO dto) {
+
+		mapper.addReply(dto);
+	}
+	
+	@Override
+	public List<JoinRepDTO> getRepList(int write_group) {
+	
+		return mapper.getRepList(write_group);
+	}
+	
 	
 }
 

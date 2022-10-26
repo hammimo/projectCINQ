@@ -10,12 +10,24 @@
 		<result property="content" column="content"/>
 		<result property="image" column="image"/>
 		<result property="loc_name" column="loc_name"/>
+		<result property="loc_sep_name" column="loc_sep_name"/>
 		<result property="max_count" column="max_count"/>
 		<result property="cur_count" column="cur_count"/>
 	</resultMap>
 	
+	<resultMap type="com.project.root.join.dto.JoinRepDTO" id="reply">
+		<id property="write_no" column="write_no"/>
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="tel" column="tel"/>
+		<result property="write_group" column="write_group"/>
+		<result property="write_date" column="write_date"/>
+		
+	</resultMap>
+	
 	<insert id="joinSave">
-		insert into Join values(join_seq.nextval,#{id}, #{title}, #{content}, #{image},#{loc_name},#{max_count},#{cur_count})	
+		insert into Join values(join_seq.nextval,#{id}, #{title}, #{content}, #{image},#{loc_name}, #{loc_sep_name}, #{max_count}, #{cur_count})	
 	</insert>
 	
 	<select id="myJoinView" resultMap="join">
@@ -54,5 +66,16 @@
 	<delete id="delete">
 		delete join where write_no =#{write_no}
 	</delete>
+	
+	<insert id="addReply">
+		insert into reply (write_no, id, title, content, write_group, tel)
+		values(reply_seq.nextval, #{id}, #{title}, #{content}, #{write_group}, #{tel})
+	</insert>
+	
+	<select id="getRepList" resultMap="reply">
+		select * from reply where write_group = #{write_group}
+		order by write_date desc
+	</select>
+	
 </mapper> 
    

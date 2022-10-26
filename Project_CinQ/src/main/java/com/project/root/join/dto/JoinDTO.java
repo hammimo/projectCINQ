@@ -7,6 +7,7 @@ public class JoinDTO {
 	private String content;
 	private String image;
 	private String loc_name;
+	private String loc_sep_name;
 	private int max_count;
 	private int cur_count;
 	private String id;
@@ -40,6 +41,13 @@ public class JoinDTO {
 	}
 	public void setLoc_name(String loc_name) {
 		this.loc_name = loc_name;
+	}
+	
+	public String getLoc_sep_name() {
+		return loc_sep_name;
+	}
+	public void setLoc_sep_name(String loc_sep_name) {
+		this.loc_sep_name = loc_sep_name;
 	}
 	public int getMax_count() {
 		return max_count;
