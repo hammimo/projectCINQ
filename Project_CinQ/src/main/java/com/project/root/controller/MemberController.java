@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -55,6 +56,13 @@ public class MemberController implements MemberSession {
 		return "redirect:register_form";
 	}
 	
+	@PostMapping("idCheck")
+	@ResponseBody
+	public int idCheck(@RequestParam("id") String id) {
+		int cnt = ms.idCheck(id);
+		return cnt;
+	}
+	
 	@PostMapping("user_check")
 	public String userCheck(HttpServletRequest request, RedirectAttributes rs) {
 		int result = ms.user_check(request);
@@ -68,6 +76,7 @@ public class MemberController implements MemberSession {
 	@RequestMapping("successLogin")
 	public String successLogin(@RequestParam("id") String id, HttpSession session) {
 		session.setAttribute(LOGIN, id);
+		ms.createFile(id);
 		return "member/successLogin";
 	} 
 	
@@ -124,6 +133,8 @@ public class MemberController implements MemberSession {
 						HttpServletResponse response,
 						HttpServletRequest request) throws Exception {
 
+		js.joinIdDelete(id, request);
+		ms.deleteFile(id);
 		String message = ms.memberDelete(id, request);
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();

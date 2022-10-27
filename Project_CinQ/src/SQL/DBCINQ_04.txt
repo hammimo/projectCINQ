@@ -1,0 +1,119 @@
+member 테이블 변경( 회원가입시 필요한 정보 변경.)
+
+desc member;
+drop table member PURGE;
+
+CREATE TABLE member (
+id VARCHAR(20) PRIMARY KEY,
+pw VARCHAR(20),
+name VARCHAR(20),
+email VARCHAR(40),
+tel VARCHAR2(11),
+gender VARCHAR(1),
+birthday VARCHAR2(8)
+);
+
+
+Insert into member values('admin','admin1','관리자','admin@admin.com','01099999999','m','00010101');
+
+
+--join 테이블 삭제 후 재생성.
+
+drop table join PURGE;
+
+create table join (
+write_no number(7) primary key,
+id varchar2(20) not null,
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+loc_name varchar2(50),
+loc_sep_name varchar2(50),
+max_count number(3),
+cur_count number(3)
+);
+
+-- join 시퀀스 삭제후 재생성 
+
+DROP SEQUENCE JOIN_SEQ
+
+CREATE SEQUENCE JOIN_SEQ --시퀀스이름
+INCREMENT BY 1 --증감숫자 1
+START WITH 1 --시작숫자 1
+MINVALUE 1 --최소값 1
+MAXVALUE 1000 --최대값 1000
+NOCYCLE;
+
+
+--place table 삭제 후 재생성
+
+drop table place purge;
+
+create table place (
+write_no number(7),
+id varchar2(20) not null,
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+loc_name varchar2(100),
+loc_sep_name varchar2(10),
+max_count number(3)
+);
+
+commit;
+
+
+--reservation table 삭제 후 재생성
+
+drop table reservation purge;
+
+create table reservation (
+write_no number(7),
+id varchar2(20) not null,
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+max_count number(3),
+show_date date,
+pay_date date default sysdate,
+price number(7),
+show_num number(7)
+);
+
+create SEQUENCE reservation_seq start WITH 1 INCREMENT by 1 MAXVALUE 10000 NOCYCLE;
+
+desc reservation;
+select * from reservation;
+
+-- 정보확인
+INSERT into reservation VALUES (reservation_seq.nextval,'test_id',
+'test_title','test_content','nan',30,'1992-08-30','','17000',1);
+
+
+
+
+--답글 테이블
+
+drop table reply PURGE;
+
+create table reply (
+write_no number(20),
+id varchar2(20),
+title varchar2(50),
+content varchar2(300),
+tel varchar2(11),
+write_group number(10),
+wrtie_date date
+constraint fk_group foreign key(write_group) references join(write_no) on delete cascade,
+constraint fk_id foreign key(id) references member(id) on delete cascade
+);
+
+DROP SEQUENCE REP_SEQ
+
+CREATE SEQUENCE REPLY_SEQ --시퀀스이름
+INCREMENT BY 1 --증감숫자 1
+START WITH 1 --시작숫자 1
+MINVALUE 1 --최소값 1
+MAXVALUE 1000 --최대값 1000
+NOCYCLE;
+

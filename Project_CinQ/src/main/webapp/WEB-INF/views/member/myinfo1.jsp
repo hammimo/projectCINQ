@@ -54,7 +54,7 @@
 				<p>전화번호 :  </p>
 			</c:when>
 			<c:when test="${info.tel ne '' }">
-				<p>전화번호 : 0${info.tel } </p>
+				<p>전화번호 : ${info.tel } </p>
 			</c:when>
 			<c:otherwise>
 				<p> 전화번호 : 오류 발생

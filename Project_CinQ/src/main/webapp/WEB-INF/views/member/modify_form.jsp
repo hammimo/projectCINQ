@@ -28,12 +28,17 @@
 		<div class="modify_form">
 		<form action="${contextPath }/member/modify" enctype="multipart/form-data" method="post">
 			<input type="hidden" name="id" value="${info.id}">
-			<b>핸 드 폰</b>
-			<input type="text" name="tel" value="${info.tel }" size="50"><br>
-			<b>닉 네 임</b>
-			<input type="text" name="nickname" value="${info.nickname }" size="50"><br>
+			<b>이    름</b>
+			<input type="text" name="name" value="${info.name}" size="50"><br>
+			<b>생년월일</b>
+			<input type="text" name="birthday" value="${info.birthday}" size="50"><br>
+			<b>이 메 일</b>
+			<input type="text" name="email" value="${info.email}" size="50"><br>
 			<b>비밀번호</b>
 			<input type="text" name="pw" value="${info.pw }" size="50"><br>
+			<b>전화번호</b>
+			<input type="text" name="tel" value="${info.tel}" size="50"><br>
+			
 			<input type="submit" value="수정완료"> &nbsp;
 			<input type="button" value="돌아가기" onclick="location.href='${contextPath}/member/myinfo1?id=${loginUser}'"> 
 		</form>
@@ -42,10 +47,6 @@
 	<c:import url="../default/footer.jsp"/>
 </body>
 </html>
-
-
-
-
 
 
 

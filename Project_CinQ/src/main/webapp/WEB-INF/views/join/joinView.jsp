@@ -167,7 +167,6 @@ p {
                <div id ="reply"></div>
                </td>
             </tr>		     
-         	
          </table>
       	
       </div>

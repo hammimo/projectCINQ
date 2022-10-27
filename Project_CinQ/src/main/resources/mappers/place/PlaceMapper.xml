@@ -18,25 +18,87 @@ max_count number(3)
 
 	
 	<resultMap type="com.project.root.place.dto.PlaceDTO" id="place">
-		
-		<id property="id" column="id"/>
-		<result property="write_no" column="write_no"/>
+		<id property="write_no" column="write_no"/>
+		<result property="id" column="id"/>
 		<result property="title" column="title"/>
 		<result property="content" column="content"/>
 		<result property="image" column="image"/>
 		<result property="loc_name" column="loc_name"/>
-		<result property="addr" column="addr"/>
 		<result property="max_count" column="max_count"/>
-
+		<result property="loc_sep_name" column="loc_sep_name"/>
+		<result property="checkbox" column="checkbox"/>
 	</resultMap>
 	
-	<select id="placeAllList" resultMap="place">
+	<select id="placeAllListNum" resultMap="place">
+      select B.* from
+      (select rownum rn, A. * from   
+      (select * from place order by write_no desc) A) B 
+      where rn between #{s} and #{e}
+   </select>
+   
+   <select id="placeSearchList" resultMap="place">
+      select B.* from
+      (select rownum rn, A. * from   
+      (select * from place where loc_sep_name like #{l} order by write_no desc ) A) B 
+      where rn between #{s} and #{e}
+   </select>
+	
+	<select id="PlaceAllList" resultMap="place">
 		select * from place
 	</select>
 
 	 <insert id="rentPlaceSave" parameterType="com.project.root.place.dto.PlaceDTO">
-		insert into place values(place_seq.nextval,#{id}, #{title}, #{content}, #{image}, #{loc_name}, #{addr}, #{max_count})
+		insert into place (write_no, id, title, content, image, loc_name, loc_sep_name, max_count)
+		values(place_seq.nextval,#{id}, #{title}, #{content}, #{image}, #{loc_name}, #{loc_sep_name}, #{max_count})
 	</insert>
 	
-	 
+	<select id="selectPlaceCount" resultType="Integer">
+      select count(*) from place
+    </select>
+    
+    <update id="modify">
+		update place set title=#{title},
+		content=#{content},
+		image=#{image}
+		where write_no=#{write_no}
+	</update>
+    
+    <select id="placeView" resultMap="place">
+    	select * from place where write_no=#{write_no}
+    </select>
+    
+    <delete id="delete">
+		delete place where write_no =#{write_no}
+	</delete>
+	
+	<select id="selectPlaceSearchCount" resultType="Integer">
+      select count(*) from place where loc_sep_name=#{l}
+    </select>
 </mapper>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

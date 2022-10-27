@@ -1,5 +1,7 @@
 package com.project.root.member.service;
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,14 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 	
+	@Override
+	public int idCheck(String id) {
+		MemberDTO dto = mapper.user_check(id);
+		if(dto != null) {
+			return 0;
+		}
+		return 1;
+	}
 	
 	@Override
 	public int user_check(HttpServletRequest request) {
@@ -104,6 +114,146 @@ public class MemberServiceImpl implements MemberService {
 		
 		return getMessage(request, msg, url);
 		
+	}
+	
+	@Override
+	public void createFile(String id) {
+		String path1 = "C:\\spring\\";
+		String path2 = path1+"image_repo\\";
+		String path3 = path2+id+"\\";
+		String path4 = path3+"join";
+		String path5 = path3+"place";
+		
+		File Folder1 = new File(path1);
+		File Folder2 = new File(path2);
+		File Folder3 = new File(path3);
+		File Folder4 = new File(path4);
+		File Folder5 = new File(path5);
+		
+		if (!Folder1.exists()) {
+			try{
+			    Folder1.mkdir(); //폴더 생성합니다.
+			    System.out.println("c:\\spring 폴더가 생성되었습니다.");
+		        } 
+		        catch(Exception e){
+			    e.getStackTrace();
+			}        
+	         }else {
+			System.out.println("이미 c:\\spring 폴더가 생성되어 있습니다.");
+		}
+		
+		if (!Folder2.exists()) {
+			try{
+			    Folder2.mkdir(); //폴더 생성합니다.
+			    System.out.println("c:\\spring\\image_repo 폴더가 생성되었습니다.");
+		        } 
+		        catch(Exception e){
+			    e.getStackTrace();
+			}        
+	         }else {
+			System.out.println("이미 c:\\spring\\image_repo 폴더가 생성되어 있습니다.");
+		}
+		
+		if (!Folder3.exists()) {
+			try{
+			    Folder3.mkdir(); //폴더 생성합니다.
+			    System.out.println("C:\\spring\\image_repo\\"+id+"폴더가 생성되었습니다.");
+		        } 
+		        catch(Exception e){
+			    e.getStackTrace();
+			}        
+	         }else {
+			System.out.println("이미 C:\\spring\\image_repo\\"+id+"폴더가 생성되어 있습니다.");
+		}
+		
+		if (!Folder4.exists()) {
+			try{
+			    Folder4.mkdir(); //폴더 생성합니다.
+			    System.out.println("C:\\spring\\image_repo\\"+id+"//join 폴더가 생성되었습니다.");
+		        } 
+		        catch(Exception e){
+			    e.getStackTrace();
+			}        
+	         }else {
+			System.out.println("이미 C:\\spring\\image_repo\\"+id+"//join 폴더가 생성되어 있습니다.");
+		}
+		
+		if (!Folder5.exists()) {
+			try{
+			    Folder5.mkdir(); //폴더 생성합니다.
+			    System.out.println("C:\\spring\\image_repo\\"+id+"//place 폴더가 생성되었습니다.");
+		        } 
+		        catch(Exception e){
+			    e.getStackTrace();
+			}        
+	         }else {
+			System.out.println("이미 C:\\spring\\image_repo\\"+id+"//place 폴더가 생성되어 있습니다.");
+		}
+		
+	}
+	
+	@Override
+	public void deleteFile(String id) {
+		String path = "C:\\spring\\image_repo\\"+id;
+		String path2 = path+"\\join";
+		String path3 = path+id+"\\place";
+		
+		File folder = new File(path);
+		File folder2 = new File(path2);
+		File folder3 = new File(path3);
+		try {
+			while(folder2.exists()) {
+				File[] listFiles = folder2.listFiles();
+				
+				for(File file : listFiles) {
+					file.delete();
+					System.out.println("파일이 삭제되었습니다");
+				}
+				
+				if(listFiles.length == 0 && folder2.isDirectory()) {
+					folder2.delete();
+					System.out.println("폴더가 삭제되었습니다.");
+				}
+			}
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
+		
+		try {
+			while(folder3.exists()) {
+				File[] listFiles = folder3.listFiles();
+				
+				for(File file : listFiles) {
+					file.delete();
+					System.out.println("파일이 삭제되었습니다");
+				}
+				
+				if(listFiles.length == 0 && folder3.isDirectory()) {
+					folder3.delete();
+					System.out.println("폴더가 삭제되었습니다.");
+				}
+			}
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
+		
+		try {
+			while(folder.exists()) {
+				File[] listFiles = folder.listFiles();
+				
+				for(File file : listFiles) {
+					file.delete();
+					System.out.println("파일이 삭제되었습니다");
+				}
+				
+				if(listFiles.length == 0 && folder.isDirectory()) {
+					folder.delete();
+					System.out.println("폴더가 삭제되었습니다.");
+				}
+			}
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
 	}
 	 
 }

@@ -36,7 +36,8 @@ public interface JoinService {
 	public void deleteReply(int write_no);
 	
 	public List<JoinRepDTO> getRepList(int write_group);
+	
+	public void joinIdDelete(String id, HttpServletRequest request);
 
 	
 }
-   

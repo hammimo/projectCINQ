@@ -1,3 +1,4 @@
+
 package com.project.root.join.service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,9 +12,9 @@ public interface JoinFileService {
 	
 	public String getMessage(HttpServletRequest request, String msg, String url);
 	
-	public String saveFile(MultipartFile file);
+	public String saveFile(String id, MultipartFile file);
 	
-	public void deleteImage(String originFileName);
+	public void deleteImage(String id, String originFileName);
 
 } 
    

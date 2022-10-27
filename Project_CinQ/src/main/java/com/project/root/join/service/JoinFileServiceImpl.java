@@ -20,26 +20,25 @@ public class JoinFileServiceImpl implements JoinFileService{
 	} 
 
 	@Override
-	public String saveFile(MultipartFile file) {
+	public String saveFile(String id, MultipartFile file) {
 		String sysFileName = file.getOriginalFilename();
 
-        File saveFile = new File(IMAGE_REPO + "/" + sysFileName);
+		File saveFile = new File(IMAGE_REPO + "/" + id + "/join/" + sysFileName);
         try {
             file.transferTo(saveFile);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return sysFileName;
+        return id+"/join/"+sysFileName;
     }
 	
 	@Override
-	public void deleteImage(String originFileName) {
+	public void deleteImage(String id, String originFileName) {
 		File file = new File(IMAGE_REPO + "/" + originFileName);
 		file.delete();
 	}
 		
 }
-	
 	
 	
 	

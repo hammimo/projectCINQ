@@ -34,5 +34,6 @@ public interface JoinMapper {
 	public List<JoinRepDTO> getRepList(int write_group);
 
 	public int deleteReply(int write_no);
+	
+	public int joinIdDelete(String id);
 }
-   

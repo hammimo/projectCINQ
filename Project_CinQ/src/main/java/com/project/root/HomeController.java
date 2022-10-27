@@ -50,7 +50,7 @@ public class HomeController {
 	@RequestMapping("index")
 	public String index(Model model) {
 		js.JoinAllList(model);
-		ps.placeAllList(model);
+		ps.PlaceAllList(model);
 		return "index";
 	}
 

@@ -8,8 +8,10 @@ public class PlaceDTO {
 	private String content;
 	private String image;
 	private String loc_name;
-	private String addr;
+	private String loc_sep_name;
 	private int max_count;
+	private String checkbox;
+	
 	
 	public int getWrite_no() {
 		return write_no;
@@ -47,17 +49,23 @@ public class PlaceDTO {
 	public void setLoc_name(String loc_name) {
 		this.loc_name = loc_name;
 	}
-	public String getAddr() {
-		return addr;
+	public String getLoc_sep_name() {
+		return loc_sep_name;
 	}
-	public void setAddr(String addr) {
-		this.addr = addr;
+	public void setLoc_sep_name(String loc_sep_name) {
+		this.loc_sep_name = loc_sep_name;
 	}
 	public int getMax_count() {
 		return max_count;
 	}
 	public void setMax_count(int max_count) {
 		this.max_count = max_count;
+	}
+	public String getCheckbox() {
+		return checkbox;
+	}
+	public void setCheckbox(String checkbox) {
+		this.checkbox = checkbox;
 	}
 	
 	

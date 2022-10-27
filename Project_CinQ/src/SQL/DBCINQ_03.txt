@@ -1,0 +1,171 @@
+/*\
+<공지!! 변경된 사항이 있으니 꼭 확인해 주세요>
+-- Join, place table에 수정사항이 꽤 많습니다.
+   alter를 사용하셔서 추가, 수정하셔도 되지만 
+   drop 후 재생성 하시는것을 추천 드립니다..!
+   
+   수정사항과 테이블 삭제, 재생성 코드는 밑에 있습니다.
+*/
+--계정생성
+create user DBCINQ identified by a1234;
+--접속 권한 조작 권한 부여
+grant connect,resource,DBA to DBCINQ;
+
+--접속 테스트
+conn DBCINQ/a1234;
+
+--유저 삭제
+drop user DBCINQ;
+
+
+---- DBCINQ 접속 후 테이블 생성
+
+--memeber table 생성
+
+create table member(
+Name varchar2(20),
+Id varchar2(20) primary key,
+Pw varchar2(20),
+Pid varchar2(30) unique,
+Tel number(11),
+Gender varchar2(2),
+Nickname varchar2(30) unique
+);
+
+desc member;
+select * from member;
+
+--관리자 계정생성
+insert into member values('admin','admin','admin1','nan','000','nn','admin');
+
+
+-- loc table
+create table loc(
+loc_code number(2) primary key,
+loc_name varchar2(20)
+);
+
+desc loc;
+select * from loc;
+
+-- Join 다시만들기
+
+drop table join PURGE;
+
+
+SELECT * FROM tab;
+
+--join table 
+
+create table join(
+write_no number(7),
+id varchar2(20) Not null,
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+loc_name varchar2(50),
+max_count number(3),
+cur_count number(3)
+); 
+
+drop table join purge;
+create SEQUENCE join_seq start WITH 1 INCREMENT by 1 MAXVALUE 10000 NOCYCLE;
+
+-- 정보확인
+-- INSERT into join VALUES (JOIN_SEQ.nextval, 'test','test_title','test_content','nan','test_loc_name',5,1);
+
+select * from  join;
+desc join;
+
+desc join;
+select * from join;
+
+
+
+--place 테이블 수정안
+
+create table place (
+write_no number(7),
+id varchar2(20) not null,
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+loc_name varchar2(50),
+addr varchar2(100),
+max_count number(3)
+);
+create SEQUENCE place_seq start WITH 1 INCREMENT by 1 MAXVALUE 10000 NOCYCLE;
+
+
+drop table place purge;
+desc place;
+select * from place;
+
+-- 정보확인
+-- INSERT into place VALUES (PLACE_SEQ.nextval,'test_title','test_content','nan','test_loc_name','test_adress',1);
+
+delete from place;
+
+
+--reservation 테이블 
+create table reservation (
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+max_count number(3),
+show_date date,
+pay_date date default sysdate,
+price number(7),
+show_num number(7) primary key
+);
+
+
+desc reservation;
+select * from reservation;
+
+
+--review 테이블
+create table review (
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+show_date date,
+show_num number(7)
+);
+
+desc review;
+select * from review;
+
+--history_viewer 테이블
+create table history_viewer (
+title varchar2(100),
+show_date date,
+price number(7),
+show_num number(7)
+);
+
+desc history_viewer;
+select * from history_viewer;
+
+--history_artist 테이블
+create table history_artist (
+title varchar2(100),
+content varchar2(300),
+image varchar2(50),
+show_start_date date,
+show_date date,
+show_num number(7)
+);
+
+desc history_artist;
+select * from history_artist;
+
+-- 주인이 DBCINQ 인 테이블의 제약조건 확인. U = unique , P = primary key , R = Foreign key
+SELECT * FROM    ALL_CONSTRAINTS where owner = 'DBCINQ';
+
+commit;
+
+
+
+
+

@@ -38,7 +38,7 @@ public class JoinServiceImpl implements JoinService{
 		dto.setCur_count(Integer.parseInt(mul.getParameter("cur_count")));
 		MultipartFile file = mul.getFile("image");
 		if(file.getSize() != 0) {
-		            dto.setImage(jfs.saveFile(file));
+		            dto.setImage(jfs.saveFile(dto.getId(), file));
 		        } else {
 		            dto.setImage("nan");
 		        }
@@ -78,8 +78,8 @@ public class JoinServiceImpl implements JoinService{
 		MultipartFile file = mul.getFile("image_file_name");
 		
 		if(file.getSize() != 0) {
-			dto.setImage(jfs.saveFile(file));
-			jfs.deleteImage(mul.getParameter("originFileName"));
+			dto.setImage(jfs.saveFile(dto.getId(), file));
+			jfs.deleteImage(mul.getParameter("id"), mul.getParameter("originFileName"));
 		} else {
 			dto.setImage(mul.getParameter("originFileName"));
 		}
@@ -110,7 +110,7 @@ public class JoinServiceImpl implements JoinService{
 		String msg, url;
 		if(result == 1) {
 			if(imageFileName != "nan") {
-				jfs.deleteImage(imageFileName);
+				jfs.deleteImage(id, imageFileName);
 			}
 			msg = "삭제 되었습니다.";
 			url = "/member/myinfo2?id="+id;
@@ -173,6 +173,12 @@ public class JoinServiceImpl implements JoinService{
 		
 		mapper.deleteReply(write_no);
 		
+	}
+	
+	@Override
+	public void joinIdDelete(String id, HttpServletRequest request) {
+		
+		mapper.joinIdDelete(id);
 	}
 }
 
