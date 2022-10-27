@@ -72,6 +72,10 @@
 		values(reply_seq.nextval, #{id}, #{title}, #{content}, #{write_group}, #{tel})
 	</insert>
 	
+	<delete id="deleteReply">
+		delete reply where write_no=#{write_no}
+	</delete>
+	
 	<select id="getRepList" resultMap="reply">
 		select * from reply where write_group = #{write_group}
 		order by write_date desc

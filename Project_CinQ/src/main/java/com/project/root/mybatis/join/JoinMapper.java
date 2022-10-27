@@ -29,8 +29,10 @@ public interface JoinMapper {
 
 	public JoinDTO joinView(String title);
 
-	public void addReply(JoinRepDTO dto);
+	public int addReply(JoinRepDTO dto);
 
 	public List<JoinRepDTO> getRepList(int write_group);
+
+	public int deleteReply(int write_no);
 }
    

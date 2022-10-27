@@ -4,6 +4,7 @@ package com.project.root.join.service;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -166,8 +167,13 @@ public class JoinServiceImpl implements JoinService{
 	
 		return mapper.getRepList(write_group);
 	}
-	
-	
+
+	@Override
+	public void deleteReply(int write_no) {
+		
+		mapper.deleteReply(write_no);
+		
+	}
 }
 
 	

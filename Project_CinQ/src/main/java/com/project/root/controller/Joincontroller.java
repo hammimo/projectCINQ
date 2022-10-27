@@ -107,25 +107,6 @@ public class Joincontroller implements MemberSession{
 		out.println(message);
 		
 	}
-	
-	@PostMapping(value = "addReply", produces = "application/json; charset=utf-8")
-	public String addReply(@RequestBody Map<String, Object> map, HttpSession session) {
-		
-		JoinRepDTO dto = new JoinRepDTO();
-		dto.setId((String)session.getAttribute(LOGIN));
-		dto.setWrite_group(Integer.parseInt((String)map.get("write_no")));
-		dto.setTitle((String)map.get("title"));
-		dto.setContent((String)map.get("content"));
-		dto.setTel((String)map.get("tel"));
-		js.addReply(dto);
-		return "{\"result\": true}";
-	}
 
-	@GetMapping(value = "replyData/{write_group}",produces = "application/json; charset=utf-8")
-	public List<JoinRepDTO> replyData(@PathVariable int write_group){
-		return js.getRepList(write_group);
-	}
-	
 	
 }
-
