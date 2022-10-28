@@ -22,11 +22,11 @@ public class PlaceFileServiceImpl implements PlaceFileService{
 	}
 
 	@Override
-	public String saveFile(MultipartFile file,String id) {
+	public String saveFile(MultipartFile file) {
 		
 		String sysFileName = file.getOriginalFilename();
 		
-		File saveFile = new File(IMAGE_REPO + "/" + id + "/place/" + sysFileName);
+		File saveFile = new File(IMAGE_REPO + "/place/" + sysFileName);
 		try {
 			file.transferTo(saveFile);
 		} catch (Exception e) {
