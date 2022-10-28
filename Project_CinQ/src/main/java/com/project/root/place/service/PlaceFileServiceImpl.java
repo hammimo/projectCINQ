@@ -32,7 +32,7 @@ public class PlaceFileServiceImpl implements PlaceFileService{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return sysFileName;
+		return "/place/"+sysFileName;
 	}
 
 	@Override
