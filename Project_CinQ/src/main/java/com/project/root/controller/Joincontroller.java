@@ -91,8 +91,8 @@ public class Joincontroller implements MemberSession{
 	}
 	
 	@GetMapping("joinView")
-	public String contentView(@RequestParam("title") String title, Model model) {
-		js.joinView(title, model);
+	public String contentView(@RequestParam("write_no") String write_no, Model model) {
+		js.joinView(write_no, model);
 		return "join/joinView";
 	}
 	

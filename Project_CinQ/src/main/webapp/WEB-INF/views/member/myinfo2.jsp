@@ -74,12 +74,14 @@
 		 <c:if test="${ProjectInfo.size() != 0}">	 
 			<c:forEach var="data" items="${ProjectInfo}">
 			<div class="img">
+			<a href="${contextPath}/join/joinView?write_no=${data.write_no}">
 	           <c:if test="${data.image == 'nan'}">
 					<b>이미지가 없습니다</b>
 				</c:if>
 				<c:if test="${data.image != 'nan'}">
 					<img src="${contextPath}/join/download?imageFileName=${data.image}" width="200px" height="200px">
 				</c:if> 
+	        </a>
 	        </div>
 			<div class="info">
 	           <p>프로젝트 이름 : ${data.title }</p><br>

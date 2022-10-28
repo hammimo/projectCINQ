@@ -27,7 +27,7 @@ public interface JoinMapper {
 
 	public int selectJoinCount();
 
-	public JoinDTO joinView(String title);
+	public JoinDTO joinView(String write_no);
 
 	public int addReply(JoinRepDTO dto);
 

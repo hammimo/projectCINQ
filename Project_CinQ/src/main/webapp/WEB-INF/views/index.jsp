@@ -126,7 +126,7 @@ $(document).ready(function(){
 		<c:forEach var="dto" items="${joinList }">
 			<div class="join_list">
 				<div class="Join_Image">
-						<a href="${contextPath}/join/joinView?title=${dto.title}">
+						<a href="${contextPath}/join/joinView?write_no=${dto.write_no}">
 							<c:if test="${dto.image != 'nan'}">
 								<img src="${contextPath}/join/download?imageFileName=${dto.image}">
 							</c:if>
@@ -138,7 +138,7 @@ $(document).ready(function(){
 					<br>
 				</div>
 				<div class="Join_Title">
-					<a href="${contextPath}/join/joinView?title=${dto.title}">${dto.title}</a>
+					<a href="${contextPath}/join/joinView?write_no=${dto.write_no}">${dto.title}</a>
 				</div>
 				<div class="Join_Content">${dto.content}</div>
 			</div>
@@ -159,7 +159,7 @@ $(document).ready(function(){
 					</c:if>
 				</div>
 				<div class="Place_Title">
-					<a href="#">${dto_P.title}</a>
+					<a href="${contextPath}/place/placeView/?write_no=${dto_P.write_no}">${dto_P.title} </a>
 				</div>
 				<div class="Place_Content">${dto_P.content}</div>
 			</div>
@@ -167,7 +167,6 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<br><br><br>
-	<a href="/root/join/joinAllListNum">°Ô½ÃÆÇ</a>
 	<c:import url="default/footer.jsp"/>
 </body>
 </html>

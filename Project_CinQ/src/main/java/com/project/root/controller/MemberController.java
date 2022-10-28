@@ -45,11 +45,19 @@ public class MemberController implements MemberSession {
 		return "member/register";
 	}
 	
-	@RequestMapping("/register")
-	public String register(MemberDTO member) {
+	@PostMapping("/register")
+	public String register(HttpServletRequest request) {
+		MemberDTO member = new MemberDTO();
+		member.setId(request.getParameter("id"));
+		member.setPw(request.getParameter("pw"));
+		member.setName(request.getParameter("name"));
+		member.setEmail(request.getParameter("email"));
+		member.setGender(request.getParameter("gender"));
+		member.setTel(request.getParameter("tel"));
+		member.setBirthday(request.getParameter("birthday"));
 		int result = ms.register(member);
 		
-		if(result == 0) {
+		if(result == 1) {
 			return "redirect:login";
 		}
 		

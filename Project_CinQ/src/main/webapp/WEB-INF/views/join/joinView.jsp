@@ -8,66 +8,7 @@
 <meta charset="UTF-8">
 <title>JoinView</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-
-	function slide_click(){
-		$("#first").slideDown("slow");
-		$("#modal_wrap").show();
-	}
-	
-	function slide_hide(){
-		$("#first").slideUp("fast");
-		$("#modal_wrap").hide();
-	}
-	function rep(){
-		let form = {};
-		let arr = $("#frm").serializeArray(); /* 직렬화 [{name: "", value:""}, {name: "", value:""}] */
-		for(i=0 ; i<arr.length ; i++){
-			form[arr[i].name] = arr[i].value;
-		}
-		$.ajax({
-			url: "addReply",
-			type: "POST",
-			data: JSON.stringify(form), /* 문자열 json 타입 변경 */
-			contentType: "application/json; charset=utf-8",
-			success: function(){
-				alert("답글 삭제완료");
-				slide_hide();
-				reply_data();
-			}, error: function(){
-				alert("답글삭제 실패");
-			}
-		})
-	}
-
-	function reply_data(){
-		$.ajax({
-			url: "replyData/"+${data.write_no},
-			type: "GET",
-			dataType: "json",
-			success: function(rep){
-				let html = ""
-				rep.forEach(function(redata){
-					let date = new Date(redata.write_date)
-					let writeDate = date.getFullYear()+"년 " + (date.getMonth()+1)+"월 "
-					writeDate += date.getDate()+"일 " + date.getHours()+"시 "
-					writeDate += date.getMinutes()+"분 " + date.getSeconds()+"초"
-					html += "<div align='left'><b>아이디 : </b>" + redata.id + "님 / ";
-					html += "<c:if test="${data.id == loginUser}"><b>연락처</b> : " + redata.tel + "<br></c:if>"	
-					html += "<b>작성일</b> : " + writeDate + "<br>"
-					html += "<b>제목</b> : " + redata.title + "<br>"
-					html += "<b>내용</b> : " + redata.content + "&nbsp;<c:if test="+ redata.id + == ${loginUser}"><button type='button' onclick='deleteReply()'> 글삭제 </button></div></c:if><hr>"
-
-				})
-				$("#reply").html(html)
-			}, error: function(){
-				alert("데이터를 가져올 수 없습니다~");
-			}
-		})
-	}
-
-	
-</script>
+<script src='<c:url value="/resources/script/js/reply.js"/>'></script>
 <style type="text/css">
 
 #modal_wrap {
@@ -143,6 +84,10 @@ p {
             <tr>
                <th>제 목</th><td colspan="2">${data.title }</td>
             </tr>
+            <tr>
+               <th>지 역</th><td colspan="2">${data.loc_sep_name}</td>
+            </tr>
+            
             <tr>
                <th>내용</th>
                <td colspan="2">

@@ -55,16 +55,22 @@
 	<update id="modify">
 		update join set title=#{title},
 		content=#{content},
-		image=#{image}
+		image=#{image},
+		cur_count=#{cur_count},
+		max_count=#{max_count}
 		where write_no=#{write_no}
 	</update>
 	
 	<select id="joinView" resultMap="join">
-		select * from join where title=#{title}
+		select * from join where write_no=#{write_no}
 	</select>
 	
 	<delete id="delete">
 		delete join where write_no =#{write_no}
+	</delete>
+	
+	<delete id="joinIdDelete">
+		delete join where id =#{id}
 	</delete>
 	
 	<insert id="addReply">

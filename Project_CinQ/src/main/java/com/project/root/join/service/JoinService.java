@@ -29,7 +29,7 @@ public interface JoinService {
 	
 	public void JoinAllList(Model model);
 
-	public void joinView(String title, Model model);
+	public void joinView(String write_no, Model model);
 	
 	public void addReply(JoinRepDTO dto);
 

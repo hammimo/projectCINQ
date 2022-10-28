@@ -41,18 +41,24 @@ nav ul {
 nav ul li {
     padding: 10px;
 }
-
+.joinList {
+	text-align: left;
+}
 </style>
 </head>
 <body>
     <div class="wrap">
         <div class="header">
-            <h1 class="title">CINQ</h1>
-        </div>
+            <h1 class="title">CINQ</h1>	
+		</div>
     </div>
     <!-- // wrap -->
         <div class="wrap">
             <nav>
+            	<div class="joinList" >
+            		<a href="/root/join/joinAllListNum">구인게시판</a>&nbsp;
+            		<a href="/root/place/placeAllListNum">장소게시판</a>
+                </div>
                 <ul>
                     <li><a href = "/root/index">HOME</a></li>
                     <li>

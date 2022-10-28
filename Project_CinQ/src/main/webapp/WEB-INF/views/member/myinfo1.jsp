@@ -75,8 +75,6 @@
 		<br>
 		<p>이메일 : ${info.email } </p>
 		<br>
-		<p>전화번호 : ${info.tel } </p>
-		<br>
 		<p>생일 : ${info.birthday } </p>
 		
 	</div>

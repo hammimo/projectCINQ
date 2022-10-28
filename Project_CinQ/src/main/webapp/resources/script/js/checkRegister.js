@@ -44,8 +44,9 @@ function checkPw() {
 }
 
 function checkPwChk() {
-	var pwChk = $("#pwchK").val();
-	if(pwChk ==""){
+	var pwChk = $("#pwChk").val();
+	var pw = $("#pw").val();
+	if(pwChk != pw){
 		$('#pwChkLabel1').css('display','none');
 		$('#pwChkLabel2').css('display','block');
 	} else {
@@ -54,14 +55,47 @@ function checkPwChk() {
 	}
 }
 
+function checkName() {
+	var name = $("#name").val();
+	if(name ==""){
+		$('#nameLabel1').css('display','none');
+		$('#nameLabel2').css('display','block');
+	} else {
+		$('#nameLabel1').css('display','block');
+		$('#nameLabel2').css('display','none');
+	}
+}
 
+function checkEmail() {
+	var email = $("#email").val();
+	if(email ==""){
+		$('#emailLabel1').css('display','none');
+		$('#emailLabel2').css('display','block');
+	} else {
+		$('#emailLabel1').css('display','block');
+		$('#emailLabel2').css('display','none');
+	}
+}
 
-function checkPwNpwChk() {
-	var pwChk = $("#pwChk").val();
-	var pw = $("pw").val();
-	if(pwChk != pw){
-		alert("비밀번호가 일치하지 않습니다.");
-	} 
+function checkTel() {
+	if($("#tel1").val() != "" && $("#tel2").val() != "" && $("#tel3").val() != ""){
+		var tel1 = $("#tel1").val();
+		var tel2 = $("#tel2").val();
+		var tel3 = $("#tel3").val();
+		var tel = "";
+		tel = tel+tel1+tel2+tel3;
+		$("#tel").val(tel);
+	}
+}
+function checkBd() {
+	var birthDay = $("#birthDay").val();
+	if(birthDay ==""){
+		$('#bdLabel1').css('display','none');
+		$('#bdLabel2').css('display','block');
+	} else {
+		$('#bdLabel1').css('display','block');
+		$('#bdLabel2').css('display','none');
+	}
 }
 
 

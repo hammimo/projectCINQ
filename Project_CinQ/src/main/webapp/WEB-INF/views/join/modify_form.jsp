@@ -11,18 +11,7 @@
 <meta charset="UTF-8">
 <title>board/modify_form.jsp</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-	function readURL(input){
-		var file = input.files[0]; // 파일 정보
-		if(file != ""){
-			var reader = new FileReader();
-			reader.readAsDataURL(file); // 파일 정보 읽어오기
-			reader.onload = function(e){ // 읽기에 성공하면 결과 표시
-				$("#preview").attr("src", e.target.result)
-			}
-		}
-	}
-</script>
+<script src='<c:url value="/resources/script/js/file.js"/>'></script>
 <style type="text/css">
 .modify_title {
 	text-align: center;
@@ -49,7 +38,12 @@
 			<textarea rows="10" cols="50" name="content">${ProjectInfo.content }</textarea><br>
 			<b>파일 첨부</b>
 			<img src="${contextPath }/join/download?imageFileName=${ProjectInfo.image}" id="preview" width="100px" height="100px"><br><br>
-			<input type="file" name="image_file_name" onchange="readURL(this)">
+			<input type="file" name="image_file_name" onchange="readURL(this)"><br>
+			<b>현재 인원</b>
+			<input type="number" name ="cur_count" value="${ProjectInfo.cur_count}"> <br>
+			<b>모집 정원</b>
+			<input type="number" name ="max_count" value="${ProjectInfo.max_count}">
+			
 			<input type="submit" value="수정완료"> &nbsp;
 		</form>
 		</div>

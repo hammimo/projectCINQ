@@ -54,7 +54,6 @@ td {padding: 5px;}
 					<input type="button" value="수정하기" onclick="location.href='${contextPath}/place/placeModifyForm?write_no=${data.write_no}'">&nbsp;
 					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/place/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">
                   </c:if> &nbsp;
-                  <input type="button" value="답글달기" onclick="slide_click()"> &nbsp;
                   <input type="button" value="글목록" onclick="location.href='${contextPath}/place/placeAllListNum'">
                </td>
             </tr>

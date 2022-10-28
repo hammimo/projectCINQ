@@ -32,8 +32,8 @@ public class JoinServiceImpl implements JoinService{
 		dto.setId(mul.getParameter("id"));
 		dto.setTitle(mul.getParameter("title"));
 		dto.setContent(mul.getParameter("content"));
-		dto.setLoc_name(mul.getParameter("loc_name"));
-		dto.setLoc_sep_name(mul.getParameter("loc_seq_name"));
+		dto.setLoc_name(mul.getParameter("addrResult"));
+		dto.setLoc_sep_name(mul.getParameter("loc_sep_name"));
 		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
 		dto.setCur_count(Integer.parseInt(mul.getParameter("cur_count")));
 		MultipartFile file = mul.getFile("image");
@@ -76,7 +76,8 @@ public class JoinServiceImpl implements JoinService{
 		dto.setTitle(mul.getParameter("title"));
 		dto.setContent(mul.getParameter("content"));
 		MultipartFile file = mul.getFile("image_file_name");
-		
+		dto.setCur_count(Integer.parseInt(mul.getParameter("cur_count")));
+		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
 		if(file.getSize() != 0) {
 			dto.setImage(jfs.saveFile(dto.getId(), file));
 			jfs.deleteImage(mul.getParameter("id"), mul.getParameter("originFileName"));
@@ -124,8 +125,8 @@ public class JoinServiceImpl implements JoinService{
 	
 	}
 	@Override
-	public void joinView(String title, Model model) {
-		model.addAttribute("data", mapper.joinView(title));
+	public void joinView(String write_no, Model model) {
+		model.addAttribute("data", mapper.joinView(write_no));
 		
 	}
 	

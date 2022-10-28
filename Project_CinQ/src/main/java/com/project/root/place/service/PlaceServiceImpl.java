@@ -37,7 +37,6 @@ public class PlaceServiceImpl implements PlaceService{
 		MultipartFile file = mul.getFile("image");
 		
 		try {
-			
 			dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
 		} catch (Exception e) {
 			dto.setMax_count(num);
