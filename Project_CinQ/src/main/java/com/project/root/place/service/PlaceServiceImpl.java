@@ -43,7 +43,7 @@ public class PlaceServiceImpl implements PlaceService{
 		}
 		
 		if(file.getSize() != 0) {
-			dto.setImage(pfs.saveFile(file,dto.getId()));
+			dto.setImage(pfs.saveFile(file));
 		} else {
 			dto.setImage("nan");
 		}
@@ -78,7 +78,7 @@ public class PlaceServiceImpl implements PlaceService{
 		MultipartFile file = mul.getFile("image_file_name");
 		
 		if(file.getSize() != 0) {
-			dto.setImage(pfs.saveFile(file,dto.getId()));
+			dto.setImage(pfs.saveFile(file));
 			pfs.deleteImage(mul.getParameter("originFileName"));
 		} else {
 			dto.setImage(mul.getParameter("originFileName"));
