@@ -122,13 +122,13 @@ public class MemberServiceImpl implements MemberService {
 		String path2 = path1+"image_repo\\";
 		String path3 = path2+id+"\\";
 		String path4 = path3+"join";
-		String path5 = path3+"place";
+		
 		
 		File Folder1 = new File(path1);
 		File Folder2 = new File(path2);
 		File Folder3 = new File(path3);
 		File Folder4 = new File(path4);
-		File Folder5 = new File(path5);
+		
 		
 		if (!Folder1.exists()) {
 			try{
@@ -178,17 +178,7 @@ public class MemberServiceImpl implements MemberService {
 			System.out.println("이미 C:\\spring\\image_repo\\"+id+"//join 폴더가 생성되어 있습니다.");
 		}
 		
-		if (!Folder5.exists()) {
-			try{
-			    Folder5.mkdir(); //폴더 생성합니다.
-			    System.out.println("C:\\spring\\image_repo\\"+id+"//place 폴더가 생성되었습니다.");
-		        } 
-		        catch(Exception e){
-			    e.getStackTrace();
-			}        
-	         }else {
-			System.out.println("이미 C:\\spring\\image_repo\\"+id+"//place 폴더가 생성되어 있습니다.");
-		}
+
 		
 	}
 	
@@ -196,11 +186,11 @@ public class MemberServiceImpl implements MemberService {
 	public void deleteFile(String id) {
 		String path = "C:\\spring\\image_repo\\"+id;
 		String path2 = path+"\\join";
-		String path3 = path+id+"\\place";
+		
 		
 		File folder = new File(path);
 		File folder2 = new File(path2);
-		File folder3 = new File(path3);
+		
 		try {
 			while(folder2.exists()) {
 				File[] listFiles = folder2.listFiles();
@@ -219,23 +209,7 @@ public class MemberServiceImpl implements MemberService {
 			e.getStackTrace();
 		}
 		
-		try {
-			while(folder3.exists()) {
-				File[] listFiles = folder3.listFiles();
-				
-				for(File file : listFiles) {
-					file.delete();
-					System.out.println("파일이 삭제되었습니다");
-				}
-				
-				if(listFiles.length == 0 && folder3.isDirectory()) {
-					folder3.delete();
-					System.out.println("폴더가 삭제되었습니다.");
-				}
-			}
-		} catch (Exception e) {
-			e.getStackTrace();
-		}
+		
 		
 		try {
 			while(folder.exists()) {
