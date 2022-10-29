@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>index.jsp</title>
 
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
