@@ -18,5 +18,6 @@ public interface MemberService {
 	public String memberDelete(String id, HttpServletRequest request);
 	public void createFile(String id);
 	public void deleteFile(String id);
+	public void memberAllList(Model model, int num);
  
 }

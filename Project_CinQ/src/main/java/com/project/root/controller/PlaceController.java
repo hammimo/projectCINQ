@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.project.root.join.service.JoinFileService;
+import com.project.root.place.service.PlaceFileService;
 import com.project.root.place.service.PlaceService;
 import com.project.root.session.name.MemberSession;
 
@@ -50,7 +51,7 @@ public class PlaceController implements MemberSession{
 		public void download(@RequestParam String imageFileName, HttpServletResponse response)throws Exception {
 			
 			response.addHeader("Content-disposition", "attachment; fileName="+imageFileName);
-			File file = new File(JoinFileService.IMAGE_REPO+"\\"+imageFileName);
+			File file = new File(PlaceFileService.IMAGE_REPO+"\\"+imageFileName);
 			FileInputStream in = new FileInputStream(file);
 			FileCopyUtils.copy(in, response.getOutputStream());
 			in.close();

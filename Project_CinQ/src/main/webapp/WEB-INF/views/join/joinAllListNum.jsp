@@ -57,8 +57,7 @@ a:visited {color:#000069;}
       <c:forEach var="dto" items="${joinList}">
             <tr>
 				<td>${dto.id}</td>
-				<td><a href="/root/join/joinView?title=${dto.title}">${dto.title}</a></td>
-				  
+				<td><a href="/root/join/joinView?write_no=${dto.write_no}">${dto.title}</a></td>
 				  <c:if test="${dto.image == 'nan'}">
                     <td>
                      	<b>이미지가 없습니다..</b>
@@ -66,10 +65,10 @@ a:visited {color:#000069;}
                   </c:if>
                   <c:if test="${dto.image != 'nan'}">
                  	<td>
-                 	<a href="${contextPath}/join/joinView?title=${dto.title}"><img src="${contextPath}/join/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
+                 	<a href="${contextPath}/join/joinView?write_no=${dto.write_no}"><img src="${contextPath}/join/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
                   	</td>
                   </c:if>
-				<td><a href="${contextPath}/join/joinView?title=${dto.title}">${dto.content}</a></td>
+				<td><a href="${contextPath}/join/joinView?write_no=${dto.write_no}">${dto.content}</a></td>
             </tr>
       </c:forEach>
       <tr>

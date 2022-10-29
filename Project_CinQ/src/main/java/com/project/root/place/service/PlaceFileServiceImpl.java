@@ -26,13 +26,13 @@ public class PlaceFileServiceImpl implements PlaceFileService{
 		
 		String sysFileName = file.getOriginalFilename();
 		
-		File saveFile = new File(IMAGE_REPO + "/" + sysFileName);
+		File saveFile = new File(IMAGE_REPO + "/place/" + sysFileName);
 		try {
 			file.transferTo(saveFile);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return sysFileName;
+		return "/place/" +sysFileName;
 	}
 
 	@Override

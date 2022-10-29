@@ -152,7 +152,7 @@ $(document).ready(function(){
 			<div class="Place_list">
 				<div class="Place_Image">
 					<c:if test="${dto_P.image != 'nan'}">
-						<img src="${contextPath}/join/download?imageFileName=${dto_P.image}">
+						<img src="${contextPath}/place/download?imageFileName=${dto_P.image}">
 					</c:if>
 					<c:if test="${dto_P.image == 'nan'}">
 						<img src="https://via.placeholder.com/150">
