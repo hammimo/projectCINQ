@@ -118,10 +118,10 @@ $(document).ready(function(){
 <body>
 	<c:import url="default/header.jsp"/>
 	<div class="projects">
-		<h3>ม๘วเม฿ภฮ วมทฮมงฦฎ</h3>
+		<h3>์งํ–์ค‘์ธ ํ”๋ก์ ํธ</h3>
 	</div>
 	<div class="pre_projects">
-		<h3>ฑธภฮม฿ภฮ วมทฮมงฦฎ</h3>
+		<h3>๊ตฌ์ธ์ค‘์ธ ํ”๋ก์ ํธ</h3>
 		<div class="responsive">
 		<c:forEach var="dto" items="${joinList }">
 			<div class="join_list">
@@ -146,7 +146,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div class="place">
-		<h3>ภๅผาด๋ฟฉ</h3>
+		<h3>์ฅ์๋€์—ฌ</h3>
 		<div class="responsive">
 		<c:forEach var="dto_P" items="${placeList }">
 			<div class="Place_list">
