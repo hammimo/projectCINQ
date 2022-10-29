@@ -44,7 +44,7 @@ label {
 			<label class="labelFail" id="pwChkLabel2" for="pwChk"> 비밀번호가 일치하지 않습니다 </label>
 		</div>
 		<div>	
-			<input type="text" name="name" id="name" onkeyup="javascript:checkName()"  placeholder="이름 입력"> <!-- pattern="^[가-힣a-zA-Z]+$" -->
+			<input type="text" name="name" id="name" onkeyup="javascript:checkName()"  placeholder="이름 입력"> <!-- pattern="^[가-힣a-zA-Z]+$" -->>
 			<label class="labelOk" id="nameLabel1" for="name"> OK </label>
 			<label class="labelFail" id="nameLabel2" for="name"> 이름을 입력하세요! </label>
 		</div>

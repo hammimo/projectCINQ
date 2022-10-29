@@ -27,18 +27,6 @@
 	<select id="getMember" resultMap="member">
 		select * from member where id=#{id}
 	</select>
-	
-	<select id="selectMemberCount" resultType="Integer">
-		select count(*) from member
-	</select>
-	
-	<select id="memberAllList" resultMap="member">
-	   select B.* from
-       (select rownum rn, A. * from   
-       (select * from member order by id desc) A) B
-       where rn between #{s} and #{e}
-	</select>
-	
 	<update id="modify">
 		update member set name=#{name},
 		birthday=#{birthday},
