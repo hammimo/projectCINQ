@@ -229,5 +229,18 @@ public class MemberServiceImpl implements MemberService {
 			e.getStackTrace();
 		}
 	}
-	 
+	
+	@Override
+    public void memberAllList(Model model, int num) {
+        int pageLetter = 7;// 한 페이지 당 회원 수
+        int allCount = mapper.selectMemberCount();// 회원 목록 수
+        int repeat = allCount/pageLetter;
+        if(allCount % pageLetter != 0)
+            repeat += 1;
+            int end = num * pageLetter;
+            int start = end + 1 - pageLetter;
+            model.addAttribute("repeat", repeat);
+            model.addAttribute("memberList", mapper.memberAllList(start, end));
+
+    }
 }

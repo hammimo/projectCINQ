@@ -117,6 +117,9 @@ $(document).ready(function(){
 </head>
 <body>
 	<c:import url="default/header.jsp"/>
+	<c:if test="${loginUser == 'admin' }">
+		<c:import url="default/adminMenu.jsp"/>
+	</c:if>
 	<div class="projects">
 		<h3>진행중인 프로젝트</h3>
 	</div>

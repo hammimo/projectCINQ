@@ -1,5 +1,5 @@
 
-<!-- place/placeAllListNum.jsp -->
+<!-- place/placeSearchListNum.jsp -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -72,39 +72,39 @@ div {text-align:center;}
         <th width="300px">PROFILE</th>
          <th width="100px">LOCATION</th>
          <th width="800px">CONTENT</th>
-      </tr>
-      <c:if test="${placeList.size() == 0}">
+      </tr> 
+       <c:if test="${placeList.size() == 0}">
             <tr>
-               <th colspan="6">등록된 글이 없습니다</th>
+               <th colspan="6">검색하신 지역중에 등록된 장소가 없습니다</th>
             </tr>   
       </c:if>
-      <c:forEach var="dto" items="${placeList}">
+       <c:forEach var="dto_s" items="${placeList}">
             <tr>
-				<td>${dto.id}</td>
-				<td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.write_no}</a></td>
-				<td>${dto.title}</td>
-				  <c:if test="${dto.image == 'nan'}">
+				<td>${dto_s.id}</td>
+				<td><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.write_no}</a></td>
+				<td>${dto_s.title}</td>
+				  <c:if test="${dto_s.image == 'nan'}">
                     <td>
                      	<b>이미지가 없습니다..</b>
                   	</td>
                   </c:if>
-                  <c:if test="${dto.image != 'nan'}">
+                  <c:if test="${dto_s.image != 'nan'}">
                  	<td>
-                 	<a href="/root/place/placeView?write_no=${dto.write_no}"><img src="${contextPath}/place/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
+                 	<a href="/root/place/placeView?write_no=${dto_s.write_no}"><img src="${contextPath}/place/download?imageFileName=${dto_s.image}" width="200px" height="200px"></a>
                   	</td>
                   </c:if>
-                <td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.loc_sep_name}</a></td>
-				<td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.content}</a></td>
+                <td><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.loc_sep_name}</a></td>
+				<td><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.content}</a></td>
             </tr>
       </c:forEach>
+      
       <tr>
          <td colspan="6" align="center">
              <c:forEach var="num" begin="1" end="${repeat}">
-                 <a href="placeAllListNum?num=${num}">[${num}]</a>
+                 <a href="placeSearchListNum?num=${num}">[${num}]</a>
              </c:forEach>
          </td>
      </tr>
-         
      <tr>
         <td colspan="6">
             <a href="${contextPath }/place/rentPlace">글작성</a>
@@ -112,7 +112,6 @@ div {text-align:center;}
      </tr>
      </table>
      </div>
-   
    <c:import url="../default/footer.jsp"/>
 </body>
 </html> 

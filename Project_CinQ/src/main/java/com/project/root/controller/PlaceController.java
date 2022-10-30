@@ -101,16 +101,14 @@ public class PlaceController implements MemberSession{
 			
 		}	
 	
-	 @PostMapping("placeSearchList")
-		public String placeSearchList(@RequestParam(value="loc_sep_name") String loc_sep_name, Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
-		 System.out.println(loc_sep_name);
-		 if(loc_sep_name != null) {     
-			 ps.PlaceSearchList(loc_sep_name, model, num);
-		 } else {
-			 ps.PlaceAllListNum(model, num);
-		 }
-		 
-		      return "place/placeAllListNum";
+	 @RequestMapping("placeSearchList")
+		public String placeSearchList(@RequestParam(value="loc_sep_name",required = false,defaultValue="") String loc_sep_name, Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
+			 if(loc_sep_name != "") {     
+				 ps.PlaceSearchList(loc_sep_name, model, num);
+			 } else {
+				 ps.PlaceAllListNum(model, num);
+			 }
+			      return "place/placeSearchListNum";
 		}
 	
 }
