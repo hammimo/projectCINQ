@@ -31,7 +31,7 @@ function writeSave(){
 	 
  	addrResult = addr1 + "/" + addr2 + "/" + addr3;
 	$("#addrResult").val(addrResult);   
-	  addr2 = addr2.substring(3, 5);
+	  addr2 = addr2.substring(3, 6);
 	$("#loc_sep_name").val(addr2);
 		
 	form.submit();
