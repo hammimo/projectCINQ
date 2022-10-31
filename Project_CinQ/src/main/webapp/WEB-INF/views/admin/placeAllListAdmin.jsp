@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>place Manage</title>
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
