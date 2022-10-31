@@ -10,6 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <title>ticketingRegister</title>
+<script src='<c:url value="/resources/script/js/file.js"/>'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style type="text/css">
 #reservationForm
 {
@@ -22,7 +25,7 @@
      	<div id="reservationForm">
  		<b>공연장소</b>&nbsp;
  		<br><br>
-		<form  id="form" class="ticketingRegisterForm"  action="${contextPath }/reservation/ticketingRegister?write_no=${data.write_no}" enctype="multipart/form-data" method="post"> 
+		<form  id="form" class="ticketingRegisterForm"  action="${contextPath }/reservation/ticketingStart?write_no=${data.write_no}" enctype="multipart/form-data" method="post"> 
         <b>작성자</b>
         <input type="text" name="id" value= "${data.id}" readonly><br><br>
         <b>제 목</b>
@@ -44,7 +47,7 @@
         <input type="file" name="image" value="poster" onchange="readURL(this)"><br><br>
          <p>공연날짜</p>
          <input type="date" id="start_date" name="start_date" value="${data.start_date}"> ~ 
-         <input type="date" id="start_date" name="start_date" value="${data.end_date}"> <br><br>
+         <input type="date" id="start_date" name="end_date" value="${data.end_date}"> <br><br>
          <b>관람가능 인원</b>
          <input type="number" name="max_count" size="50" value="${data.max_count}"><br><br>
          <b>공연 상세 내용</b>

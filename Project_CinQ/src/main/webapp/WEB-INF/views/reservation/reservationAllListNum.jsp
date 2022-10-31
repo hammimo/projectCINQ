@@ -99,7 +99,7 @@ div {text-align:center;}
       <tr>
          <td colspan="6" align="center">
              <c:forEach var="num" begin="1" end="${repeat}">
-                 <a href="placeAllListNum?num=${num}">[${num}]</a>
+                 <a href="reservationAllListNum?num=${num}">[${num}]</a>
              </c:forEach>
          </td>
      </tr>

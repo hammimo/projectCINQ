@@ -61,10 +61,25 @@ ticketing varchar2(2) default 'N'
     <select id="reservationView" resultMap="reservation">
     	select * from reservation where write_no=#{write_no}
     </select>
-	
+    
 	<delete id="reservationDelete">
 		delete reservation where write_no =#{write_no}
 	</delete>
+	
+	<update id="ticketingStart">
+		update reservation set title=#{title},
+		content=#{content},
+		image=#{image},
+		team_count=#{team_count},		
+		max_count=#{max_count},
+		start_date=#{start_date},
+		end_date=#{end_date},
+		price=#{price},
+		tel=#{tel},
+		ticketing='Y'
+		where write_no=#{write_no}
+	</update>
+	
 </mapper>
 
  
