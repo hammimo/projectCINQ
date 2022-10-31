@@ -23,13 +23,35 @@
 	
 	<context:component-scan base-package="com.project.root" />
 	
-	<beans:bean id="joinInterceptor" class="com.project.root.join.interceptor.JoinInterceptor"/>
+	<beans:bean id="projectInterceptor" class="com.project.root.interceptor.ProjectInterceptor"/>
+	
 	<interceptors>
+		<!-- join 부분 -->
 		<interceptor>
 			<mapping path="/join/joinView"/>
-			<beans:ref bean="joinInterceptor"/>
+			<beans:ref bean="projectInterceptor"/>
 		</interceptor>
-	</interceptors>
+		<interceptor>
+			<mapping path="/join/artistForm"/>
+			<beans:ref bean="projectInterceptor"/>
+		</interceptor>
+		
+		<!-- place 부분 -->
+		<interceptor>
+			<mapping path="/place/placeView"/>
+			<beans:ref bean="projectInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/place/rentPlace"/>
+			<beans:ref bean="projectInterceptor"/>
+		</interceptor>	
+		
+	</interceptors>	
+	
+	
+	
+	
+
 	
 	<beans:bean id="multipartResolver"
             class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

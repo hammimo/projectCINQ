@@ -14,5 +14,5 @@ public interface MemberMapper {
 	public int modify(MemberDTO dto);
 	public int delete(String id);
 	public int selectMemberCount();
-	public List<MemberDTO> memberAllList(@Param("s")int start, @Param("e") int end);
+    public List<MemberDTO> memberAllList(@Param("s")int start, @Param("e") int end);
 }

@@ -1,6 +1,4 @@
-
-<!-- place/placeAllListNum.jsp -->
-
+<!-- admin/placeAllListAdmin.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,50 +7,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>placeAllListNum</title>
-<style type="text/css">
-/* .searchPlace{
-    display: inline-block;
-    margin-top: 30px;
-    margin-left: 260px;
-  }
-  .searchArea input{
-      height: 30px;
-    width: 250px;
-  }
-  .searchArea button{
-     width: 100px;
-    height: 36px;
-  } */
-.placeTable{
-   align : center;
-   border-collapse: collapse;
-}
-.title1{
-   background-color: #e6f1ff;
-}
-tr {border-top: 1px solid black;
-   }
-
-tr:hover {background-color: #dcdcdc; cursor: pointer;}
-
-td {
-   padding: 5px;
-}
-a {
-   text-decoration: none;
-}
-a:link {color:black;}
-a:visited {color:#000069;}
-div {text-align:center;}
-</style>
-<script type="text/javascript">
-
-
-</script>
+<title>Insert title here</title>
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
+	<c:import url="../default/adminMenu.jsp"/>
    <input type="hidden" name="place" value="${loc_sep_name }">
    <!-- <div align="center"> -->
    <br>
@@ -72,6 +31,7 @@ div {text-align:center;}
         <th width="300px">PROFILE</th>
          <th width="100px">LOCATION</th>
          <th width="800px">CONTENT</th>
+         <th width="200px">PLACEMANAGE</th>
       </tr>
       <c:if test="${placeList.size() == 0}">
             <tr>
@@ -95,16 +55,20 @@ div {text-align:center;}
                   </c:if>
                 <td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.loc_sep_name}</a></td>
 				<td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.content}</a></td>
+				<td>
+					<input type="button" value="사용하기">
+					<input type="button" value="사용종료">
+					<input type="button" value="삭제" onclick="deletePlace(${dto.write_no})">
+				</td>
             </tr>
       </c:forEach>
-      <tr>
-         <td colspan="6" align="center">
-             <c:forEach var="num" begin="1" end="${repeat}">
-                 <a href="placeAllListNum?num=${num}">[${num}]</a>
-             </c:forEach>
-         </td>
-     </tr>
-         
+	 <tr>
+	     <td colspan="6" align="center">
+	         <c:forEach var="num" begin="1" end="${repeat_a}">
+	           <a href="placeAllListNum?num=${num}">[${num}]</a>
+	         </c:forEach>
+	     </td>
+	 </tr>
      <tr>
         <td colspan="6">
             <a href="${contextPath }/place/rentPlace">글작성</a>

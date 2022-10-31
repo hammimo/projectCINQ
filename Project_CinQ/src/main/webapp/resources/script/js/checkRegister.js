@@ -18,9 +18,9 @@ function checkID() {
                   $('#idLabel3').css('display','block');
                   
                } else {
-                  $('#idLabel1').css('display','block');
-                  $('#idLabel2').css('display','none');
-                  $('#idLabel3').css('display','none');
+               	  $('#idLabel1').css('display','block');
+               	  $('#idLabel2').css('display','none');
+                  $('#idLabel3').css('display','none');               		   
                }
             }, error : function() {
                alert("서버요청실패");

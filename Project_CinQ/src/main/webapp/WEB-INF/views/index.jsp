@@ -1,12 +1,12 @@
 <!-- index.jsp -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>   
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>index.jsp</title>
 
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -117,11 +117,14 @@ $(document).ready(function(){
 </head>
 <body>
 	<c:import url="default/header.jsp"/>
+	<c:if test="${loginUser == 'admin' }">
+		<c:import url="default/adminMenu.jsp"/>
+	</c:if>
 	<div class="projects">
-		<h3>ÁøÇàÁßÀÎ ÇÁ·ÎÁ§Æ®</h3>
+		<h3>ì§„í–‰ì¤‘ì¸ í”„ë¡œì íŠ¸</h3>
 	</div>
 	<div class="pre_projects">
-		<h3>±¸ÀÎÁßÀÎ ÇÁ·ÎÁ§Æ®</h3>
+		<h3>êµ¬ì¸ì¤‘ì¸ í”„ë¡œì íŠ¸</h3>
 		<div class="responsive">
 		<c:forEach var="dto" items="${joinList }">
 			<div class="join_list">
@@ -146,7 +149,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div class="place">
-		<h3>Àå¼Ò´ë¿©</h3>
+		<h3>ì¥ì†ŒëŒ€ì—¬</h3>
 		<div class="responsive">
 		<c:forEach var="dto_P" items="${placeList }">
 			<div class="Place_list">
