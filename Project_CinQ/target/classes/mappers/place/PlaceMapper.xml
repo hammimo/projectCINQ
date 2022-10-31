@@ -10,6 +10,7 @@ image varchar2(50),
 loc_name varchar2(20),
 addr varchar2(100),
 max_count number(3)
+checkbox varchar2(2) default 'N'
 );
 -->
 <!-- mappers/place/PlaceMapper.xml -->
@@ -74,6 +75,14 @@ max_count number(3)
 	<select id="selectPlaceSearchCount" resultType="Integer">
       select count(*) from place where loc_sep_name like '%' || #{l} || '%'
     </select>
+    
+     <select id="rentOkPlace" resultMap="place">
+      select B.* from
+      (select rownum rn, A. * from   
+      (select * from place where checkbox=#{checkbox} order by write_no desc ) A) B 
+      where rn between #{s} and #{e}
+    </select>
+    
 </mapper>
 
  

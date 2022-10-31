@@ -21,6 +21,7 @@ public interface PlaceService {
 
 	public void PlaceSearchList(String loc_sep_name, Model model, int num);
 	
+	public void RentOkPlaceView(String checkbox, Model model,int num);
 	
 }
  
