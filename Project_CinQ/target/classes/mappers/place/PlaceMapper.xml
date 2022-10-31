@@ -74,6 +74,14 @@ max_count number(3)
 	<select id="selectPlaceSearchCount" resultType="Integer">
       select count(*) from place where loc_sep_name=#{l}
     </select>
+    
+    <select id="rentOkPlace" resultMap="place">
+      select B.* from
+      (select rownum rn, A. * from   
+      (select * from place where checkbox=#{checkbox} order by write_no desc ) A) B 
+      where rn between #{s} and #{e}
+    </select>
+    
 </mapper>
 
  

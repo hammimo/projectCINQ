@@ -22,7 +22,7 @@ td {padding: 5px;}
 <body>
    <c:import url="../default/header.jsp"/>
       <br><br>
-      <h1 class="place_title" align="center">등록된 장소</h1>
+      <h1 class="place_title" align="center">예매신청 프로젝트</h1>
       <br><br>
       <div class ="place_view" align="center">
          <table class="Sproject" >
@@ -30,17 +30,13 @@ td {padding: 5px;}
                <th width="150px">작성자</th><td colspan="2">${data.id }</td>
             </tr>
             <tr>
-               <th>제 목</th><td colspan="2">${data.title }</td>
+               <th>제 목</th><td colspan="2">${data.title}</td>
             </tr>
             <tr>
-               <th>지 역</th><td colspan="2">${data.loc_sep_name}</td>
+               <th>대관 신청 장소</th> <td colspan="2"><button type="button" onclick="location.href='${contextPath}/place/placeView?write_no=${data.location}'">${data.location}</button></td>
             </tr>
             <tr>
-               <th>상세지 역</th><td colspan="2">${data.loc_name}</td>
-            </tr>
-            
-            <tr>
-               <th>내용</th>
+               <th>신청팀 프로필</th>
                <td colspan="2">
                   <c:if test="${data.image == 'nan'}">
                      <b>이미지가 없습니다..</b>
@@ -52,16 +48,25 @@ td {padding: 5px;}
                <td>${data.content}</td>
             </tr>
             <tr>
+            	<th>팀 인원</th><td colspan="2">${data.team_count} 명</td>
+           </tr>
+            	<th>예상 관객</th><td colspan="2">${data.max_count} 명</td>
+           <tr>
+            	<th>공연 시작일</th><td colspan="2">${data.start_date}</td>
+           </tr>
+            	<th>공연 마감일</th><td colspan="2">${data.end_date}</td>
+           <tr>
+            	<th>연 락 처</th><td colspan="2">${data.tel}</td>
+           </tr>
+           
+           <tr>
+            	<th>티켓 가격</th><td colspan="2">${data.price} 원</td>
+           </tr>
+           <tr>
 				<td colspan="4" align="center">
-				<div id="reply"></div>
-                  <c:if test="${data.id == loginUser}">
-					<input type="button" value="수정하기" onclick="location.href='${contextPath}/place/placeModifyForm?write_no=${data.write_no}'">&nbsp;
-					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/place/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">
-                  </c:if> &nbsp;
-                  <input type="button" value="글목록" onclick="location.href='${contextPath}/place/placeAllListNum'">
-               	<c:if test="${loginUser == 'admin'}">
-               	<input type="button" value="돌아가기" onclick="location.href='${contextPath}/reservation/reservationAllListNum'">
-               	</c:if>
+					<input type="button" value="등록하기" onclick="location.href='${contextPath}/reservation/ticketingRegister?write_no=${data.write_no}'">&nbsp;
+					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/reservation/reservationDelete?write_no=${data.write_no}'">
+                  <input type="button" value="전체목록" onclick="location.href='${contextPath}/reservation/reservationAllListNum'">
                </td>
             </tr>
          </table>

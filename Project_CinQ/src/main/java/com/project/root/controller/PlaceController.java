@@ -64,10 +64,10 @@ public class PlaceController implements MemberSession{
 		}
 	 
 	 @GetMapping("placeView")
-		public String contentView(@RequestParam("write_no") int write_no, Model model) {
-			ps.placeView(write_no, model);
-			return "place/placeView";
-		}
+		public String contentView(@RequestParam(value= "write_no") int write_no,Model model) {
+			 	ps.placeView(write_no, model);
+				return "place/placeView";
+	 }
 	 
 	 @GetMapping("placeModifyForm")
 		public  String placeModifyForm(@RequestParam int write_no, Model model) {
@@ -111,7 +111,12 @@ public class PlaceController implements MemberSession{
 		 
 		      return "place/placeAllListNum";
 		}
-	
+	 
+	@RequestMapping("rentOkPlaceView")
+	public String rentOkPlaceView(@RequestParam(value="checkbox") String checkbox, Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
+		ps.RentOkPlaceView(checkbox, model, num);
+		return "place/rentOkPlaceView";
+	}
 }
 
 

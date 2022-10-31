@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  
+create table reservation (
+write_no number(7) primary key,
+id varchar2(20) not null,
+title varchar2(100),
+location number(7),
+content varchar2(300),
+image varchar2(50),
+team_count number(3),
+max_count number(3),
+start_date varchar2(15),
+end_date varchar2(15),
+price number(7),
+show_num varchar2(10),
+ticketing varchar2(2) default 'N'
+);
+
+-->
+<!-- mappers/reservation/ReservationMapper.xml -->
+
+<mapper namespace="com.project.root.mybatis.reservation.ReservationMapper">
+
+	
+	<resultMap type="com.project.root.reservation.dto.ReservationDTO" id="reservation">
+		<id property="write_no" column="write_no"/>
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="location" column="location"/>
+		<result property="content" column="content"/>
+		<result property="image" column="image"/>
+		<result property="team_count" column="team_count"/>
+		<result property="max_count" column="max_count"/>
+		<result property="start_date" column="start_date"/>
+		<result property="end_date" column="end_date"/>
+		<result property="price" column="price"/>
+		<result property="tel" column="tel"/>
+		<result property="show_num" column="show_num"/>
+		<result property="ticketing" column="ticketing"/>
+	</resultMap>
+	
+	 <insert id="reservationSave" parameterType="com.project.root.reservation.dto.ReservationDTO">
+		insert into reservation (write_no, id, title, location, content, image, team_count, max_count, start_date, end_date, price, tel, show_num)
+		values(reservation_seq.nextval,#{id}, #{title},#{location}, #{content}, #{image}, #{team_count}, #{max_count}, #{start_date}, #{end_date}, #{price}, #{tel}, DBMS_RANDOM.STRING('X', 10))
+	</insert>
+	
+	<select id="reservationAllListNum" resultMap="reservation">
+      select B.* from
+      (select rownum rn, A. * from   
+      (select * from reservation order by write_no desc) A) B 
+      where rn between #{s} and #{e}
+   </select>
+   
+   <select id="selectReservationCount" resultType="Integer">
+      select count(*) from reservation
+    </select>
+    
+    <select id="reservationView" resultMap="reservation">
+    	select * from reservation where write_no=#{write_no}
+    </select>
+	
+</mapper>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

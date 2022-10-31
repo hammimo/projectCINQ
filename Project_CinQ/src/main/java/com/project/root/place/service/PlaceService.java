@@ -3,6 +3,7 @@ package com.project.root.place.service;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface PlaceService {
@@ -20,6 +21,8 @@ public interface PlaceService {
     public String placeDelete(String id, int write_no, String imageFileName, HttpServletRequest request);
 
 	public void PlaceSearchList(String loc_sep_name, Model model, int num);
+
+	public void RentOkPlaceView(String checkbox, Model model,int num);
 	
 	
 }

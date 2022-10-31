@@ -70,21 +70,24 @@ button:hover {
   right : 100px;
 }
 .second {
-  right : 400px;
+  right : 300px;
   
 }
 .third {
-  right : 700px;
+  right : 500px;
 }
-
+.fourth {
+	right : 700px;	
+}
 </style>
 
 </head>
 <body>
 <div class="submit">
-    <a href="/root/join/artistForm?id=${loginUser}"><button class="first" name="createP"> 프로젝트생성 </button></a>
+    <a href="/root/join/artistForm?id=${loginUser}"><button class="first" name="createP"> 구인하기 </button></a>
     <a href="#"><button class="second" name="rent"> 예매하기 </button></a>
-    <a href="/root/place/rentPlace"><button class="third" name="rent"> 장소등록 </button></a>
+  	<a href="/root/reservation/reservationForm"><button class="third" name="submit"> 제출하기 </button></a>
+    <a href="/root/place/rentPlace"><button class="fourth" name="rent"> 장소등록 </button></a>
 	
 </div> 
 </body>

@@ -3,12 +3,12 @@ package com.project.root.join.dto;
 import java.sql.Timestamp;
 
 /*
- create table reply(
+create table reply(
 write_no number(20),
 id varchar2(20),
 title varchar2(50),
 content varchar2(300),
-tel var
+tel varchar2(13),
 write_group number(10),
 write_date date default sysdate,
 constraint fk_group foreign key(write_group) references join(write_no) on delete cascade,
