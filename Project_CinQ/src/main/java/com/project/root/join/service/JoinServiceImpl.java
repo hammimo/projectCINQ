@@ -170,8 +170,7 @@ public class JoinServiceImpl implements JoinService{
 	}
 
 	@Override
-	public void deleteReply(int write_no) {
-		
+	public void deleteReply(int write_no) {		
 		mapper.deleteReply(write_no);
 		
 	}
