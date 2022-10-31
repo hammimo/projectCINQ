@@ -96,5 +96,16 @@ public class ReservationController implements MemberSession {
 			return "reservation/ticketingRegister";
 		
 		}
-	 
+	
+	@PostMapping("ticketingStart")
+	public void modify(MultipartHttpServletRequest mul, 
+							HttpServletResponse response,
+							HttpServletRequest request) throws IOException {
+		
+		String message = rs.ticketingStart(mul, request);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(message);
+		
+	}
 }

@@ -19,4 +19,5 @@ public interface ReservationMapper {
 
 	public int reservationDelete(int write_no);
 
+	public int ticketingStart(ReservationDTO dto);
 }  

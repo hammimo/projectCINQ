@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JoinView</title>
+<title>reservationView</title>
 <style type="text/css">
 .Sproject{
    align : center;

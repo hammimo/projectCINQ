@@ -101,12 +101,55 @@ public class ReservationServiceImpl implements ReservationService{
 			url = "/reservation/reservationAllListNum";
 			
 		} else {
-			msg = "글 삭제 오류";
+			msg = "삭제 오류";
 			url = "/reservation/reservationAllListNum";
 		}
 		
 		return rfs.getMessage(request, msg, url);
 	
+	}
+
+	@Override
+	public String ticketingStart(MultipartHttpServletRequest mul, HttpServletRequest request) {
+		
+		ReservationDTO dto = new ReservationDTO();
+		dto.setWrite_no(Integer.parseInt(mul.getParameter("write_no")));
+		dto.setId(mul.getParameter("id"));
+		dto.setTitle(mul.getParameter("title"));
+		dto.setLocation(mul.getParameter("location"));
+		dto.setContent(mul.getParameter("content"));
+		dto.setStart_date(mul.getParameter("start_date"));
+		dto.setEnd_date(mul.getParameter("end_date"));
+		dto.setTeam_count(Integer.parseInt(mul.getParameter("team_count")));
+		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
+		dto.setPrice(Integer.parseInt(mul.getParameter("price")));
+		dto.setTel(mul.getParameter("tel"));
+		
+		MultipartFile file = mul.getFile("image");
+		if(file.getSize() != 0) {
+			dto.setImage(rfs.saveFile(dto.getId(), file));
+			rfs.deleteImage(mul.getParameter("originFileName"));
+		} else {
+			dto.setImage(mul.getParameter("originFileName"));
+		}
+		
+		int result = 0;
+		try {
+			result = mapper.ticketingStart(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		String msg, url;
+		if(result == 1) {
+			msg = "예매등록완료 되었습니다.";
+			url = "/reservation/reservationAllListNum";
+		} else {
+			msg = "예매등록 오류";
+			url = "/reservation/reservationAllListNum";
+		}
+		
+		return rfs.getMessage(request, msg, url);
 	}
 	
 }

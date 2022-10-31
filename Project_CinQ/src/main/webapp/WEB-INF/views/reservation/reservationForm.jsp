@@ -30,19 +30,19 @@
         <b>제 목</b>
         <input type="text" name="title" size="50"><br><br>
 		<br><br>
-		<c:if test="${data != null}">
-		<input type="hidden" id="location" name="location" value="${data.write_no}">
+		<c:if test="${placeData != null}">
+		<input type="hidden" id="location" name="location" value="${placeData.write_no}">
 		<b>장소</b><br>
-		<c:if test="${data.image == 'nan'}">
+		<c:if test="${placeData.image == 'nan'}">
         <b>이미지가 없습니다..</b><br>
         </c:if>
-        <c:if test="${data.image != 'nan'}">
-        <img src="${contextPath}/place/download?imageFileName=${data.image}" width="200px" height="200px"><br>
+        <c:if test="${placeData.image != 'nan'}">
+        <img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="200px" height="200px"><br>
         </c:if>
-        <b>지역 : ${data.loc_sep_name}</b><br>
-        <b>장소명 : ${ data.loc_name} </b><br><br>
+        <b>지역 : ${placeData.loc_sep_name}</b><br>
+        <b>장소명 : ${placeData.loc_name} </b><br><br>
 		</c:if>
-		<c:if test="${data == null}">
+		<c:if test="${placeData == null}">
 		<b>장소</b>
 		장소추천받을게요 <input type="checkbox" id="location" name="location" value="0" checked="checked"><br><br>
 		</c:if>

@@ -144,7 +144,7 @@ public class PlaceServiceImpl implements PlaceService{
 
 	@Override
 	public void placeView(int write_no, Model model) {
-		model.addAttribute("data", mapper.placeView(write_no));
+		model.addAttribute("placeData", mapper.placeView(write_no));
 		
 	}
 
