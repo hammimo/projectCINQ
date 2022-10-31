@@ -19,7 +19,7 @@
 		<ul>
 			<li><a href="/root/admin/memberAllList">회원관리</a></li>
 			<li><a href="/root/admin/placeAllList">장소관리</a></li>
-			<li><a href="/root/admin/reservationList">예약글관리</a></li>
+			<li><a href="/root/admin/reservationAllListNum">예매관리</a></li>
 		</ul>
 	</div>
 </body>
