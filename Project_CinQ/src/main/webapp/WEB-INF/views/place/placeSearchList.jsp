@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>placeAllListNum</title>
+<title>placeSearchListNum</title>
 <style type="text/css">
 /* .searchPlace{
     display: inline-block;
@@ -53,7 +53,7 @@ div {text-align:center;}
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
-   <input type="hidden" name="place" value="${loc_sep_name }">
+  <input type="text" value="${placeList}">
    <!-- <div align="center"> -->
    <br>
    <h1 align="center"> 등록된 장소 목록 </h1>
@@ -101,7 +101,7 @@ div {text-align:center;}
       <tr>
          <td colspan="6" align="center">
              <c:forEach var="num" begin="1" end="${repeat}">
-                 <a href="placeSearchListNum?num=${num}">[${num}]</a>
+                 <a href="placeSearchList?loc_sep_name=${loc_sep_name}&num=${num}">[${num}]</a>
              </c:forEach>
          </td>
      </tr>

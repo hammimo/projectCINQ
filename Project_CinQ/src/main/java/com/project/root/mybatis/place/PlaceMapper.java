@@ -27,6 +27,6 @@ public interface PlaceMapper {
 	
 	public int selectPlaceSearchCount(@Param("l")String loc_sep_name);
 	
-	public List<PlaceDTO> rentOkPlace(@Param("checkbox")String checkbox, @Param("s")int start, @Param("e") int end);
+	public List<PlaceDTO> rentOkPlace(@Param("s")int start, @Param("e") int end);
 	
 }  
