@@ -53,7 +53,6 @@ div {text-align:center;}
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
-   <input type="hidden" name="place" value="${loc_sep_name }">
    <!-- <div align="center"> -->
    <br>
    <h1 align="center"> 등록된 장소 목록 </h1>

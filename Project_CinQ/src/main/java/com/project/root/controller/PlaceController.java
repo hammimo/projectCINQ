@@ -62,6 +62,7 @@ public class PlaceController implements MemberSession{
 		      ps.PlaceAllListNum(model, num);
 		      return "place/placeAllListNum";
 		}
+
 	 
 	 @GetMapping("placeView")
 		public String contentView(@RequestParam(value= "write_no") int write_no,Model model) {
@@ -100,21 +101,16 @@ public class PlaceController implements MemberSession{
 			
 		}	
 	
-	 @PostMapping("placeSearchList")
+	 @RequestMapping("placeSearchList")
 		public String placeSearchList(@RequestParam(value="loc_sep_name") String loc_sep_name, Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
-		 System.out.println(loc_sep_name);
-		 if(loc_sep_name != null) {     
+		 System.out.println(loc_sep_name);		      
 			 ps.PlaceSearchList(loc_sep_name, model, num);
-		 } else {
-			 ps.PlaceAllListNum(model, num);
-		 }
-		 
-		      return "place/placeAllListNum";
+			 return "place/placeSearchList";
 		}
 	 
 	@RequestMapping("rentOkPlaceView")
-	public String rentOkPlaceView(@RequestParam(value="checkbox") String checkbox, Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
-		ps.RentOkPlaceView(checkbox, model, num);
+	public String rentOkPlaceView(Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
+		ps.RentOkPlaceView(model, num);
 		return "place/rentOkPlaceView";
 	}
 }

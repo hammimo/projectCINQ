@@ -21,7 +21,7 @@
  	
  	<div id="reservationForm">
  		<b>공연장소</b>&nbsp;
-		<button type="button" onclick="location.href='${contextPath }/place/rentOkPlaceView?checkbox=N'">대관가능 장소보기</button><br><br>
+		<button type="button" onclick="location.href='${contextPath }/place/rentOkPlaceView">대관가능 장소보기</button><br><br>
  		<button type="button" onclick="location.href='reservationForm'">취소</button><br><br>
  		<br><br>
 		<form  id="form" class="reservationForm"  action="${contextPath }/reservation/reservation" enctype="multipart/form-data" method="post"> 
@@ -68,7 +68,7 @@
          <br><br>
          <input type="submit" value="제출하기">   
 		 </form>
-		 <button onclick="location.href='../member/myinfo2?id=${loginUser}'">돌아가기</buttton>
+		 <button type="button" onclick="location.href='../member/myinfo2?id=${loginUser}'">돌아가기</button>
    </div>
  <c:import url="../default/footer.jsp"/>
 </body>

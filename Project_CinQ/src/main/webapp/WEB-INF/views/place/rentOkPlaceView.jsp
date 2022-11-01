@@ -60,7 +60,7 @@ td {
 	      <tr>
 	         <td colspan="6" align="center">
 	             <c:forEach var="num" begin="1" end="${repeat}">
-	                 <a href="rentOkPlaceView?checkbox=N&num=${num}">[${num}]</a>
+	                 <a href="rentOkPlaceView?num=${num}">[${num}]</a>
 	             </c:forEach>
 	         </td>
 	     </tr>

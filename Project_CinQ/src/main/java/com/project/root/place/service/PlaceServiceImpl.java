@@ -157,12 +157,13 @@ public class PlaceServiceImpl implements PlaceService{
 			repeat += 1;
 			int end = num * pageLetter;
 			int start = end + 1 - pageLetter;
+			model.addAttribute("loc_sep_name", loc_sep_name);
 			model.addAttribute("repeat", repeat);
 			model.addAttribute("placeList", mapper.placeSearchList(loc_sep_name, start, end));
 		
 	}
 	@Override
-	public void RentOkPlaceView(String checkbox, Model model, int num) {
+	public void RentOkPlaceView(Model model, int num) {
 		int pageLetter = 3;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectPlaceCount();// 전체 글수
 		int repeat = allCount/pageLetter;
@@ -171,7 +172,7 @@ public class PlaceServiceImpl implements PlaceService{
 			int end = num * pageLetter;
 			int start = end + 1 - pageLetter;
 			model.addAttribute("repeat", repeat);
-			model.addAttribute("rentOkList",mapper.rentOkPlace(checkbox, start, end));
+			model.addAttribute("rentOkList",mapper.rentOkPlace(start, end));
 	}
 	
     
