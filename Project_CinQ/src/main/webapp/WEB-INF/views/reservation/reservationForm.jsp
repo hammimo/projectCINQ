@@ -10,6 +10,7 @@
 <script src='<c:url value="/resources/script/js/file.js"/>'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src='<c:url value="/resources/script/js/reservation.js"/>'></script>
 <style type="text/css">
 #reservationForm {
 	text-align: center;
@@ -21,7 +22,7 @@
  	
  	<div id="reservationForm">
  		<b>공연장소</b>&nbsp;
-		<button type="button" onclick="location.href='${contextPath }/place/rentOkPlaceView">대관가능 장소보기</button><br><br>
+		<button type="button" onclick="rentOkview()">대관가능 장소보기</button><br><br>
  		<button type="button" onclick="location.href='reservationForm'">취소</button><br><br>
  		<br><br>
 		<form  id="form" class="reservationForm"  action="${contextPath }/reservation/reservation" enctype="multipart/form-data" method="post"> 

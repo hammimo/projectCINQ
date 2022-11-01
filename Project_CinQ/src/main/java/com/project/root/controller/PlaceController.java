@@ -102,17 +102,16 @@ public class PlaceController implements MemberSession{
 		}	
 	
 	 @RequestMapping("placeSearchList")
-		public String placeSearchList(@RequestParam(value="loc_sep_name") String loc_sep_name, Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
-		 System.out.println(loc_sep_name);		      
+		public String placeSearchList(@RequestParam(value="loc_sep_name") String loc_sep_name, Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {		      
 			 ps.PlaceSearchList(loc_sep_name, model, num);
 			 return "place/placeSearchList";
 		}
-	 
-	@RequestMapping("rentOkPlaceView")
-	public String rentOkPlaceView(Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
-		ps.RentOkPlaceView(model, num);
-		return "place/rentOkPlaceView";
-	}
+	 @RequestMapping("rentOkPlaceView")
+	 	public String rentOkPlaceView(Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
+		 	ps.RentOkPlaceView(model, num);
+		 	return "place/rentOkPlaceView";
+	 	}
+
 }
 
 

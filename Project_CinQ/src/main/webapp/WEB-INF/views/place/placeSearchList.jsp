@@ -101,7 +101,7 @@ div {text-align:center;}
       <tr>
          <td colspan="6" align="center">
              <c:forEach var="num" begin="1" end="${repeat}">
-                 <a href="placeSearchList?loc_sep_name=${dto_s.loc_sep_name}&num=${num}">[${num}]</a>
+                 <a href="placeSearchList?loc_sep_name=${loc_sep_name}&num=${num}">[${num}]</a>
              </c:forEach>
          </td>
      </tr>

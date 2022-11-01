@@ -174,10 +174,7 @@ public class PlaceServiceImpl implements PlaceService{
 			model.addAttribute("repeat", repeat);
 			model.addAttribute("rentOkList",mapper.rentOkPlace(start, end));
 	}
-	
-    
-
-	 
+		 
 	 
 }
 	
