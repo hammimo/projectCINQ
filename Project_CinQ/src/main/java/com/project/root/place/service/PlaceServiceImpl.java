@@ -144,7 +144,7 @@ public class PlaceServiceImpl implements PlaceService{
 
 	@Override
 	public void placeView(int write_no, Model model) {
-		model.addAttribute("data", mapper.placeView(write_no));
+		model.addAttribute("placeData", mapper.placeView(write_no));
 		
 	}
 
@@ -157,15 +157,24 @@ public class PlaceServiceImpl implements PlaceService{
 			repeat += 1;
 			int end = num * pageLetter;
 			int start = end + 1 - pageLetter;
+			model.addAttribute("loc_sep_name", loc_sep_name);
 			model.addAttribute("repeat", repeat);
-		model.addAttribute("placeSearchList", mapper.placeSearchList(loc_sep_name, start, end));
+			model.addAttribute("placeList", mapper.placeSearchList(loc_sep_name, start, end));
 		
 	}
-
-	
-    
-
-	 
+	@Override
+	public void RentOkPlaceView(Model model, int num) {
+		int pageLetter = 3;// 한 페이지 당 글 목록수
+		int allCount = mapper.selectPlaceCount();// 전체 글수
+		int repeat = allCount/pageLetter;
+		if(allCount % pageLetter != 0)
+			repeat += 1;
+			int end = num * pageLetter;
+			int start = end + 1 - pageLetter;
+			model.addAttribute("repeat", repeat);
+			model.addAttribute("rentOkList",mapper.rentOkPlace(start, end));
+	}
+		 
 	 
 }
 	

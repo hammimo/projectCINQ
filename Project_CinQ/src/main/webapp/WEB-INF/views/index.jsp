@@ -1,7 +1,7 @@
 <!-- index.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>   
 <!DOCTYPE html>
 <html>
@@ -117,6 +117,9 @@ $(document).ready(function(){
 </head>
 <body>
 	<c:import url="default/header.jsp"/>
+	<c:if test="${loginUser == 'admin' }">
+		<c:import url="default/adminMenu.jsp"/>
+	</c:if>
 	<div class="projects">
 		<h3>진행중인 프로젝트</h3>
 	</div>

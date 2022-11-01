@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.project.root.join.service.JoinFileService;
-import com.project.root.place.service.PlaceFileService;
 import com.project.root.place.service.PlaceService;
 import com.project.root.session.name.MemberSession;
 
@@ -51,7 +50,7 @@ public class PlaceController implements MemberSession{
 		public void download(@RequestParam String imageFileName, HttpServletResponse response)throws Exception {
 			
 			response.addHeader("Content-disposition", "attachment; fileName="+imageFileName);
-			File file = new File(PlaceFileService.IMAGE_REPO+"\\"+imageFileName);
+			File file = new File(JoinFileService.IMAGE_REPO+"\\"+imageFileName);
 			FileInputStream in = new FileInputStream(file);
 			FileCopyUtils.copy(in, response.getOutputStream());
 			in.close();
@@ -63,12 +62,13 @@ public class PlaceController implements MemberSession{
 		      ps.PlaceAllListNum(model, num);
 		      return "place/placeAllListNum";
 		}
+
 	 
 	 @GetMapping("placeView")
-		public String contentView(@RequestParam("write_no") int write_no, Model model) {
-			ps.placeView(write_no, model);
-			return "place/placeView";
-		}
+		public String contentView(@RequestParam(value= "write_no") int write_no,Model model) {
+			 	ps.placeView(write_no, model);
+				return "place/placeView";
+	 }
 	 
 	 @GetMapping("placeModifyForm")
 		public  String placeModifyForm(@RequestParam int write_no, Model model) {
@@ -101,18 +101,17 @@ public class PlaceController implements MemberSession{
 			
 		}	
 	
-	 @PostMapping("placeSearchList")
-		public String placeSearchList(@RequestParam(value="loc_sep_name") String loc_sep_name, Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
-		 System.out.println(loc_sep_name);
-		 if(loc_sep_name != null) {     
+	 @RequestMapping("placeSearchList")
+		public String placeSearchList(@RequestParam(value="loc_sep_name") String loc_sep_name, Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {		      
 			 ps.PlaceSearchList(loc_sep_name, model, num);
-		 } else {
-			 ps.PlaceAllListNum(model, num);
-		 }
-		 
-		      return "place/placeAllListNum";
+			 return "place/placeSearchList";
 		}
-	
+	 @RequestMapping("rentOkPlaceView")
+	 	public String rentOkPlaceView(Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
+		 	ps.RentOkPlaceView(model, num);
+		 	return "place/rentOkPlaceView";
+	 	}
+
 }
 
 
@@ -122,7 +121,6 @@ public class PlaceController implements MemberSession{
 
 
  
-
 
 
 

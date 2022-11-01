@@ -53,15 +53,13 @@ div {text-align:center;}
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
-   <input type="hidden" name="place" value="${loc_sep_name }">
    <!-- <div align="center"> -->
    <br>
    <h1 align="center"> 등록된 장소 목록 </h1>
    <form action="placeSearchList" method="post" enctype='multipart/form-data'>
    	<div class="searchPlace">
-   		<input name="loc_sep_name" type="text" placeholder="지역 입력(예시:강남)">
+   		<input name="loc_sep_name" type="text" placeholder="지역 입력(예시:강남)">&nbsp;<input type="submit" value="검색">
    	</div>
-   	<input type="submit" value="검색">
    </form>
    <br>
    <div>
@@ -98,32 +96,6 @@ div {text-align:center;}
 				<td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.content}</a></td>
             </tr>
       </c:forEach>
-      
-       <c:if test="${placeSearchList.size() == 0}">
-            <tr>
-               <th colspan="6">검색하신 지역중에 등록된 장소가 없습니다</th>
-            </tr>   
-      </c:if>
-       <c:forEach var="dto_s" items="${placeSearchList}">
-            <tr>
-				<td>${dto_s.id}</td>
-				<td><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.write_no}</a></td>
-				<td>${dto_s.title}</td>
-				  <c:if test="${dto_s.image == 'nan'}">
-                    <td>
-                     	<b>이미지가 없습니다..</b>
-                  	</td>
-                  </c:if>
-                  <c:if test="${dto_s.image != 'nan'}">
-                 	<td>
-                 	<a href="/root/place/placeView?write_no=${dto_s.write_no}"><img src="${contextPath}/place/download?imageFileName=${dto_s.image}" width="200px" height="200px"></a>
-                  	</td>
-                  </c:if>
-                <td><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.loc_sep_name}</a></td>
-				<td><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.content}</a></td>
-            </tr>
-      </c:forEach>
-      
       <tr>
          <td colspan="6" align="center">
              <c:forEach var="num" begin="1" end="${repeat}">

@@ -71,9 +71,6 @@ nav ul li {
                             <a href="/root/member/logout">로그아웃</a>
                         </c:if>
                     </li>
-                    
-
-
                 </ul>
             </nav>
         </div>
