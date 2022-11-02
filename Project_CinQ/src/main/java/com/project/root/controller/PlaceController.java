@@ -111,7 +111,8 @@ public class PlaceController implements MemberSession{
 		 	ps.RentOkPlaceView(model, num);
 		 	return "place/rentOkPlaceView";
 	 	}
-
+	 
+	
 }
 
 
