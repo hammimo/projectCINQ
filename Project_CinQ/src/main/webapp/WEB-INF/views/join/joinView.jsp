@@ -105,7 +105,7 @@ p {
                   <c:if test="${data.id == loginUser}">
 					<input type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
 					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">
-                  	<input type="button" value="제출하기" onclick="location.href='${contextPath}/admin/reservation/reservationForm'">
+                  	<input type="button" value="제출하기" onclick="location.href='#'">
                   </c:if>
                   <input type="button" value="글목록" onclick="location.href='${contextPath}/join/joinAllListNum'">
                  <input type="button" value="답글달기" onclick="slide_click()"> &nbsp;

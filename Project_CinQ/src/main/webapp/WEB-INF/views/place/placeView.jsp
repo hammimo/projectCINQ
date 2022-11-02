@@ -27,22 +27,22 @@ td {padding: 5px;}
       <div class ="place_view" align="center">
          <table class="Sproject" >
             <tr>
-               <th width="150px">작성자</th><td colspan="2">${placeData.id }</td>
+               <th width="150px">작성자</th><td colspan="2">${data.id }</td>
             </tr>
             <tr>
-               <th>제 목</th><td colspan="2">${placeData.title }</td>
+               <th>제 목</th><td colspan="2">${data.title }</td>
             </tr>
             <tr>
-               <th>지 역</th><td colspan="2">${placeData.loc_sep_name}</td>
+               <th>지 역</th><td colspan="2">${data.loc_sep_name}</td>
             </tr>
             <tr>
                <th>내용</th>
                <td colspan="2">
-                  <c:if test="${placeData.image == 'nan'}">
+                  <c:if test="${data.image == 'nan'}">
                      <b>이미지가 없습니다..</b>
                   </c:if>
-                  <c:if test="${placeData.image != 'nan'}">
-                 	<img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="200px" height="200px">
+                  <c:if test="${data.image != 'nan'}">
+                 	<img src="${contextPath}/place/download?imageFileName=${data.image}" width="200px" height="200px">
                   </c:if>
                </td>
                <td>${data.content}</td>
@@ -50,14 +50,11 @@ td {padding: 5px;}
             <tr>
 				<td colspan="4" align="center">
 				<div id="reply"></div>
-                  <c:if test="${placeData.id == loginUser}">
-					<input type="button" value="수정하기" onclick="location.href='${contextPath}/place/placeModifyForm?write_no=${placeData.write_no}'">&nbsp;
-					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/place/delete?id=${placeData.id}&write_no=${placeData.write_no}&imageFileName=${data.image}'">
+                  <c:if test="${data.id == loginUser}">
+					<input type="button" value="수정하기" onclick="location.href='${contextPath}/place/placeModifyForm?write_no=${data.write_no}'">&nbsp;
+					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/place/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">
                   </c:if> &nbsp;
                   <input type="button" value="글목록" onclick="location.href='${contextPath}/place/placeAllListNum'">
-               	  <c:if test="${loginUser == 'admin'}">
-               	<input type="button" value="돌아가기" onclick="location.href='${contextPath}/reservation/reservationAllListNum'">
-               	</c:if>
                </td>
             </tr>
          </table>
