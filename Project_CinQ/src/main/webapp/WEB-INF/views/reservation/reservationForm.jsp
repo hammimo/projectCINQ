@@ -22,7 +22,7 @@
  	
  	<div id="reservationForm">
  		<b>공연장소</b>&nbsp;
-		<button type="button" onclick="rentOkview()">대관가능 장소보기</button><br><br>
+		<button type="button" onclick="rentOkView()">대관가능 장소보기</button><br><br>
  		<button type="button" onclick="location.href='reservationForm'">취소</button><br><br>
  		<br><br>
 		<form  id="form" class="reservationForm"  action="${contextPath }/reservation/reservation" enctype="multipart/form-data" method="post"> 

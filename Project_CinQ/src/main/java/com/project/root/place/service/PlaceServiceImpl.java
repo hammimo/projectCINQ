@@ -164,7 +164,7 @@ public class PlaceServiceImpl implements PlaceService{
 	}
 	@Override
 	public void RentOkPlaceView(Model model, int num) {
-		int pageLetter = 3;// 한 페이지 당 글 목록수
+		int pageLetter = 1;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectPlaceCount();// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)

@@ -16,6 +16,7 @@ td {
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src='<c:url value="/resources/script/js/reservation.js"/>'></script>
 </head>
 <body>
    <div>
@@ -33,7 +34,7 @@ td {
             </tr>   
       </c:if>
       <c:forEach var="dto" items="${rentOkList}">    
-            <tr>
+           <tr>
 				<td>
 				${dto.write_no}
 				</td>
@@ -50,11 +51,10 @@ td {
                   </c:if>
                 <td>${dto.loc_sep_name}</td>
 				<td>${dto.content}</td>
-            </tr>
-            <tr>
-            <td colspan="6"> 
-            	<input type="button" value="신청하기" onclick="location.href='${contextPath}/reservation/reservationForm?write_no=${dto.write_no}'">
-            </td>
+            	<td>
+            		<input type="hidden" id="data_1" value="${dto.write_no} ">
+            		<input type="button" value="신청하기" onclick="placeSubmit()">
+            	</td>
             </tr>
       </c:forEach>
 	      <tr>
