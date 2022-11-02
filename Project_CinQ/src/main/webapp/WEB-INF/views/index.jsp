@@ -1,13 +1,13 @@
 <!-- index.jsp -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>   
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
 <title>index.jsp</title>
 
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
