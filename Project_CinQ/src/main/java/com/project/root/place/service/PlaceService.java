@@ -22,12 +22,6 @@ public interface PlaceService {
 	public void PlaceSearchList(String loc_sep_name, Model model, int num);
 	
 	public void RentOkPlaceView(Model model,int num);
-
-	public void updateY(Model model, int write_no);
-	
-	public void updateN(Model model, int write_no);
-	
-	public void deletePlaceAdmin(Model model, int write_no);
 	
 }
  

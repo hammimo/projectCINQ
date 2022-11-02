@@ -47,22 +47,5 @@ public class AdminController implements MemberSession{
     	ps.PlaceAllList(model);
     	return "admin/placeAllListAdmin";
     }
-    
-    @RequestMapping("placeUpdateY")
- 	public String placeUpdateY(Model model,@RequestParam int write_no) {
-	 ps.updateY(model,write_no);
-	 return "redirect:placeAllList";
- }
-    @RequestMapping("placeUpdateN")
- 	public String placeUpdateN(Model model,@RequestParam int write_no) {
-	 ps.updateN(model,write_no);
-	 return "redirect:placeAllList";
- }
-    
-    @RequestMapping("deletePlace")
-    public String deletePlace(Model model,@RequestParam int write_no) {
-    ps.deletePlaceAdmin(model,write_no);
-    return "redirect:placeAllList";
-   }
  
 }

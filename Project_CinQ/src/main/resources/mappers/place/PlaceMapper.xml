@@ -68,11 +68,9 @@ checkbox varchar2(2) default 'N'
     	select * from place where write_no=#{write_no}
     </select>
     
-    <delete id="deletePlace">
-		delete from place where write_no=#{n}
+    <delete id="delete">
+		delete place where write_no =#{write_no}
 	</delete>
-	
-	
 	
 	<select id="selectPlaceSearchCount" resultType="Integer">
       select count(*) from place where loc_sep_name like '%' || #{l} || '%'
@@ -84,18 +82,6 @@ checkbox varchar2(2) default 'N'
       (select * from place where checkbox='N' order by write_no desc ) A) B 
       where rn between #{s} and #{e}
     </select>
-    
-    <update id="updateY">
-    	update place
-    	set checkbox = 'Y'
-    	where write_no =#{write_no}
-    </update>
-    
-    <update id="updateN">
-    	update place
-    	set checkbox = 'N'
-    	where write_no =#{write_no}
-    </update>
     
 </mapper>
 
