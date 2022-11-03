@@ -34,4 +34,6 @@ public interface PlaceMapper {
 	public int updateN(@Param("n")int write_no);
 	
 	public int deletePlace(Model model, @Param("n")int write_no);
+	
+	public List<PlaceDTO> registOkPlace();
 }  

@@ -29,5 +29,6 @@ public interface PlaceService {
 	
 	public void DeletePlace(Model model,int write_no);
 	
+	public void RegistOkPlaceView(Model model);
 }
  

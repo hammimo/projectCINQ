@@ -210,7 +210,10 @@ public class PlaceServiceImpl implements PlaceService{
 		}
 		
 	}
-	
+	@Override
+	public void RegistOkPlaceView(Model model) {
+		model.addAttribute("rentOkList",mapper.registOkPlace());
+	}
 	
 	 
 }

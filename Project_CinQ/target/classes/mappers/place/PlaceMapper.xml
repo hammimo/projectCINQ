@@ -95,6 +95,9 @@ checkbox varchar2(2) default 'N'
       where rn between #{s} and #{e}
     </select>
     
+    <select id="registOkPlace" resultMap="place">
+    	select * from place where checkbox='N'
+     </select>
 </mapper>
 
  

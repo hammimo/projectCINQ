@@ -11,9 +11,8 @@ function rentOkView() {
 
 
 function placeSubmit() {
-
-	var val_1 = $("#data_1").val();
-	window.opener.location.href='../reservation/reservationForm?write_no='+val_1
+	var place_no = $("#place_no").val();
+	window.opener.location.href='../reservation/reservationForm?place_no='+place_no
 	window.close();
 	
 }
