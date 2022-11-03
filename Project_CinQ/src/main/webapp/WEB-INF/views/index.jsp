@@ -6,8 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <title>index.jsp</title>
 
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -57,42 +57,43 @@ $(document).ready(function(){
 	
 })
 </script>
-<link href="${path}/resources/css/test.css" rel="stylesheet"/>
 
 <style type="text/css">
 	*{
-	background-color: 	#bebebe;
+	
 	font-family: 'Hahmlet', serif;
 	}
   .projects {
+    padding-top: 6%;
+    background-color :rgba(0, 13, 0, 0.04);
   	text-align:center;
     position : relative;
-    width : 87%;
-    height: 500px;
-    background-color : 	#bebebe;
+    width : 100%;
+    height: 800px;
  }
   .pre_projects {
+    background-color :rgba(0, 13, 0, 0.04);
   	float: left;
     display: inline-block;
   	text-align:center;
-    width : 45%;
+    width : 44%;
     height: 250px;
-    background-color : 	#bebebe;
  }
   .place {
+    background-color :rgba(0, 13, 0, 0.04);
   	display: inline-block;
   	text-align:center;
     width : 43%;
     height: 250px;
-    background-color : 	#bebebe;
  }
  img {
     width: 450px;
     height: 150px;
  }
  #test {
- 	width: 800px;
- 	height: 350px;
+    background-color :rgba(0, 13, 0, 0.04);
+ 	width: 870px;
+ 	height: 450px;
  }
  
 .Join_list {
@@ -122,16 +123,17 @@ $(document).ready(function(){
    position : bottom;
 }
 #wrapper{
+    background-color :rgba(0, 13, 0, 0.04);
 	height: auto;
- 	 min-height: 100%;
- 	 padding-bottom: 10px;
+ 	min-height: 100%;
+ 	padding-bottom: 10px;
 }
+
 </style>
 </head>
 <body>
 	
 	<c:import url="default/header.jsp"/>
-	<c:import url="default/aside.jsp"/>
 	<div class="wrapper">
 	<div class="projects">
 	<br>

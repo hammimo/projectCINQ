@@ -9,70 +9,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link href="${contextPath}/resources/script/css/info.css"
+	rel="stylesheet" type="text/css">
 <title>member/info.jsp</title>
-<style type="text/css">
-	@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
-    *{
-        margin: 0;
-        background-color: 	#bebebe
-        
-    }
-    section {
-	float: right;
-	width: 200px;
-	background: 	#bebebe;
-	height: 700px;
-	line-height: 100px;
-	font-family: 'Hahmlet', serif;
-	}
-	li {
-	list-style: none;
-	font-size: 24px;
-	font-family: 'Hahmlet', serif;
-	}
-	button {
-	margin: 0;
-	padding: 0;
-	position: relative;
-    border: none;
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-	box-sizing: border-box;
-	margin: 20px;
-	background-color: #323232;
-    color: white;
-    font-family: 'Hahmlet', serif;
-	}
-	button:hover {
-	letter-spacing: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-	background-color: #323232;
-    color: white;
-	}
-.member_info {
-	margin: auto;
-	text-align: center;
-	font-family: 'Hahmlet', serif;
-}
-.member_info_btn {
-	margin: auto;
-	text-align: center;
-	font-family: 'Hahmlet', serif;
-}
-.Ticketing {
-	text-align: center;
-	border: 1px solid black;
-	font-family: 'Hahmlet', serif;
-}
-</style>
+
 </head>
 <body>
 	<c:import url="../default/header.jsp"/>
@@ -137,6 +77,7 @@
         <div class="info">
             데이터가 들어오면 설명
         </div>
+        <br><br><br><br><br><br><br><br><br><br><br>
 	</div>
 	<c:import url="../default/footer.jsp"/>
 

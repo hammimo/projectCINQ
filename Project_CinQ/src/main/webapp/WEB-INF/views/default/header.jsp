@@ -19,42 +19,45 @@ a{
 	color: black;
 }
 a:hover{
-	color: #646464;
+	color: black;
 }
 
 .wrap {
-	
+	background-color :rgba(0, 13, 0, 0.04);
 	width:100%;
     margin: auto;
     text-align: center;
 }
 .header {
-	
     margin: 0;
     flex: 0 0 auto;
 }
 .title {
     font-size: 60px;
     text-align: center;
-    background-color: 	#bebebe;
 }
 
 nav {
-	font-family: 'Hahmlet', serif;
-	font-size:23px;
+	font-size:18px;
     margin: 0;
     width: 100%;
+    display: inline-block;
 }
 nav ul {
     list-style: none;
-    display: flex;
-    justify-content: first;
     font-size:23px;
+    display: flex;
 }
 nav ul li {
-    padding: 10px;
-    font-size:23px;
+    padding: 8px;
+    font-size:14px;
     
+}
+.memberInfo{
+	float:left;
+}
+.menu{
+	float: right;
 }
 .joinList {
 	
@@ -71,8 +74,7 @@ nav ul li {
     <!-- // wrap -->
         <div class="wrap">
             <nav>
-            	
-                <ul>
+                <ul class="memberInfo">
                     <li><a href = "/root/index">HOME</a></li>
                     <li>
                         <c:if test="${loginUser == null}">
@@ -84,10 +86,12 @@ nav ul li {
                             <a href="/root/member/logout">LOGOUT</a>
                         </c:if>
                     </li>
-                    
-
-
                 </ul>
+                <ul class="menu">
+            		<li><a id="a1" href="/root/reservation/reservationAllListNum">Project</a></li>
+      				<li><a id="a1" href="/root/join/joinAllListNum">Join</a></li>
+     				<li><a id="a1" href="/root/place/placeAllListNum">Place</a></li>
+            	</ul>
             </nav>
         </div>
     <!-- // navdiv -->
