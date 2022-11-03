@@ -9,8 +9,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
+<link href="${contextPath}/resources/script/css/form.css" rel="stylesheet" type="text/css">
 <title>placeAllListNum</title>
 <style type="text/css">
+
 /* .searchPlace{
     display: inline-block;
     margin-top: 30px;
@@ -24,9 +27,18 @@
      width: 100px;
     height: 36px;
   } */
+  *{
+	font-family: 'Hahmlet', serif;
+	}
+ .searchPlace{
+	display: inline-block;
+	padding-left: 80%;
+}
 .placeTable{
+   width: 1300px;
    align : center;
    border-collapse: collapse;
+   font-size: 18px;
 }
 .title1{
    background-color: #e6f1ff;
@@ -53,13 +65,17 @@ div {text-align:center;}
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
+   <hr>
+   <div class="wrapper">
+   <input type="hidden" name="place" value="${loc_sep_name }">
    <!-- <div align="center"> -->
    <br>
    <h1 align="center"> 등록된 장소 목록 </h1>
    <form action="placeSearchList" method="post" enctype='multipart/form-data'>
    	<div class="searchPlace">
-   		<input name="loc_sep_name" type="text" placeholder="지역 입력(예시:강남)">&nbsp;<input type="submit" value="검색">
+   		<input name="loc_sep_name" type="text" placeholder="지역 입력(예시:강남)">
    	</div>
+   	<input type="submit" value="검색">
    </form>
    <br>
    <div>
@@ -67,9 +83,9 @@ div {text-align:center;}
       <tr class= "title1">
          <th width="100px">ID</th>
          <th width="100px">NUMBER</th>
-         <th width="500px">TITLE</th>
-        <th width="300px">PROFILE</th>
+         <th width="300px">PROFILE</th>
          <th width="100px">LOCATION</th>
+         <th width="500px">TITLE</th>
          <th width="800px">CONTENT</th>
       </tr>
       <c:if test="${placeList.size() == 0}">
@@ -80,19 +96,23 @@ div {text-align:center;}
       <c:forEach var="dto" items="${placeList}">
             <tr>
 				<td>${dto.id}</td>
-				<td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.write_no}</a></td>
-				<td>${dto.title}</td>
-				  <c:if test="${dto.image == 'nan'}">
-                    <td>
-                     	<b>이미지가 없습니다..</b>
-                  	</td>
-                  </c:if>
-                  <c:if test="${dto.image != 'nan'}">
+				<td>
+					<a href="/root/place/placeView?write_no=${dto.write_no}">${dto.write_no}</a>
+				</td>
+				<c:if test="${dto.image == 'nan'}">
+                   <td>
+                  		<a href="/root/place/placeView?write_no=${dto.write_no}">
+                  		<img src="https://via.placeholder.com/200"></a>
+                  </td>
+                </c:if>
+                 <c:if test="${dto.image != 'nan'}">
                  	<td>
-                 	<a href="/root/place/placeView?write_no=${dto.write_no}"><img src="${contextPath}/place/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
+                 		<a href="/root/place/placeView?write_no=${dto.write_no}">
+                 		<img src="${contextPath}/place/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
                   	</td>
-                  </c:if>
+                 </c:if>
                 <td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.loc_sep_name}</a></td>
+                <td>${dto.title}</td>
 				<td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.content}</a></td>
             </tr>
       </c:forEach>
@@ -111,7 +131,7 @@ div {text-align:center;}
      </tr>
      </table>
      </div>
-   
+   </div>
    <c:import url="../default/footer.jsp"/>
 </body>
 </html> 

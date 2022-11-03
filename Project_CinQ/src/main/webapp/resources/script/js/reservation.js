@@ -3,7 +3,7 @@
 function rentOkView() {
 
 	var url = '/root/place/rentOkPlaceView';
-	var popOpt = 'width=800px, height=400px, top=300px, left=300px';
+	var popOpt = 'width=600px, height=300px, top=300px, left=1200px';
 	
 	window.open(url,'pop',popOpt);
 	
@@ -11,8 +11,8 @@ function rentOkView() {
 
 
 function placeSubmit() {
-
-	$("#frm").submit;
+	var place_no = $("#place_no").val();
+	window.opener.location.href='../reservation/reservationForm?place_no='+place_no
 	window.close();
-
+	
 }

@@ -164,7 +164,7 @@ public class PlaceServiceImpl implements PlaceService{
 	}
 	@Override
 	public void RentOkPlaceView(Model model, int num) {
-		int pageLetter = 3;// 한 페이지 당 글 목록수
+		int pageLetter = 1;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectPlaceCount();// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)
@@ -174,7 +174,47 @@ public class PlaceServiceImpl implements PlaceService{
 			model.addAttribute("repeat", repeat);
 			model.addAttribute("rentOkList",mapper.rentOkPlace(start, end));
 	}
-		 
+
+	@Override
+	public void UpdateY(Model model, int write_no) {
+		int res = mapper.updateY(write_no);
+		if(res == 1 ) {
+			System.out.println("성공");
+		}else {
+			System.out.println("실패");
+		}
+		
+	}
+
+	@Override
+	public void UpdateN(Model model, int write_no) {
+		int res = mapper.updateN(write_no);
+		if(res == 1 ) {
+			System.out.println("성공");
+		}else {
+			System.out.println("실패");
+		}
+		
+	}
+
+	@Override
+	public void DeletePlace(Model model, int write_no) {
+		PlaceDTO dto = new PlaceDTO();
+		dto = mapper.placeView(write_no);
+		pfs.deleteImage(dto.getImage());
+		int res = mapper.deletePlace(model,write_no);
+		if(res == 1) {
+			System.out.println("삭제 성공");
+		} else {
+			System.out.println("삭제 실패");
+		}
+		
+	}
+	@Override
+	public void RegistOkPlaceView(Model model) {
+		model.addAttribute("rentOkList",mapper.registOkPlace());
+	}
+	
 	 
 }
 	

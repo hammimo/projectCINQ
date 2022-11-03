@@ -33,6 +33,9 @@ td {padding: 5px;}
                <th>제 목</th><td colspan="2">${data.title}</td>
             </tr>
             <tr>
+            	<c:if test="${data.location == 0}">
+            	<th>대관 신청 장소</th> <td colspan="2">장소 추천 해주세요</td>
+            	</c:if>
                <th>대관 신청 장소</th> <td colspan="2"><button type="button" onclick="location.href='${contextPath}/place/placeView?write_no=${data.location}'">${data.location}</button></td>
             </tr>
             <tr>
@@ -64,7 +67,7 @@ td {padding: 5px;}
            </tr>
            <tr>
 				<td colspan="4" align="center">
-					<input type="button" value="등록하기" onclick="location.href='${contextPath}/reservation/ticketingRegister?write_no=${data.write_no}'">&nbsp;
+					<input type="button" value="등록하기" onclick="location.href='${contextPath}/reservation/ticketingRegister?write_no=${data.write_no}&location=${data.location}'">&nbsp;
 					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/reservation/reservationDelete?write_no=${data.write_no}&imageFileName=${data.image}'">
                   <input type="button" value="전체목록" onclick="location.href='${contextPath}/reservation/reservationAllListNum'">
                </td>

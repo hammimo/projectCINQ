@@ -65,7 +65,7 @@ public class PlaceController implements MemberSession{
 
 	 
 	 @GetMapping("placeView")
-		public String contentView(@RequestParam(value= "write_no") int write_no,Model model) {
+		public String contentView(@RequestParam(value= "write_no") int write_no, Model model) {
 			 	ps.placeView(write_no, model);
 				return "place/placeView";
 	 }
@@ -74,7 +74,6 @@ public class PlaceController implements MemberSession{
 		public  String placeModifyForm(@RequestParam int write_no, Model model) {
 			ps.placeView(write_no, model);
 			return "place/placeModifyForm";
-		
 		}
 		
 	 @PostMapping("modify")
@@ -111,6 +110,12 @@ public class PlaceController implements MemberSession{
 		 	ps.RentOkPlaceView(model, num);
 		 	return "place/rentOkPlaceView";
 	 	}
+	 
+	 @RequestMapping("registOkPlaceView")
+	 public String registOkPlaceView(Model model) {
+			 ps.RegistOkPlaceView(model);
+			 return "place/registOkPlaceView";
+	 }
 
 }
 

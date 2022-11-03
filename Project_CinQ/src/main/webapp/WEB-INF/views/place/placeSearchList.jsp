@@ -85,12 +85,14 @@ div {text-align:center;}
 				<td>${dto_s.title}</td>
 				  <c:if test="${dto_s.image == 'nan'}">
                     <td>
-                     	<b>이미지가 없습니다..</b>
+                     	<a href="/root/place/placeView?write_no=${dto_s.write_no}">
+                     	<img src="https://via.placeholder.com/200"></a>
                   	</td>
                   </c:if>
                   <c:if test="${dto_s.image != 'nan'}">
                  	<td>
-                 	<a href="/root/place/placeView?write_no=${dto_s.write_no}"><img src="${contextPath}/place/download?imageFileName=${dto_s.image}" width="200px" height="200px"></a>
+                 		<a href="/root/place/placeView?write_no=${dto_s.write_no}">
+                 		<img src="${contextPath}/place/download?imageFileName=${dto_s.image}" width="200px" height="200px"></a>
                   	</td>
                   </c:if>
                 <td><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.loc_sep_name}</a></td>

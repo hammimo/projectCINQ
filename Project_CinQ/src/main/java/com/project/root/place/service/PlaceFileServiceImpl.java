@@ -37,8 +37,8 @@ public class PlaceFileServiceImpl implements PlaceFileService{
 
 	@Override
 	public void deleteImage(String originFileName) {
-		
-		
+		File file = new File(IMAGE_REPO + "/" + originFileName);
+		file.delete();		
 	}  
 
 	

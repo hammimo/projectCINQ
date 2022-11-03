@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JoinView</title>
+<title>PlaceView</title>
 <style type="text/css">
 .Sproject{
    align : center;
@@ -45,19 +45,16 @@ td {padding: 5px;}
                  	<img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="200px" height="200px">
                   </c:if>
                </td>
-               <td>${data.content}</td>
+               <td>${placeData.content}</td>
             </tr>
             <tr>
 				<td colspan="4" align="center">
 				<div id="reply"></div>
                   <c:if test="${placeData.id == loginUser}">
 					<input type="button" value="수정하기" onclick="location.href='${contextPath}/place/placeModifyForm?write_no=${placeData.write_no}'">&nbsp;
-					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/place/delete?id=${placeData.id}&write_no=${placeData.write_no}&imageFileName=${data.image}'">
+					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/place/delete?id=${placeData.id}&write_no=${placeData.write_no}&imageFileName=${placeData.image}'">
                   </c:if> &nbsp;
                   <input type="button" value="글목록" onclick="location.href='${contextPath}/place/placeAllListNum'">
-               	  <c:if test="${loginUser == 'admin'}">
-               	<input type="button" value="돌아가기" onclick="location.href='${contextPath}/reservation/reservationAllListNum'">
-               	</c:if>
                </td>
             </tr>
          </table>

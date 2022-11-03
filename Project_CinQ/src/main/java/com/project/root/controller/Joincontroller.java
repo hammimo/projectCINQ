@@ -107,6 +107,14 @@ public class Joincontroller implements MemberSession{
 		out.println(message);
 		
 	}
+	@RequestMapping("joinSearchList")
+	public String joinSearchList(@RequestParam(value="title") String title, Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
+		
+		js.joinSearchList(title, model, num);
+		  return "join/joinSearchList";
+		}
+	
+	
 
 	
 }

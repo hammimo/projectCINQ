@@ -39,5 +39,8 @@ public interface JoinService {
 	
 	public void joinIdDelete(String id, HttpServletRequest request);
 
+	public void joinSearchList(String title, Model model, int num);
+
+
 	
 }

@@ -37,11 +37,11 @@ public class ReservationController implements MemberSession {
 	 
 
 	@RequestMapping("reservationForm")
-	public  String reservationForm(Model model, @RequestParam(value = "write_no", required = false)String write_no) {
-		 if(write_no == null) { 
+	public  String reservationForm(Model model, @RequestParam(value = "place_no", required = false)String place_no) {
+		 if(place_no == null) { 
 			 return "reservation/reservationForm"; 
 		 } 
-		 int num = Integer.parseInt(write_no); 
+		 int num = Integer.parseInt(place_no); 
 		 	ps.placeView(num, model);
 		 	return "reservation/reservationForm";	
 	}
@@ -90,12 +90,14 @@ public class ReservationController implements MemberSession {
 			PrintWriter out = response.getWriter();
 			out.println(message);
 		}
-	@GetMapping("ticketingRegister")
-		public  String modify_form(@RequestParam int write_no, Model model) {
+		@RequestMapping("ticketingRegister")
+		public  String modify_form(@RequestParam int write_no, Model model, @RequestParam(value = "location")String location) {
 			rs.reservationView(write_no, model);
+			int num = Integer.parseInt(location);
+			ps.placeView(num, model);
 			return "reservation/ticketingRegister";
-		
-		}
+		} 
+		 
 	
 	@PostMapping("ticketingStart")
 	public void modify(MultipartHttpServletRequest mul, 

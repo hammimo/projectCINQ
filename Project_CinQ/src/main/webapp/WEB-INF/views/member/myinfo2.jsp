@@ -6,74 +6,87 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <title>mypage_1</title>
 
 <style type="text/css">
     *{
         margin: 0;
+        background-color: 	#bebebe
     }
     section {
-	float: left;
-	width: 250px;
+	float: right;
+	width: 200px;
 	background: gray;
 	height: 700px;
+	line-height: 100px;
+	font-size: 24px;
+	font-family: 'Hahmlet', serif;
+	text-align: center;
+	background-color: 	#bebebe;
 	
 	}
-    .wrap1{
-        width: 100%;
-	    margin: auto;
-	    text-align: center;
-    }
+	img {
+		width: 100%;
+		height: 100%
+		object-fit: cover;
+	}
+    
     .img {
-        width: 250px;
-        height: 250px;
-        margin: 0 auto;
-        border: 1px solid black;
+    	
+        width: 35%;
+        height: 30%;
         display: inline-block;
+    }
+    .wrap{
+    	height: auto;
+ 		min-height: 100%;
+ 	 	padding-bottom: 10px;
     }
     .info{
-        border: 1px solid black;
-        margin: 0 auto;
-        height: 250px;
-        width: 700px;
+    	margin-left:20px;
+    	width: 40%;
+    	height: 30%;
         display: inline-block;
+        text-align: center;
     }
     .submit {
             margin: 0 auto;
             width: 250px;
         }
+    
 
 .participating {
-	border: 1px solid black;
+	padding-left: 50px;
 }
 </style>
 </head>
 <body>
 	<c:import url="../default/header.jsp"/>
-	<c:import url="../default/directButton.jsp"/>
 	<section>
-		<p><a href="/root/member/myinfo1?id=${loginUser}">내 정보</a></p>
-		<p><a href="/root/member/myinfo2?id=${loginUser}">진행중인 프로젝트</a></p>
+		<p><a href="/root/member/myinfo1?id=${loginUser}">MY INFO</a></p>
+		<p><a href="/root/member/myinfo2?id=${loginUser}">PROJECT</a></p>
 	</section>
-	<div class="wrap1">
-	<h2>Project</h2>
+	<br>
+	<div class="wrap">
+	<h2 align="center">Project</h2>
     <br><br>
     
     <div class="participating"> 
     
    
  		<c:if test="${ProjectInfo.size() == 0}">
-		<div class="img">
+		<nav class="img">
             <p>진행중인 프로젝트가 없습니다</p>
-        </div>
-		<div class="info">
+        </nav>
+		<nav class="info">
             <p>진행중인 프로젝트가 없습니다</p>
-        </div>
+        </nav>
         </c:if> 
         
 		 <c:if test="${ProjectInfo.size() != 0}">	 
 			<c:forEach var="data" items="${ProjectInfo}">
-			<div class="img">
+			<nav class="img">
 			<a href="${contextPath}/join/joinView?write_no=${data.write_no}">
 	           <c:if test="${data.image == 'nan'}">
 					<b>이미지가 없습니다</b>
@@ -82,30 +95,30 @@
 					<img src="${contextPath}/join/download?imageFileName=${data.image}" width="200px" height="200px">
 				</c:if> 
 	        </a>
-	        </div>
-			<div class="info">
+	        </nav>
+			<nav class="info">
 	           <p>프로젝트 이름 : ${data.title }</p><br>
 	           <p>프로젝트 내용 : ${data.content }</p><br>
 	        	<input type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
 				<input type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">	
-	        </div>
+	         	<input type="button" value="제출하기" onclick="location.href='#'">
+	        </nav>
 	        </c:forEach>
 		</c:if> 
 	</div>
     <br>
 	<div class="endParticipating"> 
-        <h2>Participation is over</h2>
+        <h2 align="center">Participation is over</h2>
         <br>
-        <div class="img">
+        <nav class="img">
             데이터가 들어오면 이미지
-        </div>
-        <div class="info">
+        </nav>
+        <nav class="info">
             데이터가 들어오면 설명
-        </div>
+        </nav>
 	</div>
-    </div>
     <br><br>
-
+	</div>
 	<c:import url="../default/footer.jsp"/>
 </body>
 </html>

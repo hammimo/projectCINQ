@@ -80,19 +80,25 @@ div {text-align:center;}
 				<td>${dto.id}</td>
 				<td>${dto.write_no}</td>
 				<td>${dto.title}</td>
-				  <c:if test="${dto.image == 'nan'}">
+				
+				<c:if test="${dto.image == 'nan'}">
                     <td>
                      	<b>이미지가 없습니다..</b>
                   	</td>
-                  </c:if>
-                  <c:if test="${dto.image != 'nan'}">
-                 	<td>
-                 	<a href="${contextPath}/reservation/reservationView?write_no=${dto.write_no}"><img src="${contextPath}/reservation/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
+                </c:if>
+                <c:if test="${dto.image != 'nan'}">
+                	<td>
+         				<a href="${contextPath}/reservation/reservationView?write_no=${dto.write_no}"><img src="${contextPath}/reservation/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
                   	</td>
-                  </c:if>
+         		</c:if>
+                <c:if test="${dto.location == 0}">
+                <td>장소 추천 희망</td>
+                </c:if>
+                <c:if test="${dto.location != 0}">
                 <td><button type="button" onclick="location.href='${contextPath}/place/placeView?write_no=${dto.location}'">${dto.location}</button></td>
+				</c:if>
 				<td>${dto.content}</td>
-				<td><button type="button" onclick="location.href='${contextPath}/reservation/ticketingRegister?write_no=${dto.write_no}'">예매등록</button></td>
+				<td><button type="button" onclick="location.href='${contextPath}/reservation/ticketingRegister?write_no=${dto.write_no}&location=${dto.location}'">예매등록</button></td>
 				<td><button type="button" onclick="location.href='${contextPath}/reservation/reservationDelete?write_no=${dto.write_no}&imageFileName=${data.image}'">삭제</button></td>
             </tr>
       </c:forEach>
