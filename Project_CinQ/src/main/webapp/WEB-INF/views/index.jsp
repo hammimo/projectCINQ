@@ -139,7 +139,11 @@ $(document).ready(function(){
 	<br>
 		<h3>PROJECT</h3>
 		<br>
-		<img id="test" src=https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1166&q=80>
+		<div class="responsive">
+			<c:forEach var="dto_t" items="${ticketingList}">
+				<img id="test" src="${contextPath}/reservation/download?imageFileName=${dto_t.image}">
+			</c:forEach>
+		</div>
 	</div>
 	<section>
 	<div class="pre_projects">

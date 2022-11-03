@@ -18,5 +18,7 @@ public interface ReservationService {
 	public String reservationDelete(int write_no, String imageFileName, HttpServletRequest request); 
 	
 	public String ticketingStart(MultipartHttpServletRequest mul, HttpServletRequest request); 
+	
+	public void ticketingAllList(Model model); 
 }
  

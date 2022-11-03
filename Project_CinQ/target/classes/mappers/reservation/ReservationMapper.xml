@@ -80,6 +80,11 @@ ticketing varchar2(2) default 'N'
 		where write_no=#{write_no}
 	</update>
 	
+	<select id="ticketingAllList" resultMap="reservation">
+      select * from reservation where ticketing='Y'
+    </select>
+	
+	
 </mapper>
 
  

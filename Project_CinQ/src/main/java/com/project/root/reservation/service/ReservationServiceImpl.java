@@ -86,6 +86,10 @@ public class ReservationServiceImpl implements ReservationService{
 		
 	}
 	
+	@Override
+	public void ticketingAllList(Model model) {
+		model.addAttribute("ticketingList", mapper.ticketingAllList());
+	}
 	
 	
 	@Override
