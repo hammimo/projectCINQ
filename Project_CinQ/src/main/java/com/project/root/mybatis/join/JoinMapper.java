@@ -36,4 +36,9 @@ public interface JoinMapper {
 	public int deleteReply(int write_no);
 	
 	public int joinIdDelete(String id);
+	
+	public List<JoinDTO>joinSearchList(@Param("t")String title,@Param("s")int start, @Param("e")int end);
+	
+
+	public int selectJoinSearchCount(@Param("t")String title);
 }

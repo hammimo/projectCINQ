@@ -180,6 +180,25 @@ public class JoinServiceImpl implements JoinService{
 		
 		mapper.joinIdDelete(id);
 	}
+
+
+	@Override
+	public void joinSearchList(String title, Model model, int num) {
+		int pageLetter = 3;// 한 페이지 당 글 목록수
+		int allCount = mapper.selectJoinSearchCount(title);// 전체 글수
+		int repeat = allCount/pageLetter;
+		if(allCount % pageLetter != 0)
+			repeat += 1;
+			
+		int end = num * pageLetter;
+		int start = end + 1 - pageLetter;
+		model.addAttribute("title",title);
+		model.addAttribute("repeat", repeat);
+		model.addAttribute("joinSearchList", mapper.joinSearchList(title, start, end));
+		
+	}
+
+	
 }
 
 	

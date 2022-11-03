@@ -27,32 +27,32 @@ td {padding: 5px;}
       <div class ="place_view" align="center">
          <table class="Sproject" >
             <tr>
-               <th width="150px">작성자</th><td colspan="2">${PlaceData.id }</td>
+               <th width="150px">작성자</th><td colspan="2">${placeData.id }</td>
             </tr>
             <tr>
-               <th>제 목</th><td colspan="2">${PlaceData.title }</td>
+               <th>제 목</th><td colspan="2">${placeData.title }</td>
             </tr>
             <tr>
-               <th>지 역</th><td colspan="2">${PlaceData.loc_sep_name}</td>
+               <th>지 역</th><td colspan="2">${placeData.loc_sep_name}</td>
             </tr>
             <tr>
                <th>내용</th>
                <td colspan="2">
-                  <c:if test="${PlaceData.image == 'nan'}">
+                  <c:if test="${placeData.image == 'nan'}">
                      <b>이미지가 없습니다..</b>
                   </c:if>
-                  <c:if test="${PlaceData.image != 'nan'}">
-                 	<img src="${contextPath}/place/download?imageFileName=${PlaceData.image}" width="200px" height="200px">
+                  <c:if test="${placeData.image != 'nan'}">
+                 	<img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="200px" height="200px">
                   </c:if>
                </td>
-               <td>${PlaceData.content}</td>
+               <td>${placeData.content}</td>
             </tr>
             <tr>
 				<td colspan="4" align="center">
 				<div id="reply"></div>
-                  <c:if test="${PlaceData.id == loginUser}">
-					<input type="button" value="수정하기" onclick="location.href='${contextPath}/place/placeModifyForm?write_no=${PlaceData.write_no}'">&nbsp;
-					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/place/delete?id=${PlaceData.id}&write_no=${PlaceData.write_no}&imageFileName=${PlaceData.image}'">
+                  <c:if test="${placeData.id == loginUser}">
+					<input type="button" value="수정하기" onclick="location.href='${contextPath}/place/placeModifyForm?write_no=${placeData.write_no}'">&nbsp;
+					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/place/delete?id=${placeData.id}&write_no=${placeData.write_no}&imageFileName=${placeData.image}'">
                   </c:if> &nbsp;
                   <input type="button" value="글목록" onclick="location.href='${contextPath}/place/placeAllListNum'">
                </td>
