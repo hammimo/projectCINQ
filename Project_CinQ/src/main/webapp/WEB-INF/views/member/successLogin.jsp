@@ -7,13 +7,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+* {
+	
+	margin : 0;
+	padding: 0;
+}
+
+.main{
+	background-color : rgba(0, 0, 0, 0.04);
+	width: 100%;
+	height: 90vh;
+}
+</style>
 <meta charset="UTF-8">
 <title>member/successLogin.jsp</title>
 </head>
-<body>
+<body onload="location.href='/root/index'">
 	<c:import url="../default/header.jsp"/>
-	<div class="wrap login">
-		<h1>로그인 성공 : ${loginUser}님 안녕하세요 ^^</h1>
+	<div class="main">
+	
 	</div>
 	<c:import url="../default/footer.jsp"/>
 </body> 

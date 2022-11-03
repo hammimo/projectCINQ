@@ -10,13 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <title>default/footer.jsp</title>
 <style type="text/css">
+
 .footer {
-	height: 10px;
+	height: 30px;
 	text-align: right;
   	position : relative;
-  	transform : translateY(-100%);
 }
 #copy {
+	display : block;
+	height: 100%;
+	width : 100%;
+	background-color : rgba(0, 0, 0, 0.04);
 	font-family: 'Hahmlet', serif;
 	font-size: 15px;
 }
