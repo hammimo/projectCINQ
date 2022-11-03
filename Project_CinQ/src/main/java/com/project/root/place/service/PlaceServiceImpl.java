@@ -174,7 +174,44 @@ public class PlaceServiceImpl implements PlaceService{
 			model.addAttribute("repeat", repeat);
 			model.addAttribute("rentOkList",mapper.rentOkPlace(start, end));
 	}
-		 
+
+	@Override
+	public void UpdateY(Model model, int write_no) {
+		int res = mapper.updateY(write_no);
+		if(res == 1 ) {
+			System.out.println("성공");
+		}else {
+			System.out.println("실패");
+		}
+		
+	}
+
+	@Override
+	public void UpdateN(Model model, int write_no) {
+		int res = mapper.updateN(write_no);
+		if(res == 1 ) {
+			System.out.println("성공");
+		}else {
+			System.out.println("실패");
+		}
+		
+	}
+
+	@Override
+	public void DeletePlace(Model model, int write_no) {
+		PlaceDTO dto = new PlaceDTO();
+		dto = mapper.placeView(write_no);
+		pfs.deleteImage(dto.getImage());
+		int res = mapper.deletePlace(model,write_no);
+		if(res == 1) {
+			System.out.println("삭제 성공");
+		} else {
+			System.out.println("삭제 실패");
+		}
+		
+	}
+	
+	
 	 
 }
 	

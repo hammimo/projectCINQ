@@ -96,48 +96,26 @@ div {text-align:center;}
       <c:forEach var="dto" items="${placeList}">
             <tr>
 				<td>${dto.id}</td>
-				<td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.write_no}</a></td>
-				  <c:if test="${dto.image == 'nan'}">
-                    <td>
-                     	<b>이미지가 없습니다..</b>
-                  	</td>
-                  </c:if>
-                  <c:if test="${dto.image != 'nan'}">
+				<td>
+					<a href="/root/place/placeView?write_no=${dto.write_no}">${dto.write_no}</a>
+				</td>
+				<c:if test="${dto.image == 'nan'}">
+                   <td>
+                  		<a href="/root/place/placeView?write_no=${dto.write_no}">
+                  		<img src="https://via.placeholder.com/200"></a>
+                  </td>
+                </c:if>
+                 <c:if test="${dto.image != 'nan'}">
                  	<td>
-                 	<a href="/root/place/placeView?write_no=${dto.write_no}"><img src="${contextPath}/place/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
+                 		<a href="/root/place/placeView?write_no=${dto.write_no}">
+                 		<img src="${contextPath}/place/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
                   	</td>
-                  </c:if>
+                 </c:if>
                 <td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.loc_sep_name}</a></td>
                 <td>${dto.title}</td>
 				<td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.content}</a></td>
             </tr>
       </c:forEach>
-      
-       <c:if test="${placeSearchList.size() == 0}">
-            <tr>
-               <th colspan="6">검색하신 지역중에 등록된 장소가 없습니다</th>
-            </tr>   
-      </c:if>
-       <c:forEach var="dto_s" items="${placeSearchList}">
-            <tr>
-				<td>${dto_s.id}</td>
-				<td><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.write_no}</a></td>
-				<td>${dto_s.title}</td>
-				  <c:if test="${dto_s.image == 'nan'}">
-                    <td>
-                     	<b>이미지가 없습니다..</b>
-                  	</td>
-                  </c:if>
-                  <c:if test="${dto_s.image != 'nan'}">
-                 	<td>
-                 	<a href="/root/place/placeView?write_no=${dto_s.write_no}"><img src="${contextPath}/place/download?imageFileName=${dto_s.image}" width="200px" height="200px"></a>
-                  	</td>
-                  </c:if>
-                <td><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.loc_sep_name}</a></td>
-				<td><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.content}</a></td>
-            </tr>
-      </c:forEach>
-      
       <tr>
          <td colspan="6" align="center">
              <c:forEach var="num" begin="1" end="${repeat}">

@@ -23,5 +23,11 @@ public interface PlaceService {
 	
 	public void RentOkPlaceView(Model model,int num);
 	
+	public void UpdateY(Model model,int write_no);
+	
+	public void UpdateN(Model model,int write_no);
+	
+	public void DeletePlace(Model model,int write_no);
+	
 }
  

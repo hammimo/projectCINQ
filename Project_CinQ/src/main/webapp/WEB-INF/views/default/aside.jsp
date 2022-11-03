@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +39,11 @@ li {
       <li><a id="a1" href="/root/join/joinAllListNum">Project</a></li>
       <li><a id="a1" href="/root/join/joinAllListNum">Join</a></li>
       <li><a id="a1" href="/root/place/placeAllListNum">Place</a></li>
+      <c:if test="${loginUser == 'admin' }">
+      	<li><a href="/root/admin/memberAllList">회원관리</a></li>
+		<li><a href="/root/admin/placeAllList">장소관리</a></li>
+		<li><a href="/root/reservation/reservationAllListNum">예매관리</a></li>
+      </c:if>
     </ul>
   </section>
 </aside>

@@ -8,12 +8,14 @@
 <head>
 <meta charset="UTF-8">
 <title>place Manage</title>
+<style type="text/css">
+#Y {
+	opacity : 0.1;
+}
+</style>
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
-	<c:import url="../default/adminMenu.jsp"/>
-   <input type="hidden" name="place" value="${loc_sep_name }">
-   <!-- <div align="center"> -->
    <br>
    <h1 align="center"> 등록된 장소 목록 </h1>
    <form action="placeSearchList" method="post" enctype='multipart/form-data'>
@@ -44,21 +46,43 @@
 				<td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.write_no}</a></td>
 				<td>${dto.title}</td>
 				  <c:if test="${dto.image == 'nan'}">
-                    <td>
-                     	<b>이미지가 없습니다..</b>
-                  	</td>
+                    <c:if test="${dto.checkbox=='N' }">                    	
+                 		<td>
+                 			<a href="/root/place/placeView?write_no=${dto.write_no}">
+                 				<img id="N" src="https://via.placeholder.com/200">
+                 			</a>
+                 		</td>
+                    </c:if>
+                    <c:if test="${dto.checkbox=='Y' }">                    	
+                 		<td>
+                 			<a href="/root/place/placeView?write_no=${dto.write_no}">
+                 				<img id="Y" src="https://via.placeholder.com/200">
+                 			</a>
+                 		</td>	
+                    </c:if>
                   </c:if>
                   <c:if test="${dto.image != 'nan'}">
-                 	<td>
-                 	<a href="/root/place/placeView?write_no=${dto.write_no}"><img src="${contextPath}/place/download?imageFileName=${dto.image}" width="200px" height="200px"></a>
-                  	</td>
+                 	<c:if test="${dto.checkbox=='N' }">
+                 		<td>
+	                 		<a href="/root/place/placeView?write_no=${dto.write_no}">
+	                 			<img id="N" src="${contextPath}/place/download?imageFileName=${dto.image}" width="200px" height="200px">
+	                 		</a>
+                 		</td>
+                 	</c:if>
+                 	<c:if test="${dto.checkbox=='Y' }">
+                 		<td>
+                 			<a href="/root/place/placeView?write_no=${dto.write_no}">
+                 				<img id="Y" src="${contextPath}/place/download?imageFileName=${dto.image}" width="200px" height="200px">
+                 			</a>
+                  		</td>	
+                 	</c:if>
                   </c:if>
                 <td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.loc_sep_name}</a></td>
 				<td><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.content}</a></td>
 				<td>
-					<input type="button" value="사용하기">
-					<input type="button" value="사용종료">
-					<input type="button" value="삭제" onclick="deletePlace(${dto.write_no})">
+					<input type="button" value="사용하기" onclick="location.href='${contextPath}/admin/placeUpdateY?write_no=${dto.write_no }'">
+					<input type="button" value="사용종료" onclick="location.href='${contextPath}/admin/placeUpdateN?write_no=${dto.write_no }'">
+					<input type="button" value="삭제" onclick="location.href='${contextPath}/admin/deletePlace?write_no=${dto.write_no }'">
 				</td>
             </tr>
       </c:forEach>
