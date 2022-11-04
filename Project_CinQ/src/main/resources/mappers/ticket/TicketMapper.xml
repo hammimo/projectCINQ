@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+
+create table TICKET (
+id varchar2(20),
+title varchar2(100),
+location varchar2(100),
+image varchar2(50),
+show_date varchar2(15),
+show_num varchar2(10),
+price number(7),
+ticket_count number(3),
+constraint fk_showNum foreign key(show_num) references reservation(show_num)on delete cascade
+);
+  
+-->
+<!-- mappers/ticket/TicketMapper.xml -->
+
+<mapper namespace="com.project.root.mybatis.ticket.TicketMapper">
+
+	
+
+</mapper>
