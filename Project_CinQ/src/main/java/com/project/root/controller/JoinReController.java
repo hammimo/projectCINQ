@@ -41,7 +41,8 @@ public class JoinReController implements MemberSession {
 	public List<JoinRepDTO> replyData(@PathVariable int write_group){
 		return js.getRepList(write_group);
 	}
-	@PostMapping(value = "deleteReply", produces ="application/json; charset=utf-8")
+	
+	@GetMapping(value = "deleteReply/{write_no}", produces ="application/json; charset=utf-8")
 	public String deleteReply(@PathVariable int write_no) {
 		js.deleteReply(write_no);
 		return "{\"result\": true}";
