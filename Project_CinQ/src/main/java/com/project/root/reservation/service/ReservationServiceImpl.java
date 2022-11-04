@@ -38,6 +38,7 @@ public class ReservationServiceImpl implements ReservationService{
 		dto.setEnd_date(mul.getParameter("end_date"));
 		dto.setTeam_count(Integer.parseInt(mul.getParameter("team_count")));
 		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
+		dto.setCur_count(Integer.parseInt(mul.getParameter("max_count")));
 		dto.setPrice(Integer.parseInt(mul.getParameter("price")));
 		dto.setTel(mul.getParameter("tel"));
 		MultipartFile file = mul.getFile("image");
@@ -126,6 +127,7 @@ public class ReservationServiceImpl implements ReservationService{
 		dto.setEnd_date(mul.getParameter("end_date"));
 		dto.setTeam_count(Integer.parseInt(mul.getParameter("team_count")));
 		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
+		dto.setCur_count(Integer.parseInt(mul.getParameter("max_count")));
 		dto.setPrice(Integer.parseInt(mul.getParameter("price")));
 		dto.setTel(mul.getParameter("tel"));
 		

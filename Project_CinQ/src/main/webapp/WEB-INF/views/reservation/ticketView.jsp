@@ -67,6 +67,14 @@ td {padding: 5px;}
          			<b>공연기간 : ${data.start_date} ~ ${data.end_date}</b><br><br><br>
          			<b>가격 : ${data.price} 원</b><br><br><br>
          			<b>공연 세부 내용 : ${data.content }</b><br><br>
+         			<b>총관람인원 : ${data.max_count}</b><br><br>
+         			<c:if test="${data.cur_count != 0 }">
+         			<b>잔여티켓 : ${data.cur_count}</b><br><br>
+         			</c:if>
+         			<c:if test="${data.cur_count == 0 }">
+         			<b>티켓매진</b><br><br>
+         			</c:if>
+         			
          		</td>
          	</tr>
          </table>
