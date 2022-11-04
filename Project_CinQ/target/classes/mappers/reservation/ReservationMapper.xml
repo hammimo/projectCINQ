@@ -83,8 +83,13 @@ ticketing varchar2(2) default 'N'
 	<select id="ticketingAllList" resultMap="reservation">
       select * from reservation where ticketing='Y'
     </select>
+	<select id="currentCountCheck" resultType="Integer">
+		select cur_count from reservation where show_num = #{show_num}
+	</select>
 	
-	
+	<update id="currentUp">
+		update reservation set cur_count= cur_count-#{c} where show_num=#{sN}
+	</update>
 </mapper>
 
  

@@ -22,4 +22,8 @@ public interface ReservationMapper {
 	public int ticketingStart(ReservationDTO dto);
 	
 	public List<ReservationDTO> ticketingAllList();
+
+	public int currentCountCheck(String show_num);
+
+	public int currentUp(@Param("sN")String show_num, @Param("c")int ticket_count);
 }  

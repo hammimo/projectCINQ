@@ -1,5 +1,9 @@
 package com.project.root.mybatis.ticket;
 
-public class TicketMapper {
+import com.project.root.ticket.dto.TicketDTO;
+
+public interface TicketMapper {
+
+	public void ticketingSave(TicketDTO dto);
 
 }
