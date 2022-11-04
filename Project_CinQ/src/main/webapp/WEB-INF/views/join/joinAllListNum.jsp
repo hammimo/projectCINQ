@@ -24,7 +24,6 @@ font-family: 'Hahmlet', serif;
 </head>
 <body>
     <c:import url="../default/header.jsp"/>
-    <hr>
     <%-- <input type="hidden" name="join" value="${title }">--%>
     <div class="main">
     <br>
