@@ -141,7 +141,7 @@ $(document).ready(function(){
 		<br>
 		<div class="responsive">
 			<c:forEach var="dto_t" items="${ticketingList}">
-				<img id="test" src="${contextPath}/reservation/download?imageFileName=${dto_t.image}">
+				<a href="${contextPath}/reservation/ticketView?write_no=${dto_t.write_no}&location=${dto_t.location}"><img id="test" src="${contextPath}/reservation/download?imageFileName=${dto_t.image}"></a>
 			</c:forEach>
 		</div>
 	</div>

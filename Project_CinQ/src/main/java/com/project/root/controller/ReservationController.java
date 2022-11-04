@@ -110,4 +110,17 @@ public class ReservationController implements MemberSession {
 		out.println(message);
 		
 	}
+	
+	@RequestMapping("ticketView")
+	public  String ticketView(@RequestParam int write_no, Model model, @RequestParam(value = "location")String location) {
+		rs.reservationView(write_no, model);
+		int num = Integer.parseInt(location);
+		ps.placeView(num, model);
+		return "reservation/ticketView";
+	} 
+	
+	
+	
+	
+	
 }
