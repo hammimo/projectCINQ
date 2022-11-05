@@ -39,7 +39,7 @@ b{
 
 
 #content_row {
-	
+	font-size: 14px;
 }
 
 #content_image:hover {
@@ -65,7 +65,7 @@ b{
 	vertical-align: top;
 	text-align: left;
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 12px;
 	
 }
 

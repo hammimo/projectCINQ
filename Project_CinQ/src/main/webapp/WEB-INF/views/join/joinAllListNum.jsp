@@ -48,6 +48,9 @@ font-family: 'Hahmlet', serif;
         </c:if>
       	<c:forEach var="dto" items="${joinList}">
          	<tr height="100px">
+         	<tr id="content_row">    
+                <td id="content_loc">${dto.loc_sep_name}</td>
+        	</tr>
             	<td id="content_title"><a href="/root/join/joinView?write_no=${dto.write_no}">${dto.title}</a></td>
             	<c:if test="${dto.image == 'nan'}">
                     <td id="content_image" rowspan="5">
@@ -60,9 +63,7 @@ font-family: 'Hahmlet', serif;
                   	</td>
                 </c:if>
             </tr>
-            <tr id="content_row">    
-                <td id="content_loc">${dto.loc_sep_name}</td>
-            </tr>
+         
             <tr id="content_row">
             	<td id="content_loc_name">${dto.loc_name}</td>
             </tr>
