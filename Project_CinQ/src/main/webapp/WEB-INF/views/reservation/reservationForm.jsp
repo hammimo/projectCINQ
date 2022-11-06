@@ -130,7 +130,7 @@ img {
 					<label>지역</label> <input type="text" name="title"
 						value="${placeData.loc_sep_name}"><br>
 					<br>
-				</div>s
+				</div>
 				<b>장소명 : ${placeData.loc_name} </b>
 				<br>
 				<br>
