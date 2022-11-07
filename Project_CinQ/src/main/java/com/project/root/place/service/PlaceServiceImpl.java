@@ -124,7 +124,7 @@ public class PlaceServiceImpl implements PlaceService{
 	
 	@Override
 	public void PlaceAllListNum(Model model, int num) {
-		int pageLetter = 3;// 한 페이지 당 글 목록수
+		int pageLetter = 5;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectPlaceCount();// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)
@@ -150,7 +150,7 @@ public class PlaceServiceImpl implements PlaceService{
 
 	@Override
 	public void PlaceSearchList(String loc_sep_name, Model model, int num) {
-		int pageLetter = 3;// 한 페이지 당 글 목록수
+		int pageLetter = 2;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectPlaceSearchCount(loc_sep_name);// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)

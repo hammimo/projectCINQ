@@ -24,7 +24,7 @@
 }
 </style>
 <meta charset="UTF-8">
-<title>reservation/fail.jsp</title>
+<title>CINQ</title>
 </head>
 <body onload="fail()">
 	<c:import url="../default/header.jsp"/>

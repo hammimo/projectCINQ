@@ -158,6 +158,18 @@ public class ReservationServiceImpl implements ReservationService{
 		return rfs.getMessage(request, msg, url);
 	}
 	
+	@Override
+	public void ticketingAllListNum(Model model, int num) {
+		int pageLetter = 9;// 한 페이지 당 글 목록수
+		int allCount = mapper.selectTicketCount();// 전체 글수
+		int repeat = allCount/pageLetter;
+		if(allCount % pageLetter != 0)
+			repeat += 1;
+			int end = num * pageLetter;
+			int start = end + 1 - pageLetter;
+			model.addAttribute("repeat", repeat);
+			model.addAttribute("ticketingList", mapper.ticketingAllListNum(start, end)); 
+	}
 }
 	
 

@@ -33,6 +33,10 @@
 			<mapping path="/place/rentPlace"/>
 			<beans:ref bean="projectInterceptor"/>
 		</interceptor>
+		<interceptor>
+			<mapping path="/reservation/reservationForm"/>
+			<beans:ref bean="projectInterceptor"/>
+		</interceptor>
 	</interceptors>	
 	
 	<beans:bean id="multipartResolver"

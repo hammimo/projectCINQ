@@ -9,12 +9,13 @@
 <style type="text/css">
 
 aside {
-	float: right;
-	width:13%;
+	float: left;
+	width:17%;
 	height:100%;
 	text-align: center;
 	line-height: 100px;
 	top: 144px;
+	border-right: 2px solid black;
 }
 li {
 	font-family: 'Hahmlet', serif;
@@ -33,9 +34,9 @@ li {
 	<aside>
   	
     <ul>
-      <li><a id="a1" href="/root/join/joinAllListNum">Project</a></li>
-      <li><a id="a1" href="/root/join/joinAllListNum">Join</a></li>
-      <li><a id="a1" href="/root/place/placeAllListNum">Place</a></li>
+      <li><a id="a1" href="/root/admin/memberAllList">회원관리</a></li>
+      <li><a id="a1" href="/root/admin/placeAllList">장소관리</a></li>
+      <li><a id="a1" href="/root/reservation/reservationAllListNum">예매관리</a></li>
     </ul>
   
 </aside>

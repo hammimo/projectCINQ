@@ -6,28 +6,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>memberAllList</title>
+<title>CINQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
+<link href="${contextPath}/resources/script/css/adminMember.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-#memberList {
-	margin: 50px; width: 800px;
-    border-spacing: 0;
-    border-collapse: collapse; 
-    font-size: 22px;
-    text-align: center;
-}
-#memberList th,td {
-	border: 1px solid black;
-}
 </style>
 </head>
 <body>
     <c:import url="../default/header.jsp"/>
-	<c:import url="../default/adminMenu.jsp"/>
-    <div align="center">
+    <c:import url="../default/adminAside.jsp"/>
+    <div class="main" align="center">
         <h1>회원정보</h1>
-
+		<br><br>
         <table id="memberList">
-            <tr>
+            <tr id="head">
                 <th> id </th>
                 <th> pw </th>
                 <th> name </th>

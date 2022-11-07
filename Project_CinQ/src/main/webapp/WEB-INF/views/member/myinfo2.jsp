@@ -6,87 +6,118 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
-<title>mypage_1</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+<title>CINQ</title>
 
 <style type="text/css">
-    *{
-        margin: 0;
-        background-color: 	#bebebe
-    }
-    section {
+#titleP {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+#titleP1 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 25px;
+}
+ #wrapper{
+ 	 height: 100%;
+ 	 padding-bottom: 10px;
+ 	 background-color :rgba(0, 13, 0, 0.04);
+}
+
+#infoSection{
 	float: right;
-	width: 200px;
-	background: gray;
-	height: 700px;
+	width: 150px;
+	height: 1000px;
 	line-height: 100px;
-	font-size: 24px;
 	font-family: 'Hahmlet', serif;
-	text-align: center;
-	background-color: 	#bebebe;
-	
+}
+li {
+	font-family: 'Hahmlet', serif;
+	list-style: none;
+	font-size: 18px;
+	line-height: 50px;
 	}
-	img {
-		width: 100%;
-		height: 100%
-		object-fit: cover;
+button {
+	margin: 0;
+	padding: 0;
+	position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 13px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 200;
+    transition: 0.25s;
+	box-sizing: border-box;
+	margin: 5px;
+	background-color: #323232;
+    color: white;
+    font-family: 'Hahmlet', serif;
 	}
-    
-    .img {
-    	
-        width: 35%;
-        height: 30%;
-        display: inline-block;
-    }
-    .wrap{
-    	height: auto;
- 		min-height: 100%;
- 	 	padding-bottom: 10px;
-    }
-    .info{
-    	margin-left:20px;
-    	width: 40%;
-    	height: 30%;
-        display: inline-block;
-        text-align: center;
-    }
-    .submit {
-            margin: 0 auto;
-            width: 250px;
-        }
-    
+button:hover {
+	letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+	background-color: #323232;
+    color: white;
+	}
 
 .participating {
-	padding-left: 50px;
+	position:relative;
+	margin-left: 5%;
+	width: 80%;
+	
+}
+.img{
+	display: inline-block;
+	width: 40%;
+}
+.info{
+	display: inline-block;
+	width: 40%;
+	height: 300px;
+	vertical-align: top;
+}
+.info button{
+	position: relative;
+	top: 30%;
+}
+img{
+	width: 90%;
+  	height: 90%;
+  	object-fit: cover;
 }
 </style>
 </head>
 <body>
 	<c:import url="../default/header.jsp"/>
-	<section>
-		<p><a href="/root/member/myinfo1?id=${loginUser}">MY INFO</a></p>
-		<p><a href="/root/member/myinfo2?id=${loginUser}">PROJECT</a></p>
+	<hr>
+	<div id="wrapper">
+	<section id="infoSection">
+	<ul>
+      <li><a href="/root/member/myinfo1?id=${loginUser}">MY INFO</a></li>
+      <li><a href="/root/member/myinfo2?id=${loginUser}">PROJECT</a></li>
+      <li>HISTORY</li>
+    </ul>
 	</section>
-	<br>
-	<div class="wrap">
-	<h2 align="center">Project</h2>
-    <br><br>
-    
-    <div class="participating"> 
-    
-   
+		<div class="participating"> 
+		<br>
+		<h2 align="center">Project</h2>
+		<br><br>
+		
  		<c:if test="${ProjectInfo.size() == 0}">
-		<nav class="img">
+		<div class="img">
             <p>진행중인 프로젝트가 없습니다</p>
-        </nav>
-		<nav class="info">
+        </div>
+		<div class="info">
             <p>진행중인 프로젝트가 없습니다</p>
-        </nav>
+        </div>
         </c:if> 
-        
+        <div class="JoinProject">
 		 <c:if test="${ProjectInfo.size() != 0}">	 
 			<c:forEach var="data" items="${ProjectInfo}">
-			<nav class="img">
+			<div class="img">
 			<a href="${contextPath}/join/joinView?write_no=${data.write_no}">
 	           <c:if test="${data.image == 'nan'}">
 					<b>이미지가 없습니다</b>
@@ -95,29 +126,24 @@
 					<img src="${contextPath}/join/download?imageFileName=${data.image}" width="200px" height="200px">
 				</c:if> 
 	        </a>
-	        </nav>
-			<nav class="info">
-	           <p>프로젝트 이름 : ${data.title }</p><br>
-	           <p>프로젝트 내용 : ${data.content }</p><br>
-	        	<input type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
+	        </div>
+			<div class="info">
+	           <p id="titleP1">프로젝트 </p>
+	           <p id="contentP"> ${data.title }</p><br>
+	           <p id="titleP">프로젝트 내용</p>
+	           <p id="contentP"> ${data.content }</p><br>
+	           
+	            <button type="button" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">수정하기</button>&nbsp;
+      			<button type="button" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">삭제하기</button>
+      			<button type="button" onclick="location.href='#'">제출하기</button>
+	        	<!-- <input type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
 				<input type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">	
-	         	<input type="button" value="제출하기" onclick="location.href='#'">
-	        </nav>
+	         	<input type="button" value="제출하기" onclick="location.href='#'">-->
+	        </div>
 	        </c:forEach>
 		</c:if> 
+		</div>
 	</div>
-    <br>
-	<div class="endParticipating"> 
-        <h2 align="center">Participation is over</h2>
-        <br>
-        <nav class="img">
-            데이터가 들어오면 이미지
-        </nav>
-        <nav class="info">
-            데이터가 들어오면 설명
-        </nav>
-	</div>
-    <br><br>
 	</div>
 	<c:import url="../default/footer.jsp"/>
 </body>

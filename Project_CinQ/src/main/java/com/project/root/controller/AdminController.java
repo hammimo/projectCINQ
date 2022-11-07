@@ -44,7 +44,7 @@ public class AdminController implements MemberSession{
     }
     @GetMapping("/placeAllList")
     public String placeAllList(Model model, @RequestParam(value = "num", required = false, defaultValue="1") int num) {
-    	ps.PlaceAllList(model);
+    	ps.PlaceAllListNum(model, num);
     	return "admin/placeAllListAdmin";
     }
     @RequestMapping("placeUpdateY")

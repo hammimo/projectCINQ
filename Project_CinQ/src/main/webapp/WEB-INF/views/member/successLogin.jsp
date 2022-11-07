@@ -21,7 +21,7 @@
 }
 </style>
 <meta charset="UTF-8">
-<title>member/successLogin.jsp</title>
+<title>CINQ</title>
 </head>
 <body onload="location.href='/root/index'">
 	<c:import url="../default/header.jsp"/>

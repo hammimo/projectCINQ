@@ -24,15 +24,17 @@ function writeSave(){
   	 var addr1 = $("#addr1").val(); 
 	 var addr2 = $("#addr2").val();
 	 var addr3 = $("#addr3").val();
+	 
+	 
 	
 	 var addrResult = "";
 	 
-	
 	 
- 	addrResult = addr1 + "/" + addr2 + "/" + addr3;
+ 	addrResult = addr2 + " " + addr3;
 	$("#addrResult").val(addrResult);   
 	  addr2 = addr2.substring(3, 6);
 	$("#loc_sep_name").val(addr2);
+	
 		
 	form.submit();
 	

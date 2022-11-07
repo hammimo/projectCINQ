@@ -24,7 +24,7 @@
 }
 </style>
 <meta charset="UTF-8">
-<title>reservation/ticketSuccess.jsp</title>
+<title>CINQ</title>
 </head>
 <body onload="success()">
 	<c:import url="../default/header.jsp"/>

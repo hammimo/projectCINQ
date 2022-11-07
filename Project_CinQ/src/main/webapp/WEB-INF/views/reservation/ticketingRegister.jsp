@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ticketingRegister</title>
+<title>CINQ</title>
 <script src='<c:url value="/resources/script/js/file.js"/>'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -23,7 +23,7 @@
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
-   <h1>예매창</h1>
+   <h1 align="center">예매 시작</h1>
      	<div id="reservationForm">
  			<b>공연장소</b>&nbsp;
  			<input type="hidden" id=register_no value="${data.write_no}">
@@ -43,7 +43,7 @@
 				<input type="hidden" id="location" name="location" value="${placeData.write_no}">
 				<b>장소</b><br>
 				<c:if test="${placeData.image == 'nan'}">
-		       		 <b>이미지가 없습니다..</b><br>
+		       		 <b>이미지가 없습니다</b><br>
 		        </c:if>
 		        <c:if test="${placeData.image != 'nan'}">
 		        <img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="200px" height="200px"><br>
@@ -64,7 +64,7 @@
 	        	<p>공연날짜</p>
 	         		<input type="date" id="start_date" name="start_date" value="${data.start_date}"> ~ 
 	         		<input type="date" id="start_date" name="end_date" value="${data.end_date}"> <br><br>
-	         	<b>관람가능 인원</b>
+	         	<b>총 티켓매수</b>
 	         		<input type="number" name="max_count" size="50" value="${data.max_count}"><br><br>
 	         	<b>공연 상세 내용</b>
 	         		<textarea rows="10" cols="50" name="content">${data.content}</textarea><br><br>
