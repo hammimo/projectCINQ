@@ -43,7 +43,7 @@
 				<input type="hidden" id="location" name="location" value="${placeData.write_no}">
 				<b>장소</b><br>
 				<c:if test="${placeData.image == 'nan'}">
-		       		 <b>이미지가 없습니다..</b><br>
+		       		 <b>이미지가 없습니다</b><br>
 		        </c:if>
 		        <c:if test="${placeData.image != 'nan'}">
 		        <img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="200px" height="200px"><br>

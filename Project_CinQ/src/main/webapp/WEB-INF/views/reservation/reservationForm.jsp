@@ -111,7 +111,7 @@ button:hover {
 		<br>
 		<br>
 		<!-- <button type="button" onclick="location.href='reservationForm'">취소</button><br><br>-->
-
+		
 		<form id="form" class="reservationForm"
 			action="${contextPath }/reservation/reservation"
 			enctype="multipart/form-data" method="post">
@@ -139,12 +139,11 @@ button:hover {
 						width="200px" height="200px">
 					<br>
 				</c:if>
-				
 				<div class="textbox">
 					<label>지역</label> <input type="text" name="title"
 						value="${placeData.loc_sep_name}"><br>
 					<br>
-				</div>s
+				</div>
 				<b>장소명 : ${placeData.loc_name} </b>
 				<br>
 				<br>

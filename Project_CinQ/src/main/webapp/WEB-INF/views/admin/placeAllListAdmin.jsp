@@ -9,9 +9,6 @@
 <meta charset="UTF-8">
 <title>place Manage</title>
 <style type="text/css">
-*{
-	font-family:'Hahmlet', sans-serif; 
-}
 #Y {
 	opacity : 0.3;
 }
@@ -61,11 +58,6 @@ label {
 	<c:import url="../default/adminAside.jsp"/>
    <br>
    <h1 align="center"> 장소 관리 </h1>
-   <form action="placeSearchList" method="post" enctype='multipart/form-data'>
-   	<div class="searchPlace">
-   		<input name="loc_sep_name" type="text" placeholder="지역 입력(예시:강남)">&nbsp;<input type="submit" value="검색">
-   	</div>
-   </form>
    <br>
    <div class='placeManage' align="center">
 	<table class="tg" >
@@ -73,8 +65,8 @@ label {
 			<thead>
 			  <tr>
 			    <th class="tg-0pky" width="200">장소</th>
-			    <th class="tg-0pky" width="100">제목</th>
-			    <th class="tg-0pky" width="300">${dto.title}</th>
+			    <th class="tg-0pky" width="200">제목</th>
+			    <th class="tg-0pky" width="400">${dto.title}</th>
 			  </tr>
 			</thead>
 			<tbody>

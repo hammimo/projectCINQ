@@ -201,15 +201,19 @@ $.ajax({
 	width: 100%; height: 100%;
 	background-color: rgba(0, 0, 0, 0.6);
 }
+#modal_wrap textarea {
+	resize: none;
+	
+}
 #first {
 	display: none;
 	position: fixed;
 	z-index: 10;
 	margin: 0 auto;
-	top: 30px; left: 0; right: 0;
-	width: 300px;
-	height: 350px;
-	background-color: rgba(212, 244, 250, 0.9);
+	top: 220px; left: 0; right: 0;
+	width: 500px;
+	height: 450px;
+	background-color: rgba(250, 250, 250, 0.9);
 }
 /* .view_title {
 	text-align: center;
@@ -225,30 +229,30 @@ img{
 	max-width: 900px;
 	max-height: 550px;
 }
+p {
+	font-size: 10px;
+}
 </style>
 </head>
 <body onload="reply_data()">
 	<div class="main">
 	<div id="modal_wrap">
 		<div id="first">
-			<div style="width: 250px; margin: 0 auto; padding-top: 20px;">
+			<div style="width: 300px; margin: 0 auto; padding-top: 20px;">
 				<form id="frm">
 					<input type="hidden" id="loginUser" value="${loginUser}">
 					<input type="hidden" name="write_no" value="${data.write_no}">
-					<b> 답글 페이지</b>
+					<h2> 답글 페이지</h2><br>
 					<hr>
-					<b> 작성자 : ${loginUser}</b>
+					<b> 작성자 : ${loginUser}</b><br>
 					<hr>
 					<b> 연락처</b><p>*프로젝트 관리자에게만 보이는 정보입니다.</p>
-					<input type="text" id="tel" name="tel" size="30" placeholder=" - 를 포함한 번호를 입력하세요 ">
-					<hr>
-					<b>제 목</b><br>
-					<input type="text" id="title" name="title" size="30">
-					<hr>
-					<b>내 용</b><br>
-					<textarea id="content" name="content" rows="5" cols="30"></textarea>
-					<hr>
-					<button type="button" onclick="rep()"> 답글 </button> &nbsp;
+					<input type="text" id="tel" name="tel" size="40" placeholder=" - 를 포함한 번호를 입력하세요 ">
+					<b>제 목</b>
+					<input type="text" id="title" name="title" size="40">
+					<b>내 용</b>
+					<textarea id="content" name="content" rows="6" cols="40" ></textarea>
+					<button type="button" onclick="rep()"> 답글 </button> &nbsp;&nbsp;&nbsp;&nbsp;
 					<button type="button" onclick="slide_hide()"> 취소 </button>
 				</form>
 			</div>
@@ -294,7 +298,9 @@ img{
                   	<input id="i_button" type="button" value="제출하기" onclick="location.href='#'">
                   </c:if>
                   <input id="i_button" type="button" value="글목록" onclick="location.href='${contextPath}/join/joinAllListNum'">
-                 <input id="i_button" type="button" value="답글달기" onclick="slide_click()"> &nbsp;
+                  <c:if test="${loginUser != null }">
+                  <input id="i_button" type="button" value="답글달기" onclick="slide_click()"> &nbsp;
+				  </c:if>
                <div id ="reply"></div>
                </td>
             </tr>		     

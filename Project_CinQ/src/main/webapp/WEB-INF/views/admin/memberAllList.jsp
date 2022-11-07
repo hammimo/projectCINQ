@@ -9,13 +9,11 @@
 <title>memberAllList</title>
 <link href="${contextPath}/resources/script/css/adminMember.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-
 </style>
 </head>
 <body>
     <c:import url="../default/header.jsp"/>
-    <c:import url="../default/aside.jsp"/>
-	<c:import url="../default/adminMenu.jsp"/>
+    <c:import url="../default/adminAside.jsp"/>
     <div class="main" align="center">
         <h1>회원정보</h1>
 		<br><br>

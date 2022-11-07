@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +14,10 @@
 * { 
     margin: 0;
 }
+.header {
+	padding: 10px;
+}
+
 a{
 	text-decoration: none;
 	color: black;
@@ -36,6 +40,18 @@ a:hover{
     font-size: 60px;
     text-align: center;
 }
+.loginUser li{
+	list-style: none;
+}
+.loginUser li a {
+	float: right;
+	padding-right: 50px;
+	font-size: 20px;
+	font-weight: bold;
+	color: green;
+	list-style: none;
+}
+
 
 nav {
 	font-size:18px;
@@ -53,27 +69,52 @@ nav ul li {
     font-size:14px;
     
 }
+
 .memberInfo{
+	clear: both;
 	float:left;
 }
 .menu{
+	padding-right: 10px;
 	float: right;
 }
 .joinList {
 	
 	text-align: left;
 }
+.logo {
+	width: 250px;
+	height: 110px;
+}
+.marker{
+	width: 10px;
+	height: 10px;
+}
 </style>
 </head>
 <body>
     <div class="wrap">
         <div class="header">
-            <h1 class="title">CINQ</h1>	
+         	<a href="${contextPath}/index">
+         		<img class="logo" src="${contextPath}/resources/script/image/projectCINQ_logo.png">
+         	</a>
 		</div>
+    </div>
+    <div class="wrap">
+				<c:if test="${loginUser != null }">
+	            	<ul class="loginUser">
+		            	<li>
+		            		<a href="/root/member/myinfo1?id=${loginUser}">
+		            			<img class="marker" src="${contextPath}/resources/script/image/marker.gif">
+         							${loginUser} 님
+		            		</a>
+		            	</li>
+	            	</ul> 
+            	</c:if>
     </div>
     <!-- // wrap -->
         <div class="wrap">
-            <nav>
+			<nav>
                 <ul class="memberInfo">
                     <li><a href = "/root/index">HOME</a></li>
                     <li>
@@ -87,16 +128,19 @@ nav ul li {
                         </c:if>
                     </li>
                 </ul>
-               <ul class="menu">
-                   <c:if test="${loginUser == 'admin'}">
-                      <li><a id="a1" href="/root/reservation/reservationAllListNum">Project</a></li>
-                   </c:if>
-                  <c:if test="${loginUser != 'admin'}">
-                      <li><a id="a1" href="/root/reservation/reservationForm">Project</a></li>
-                   </c:if>
-                  <li><a id="a1" href="/root/join/joinAllListNum">Join</a></li>
-                 <li><a id="a1" href="/root/place/placeAllListNum">Place</a></li>
-               </ul>
+                <ul class="menu">
+                	<c:if test="${loginUser == 'admin'}">
+                    	<li><a href="/root/admin/memberAllList">관리자페이지</a></li>
+                    </c:if>
+            		<c:if test="${loginUser == 'admin'}">
+                    	<li><a href="/root/reservation/reservationAllListNum">예매관리</a></li>
+                    </c:if>
+            		<c:if test="${loginUser != 'admin'}">
+                    	<li><a href="/root/reservation/reservationForm">예매등록</a></li>
+                    </c:if>        
+      				<li><a href="/root/join/joinAllListNum">구인하기</a></li>
+     				<li><a href="/root/place/placeAllListNum">장소등록</a></li>
+            	</ul>
             </nav>
         </div>
     <!-- // navdiv -->
