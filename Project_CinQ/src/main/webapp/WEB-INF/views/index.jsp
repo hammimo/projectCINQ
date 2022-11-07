@@ -126,6 +126,7 @@ img {
 	height: 250px;
 }
 
+
 .Join_list {
 	display: inline-block;
 	border: 1px solid black;
