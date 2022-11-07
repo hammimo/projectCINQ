@@ -140,7 +140,7 @@ public class JoinServiceImpl implements JoinService{
 	public void JoinAllListNum(Model model, int num) {
 		
 		
-		int pageLetter = 3;// 한 페이지 당 글 목록수
+		int pageLetter = 2;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectJoinCount();// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)
@@ -184,7 +184,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public void joinSearchList(String title, Model model, int num) {
-		int pageLetter = 3;// 한 페이지 당 글 목록수
+		int pageLetter = 2;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectJoinSearchCount(title);// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)

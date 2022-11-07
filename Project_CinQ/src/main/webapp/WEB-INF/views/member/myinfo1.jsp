@@ -9,7 +9,9 @@
 <html>
 <head>
 
+
 <link href="${contextPath}/resources/script/css/info.css" rel="stylesheet" type="text/css">
+
 <meta charset="UTF-8">
 <title>member/info.jsp</title>
 
