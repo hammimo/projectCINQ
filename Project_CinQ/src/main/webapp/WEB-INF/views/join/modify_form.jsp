@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>board/modify_form.jsp</title>
+<title>CINQ</title>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src='<c:url value="/resources/script/js/file.js"/>'></script>
@@ -23,13 +23,25 @@ font-family: 'Hahmlet', serif;
 	text-align: center;
 }
 .modify {
-	width: 500px;
+	width:100%;
 	margin: auto;
 }
 p{
 	font-size: 18px;
 	font-weight : bold;
 	padding-top: 2%;
+}
+.join_modi{
+	padding-top: 5%;
+	padding-left:8.5%;
+	width: 70%;
+}
+.title_content{
+	vertical-align: top;
+	display: inline-block;
+}
+.File_num{
+	display: inline-block;
 }
 </style>
 </head>
@@ -43,21 +55,27 @@ p{
 	<div class="modify" align="center">
 		<div class="modify_save">
 		<form action="${contextPath }/join/modify" enctype="multipart/form-data" method="post">
-			<input type="hidden" name="id" value="${ProjectInfo.id}">
-			<input type="hidden" name="originFileName" value="${ProjectInfo.image}">
-			<input type="hidden" name="write_no" value="${ProjectInfo.write_no}">
-			<!-- 이미지 변경 시 삭제에 사용  -->
-			<p>제 목</p>
-			<input type="text" name="title" value="${ProjectInfo.title}" size="50"><br>
-			<p>내 용</p>
-			<textarea rows="10" cols="50" name="content">${ProjectInfo.content }</textarea><br>
-			<p>파일 첨부</p>
-			<img src="${contextPath }/join/download?imageFileName=${ProjectInfo.image}" id="preview" width="450px" height="350px"><br><br>
-			<input type="file" name="image_file_name" onchange="readURL(this)"><br>
-			<p>현재 인원</p>
-			<input type="number" name ="cur_count" value="${ProjectInfo.cur_count}"> <br>
-			<p>모집 정원</p>
-			<input type="number" name ="max_count" value="${ProjectInfo.max_count}">
+			<div class="join_modi" align="center">
+			<div class="title_content">
+				<input type="hidden" name="id" value="${ProjectInfo.id}">
+				<input type="hidden" name="originFileName" value="${ProjectInfo.image}">
+				<input type="hidden" name="write_no" value="${ProjectInfo.write_no}">
+				<!-- 이미지 변경 시 삭제에 사용  -->
+				<p>제 목</p>
+				<input type="text" name="title" value="${ProjectInfo.title}" size="50"><br>
+				<p>내 용</p>
+				<textarea rows="10" cols="50" name="content">${ProjectInfo.content }</textarea><br>
+			</div>
+			<div class="File_num">
+				<p>파일 첨부</p>
+				<img src="${contextPath }/join/download?imageFileName=${ProjectInfo.image}" id="preview" width="450px" height="350px"><br><br>
+				<input type="file" name="image_file_name" onchange="readURL(this)"><br>
+				<p>현재 인원</p>
+				<input type="number" name ="cur_count" value="${ProjectInfo.cur_count}"> <br>
+				<p>모집 정원</p>
+				<input type="number" name ="max_count" value="${ProjectInfo.max_count}">
+			</div>
+			</div>
 			<br><br>
 			<button type="submit" value="작성완료">수정완료</button>
 		</form>

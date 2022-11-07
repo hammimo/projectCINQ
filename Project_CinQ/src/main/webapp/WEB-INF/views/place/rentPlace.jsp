@@ -8,8 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>form/rentPlace.jsp</title>
-<link href="${contextPath}/resources/script/css/form.css" rel="stylesheet" type="text/css">
+<title>CINQ</title>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -21,6 +20,12 @@
 *{
 font-family: 'Hahmlet', serif;
 }
+#wrapper{
+	height: auto;
+ 	 min-height: 100%;
+ 	 padding-bottom: 10px;
+ 	 background-color :rgba(0, 13, 0, 0.04);
+}
 #infoSection{
 	float: right;
 	width: 150px;
@@ -28,6 +33,69 @@ font-family: 'Hahmlet', serif;
 	line-height: 100px;
 	font-family: 'Hahmlet', serif;
 }
+.textbox label {
+  position: relative;
+  top: 1px;  
+  left: 1px;  
+  padding: .8em .5em; 
+  color: 	#464646;
+  cursor: text;
+  font-size: 17px;
+  font-weight: bold;
+  
+}
+.textbox input[type="text"] {
+  width: 38%;  
+  height: auto; 
+  line-height : normal;  
+  padding: .5em .4em; 
+  font-family: inherit; 
+  border: 1.3px solid 	#464646;
+  border-radius: .4em;  
+  outline-style: none;  
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+}
+.textbox input[type="number"] {
+  width: 15%;  
+  height: auto; 
+  line-height : normal;  
+  padding: .4em .3em; 
+  font-family: inherit; 
+  border: 1.3px solid 	#464646;
+  border-radius: .4em;  
+  outline-style: none;  
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+}
+button {
+	margin: 0;
+	padding: 0;
+	position: relative;
+    border: none;
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 200;
+    transition: 0.25s;
+	box-sizing: border-box;
+	margin: 20px;
+	background-color: #323232;
+    color: white;
+    font-family: 'Hahmlet', serif;
+	}
+button:hover {
+	letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+	background-color: #323232;
+    color: white;
+	}
 li {
 	font-family: 'Hahmlet', serif;
 	list-style: none;
@@ -36,6 +104,16 @@ li {
 	}
 textarea {
 	resize: none;
+	border-radius: .7em;  
+}
+.title_content {
+	vertical-align: top;
+	display: inline-block;
+	width : 30%;
+}
+.addr_num {
+	display: inline-block;
+	width: 30%;
 }
 </style>
 </head>
@@ -56,6 +134,7 @@ textarea {
    		<div class="div_1" align="center"> 
       		<form id="form" action="rentPlaceSave" method="post" enctype='multipart/form-data'> 
       			<div id="writeForm">
+      			<div class="title_content">
 	      		<div class="textbox">
 				  <label for="input" >작성자</label>
 	 			  <input type="text" name="id" value="${loginUser}" readonly><br><br>
@@ -68,27 +147,29 @@ textarea {
 				<!--<input type="file" name="image" value="장소사진" onchange="readURL(this)"><br><br>-->
 				<div class="textbox">
 					<label for="input">내용</label>
-			  		<textarea rows="10" cols="82" name="content" placeholder="모집 분야, 일시, 희망 가격을 입력해 주세요"></textarea><br><br>
+			  		<textarea rows="10" cols="50" name="content" placeholder="모집 분야, 일시, 희망 가격을 입력해 주세요"></textarea><br><br>
 				</div>
-				<div class="textbox">
-			  		<label for="input">지역</label>
-			  		<input type="text" id="addr1" name="addr" readonly>
-			  		<input type="button" class="btn btn-info" value="우편번호 찾기" onclick="daumPost()"><br>
-			  		<input type="text" id="addr2" placeholder="주소" readonly><br>
-			  		<input type="text" id="addr3" placeholder="상세주소">
+				</div>
+				<div class="addr_num">
+				
+	        	<img src="#" id="preview" width="300px" height="200px"><br>	      
+	      			<label for="upload-file"></label>
+	   				<input type="file" name="image" id="upload-file" onchange="readURL(this)">
+	   			<div class="textbox">
+			  		<label for="input">지역</label><br>
+			  		<input type="text" id="addr1" name="addr" readonly><br><br>
+			  		<input type="text" id="addr2" placeholder="주소" readonly><br><br>
+			  		<input type="text" id="addr3" placeholder="상세주소"><br><br>
 	 		  		<input type="hidden" id="addrResult" name="addrResult">
-	 		  		<input type="hidden" id="loc_sep_name" name="loc_sep_name">
+	 		  		<input type="hidden" id="loc_sep_name" name="loc_sep_name"><br><br>
+	 		  		<input type="button" class="btn btn-info" value="우편번호 찾기" onclick="daumPost()"><br>
 				</div>
 	          	<br>
-	         	<div class="textbox">
+	          	<div class="textbox">
 			  		<label for="input">모집인원</label>
 			  		<input type="number" min="0" max="100" id="max_count" name="max_count" />      
 				</div>
-				</div>
-				<div id="fileForm">
-	        	<img src="#" id="preview" width="500px" height="300px"><br>	      
-	      			<label for="upload-file">파일선택</label>
-	   				<input type="file" name="image" id="upload-file" onchange="readURL(this)">
+	   			</div>
 	   			</div>
 	        	<br>
 	        	<button type="button" onclick="writeSave()" value="작성완료">작성완료</button>

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-<title>mypage_1</title>
+<title>CINQ</title>
 
 <style type="text/css">
 #titleP {
@@ -27,7 +27,7 @@
 #infoSection{
 	float: right;
 	width: 150px;
-	height: 700px;
+	height: 1000px;
 	line-height: 100px;
 	font-family: 'Hahmlet', serif;
 }
@@ -77,6 +77,10 @@ button:hover {
 	width: 40%;
 	height: 244.94px;
 	vertical-align: top;
+}
+.participating button {
+	position: relative;
+	top: 65%;
 }
 img{
 	width: 90%;

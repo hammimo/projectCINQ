@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>reservationForm.jsp</title>
+<title>CINQ</title>
 <script src='<c:url value="/resources/script/js/file.js"/>'></script>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 
@@ -37,18 +37,20 @@
 	padding-right: 10%;
 	position: relative;
 	width: 80%;
-	height: 60%;
+	height: 40%;
 	display:inline-block;
 }
 .Box1_1{
 	display: inline-block;
 	float: left;
-	width: 50%;
+	width: 35%;
+	padding-left: 20%;
 }
 .Box1_2{
 	display: inline-block;
 	float:right;
-	width: 50%;
+	width: 40%;
+	padding-right: 5%;
 	}
 
 label {
@@ -136,7 +138,7 @@ button:hover {
 				<c:if test="${placeData.image != 'nan'}">
 					<img
 						src="${contextPath}/place/download?imageFileName=${placeData.image}"
-						width="200px" height="200px">
+						width="450px" height="200px">
 					<br>
 				</c:if>
 				<div class="textbox">
@@ -148,7 +150,7 @@ button:hover {
 				<br>
 				<br>
 			</c:if>
-			<br> <img src="#" id="preview" width="350px" height="250px"><br> 
+			<br> <img src="#" id="preview" width="450px" height="250px"><br> 
 				<input type="file" name="image"
 				value="팀원프로필" onchange="readURL(this)"><br>
 		</div>
@@ -185,7 +187,7 @@ button:hover {
 			<br> 
 			<div class="textbox">
 				<label>공연팀 인원</label> 
-				<input type="number" min="0" max="100" name="team_count" /><br>
+				<input type="number" min="0" max="100" name="team_count"/><br>
 				<br>
 			</div>
 			<br>

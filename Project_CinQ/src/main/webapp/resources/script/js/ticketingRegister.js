@@ -2,7 +2,7 @@
 
 function registOkView() {
 	var url = '/root/place/registOkPlaceView';
-	var popOpt = 'width=1000px, height=900px, top=300px, left=500px';
+	var popOpt = 'width=800px, height=430px, top=300px, left=500px';
 	openWin = window.open(url,'pop',popOpt);
 	
 }

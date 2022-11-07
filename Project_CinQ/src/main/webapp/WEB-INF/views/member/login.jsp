@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>CINQ</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src='<c:url value="/resources/script/js/checkRegister.js"/>'></script>
 <link href="${contextPath}/resources/script/css/login.css" 
@@ -21,7 +21,6 @@
           <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign-In</label>
           <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign-up</label>
           <div class="login-form">
-         
                <div class="sign-in-htm">
                   <form action="${contextPath }/member/user_check" method="post" autocomplete="off">
                     <div class="group">
