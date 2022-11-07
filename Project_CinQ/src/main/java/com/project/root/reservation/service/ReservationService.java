@@ -19,6 +19,8 @@ public interface ReservationService {
 	
 	public String ticketingStart(MultipartHttpServletRequest mul, HttpServletRequest request); 
 	
-	public void ticketingAllList(Model model); 
+	public void ticketingAllList(Model model);
+
+	public void ticketingAllListNum(Model model, int num); 
 }
  

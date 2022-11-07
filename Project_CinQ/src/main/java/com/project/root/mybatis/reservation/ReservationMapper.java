@@ -26,4 +26,8 @@ public interface ReservationMapper {
 	public int currentCountCheck(String show_num);
 
 	public int currentUp(@Param("sN")String show_num, @Param("c")int ticket_count);
+	
+	public List<ReservationDTO> ticketingAllListNum(@Param("s")int start, @Param("e")int end);
+
+	public int selectTicketCount();
 }  

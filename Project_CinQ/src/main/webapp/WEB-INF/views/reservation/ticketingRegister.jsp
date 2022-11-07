@@ -23,7 +23,7 @@
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
-   <h1>예매창</h1>
+   <h1 align="center">예매 시작</h1>
      	<div id="reservationForm">
  			<b>공연장소</b>&nbsp;
  			<input type="hidden" id=register_no value="${data.write_no}">
@@ -64,7 +64,7 @@
 	        	<p>공연날짜</p>
 	         		<input type="date" id="start_date" name="start_date" value="${data.start_date}"> ~ 
 	         		<input type="date" id="start_date" name="end_date" value="${data.end_date}"> <br><br>
-	         	<b>관람가능 인원</b>
+	         	<b>총 티켓매수</b>
 	         		<input type="number" name="max_count" size="50" value="${data.max_count}"><br><br>
 	         	<b>공연 상세 내용</b>
 	         		<textarea rows="10" cols="50" name="content">${data.content}</textarea><br><br>

@@ -148,8 +148,9 @@ $('.responsive').slick({
 	<div class="wrapper">
 	<div class="projects">
 	<br>
-		<h3>PROJECT</h3>
+		<h3>예매중인 티켓</h3>
 		<br>
+		<a href="${contextPath}/ticket/ticketingAllListNum">전체 티켓보기</a>
 		<div id="project" class="responsive">
 			<c:forEach var="dto_t" items="${ticketingList}">
 			<div class="project_img" align="center">

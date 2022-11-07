@@ -59,7 +59,17 @@ ticketing varchar2(2) default 'N'
    <select id="selectReservationCount" resultType="Integer">
       select count(*) from reservation
     </select>
-    
+   <select id="selectTicketCount" resultType="Integer">
+      select count(*) from reservation where ticketing='Y'
+    </select>
+   
+   	<select id="ticketingAllListNum" resultMap="reservation">
+      select B.* from
+      (select rownum rn, A. * from   
+      (select * from reservation where ticketing='Y' order by write_no desc) A) B 
+      where rn between #{s} and #{e}
+   </select>
+      
     <select id="reservationView" resultMap="reservation">
     	select * from reservation where write_no=#{write_no}
     </select>
