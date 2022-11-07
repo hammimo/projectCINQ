@@ -78,6 +78,7 @@
 		</tr>
 		 <tr>
 				<td><button type="button" onclick="location.href='${contextPath}/reservation/ticketingRegister?write_no=${dto.write_no}&location=${dto.location}'">예매등록</button></td>&nbsp;
+
 				<td><button type="button" onclick="location.href='${contextPath}/reservation/reservationDelete?write_no=${dto.write_no}&imageFileName=${data.image}'">삭제</button></td>
 		</tr>
 		<tr>
