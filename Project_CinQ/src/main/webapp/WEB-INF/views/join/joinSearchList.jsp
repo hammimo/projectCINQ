@@ -48,7 +48,12 @@ font-family: 'Hahmlet', serif;
         <c:if test="${joinSearchList.size() == 0}">
         	<tr>
         		<th colspan="2">검색하신 내용과 일치하는 제목이 없습니다</th>
-        	</tr>   
+        	</tr>
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>   
         </c:if>
         <c:forEach var="dto_s" items="${joinSearchList}">
             <tr height="100px">

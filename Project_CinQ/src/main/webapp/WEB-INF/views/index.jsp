@@ -62,7 +62,7 @@
 
 <style type="text/css">
 * {
-	font-family: 'Hahmlet', serif;
+	
 }
 body {
 	background-color: rgba(0, 13, 0, 0.04);
@@ -72,7 +72,7 @@ body {
 }
 
 .wrapper {
-	
+	font-family: 'Hahmlet', serif;
 }
 
 #project {
@@ -93,12 +93,6 @@ body {
 .project_img img {
 	width: 300px;
 	height: 200px;
-}
-
-img {
-	width: 80%;
-	height: 30%;
-	object-fit: cover;
 }
 
 .project_title {
@@ -123,6 +117,30 @@ img {
 	text-align: center;
 	width: 20%;
 	height: 250px;
+}
+
+#joinArea{
+	width:100%;
+	height:600px;
+	overflow:hidden;
+}
+
+#placeArea{
+	width:100%;
+	height:600px;
+	overflow:hidden;
+}
+
+#more {
+	position:relative;
+	font-size : 20px;
+	text-align : right;
+	font-weight: bold;
+	right: 125px;
+	top : 0px;
+}
+#more a {
+	color : rgb(102,102,102);
 }
 
 .place {
@@ -164,14 +182,16 @@ img {
 	width: 870px;
 	height: 450px;
 }
+
+
+
 </style>
 </head>
 <body>
 	<c:import url="default/header.jsp" />
-	<c:import url="default/adminMenu.jsp" />
 	<div class="wrapper">
-	<div class="projects">
-	<br>
+		<div class="projects">
+		<br>
 		<h3>예매중인 티켓</h3>
 		<br>
 		<a href="${contextPath}/ticket/ticketingAllListNum">전체 티켓보기</a>
@@ -187,59 +207,65 @@ img {
 					${dto_t.content }
 				</div>
 			</div>
+			</c:forEach>
 		</div>
 		<br> <br> <br> <br>
-		<h3 align="center">JOIN MEMBER</h3>
-		<br> <br>
-		<c:forEach var="dto" items="${joinList }">
-			<div class="join">
-				<br>
-				<div class="join_list">
-					<div class="Join_Image" align="center">
-						<a href="${contextPath}/join/joinView?write_no=${dto.write_no}">
-							<c:if test="${dto.image != 'nan'}">
-								<img
-									src="${contextPath}/join/download?imageFileName=${dto.image}">
-							</c:if> <c:if test="${dto.image == 'nan'}">
-								<img src="https://via.placeholder.com/150">
-							</c:if>
-						</a>
+		<div id="joinArea">
+			<h3 align="center">JOIN MEMBER</h3>
+			<div id="more">
+				<a href="${contextPath }/join/joinAllListNum"> 더보기+ </a>
+			</div>
+			<br>
+			<c:forEach var="dto" items="${joinList }">
+				<div class="join">
+					<br>
+					<div class="join_list">
+						<div class="Join_Image" align="center">
+							<a href="${contextPath}/join/joinView?write_no=${dto.write_no}">
+								<c:if test="${dto.image != 'nan'}">
+									<img width="200" height="200" src="${contextPath}/join/download?imageFileName=${dto.image}">
+								</c:if> <c:if test="${dto.image == 'nan'}">
+									<img src="https://via.placeholder.com/200">
+								</c:if>
+							</a>
+						</div>
+					</div>
+					<div class="Join_Title">
+						<a href="${contextPath}/join/joinView?write_no=${dto.write_no}">${dto.title}</a>
 					</div>
 				</div>
-				<div class="Join_Title">
-					<a href="${contextPath}/join/joinView?write_no=${dto.write_no}">${dto.title}</a>
-				</div>
-			</div>
-		</c:forEach>
-
+			</c:forEach>
+		</div>
 		<br> <br> <br> <br>
-		<h3 align="center">LENT PLACE</h3>
-
-		<br>
-		<br>
-		<c:forEach var="dto_P" items="${placeList }">
-			<div class="place">
-				<div class="Place_list">
-					<div class="Place_Image" align="center">
-						<c:if test="${dto_P.image != 'nan'}">
-							<img
-								src="${contextPath}/join/download?imageFileName=${dto_P.image}">
-						</c:if>
-						<c:if test="${dto_P.image == 'nan'}">
-							<img src="https://via.placeholder.com/150">
-						</c:if>
-					</div>
-					<div class="Place_Title">
-						<a
-							href="${contextPath}/place/placeView/?write_no=${dto_P.write_no}">${dto_P.title}
-						</a>
+		<div id="placeArea">
+			<h3 align="center">LENT PLACE</h3>
+			<br>
+			<div id="more">
+				<a href="${contextPath }/place/placeAllListNum"> +더보기 </a>
+			</div>
+			<br>
+			<c:forEach var="dto_P" items="${placeList }">
+				<div class="place">
+					<div class="Place_list">
+						<div class="Place_Image" align="center">
+							<c:if test="${dto_P.image != 'nan'}">
+								<img width="200" height="200" src="${contextPath}/join/download?imageFileName=${dto_P.image}">
+							</c:if>
+							<c:if test="${dto_P.image == 'nan'}">
+								<img src="https://via.placeholder.com/200">
+							</c:if>
+						</div>
+						<div class="Place_Title">
+							<a
+								href="${contextPath}/place/placeView/?write_no=${dto_P.write_no}">${dto_P.title}
+							</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
+		</div>
 	</div>
-
-	<c:import url="default/footer.jsp" />
-
+</div>
+<c:import url="default/footer.jsp" />
 </body>
 </html>

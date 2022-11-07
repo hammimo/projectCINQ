@@ -52,7 +52,12 @@ font-family: 'Hahmlet', serif;
         <c:if test="${placeList.size() == 0}">
             <tr>
                 <th colspan="2">등록된 글이 없습니다</th>
-            </tr>   
+            </tr>
+            <tr height="100px"></tr>
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>    
         </c:if>
       	<c:forEach var="dto_s" items="${placeList}">
           	<tr height="100px">

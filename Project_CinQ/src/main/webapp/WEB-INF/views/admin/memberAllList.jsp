@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>CINQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <link href="${contextPath}/resources/script/css/adminMember.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 </style>
@@ -18,7 +19,7 @@
         <h1>회원정보</h1>
 		<br><br>
         <table id="memberList">
-            <tr>
+            <tr id="head">
                 <th> id </th>
                 <th> pw </th>
                 <th> name </th>

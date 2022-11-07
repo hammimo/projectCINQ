@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 *{
-	font-family: 'Hahmlet', serif;
+	
 }
 
 body{
@@ -9,17 +9,32 @@ body{
 	background-color: rgba(0, 0, 0, 0.04);
 	width: 100%;
 }
+.main{
+	font-family: 'Hahmlet', serif;
+}
 
 #memberList {
+	
 	margin: 50px; width: 800px;
+	height: 800px;
     border-spacing: 0;
     border-collapse: collapse; 
     text-align: center;
 }
-#memberList th,td {
+#head{
+	height: 100px;
+}
+
+#memberList th{
 	border-top: 1px solid black;
 	font-size: 28px;
-	padding: 15px
+	padding: 0 10px
+}
+
+#memberList td {
+	border-top: 1px solid black;
+	font-size: 20px;
+	padding: 0 10px
 }
 #memberList th{
 	background-color: #B1C6CF;

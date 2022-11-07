@@ -116,15 +116,15 @@ nav ul li {
         <div class="wrap">
 			<nav>
                 <ul class="memberInfo">
-                    <li><a href = "/root/index">HOME</a></li>
+                    <li><a href = "/root/index">홈</a></li>
                     <li>
                         <c:if test="${loginUser == null}">
                             <a href = "/root/member/register_form">회원가입</a>&nbsp;
                             <a href="/root/member/login">로그인</a>
                         </c:if>
                         <c:if test="${loginUser != null}">
-                            <a href="/root/member/myinfo1?id=${loginUser}">MY PAGE</a>&nbsp;
-                            <a href="/root/member/logout">LOGOUT</a>
+                            <a href="/root/member/myinfo1?id=${loginUser}">마이페이지</a>&nbsp;
+                            <a href="/root/member/logout">로그아웃</a>
                         </c:if>
                     </li>
                 </ul>
