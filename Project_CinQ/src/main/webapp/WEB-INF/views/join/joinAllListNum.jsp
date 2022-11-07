@@ -20,6 +20,7 @@
 *{
 font-family: 'Hahmlet', serif;
 }
+
 </style>
 </head>
 <body>
@@ -77,9 +78,20 @@ font-family: 'Hahmlet', serif;
          </c:forEach>
          <tr>
             <td colspan="6" align="center">
-               <c:forEach var="num" begin="1" end="${repeat}">
-                  <button onclick="location.href='joinAllListNum?num=${num}'">${num}</button>
+          		<c:if test="${startPage > block}">
+            		<button onclick="location.href='joinAllListNum?num=${startPage-1}'">이전</button>
+            	</c:if>
+               <c:forEach var="num1" begin="${startPage}" end="${endPage}">
+               	   <c:if test="${num1 == currentPage }">
+               	   	<button id="currrentPage" onclick="location.href='joinAllListNum?num=${num1}'">${num1}</button>
+               	   </c:if>
+                  <c:if test="${num1 != currentPage }">
+                  	<button id="page" onclick="location.href='joinAllListNum?num=${num1}'">${num1}</button>
+                  </c:if>
                </c:forEach>
+            	<c:if test="${endPage<totalPage}">
+            		<button onclick="location.href='joinAllListNum?num=${endPage+1}'">다음</button>
+            	</c:if>
             </td>
         </tr>
         <tr>
