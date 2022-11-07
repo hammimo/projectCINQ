@@ -45,7 +45,7 @@ font-family: 'Hahmlet', serif;
     <div class="list">
     <table class="Table">
     	<tr height="80px"></tr>
-        <c:if test="${joinList.size() == 0}">
+        <c:if test="${joinSearchList.size() == 0}">
         	<tr>
         		<th colspan="2">검색하신 내용과 일치하는 제목이 없습니다</th>
         	</tr>   
