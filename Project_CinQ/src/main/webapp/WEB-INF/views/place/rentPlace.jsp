@@ -9,29 +9,53 @@
 <head>
 <meta charset="UTF-8">
 <title>form/rentPlace.jsp</title>
+<link href="${contextPath}/resources/script/css/form.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src='<c:url value="/resources/script/js/post.js"/>'></script>
 <script src='<c:url value="/resources/script/js/file.js"/>'></script>
-<link href="${contextPath}/resources/script/css/form.css" rel="stylesheet" type="text/css">
+
 <style type="text/css">
 *{
 font-family: 'Hahmlet', serif;
+}
+#infoSection{
+	float: right;
+	width: 150px;
+	height: 700px;
+	line-height: 100px;
+	font-family: 'Hahmlet', serif;
+}
+li {
+	font-family: 'Hahmlet', serif;
+	list-style: none;
+	font-size: 18px;
+	line-height: 50px;
+	}
+textarea {
+	resize: none;
 }
 </style>
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
-   <c:import url="../default/aside.jsp"/>
    <hr>
+   <div id='wrapper'>
    <p class="title">RENT PLACE</p><br>
    <hr>
    <br><br><br>
-   <div id='wrapper'>
+   		<section id ="infoSection">
+   		<ul>
+      		<li><a href="/root/member/myinfo1?id=${loginUser}">MY INFO</a></li>
+      		<li><a href="/root/member/myinfo2?id=${loginUser}">PROJECT</a></li>
+      		<li>HISTORY</li>
+   		</ul>
+   		</section>
    		<div class="div_1" align="center"> 
-      		<form id="form" action="rentPlaceSave" method="post" enctype='multipart/form-data'>   
+      		<form id="form" action="rentPlaceSave" method="post" enctype='multipart/form-data'> 
+      			<div id="writeForm">
 	      		<div class="textbox">
 				  <label for="input" >작성자</label>
 	 			  <input type="text" name="id" value="${loginUser}" readonly><br><br>
@@ -40,14 +64,11 @@ font-family: 'Hahmlet', serif;
 			  		<label for="input">제목</label>
 	 		 		<input type="text"  name="title" size="50"><br><br>
 				</div>
-	        	<div class ="img"><img src="#" id="preview" width="500px" height="300px"><br>	      
-	      			<label for="upload-file">파일선택</label>
-	   				<input type="file" name="image" id="upload-file" onchange="readURL(this)">
-	   			</div>
+	        	
 				<!--<input type="file" name="image" value="장소사진" onchange="readURL(this)"><br><br>-->
 				<div class="textbox">
 					<label for="input">내용</label>
-			  		<textarea rows="10" cols="70" name="content" placeholder="모집 분야, 일시, 희망 가격을 입력해 주세요"></textarea><br><br>
+			  		<textarea rows="10" cols="82" name="content" placeholder="모집 분야, 일시, 희망 가격을 입력해 주세요"></textarea><br><br>
 				</div>
 				<div class="textbox">
 			  		<label for="input">지역</label>
@@ -63,6 +84,12 @@ font-family: 'Hahmlet', serif;
 			  		<label for="input">모집인원</label>
 			  		<input type="number" min="0" max="100" id="max_count" name="max_count" />      
 				</div>
+				</div>
+				<div id="fileForm">
+	        	<img src="#" id="preview" width="500px" height="300px"><br>	      
+	      			<label for="upload-file">파일선택</label>
+	   				<input type="file" name="image" id="upload-file" onchange="readURL(this)">
+	   			</div>
 	        	<br>
 	        	<button type="button" onclick="writeSave()" value="작성완료">작성완료</button>
 	      </form>
