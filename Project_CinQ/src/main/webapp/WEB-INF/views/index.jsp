@@ -81,11 +81,15 @@
 	text-align: center;
 	position: relative;
 	width: 100%;
-	height: 3%;
 }
 
 .project_img {
 	position: relative;
+}
+
+.project_img img {
+	width: 300px;
+	height: 200px;
 }
 
 img {
@@ -181,12 +185,9 @@ img {
 				</c:forEach>
 			</div>
 		</div>
-		<br>
-		<br>
+		<br> <br>
 		<h3 align="center">JOIN MEMBER</h3>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<c:forEach var="dto" items="${joinList }">
 			<div class="join">
 				<br>
@@ -208,12 +209,10 @@ img {
 			</div>
 		</c:forEach>
 
-		<br>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br> <br>
 		<h3 align="center">LENT PLACE</h3>
 
+		<br>
 		<br>
 		<c:forEach var="dto_P" items="${placeList }">
 			<div class="place">

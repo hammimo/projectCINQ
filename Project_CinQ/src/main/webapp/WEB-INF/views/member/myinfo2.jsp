@@ -78,6 +78,10 @@ button:hover {
 	height: 244.94px;
 	vertical-align: top;
 }
+.participating button {
+	position: relative;
+	top: 65%;
+}
 img{
 	width: 90%;
   	height: 90%;
