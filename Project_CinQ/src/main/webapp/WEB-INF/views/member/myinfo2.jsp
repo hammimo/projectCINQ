@@ -27,7 +27,7 @@
 #infoSection{
 	float: right;
 	width: 150px;
-	height: 700px;
+	height: 1000px;
 	line-height: 100px;
 	font-family: 'Hahmlet', serif;
 }
