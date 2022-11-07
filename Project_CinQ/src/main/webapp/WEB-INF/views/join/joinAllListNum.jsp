@@ -48,10 +48,7 @@ font-family: 'Hahmlet', serif;
         </c:if>
       	<c:forEach var="dto" items="${joinList}">
          	<tr height="100px">
-         	<tr id="content_row">    
-                <td id="content_loc">${dto.loc_sep_name}</td>
-        	</tr>
-            	<td id="content_title"><a href="/root/join/joinView?write_no=${dto.write_no}">${dto.title}</a></td>
+            	<td id="content_loc">${dto.loc_sep_name}</td>
             	<c:if test="${dto.image == 'nan'}">
                     <td id="content_image" rowspan="5">
                         <b>이미지가 없습니다..</b>
@@ -63,15 +60,18 @@ font-family: 'Hahmlet', serif;
                   	</td>
                 </c:if>
             </tr>
-         
+        
             <tr id="content_row">
-            	<td id="content_loc_name">${dto.loc_name}</td>
+            	 <td id="content_title"><a href="/root/join/joinView?write_no=${dto.write_no}">제목 : ${dto.title}</a></td>
+            </tr>
+            <tr id="content_row">
+            	<td id="content_loc_name">상세 위치 : ${dto.loc_name}</td>
             </tr>
             <tr id="content_row">
             	<td></td>
             </tr>
             <tr id="content_row">
-				<td id="content_con">${dto.content}</td>
+				<td id="content_con">내용 : ${dto.content}</td>
 			</tr>
 		    <tr height="100px"></tr>
       	</c:forEach>

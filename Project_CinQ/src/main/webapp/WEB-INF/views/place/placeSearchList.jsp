@@ -31,6 +31,7 @@ font-family: 'Hahmlet', serif;
 </head>
 <body>
     <c:import url="../default/header.jsp"/>
+    <div class="main">
     <input type="hidden" value="${placeList}">
   	 <!-- <div align="center"> -->
    	<br>
@@ -45,7 +46,7 @@ font-family: 'Hahmlet', serif;
 	</form>
     <br><br>
     <!-- table 부분 -->
-   	<div>
+   	<div class="list">
    	<table class="Table">
    	<tr height="80px"></tr>
         <c:if test="${placeList.size() == 0}">
@@ -55,7 +56,7 @@ font-family: 'Hahmlet', serif;
         </c:if>
       	<c:forEach var="dto_s" items="${placeList}">
           	<tr height="100px">
-            	<td id="content_title"><a href="/root/place/placeView?write_no=${dto_s.write_no}">${dto_s.title}</a></td>
+            	<td id="content_loc">${dto_s.loc_sep_name}</td>
             	<c:if test="${dto_s.image == 'nan'}">
                     <td id="content_image" rowspan="5">
                         <b>이미지가 없습니다..</b>
@@ -68,16 +69,16 @@ font-family: 'Hahmlet', serif;
                 </c:if>
             </tr>
             <tr id="content_row">    
-                <td id="content_loc">${dto_s.loc_sep_name}</td>
+                <td id="content_title"><a href="/root/place/placeView?write_no=${dto_s.write_no}">제목 : ${dto_s.title}</a></td>
             </tr>
             <tr id="content_row">
-            	<td id="content_loc_name">${dto_s.loc_name}</td>
+            	<td id="content_loc_name">상세 위치 : ${dto_s.loc_name}</td>
             </tr>
             <tr id="content_row">
             	<td></td>
             </tr>
             <tr id="content_row">
-				<td id="content_con">${dto_s.content}</td>
+				<td id="content_con">내용 : ${dto_s.content}</td>
 			</tr>
 			<tr height="100px"></tr>
      	</c:forEach>
@@ -94,6 +95,7 @@ font-family: 'Hahmlet', serif;
         	</td>
      	</tr>
      	</table>
+     	</div>
      	</div>
    		<c:import url="../default/footer.jsp"/>
 </body>

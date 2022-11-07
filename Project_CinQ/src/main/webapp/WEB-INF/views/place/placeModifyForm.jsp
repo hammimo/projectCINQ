@@ -39,16 +39,16 @@
 	<div class="modify" align="center">
 		<div class="modify_save">
 		<form action="${contextPath }/place/modify" enctype="multipart/form-data" method="post">
-			<input type="hidden" name="id" value="${data.id}">
-			<input type="hidden" name="originFileName" value="${data.image}">
-			<input type="hidden" name="write_no" value="${data.write_no}">
+			<input type="hidden" name="id" value="${placeData.id}">
+			<input type="hidden" name="originFileName" value="${placeData.image}">
+			<input type="hidden" name="write_no" value="${placeData.write_no}">
 			<!-- 이미지 변경 시 삭제에 사용  -->
 			<b>제 목</b><br>
-			<input type="text" name="title" value="${data.title}" size="50"><br>
+			<input type="text" name="title" value="${placeData.title}" size="50"><br>
 			<b>내 용</b><br>
-			<textarea rows="10" cols="50" name="content">${data.content }</textarea><br>
+			<textarea rows="10" cols="50" name="content">${placeData.content }</textarea><br>
 			<b>파일 첨부</b>
-			<img src="${contextPath }/place/download?imageFileName=${data.image}" id="preview" width="100px" height="100px"><br><br>
+			<img src="${contextPath }/place/download?imageFileName=${placeData.image}" id="preview" width="100px" height="100px"><br><br>
 			<input type="file" name="image_file_name" onchange="readURL(this)">
 			<input type="submit" value="수정완료"> &nbsp;
 		</form>

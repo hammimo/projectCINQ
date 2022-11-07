@@ -23,10 +23,6 @@
 </script>
 <style type="text/css">
 
-*{
-font-family: 'Hahmlet', serif;
-}
-
 </style>
 </head>
 <body>
@@ -34,7 +30,7 @@ font-family: 'Hahmlet', serif;
 	<!-- <div align="center"> -->
 	<div class="main">
 	<br>
-	<div class="subject" >
+	<div class="subject">
 		 <b>등록된 장소 목록</b> &ensp; Place List
 	</div>
 	    <form action="placeSearchList" method="post" enctype='multipart/form-data'>
@@ -44,21 +40,20 @@ font-family: 'Hahmlet', serif;
 			</div>
 		</form>
     <br><br>
+    
     <!-- table 부분 -->
     <div class="list">
     <table class="Table">
-    	<tr height="80px"></tr>
+    	<!-- <tr height="80px"> -->
         <c:if test="${placeList.size() == 0}">
             <tr>
                 <th colspan="2">등록된 글이 없습니다</th>
             </tr>   
         </c:if>
         <c:forEach var="dto" items="${placeList}">
-            <tr height="100px">
-            <tr id="content_row">    
+            <tr height="100px"></tr>
+            <tr>  
                 <td id="content_loc">${dto.loc_sep_name}</td>
-            </tr>
-            	<td id="content_title"><a href="/root/place/placeView?write_no=${dto.write_no}">${dto.title}</a></td>
             	<c:if test="${dto.image == 'nan'}">
                     <td id="content_image" rowspan="5">
                         <b>이미지가 없습니다..</b>
@@ -71,13 +66,16 @@ font-family: 'Hahmlet', serif;
                 </c:if>
             </tr>
             <tr id="content_row">
-            	<td id="content_loc_name">${dto.loc_name}</td>
+            	<td id="content_title"><a href="/root/place/placeView?write_no=${dto.write_no}">제목 : ${dto.title}</a></td>
+            </tr>
+            <tr id="content_row">
+            	<td id="content_loc_name">상세 위치 : ${dto.loc_name}</td>
             </tr>
             <tr id="content_row">
             	<td></td>
             </tr>
             <tr id="content_row">
-				<td id="content_con">${dto.content}</td>
+				<td id="content_con">내용 : ${dto.content}</td>
 			</tr>
 			<tr height="100px"></tr>
         </c:forEach>

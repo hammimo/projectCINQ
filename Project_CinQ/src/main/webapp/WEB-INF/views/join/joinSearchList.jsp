@@ -27,7 +27,6 @@ font-family: 'Hahmlet', serif;
 </head>
 <body>
     <c:import url="../default/header.jsp"/>
-    <hr>
     <input type="hidden" value="${joinList}">
     <!-- <div align="center"> -->
     <div class="main">
@@ -53,7 +52,7 @@ font-family: 'Hahmlet', serif;
         </c:if>
         <c:forEach var="dto_s" items="${joinSearchList}">
             <tr height="100px">
-            	<td id="content_title"><a href="/root/join/joinView?write_no=${dto_s.write_no}">${dto_s.title}</a></td>
+            	<td id="content_loc">${dto_s.loc_sep_name}</td>
             	<c:if test="${dto_s.image == 'nan'}">
                     <td id="content_image" rowspan="5">
                         <b>이미지가 없습니다..</b>
@@ -65,17 +64,18 @@ font-family: 'Hahmlet', serif;
                   	</td>
                 </c:if>
             </tr>
-            <tr id="content_row">    
-                <td id="content_loc">${dto_s.loc_sep_name}</td>
+        
+            <tr id="content_row">
+            	 <td id="content_title"><a href="/root/join/joinView?write_no=${dto_s.write_no}">제목 : ${dto_s.title}</a></td>
             </tr>
             <tr id="content_row">
-            	<td id="content_loc_name">${dto_s.loc_name}</td>
+            	<td id="content_loc_name">상세 위치 : ${dto_s.loc_name}</td>
             </tr>
             <tr id="content_row">
             	<td></td>
             </tr>
             <tr id="content_row">
-				<td id="content_con">${dto_s.content}</td>
+				<td id="content_con">내용 : ${dto_s.content}</td>
 			</tr>
 		    <tr height="100px"></tr>
 		</c:forEach>
