@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입 화면</title>
+<title>CINQ</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src='<c:url value="/resources/script/js/checkRegister.js"/>'></script>
 <link href="${contextPath}/resources/script/css/login.css" 

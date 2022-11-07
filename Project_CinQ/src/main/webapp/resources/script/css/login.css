@@ -174,8 +174,21 @@ a{color:inherit;text-decoration:none}
 
 
  input{
+ 	padding-left:10px;
     border-top : none;
     border-left : none;
     border-right: none;
     border-bottom : 2px solid black;
 }
+ input:focus {
+        animation-name: border-focus;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes border-focus {
+        from {
+          border-radius: 0;
+        }
+        to {
+          border-radius: 30px;
+        }

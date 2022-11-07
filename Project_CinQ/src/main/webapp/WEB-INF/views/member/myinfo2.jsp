@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-<title>mypage_1</title>
+<title>CINQ</title>
 
 <style type="text/css">
 #titleP {

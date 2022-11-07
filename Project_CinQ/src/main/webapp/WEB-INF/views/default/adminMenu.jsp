@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>adminMenu</title>
+<title>CINQ</title>
 <style type="text/css">
 .adminMenu { position: fixed; right: 50px; top: 50%; z-index: 100; width: 128px;  margin: -220px 0 0 0; }
 .adminMenu a { display: block; width: 123px; padding: 10px 0;color: #fff; text-align: center; border: 1px solid #464646; text-decoration: none;}

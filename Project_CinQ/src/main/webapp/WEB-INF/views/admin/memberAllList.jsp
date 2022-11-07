@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>memberAllList</title>
+<title>CINQ</title>
 <link href="${contextPath}/resources/script/css/adminMember.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 </style>

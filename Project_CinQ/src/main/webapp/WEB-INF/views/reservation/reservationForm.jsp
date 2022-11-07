@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>reservationForm.jsp</title>
+<title>CINQ</title>
 <script src='<c:url value="/resources/script/js/file.js"/>'></script>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 

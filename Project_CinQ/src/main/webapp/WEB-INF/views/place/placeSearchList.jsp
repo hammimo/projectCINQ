@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>placeSearchListNum</title>
+<title>CINQ</title>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <link href="${contextPath}/resources/script/css/listNum.css" rel="stylesheet" type="text/css">
 <link href="${contextPath}/resources/script/css/search.css" rel="stylesheet" type="text/css">

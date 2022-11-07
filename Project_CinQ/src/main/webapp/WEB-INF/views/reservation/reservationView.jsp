@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>reservationView</title>
+<title>CINQ</title>
 <style type="text/css">
 .Sproject{
    align : center;

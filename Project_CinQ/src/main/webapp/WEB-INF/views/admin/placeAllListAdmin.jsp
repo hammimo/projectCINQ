@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>place Manage</title>
+<title>CINQ</title>
 <style type="text/css">
 #Y {
 	opacity : 0.3;

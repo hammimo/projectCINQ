@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
-<title>default/header.jsp</title>
+<title>CINQ</title>
 <style type="text/css">
 * { 
     margin: 0;

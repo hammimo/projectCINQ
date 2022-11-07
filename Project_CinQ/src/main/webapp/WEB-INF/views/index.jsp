@@ -10,7 +10,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap"
 	rel="stylesheet">
-<title>index.jsp</title>
+<title>CINQ</title>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PlaceView</title>
+<title>CINQ</title>
 <!-- <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet"> -->
 <link href="${contextPath}/resources/script/css/view.css" rel="stylesheet" type="text/css">
 <style type="text/css">
