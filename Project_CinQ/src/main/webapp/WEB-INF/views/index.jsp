@@ -167,22 +167,22 @@ img {
 	<c:import url="default/header.jsp" />
 	<c:import url="default/adminMenu.jsp" />
 	<div class="wrapper">
-		<div class="projects">
-			<br>
-			<h3>PROJECT</h3>
-			<br>
-			<div id="project" class="responsive">
-				<c:forEach var="dto_t" items="${ticketingList}">
-					<div class="project_img" align="center">
-						<a
-							href="${contextPath}/reservation/ticketView?write_no=${dto_t.write_no}&location=${dto_t.location}">
-							<img id="test"
-							src="${contextPath}/reservation/download?imageFileName=${dto_t.image}">
-						</a>
-						<div class="project_title">${dto_t.title }</div>
-						<div class="project_Content">${dto_t.content }</div>
-					</div>
-				</c:forEach>
+	<div class="projects">
+	<br>
+		<h3>예매중인 티켓</h3>
+		<br>
+		<a href="${contextPath}/ticket/ticketingAllListNum">전체 티켓보기</a>
+		<div id="project" class="responsive">
+			<c:forEach var="dto_t" items="${ticketingList}">
+			<div class="project_img" align="center">
+				<a href="${contextPath}/reservation/ticketView?write_no=${dto_t.write_no}&location=${dto_t.location}">
+					<img id="test" src="${contextPath}/reservation/download?imageFileName=${dto_t.image}"></a>
+				<div class="project_title">
+					${dto_t.title }
+				</div>
+				<div class="project_Content">
+					${dto_t.content }
+				</div>
 			</div>
 		</div>
 		<br> <br>
