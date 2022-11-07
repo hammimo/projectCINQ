@@ -14,6 +14,7 @@
 </head>
 <body>
     <c:import url="../default/header.jsp"/>
+    <c:import url="../default/aside.jsp"/>
 	<c:import url="../default/adminMenu.jsp"/>
     <div class="main" align="center">
         <h1>회원정보</h1>
