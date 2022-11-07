@@ -36,7 +36,7 @@ li {
     <ul>
       <li><a id="a1" href="/root/admin/memberAllList">회원관리</a></li>
       <li><a id="a1" href="/root/admin/placeAllList">장소관리</a></li>
-      <li><a id="a1" href="/root/p/placeAllListNum">예매관리</a></li>
+      <li><a id="a1" href="/root/reservation/reservationAllListNum">예매관리</a></li>
     </ul>
   
 </aside>

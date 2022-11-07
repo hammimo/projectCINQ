@@ -93,11 +93,7 @@
              </c:forEach>
          	</td>
      	 </tr>
-     	 <tr>
-        	<td colspan="6">
-        		 <button onclick="location.href='${contextPath }/reservation/reservationForm'">글작성</button>
-            </td>
-     	 </tr>
+
      </table>
     </div>
    </div>
