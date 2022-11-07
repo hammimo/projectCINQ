@@ -87,11 +87,16 @@ nav ul li {
                         </c:if>
                     </li>
                 </ul>
-                <ul class="menu">
-            		<li><a id="a1" href="/root/reservation/reservationAllListNum">Project</a></li>
-      				<li><a id="a1" href="/root/join/joinAllListNum">Join</a></li>
-     				<li><a id="a1" href="/root/place/placeAllListNum">Place</a></li>
-            	</ul>
+               <ul class="menu">
+                   <c:if test="${loginUser == 'admin'}">
+                      <li><a id="a1" href="/root/reservation/reservationAllListNum">Project</a></li>
+                   </c:if>
+                  <c:if test="${loginUser != 'admin'}">
+                      <li><a id="a1" href="/root/reservation/reservationForm">Project</a></li>
+                   </c:if>
+                  <li><a id="a1" href="/root/join/joinAllListNum">Join</a></li>
+                 <li><a id="a1" href="/root/place/placeAllListNum">Place</a></li>
+               </ul>
             </nav>
         </div>
     <!-- // navdiv -->
