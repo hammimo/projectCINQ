@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <title>index.jsp</title>
 
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
@@ -60,7 +60,6 @@ $(document).ready(function(){
 
 <style type="text/css">
 	*{
-	
 	font-family: 'Hahmlet', serif;
 	}
   .projects {
@@ -129,10 +128,10 @@ $(document).ready(function(){
  	padding-bottom: 10px;
 }
 
+
 </style>
 </head>
 <body>
-	
 	<c:import url="default/header.jsp"/>
 	<c:import url="default/adminMenu.jsp"/>
 	<div class="wrapper">
@@ -142,7 +141,11 @@ $(document).ready(function(){
 		<br>
 		<div class="responsive">
 			<c:forEach var="dto_t" items="${ticketingList}">
-				<a href="${contextPath}/reservation/ticketView?write_no=${dto_t.write_no}&location=${dto_t.location}"><img id="test" src="${contextPath}/reservation/download?imageFileName=${dto_t.image}"></a>
+				<div id="div_content">
+					<a href="${contextPath}/reservation/ticketView?write_no=${dto_t.write_no}&location=${dto_t.location}">
+						<img id="test" src="${contextPath}/reservation/download?imageFileName=${dto_t.image}">	
+					</a>
+				</div>	
 			</c:forEach>
 		</div>
 	</div>

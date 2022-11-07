@@ -43,6 +43,7 @@ select * from reservation;
 	private int price;
 	private String show_num;
 	private String ticketing;
+	private int cur_count;
 	
 	public int getWrite_no() {
 		return write_no;
@@ -127,6 +128,12 @@ select * from reservation;
 	}
 	public void setTicketing(String ticketing) {
 		this.ticketing = ticketing;
+	}
+	public int getCur_count() {
+		return cur_count;
+	}
+	public void setCur_count(int cur_count) {
+		this.cur_count = cur_count;
 	}
 	
 }
