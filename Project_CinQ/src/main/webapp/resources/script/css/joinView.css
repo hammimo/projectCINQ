@@ -1,20 +1,23 @@
 @charset "UTF-8";
 
+body{
+	background-color: rgba(0, 0, 0, 0.04);
+}
+
 *{
 	font-family: 'Hahmlet', serif;
 }
 
 .main{
-	background-color: rgba(0, 0, 0, 0.04);
 	align: center;
 	width:100%;
-	height:100vh;
+	height:100vh%;
 }
 
 .subject{
 	text-align:center;
 	font-size:36px;
-	width:60%;
+	width:65%;
 	border-bottom: 3px solid black;
 	margin:0 auto;
 	text-align: left;
@@ -99,50 +102,45 @@ button:hover {
 	background-color: #323232;
 	color: white;
 }
+
+
+#modal_wrap {
+	display: none;
+	position: fixed;
+	z-index: 9;
+	margin: 0 auto;
+	top: 0; left: 0; right: 0;
+	width: 100%; height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+#modal_wrap textarea {
+	resize: none;
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+}
+#first {
+	display: none;
+	position: fixed;
+	z-index: 10;
+	margin: 0 auto;
+	top: 220px; left: 0; right: 0;
+	width: 500px;
+	height: 450px;
+	background-color: rgba(250, 250, 250, 0.9);
+}
+/* .view_title {
+	text-align: center;
+}
+
+.Sproject{
+   align : center;
+   border-collapse: collapse;
+}
+ */
+
+img{
+	max-width: 900px;
+	max-height: 550px;
+}
+p {
+	font-size: 10px;
+}

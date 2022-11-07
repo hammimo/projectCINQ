@@ -27,7 +27,6 @@ a:hover{
 }
 
 .wrap {
-	background-color: rgba(0, 0, 0, 0.04);
 	width:100%;
     margin: auto;
     text-align: center;

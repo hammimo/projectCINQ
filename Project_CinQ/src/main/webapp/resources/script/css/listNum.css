@@ -6,18 +6,15 @@
 }
    
 
-
-
-
 .main {
     background-color: rgba(0, 0, 0, 0.04);
    align: center;
    width:100%;
-   height:100vh%;
+   height:100%;
 }
 
 .list{
-   width: 60%;
+   width: 55%;
    margin: 0 auto;
 }
 

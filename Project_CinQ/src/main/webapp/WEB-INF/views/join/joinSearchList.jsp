@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <title>joinSearchListNum</title>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
-<link href="${contextPath}/resources/script/css/listNum.css" rel="stylesheet" type="text/css">
+<%-- <link href="${contextPath}/resources/script/css/listNum.css" rel="stylesheet" type="text/css"> --%>
 <link href="${contextPath}/resources/script/css/search.css" rel="stylesheet" type="text/css">
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
@@ -21,7 +21,164 @@
 </script>
 <style type="text/css">
 *{
-font-family: 'Hahmlet', serif;
+   font-family: 'Hahmlet', serif;
+}
+   
+
+.main {
+   background-color: rgba(0, 0, 0, 0.04);
+   align: center;
+   width:100%;
+   height:100vh;
+}
+
+.list{
+   width: 50%;
+   margin: 0 auto;
+}
+
+.subject{
+   font-size:36px;
+   width:60%;
+   border-bottom: 3px solid black;
+   margin:0 auto;
+   text-align: left;
+   color: #bfbfbf;
+}
+
+b{
+   color: black;
+}
+.Table{
+   
+   margin:0 auto;
+   font-size: 20px;
+} 
+
+
+/*.title1 {
+   background-color: #002B22;
+   color: white;
+}*/
+
+
+
+#content_image:hover {
+   background-color: rgba();
+}
+
+#content_image:hover > a{
+   cursor: pointer;
+}
+
+#content_id{
+   vertical-align: top;
+   text-align: left;
+   font-size: 20px;
+}
+
+#content_title  {
+   vertical-align: top;
+   text-align: left;
+   font-size: 30px;
+   
+   
+}
+#content_title a { 
+   font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
+   font-weight: bold;
+   color:#1B382F
+}
+
+#content_loc{
+   vertical-align: top;
+   text-align: left;
+   font-weight: bold;
+   font-size: 20px;
+   
+}
+
+#content_loc_name{
+   vertical-align: top;
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+}
+#content_con{
+   vertical-align: bottom;
+   text-align: left;
+   
+}
+
+td {
+   padding: 5px;
+   text-align: center;
+   
+}
+#content_td{
+   
+}
+
+a {
+   text-decoration: none;
+}
+
+a:link {
+   color: black;
+}
+
+a:visited {
+   color: #000069;
+}
+
+
+
+
+.custom-btn {
+   width: 130px;
+   height: 40px;
+   padding: 10px 25px;
+   border: 2px solid #000;
+   font-family: 'Lato', sans-serif;
+   font-weight: 500;
+   background: transparent;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   position: relative;
+   display: inline-block;
+}
+
+button {
+   /* margin: 0;
+   padding: 0; */
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+   box-sizing: border-box;
+   margin: 20px;
+   background-color: #323232;
+    color: white;
+    font-family: 'Hahmlet', serif;
+    
+   }
+button:hover {
+   letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+   background-color: #323232;
+    color: white;
+   }
+img{
+	max-width: 450px;
+	min-width: 450px;
+	max-height: 300px;
 }
 </style>
 </head>
@@ -54,13 +211,13 @@ font-family: 'Hahmlet', serif;
             <tr height="100px">
             	<td id="content_loc">${dto_s.loc_sep_name}</td>
             	<c:if test="${dto_s.image == 'nan'}">
-                    <td id="content_image" rowspan="5">
+                    <td id="content_image" rowspan="4">
                         <b>이미지가 없습니다..</b>
                   	</td>
                 </c:if>
                 <c:if test="${dto_s.image != 'nan'}">
-                 	<td id="content_image" rowspan="5">
-                 	<a href="/root/join/joinView?write_no=${dto_s.write_no}"><img src="${contextPath}/join/download?imageFileName=${dto_s.image}" width="650px" height="400px"></a>
+                 	<td id="content_image" rowspan="4">
+                 	<a href="/root/join/joinView?write_no=${dto_s.write_no}"><img id="image" src="${contextPath}/join/download?imageFileName=${dto_s.image}" width="650px" height="400px"></a>
                   	</td>
                 </c:if>
             </tr>
@@ -72,12 +229,9 @@ font-family: 'Hahmlet', serif;
             	<td id="content_loc_name">상세 위치 : ${dto_s.loc_name}</td>
             </tr>
             <tr id="content_row">
-            	<td></td>
-            </tr>
-            <tr id="content_row">
 				<td id="content_con">내용 : ${dto_s.content}</td>
 			</tr>
-		    <tr height="100px"></tr>
+		    <tr height="50px"></tr>
 		</c:forEach>
         		<tr>
             		<td colspan="6" align="center">

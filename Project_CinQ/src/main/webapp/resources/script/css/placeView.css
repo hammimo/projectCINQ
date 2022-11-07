@@ -1,17 +1,21 @@
 @charset "UTF-8";
 
+body{
+	background-color: rgba(0, 0, 0, 0.04);
+}
+
+
 *{
 	font-family: 'Hahmlet', serif;
 }
 
 .main{
-	background-color: rgba(0, 0, 0, 0.04);
 	align: center;
 	width:100%;
-	height:100vh;
+	height:100vh%;
 }
 
-.subject{
+/* .subject{
 	text-align:center;
 	font-size:36px;
 	width:60%;
@@ -19,10 +23,10 @@
 	margin:0 auto;
 	text-align: left;
 	color: #bfbfbf;
-}
+} */
 
 .view{
-	width: 60%;
+	width: 50%;
 	margin: 0 auto;
 	font-size: 28px;
 }
@@ -99,50 +103,8 @@ button:hover {
 	background-color: #323232;
 	color: white;
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+img{
+	max-width: 900px;
+	max-height: 550px;
+}
