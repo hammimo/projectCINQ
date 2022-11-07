@@ -7,14 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-.placeTable {
-	width: 400px;
-}
-td {
-	text-align: center;
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
+<link href="${contextPath}/resources/script/css/popup.css" 
+	  rel="stylesheet" type="text/css">	
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src='<c:url value="/resources/script/js/ticketingRegister.js"/>'></script>
 </head>
@@ -23,12 +18,12 @@ td {
    <div>
    <table class="placeTable" border="1">
       <tr class= "title1">
-         <th width="100px">NUMBER</th>
-         <th width="500px">TITLE</th>
-        <th width="300px">PROFILE</th>
+         <th width="50px">NUMBER</th>
+         <th width="100px">TITLE</th>
+        <th width="100px">PROFILE</th>
          <th width="100px">LOCATION</th>
-         <th width="800px">CONTENT</th>
-         <th width="800px">REGIST</th>
+         <th width="50px"> CAP.</th>
+         <th width="80px">REGIST</th>
       </tr>
       <c:if test="${rentOkList.size() == 0}">
             <tr>
@@ -48,14 +43,13 @@ td {
                   </c:if>
                   <c:if test="${dto_p.image != 'nan'}">
                  	<td>
-                 	<img src="${contextPath}/place/download?imageFileName=${dto_p.image}" width="200px" height="200px">
+                 	<img src="${contextPath}/place/download?imageFileName=${dto_p.image}" width="150px" height="150px">
                   	</td>
                   </c:if>
                 <td>${dto_p.loc_sep_name}</td>
-				<td>${dto_p.content}</td>
+				<td>${dto_p.max_count}명</td>
 	            <td>
-	            	<%-- <input type="hidden" id="place_no" value="${dto_p.write_no}"> --%>
-	            	<button type="button" onclick="placeRegist(${dto_p.write_no})">등록하기</button>
+	            	<button id="i_button" type="button" onclick="placeRegist(${dto_p.write_no})">등록하기</button>
 	            </td>
             </tr>
       </c:forEach>
