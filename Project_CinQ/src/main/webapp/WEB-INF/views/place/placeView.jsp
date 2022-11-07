@@ -1,4 +1,3 @@
-
 <!-- place/placeView -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,57 +9,54 @@
 <head>
 <meta charset="UTF-8">
 <title>PlaceView</title>
-<style type="text/css">
-.Sproject{
-   align : center;
-   border-collapse: collapse;
-}
-tr {border-top: 1px solid black;}
-td {padding: 5px;}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
+<link href="${contextPath}/resources/script/css/placeView.css" rel="stylesheet" type="text/css">
+ 
 </head>
 <body>
-   <c:import url="../default/header.jsp"/>
-      <br><br>
-      <h1 class="place_title" align="center">등록된 장소</h1>
-      <br><br>
-      <div class ="place_view" align="center">
-         <table class="Sproject" >
-            <tr>
-               <th width="150px">작성자</th><td colspan="2">${placeData.id }</td>
-            </tr>
-            <tr>
-               <th>제 목</th><td colspan="2">${placeData.title }</td>
-            </tr>
-            <tr>
-               <th>지 역</th><td colspan="2">${placeData.loc_sep_name}</td>
-            </tr>
-            <tr>
-               <th>내용</th>
-               <td colspan="2">
-                  <c:if test="${placeData.image == 'nan'}">
-                     <b>이미지가 없습니다..</b>
-                  </c:if>
-                  <c:if test="${placeData.image != 'nan'}">
-                 	<img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="200px" height="200px">
-                  </c:if>
-               </td>
-               <td>${placeData.content}</td>
-            </tr>
-            <tr>
-				<td colspan="4" align="center">
-				<div id="reply"></div>
-                  <c:if test="${placeData.id == loginUser}">
-					<input type="button" value="수정하기" onclick="location.href='${contextPath}/place/placeModifyForm?write_no=${placeData.write_no}'">&nbsp;
-					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/place/delete?id=${placeData.id}&write_no=${placeData.write_no}&imageFileName=${placeData.image}'">
-                  </c:if> &nbsp;
-                  <input type="button" value="글목록" onclick="location.href='${contextPath}/place/placeAllListNum'">
-               </td>
-            </tr>
-         </table>
-      </div>
-      <br><br><br>
-   <c:import url="../default/footer.jsp"/>
-
+	<c:import url="../default/header.jsp"/>
+    <div class="main">
+    	<h1 align="center"><b>등록된 장소</b></h1>
+	  	<br><br>
+      	<div class ="view" align="center">
+        	<table class="Sproject" >
+            	<tr>
+               		<td colspan="2"><b>작성자</b>&emsp;:&emsp; ${placeData.id }</td>
+            	</tr>
+            	<tr>
+               		<td colspan="2"><b>제 목</b>&emsp;:&emsp;${placeData.title }</td>
+            	</tr>
+            	<tr>
+               		<td colspan="2"><b>위 치</b>&emsp;:&emsp;${placeData.loc_name}</td>
+            	</tr>
+            	<tr>
+               		<td>
+               			<b>사 진</b>
+               		</td>
+               		<td>
+                  		<c:if test="${placeData.image == 'nan'}">
+                     		<b>이미지가 없습니다..</b>
+                  		</c:if>
+                  		<c:if test="${placeData.image != 'nan'}">
+                 			<img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="100%" height="60%">
+                  		</c:if>
+               		</td>
+            	</tr>
+            	<tr>
+            		<td colspan="2"><b>내용</b>&emsp;:&emsp; ${placeData.content}</td>
+            		
+            	</tr>
+            	<tr>
+					<td colspan="4" align="center">
+                  		<c:if test="${placeData.id == loginUser}">
+                  			<input id="i_button" type="button" value="수정하기" onclick="location.href='${contextPath}/place/placeModifyForm?write_no=${placeData.write_no}'">
+                  		</c:if> &nbsp;
+                  		<button onclick="location.href='${contextPath }/place/placeAllListNum'">글목록</button>
+               		</td>
+            	</tr>
+         	</table>
+		</div>
+	</div>
+    <c:import url="../default/footer.jsp"/>
 </body>
 </html> 

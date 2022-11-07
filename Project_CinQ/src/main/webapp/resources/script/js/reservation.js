@@ -3,7 +3,7 @@
 function rentOkView() {
 
 	var url = '/root/place/rentOkPlaceView';
-	var popOpt = 'width=600px, height=300px, top=300px, left=1200px';
+	var popOpt = 'width=750px, height=350px, top=300px, left=1200px';
 	
 	window.open(url,'pop',popOpt);
 	

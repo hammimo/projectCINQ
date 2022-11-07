@@ -1,0 +1,143 @@
+<!-- reservation/ticketView -->
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CINQ</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="${contextPath}/resources/script/css/datepicker.css" rel="stylesheet" type="text/css">
+<script>
+	$.datepicker.setDefaults({
+	  dateFormat: 'yy-mm-dd',
+	  prevText: '이전 달',
+	  nextText: '다음 달',
+	  monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	  monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	  dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	  dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	  dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	  showMonthAfterYear: true,
+	  yearSuffix: '년'
+	});
+
+	$(function () {
+	  	var start = $("#StartDate").val()
+	  	var end = $("#EndDate").val()
+		$('.datepicker').datepicker({
+		 minDate : new Date(start),
+		 maxDate : new Date(end)
+	  });
+	});
+</script>
+<style type="text/css">
+.Sproject{
+   align : center;
+   border-collapse: collapse;
+}
+table {
+	width: 800px;
+	height: 400px;
+}
+tr {border-top: 1px solid black;}
+td {padding: 5px;}
+</style>
+</head>
+<body>
+   <c:import url="../default/header.jsp"/>
+      <br><br>
+      <h1 class="place_title" align="center">${data.title} 예매</h1>
+      <br><br>
+      <div class ="place_view" align="center">
+         <table class="Ticketing" >
+         	<tr>
+         		<td>
+         			<img src="${contextPath}/place/download?imageFileName=${data.image}" width="300px" height="400px">
+         		</td>
+         		<td>
+         			<h3>공연 : ${data.title}</h3><br><br>
+         			<b>장소 : ${placeData.loc_name}</b><br><br><br>
+         			<b>공연기간 : ${data.start_date} ~ ${data.end_date}</b><br><br><br>
+         			<b>가격 : ${data.price} 원</b><br><br><br>
+         			<b>공연 세부 내용 : ${data.content }</b><br><br>
+         			<b>총관람인원 : ${data.max_count}</b><br><br>
+         			<c:if test="${data.cur_count != 0 }">
+         			<b>잔여티켓 : ${data.cur_count}</b><br><br>
+         			</c:if>
+         			<c:if test="${data.cur_count == 0 }">
+         			<b>티켓매진</b><br><br>
+         			</c:if>
+         			
+         		</td>
+         	</tr>
+         </table>
+         <form id="ticket_form" class="ticketingRegisterForm"  action="${contextPath }/ticket/TicketingSave" enctype="multipart/form-data" method="post">
+         	<input type="hidden" name="id" value="${loginUser }">
+         	<input type="hidden" name="title" value="${data.title }">
+         	<input type="hidden" name="location" value="${placeData.loc_name }">
+         	<input type="hidden" name="image" value="${data.image }">
+         	<input type="hidden" id="StartDate" value="${data.start_date }">
+         	<input type="hidden" id="EndDate" value="${data.end_date }">
+         	<label for="show_date"> 날짜선택</label>
+         	<input id="show_date" class="datepicker" name="show_date"><br>
+         	<input type="hidden" name="show_num" value="${data.show_num }">
+         	<input type="hidden" name="price" value="${data.price }">
+         	<label for="ticket_count"> 구매수량</label>
+         	<input type="number" id="ticket_count" name="ticket_count" value="1" min="1" max="3"><br>
+         	<button id="check_module" type="button">예매하기</button>&nbsp;
+         	<script type="text/javascript">
+				$("#check_module").click(function () {
+					var count = $("#ticket_count").val();
+					var IMP = window.IMP; // 생략가능
+					IMP.init('imp52681348'); 
+					// i'mport 관리자 페이지 -> 내정보 -> 가맹점식별코드
+					// ''안에 띄어쓰기 없이 가맹점 식별코드를 붙여넣어주세요. 안그러면 결제창이 안뜹니다.
+					IMP.request_pay({
+						pg: 'kakaopay.TC0ONETIME',
+						pay_method: 'card',
+						merchant_uid: 'merchant_' + new Date().getTime(),
+						/* 
+						 *  merchant_uid에 경우 
+						 *  https://docs.iamport.kr/implementation/payment
+						 *  위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
+						 */
+						name: '주문명 : ${data.title}',
+						// 결제창에서 보여질 이름
+						// name: '주문명 : ${auction.a_title}',
+						// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
+						amount: ${data.price}*count,
+						// amount: ${bid.b_bid},
+						// 가격 
+						buyer_name: '${loginUser}',
+						// 구매자 이름, 구매자 정보도 model값으로 바꿀 수 있습니다.
+						// 구매자 정보에 여러가지도 있으므로, 자세한 내용은 맨 위 링크를 참고해주세요.
+						}, function (rsp) {
+							console.log(rsp);
+						if (rsp.success) {
+							var msg = '결제가 완료되었습니다.';
+							msg += '결제 금액 : ' + rsp.paid_amount;
+							$('#ticket_form').submit();
+							// success.submit();
+							// 결제 성공 시 정보를 넘겨줘야한다면 body에 form을 만든 뒤 위의 코드를 사용하는 방법이 있습니다.
+							// 자세한 설명은 구글링으로 보시는게 좋습니다.
+						} else {
+							var msg = '결제에 실패하였습니다.';
+							msg += '에러내용 : ' + rsp.error_msg;
+						}
+						alert(msg);
+					});
+				});
+			</script>
+         </form>
+      </div>
+      <br><br><br>
+   <c:import url="../default/footer.jsp"/>
+
+</body>

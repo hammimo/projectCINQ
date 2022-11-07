@@ -40,11 +40,13 @@ ticketing varchar2(2) default 'N'
 		<result property="tel" column="tel"/>
 		<result property="show_num" column="show_num"/>
 		<result property="ticketing" column="ticketing"/>
+		<result property="cur_count" column="cur_count"/>
+		
 	</resultMap>
 	
 	 <insert id="reservationSave" parameterType="com.project.root.reservation.dto.ReservationDTO">
-		insert into reservation (write_no, id, title, location, content, image, team_count, max_count, start_date, end_date, price, tel, show_num)
-		values(reservation_seq.nextval,#{id}, #{title},#{location}, #{content}, #{image}, #{team_count}, #{max_count}, #{start_date}, #{end_date}, #{price}, #{tel}, DBMS_RANDOM.STRING('X', 10))
+		insert into reservation (write_no, id, title, location, content, image, team_count, max_count, start_date, end_date, price, tel, show_num, cur_count)
+		values(reservation_seq.nextval,#{id}, #{title},#{location}, #{content}, #{image}, #{team_count}, #{max_count}, #{start_date}, #{end_date}, #{price}, #{tel}, DBMS_RANDOM.STRING('X', 10), #{cur_count})
 	</insert>
 	
 	<select id="reservationAllListNum" resultMap="reservation">
@@ -57,7 +59,17 @@ ticketing varchar2(2) default 'N'
    <select id="selectReservationCount" resultType="Integer">
       select count(*) from reservation
     </select>
-    
+   <select id="selectTicketCount" resultType="Integer">
+      select count(*) from reservation where ticketing='Y'
+    </select>
+   
+   	<select id="ticketingAllListNum" resultMap="reservation">
+      select B.* from
+      (select rownum rn, A. * from   
+      (select * from reservation where ticketing='Y' order by write_no desc) A) B 
+      where rn between #{s} and #{e}
+   </select>
+      
     <select id="reservationView" resultMap="reservation">
     	select * from reservation where write_no=#{write_no}
     </select>
@@ -76,10 +88,21 @@ ticketing varchar2(2) default 'N'
 		end_date=#{end_date},
 		price=#{price},
 		tel=#{tel},
-		ticketing='Y'
+		ticketing='Y',
+		cur_count=#{cur_count}
 		where write_no=#{write_no}
 	</update>
 	
+	<select id="ticketingAllList" resultMap="reservation">
+      select * from reservation where ticketing='Y'
+    </select>
+	<select id="currentCountCheck" resultType="Integer">
+		select cur_count from reservation where show_num = #{show_num}
+	</select>
+	
+	<update id="currentUp">
+		update reservation set cur_count= cur_count-#{c} where show_num=#{sN}
+	</update>
 </mapper>
 
  

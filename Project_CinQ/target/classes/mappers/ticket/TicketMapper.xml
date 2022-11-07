@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+
+create table TICKET (
+id varchar2(20),
+title varchar2(100),
+location varchar2(100),
+image varchar2(50),
+show_date varchar2(15),
+show_num varchar2(10),
+price number(7),
+ticket_count number(3),
+constraint fk_showNum foreign key(show_num) references reservation(show_num)on delete cascade
+);
+  
+-->
+<!-- mappers/ticket/TicketMapper.xml -->
+
+<mapper namespace="com.project.root.mybatis.ticket.TicketMapper">
+	<resultMap type="com.project.root.ticket.dto.TicketDTO" id="ticket">
+		<id property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="location" column="location"/>
+		<result property="image" column="image"/>
+		<result property="show_date" column="show_date"/>
+		<result property="show_num" column="show_num"/>
+		<result property="price" column="price"/>
+		<result property="ticket_count" column="ticket_count"/>
+	</resultMap>
+	
+	<insert id="ticketingSave" parameterType="com.project.root.ticket.dto.TicketDTO">
+		insert into ticket(id,title,location,image,show_date,show_num,price,ticket_count)  
+		values(#{id}, #{title}, #{location}, #{image}, #{show_date}, #{show_num}, #{price}, #{ticket_count})
+	</insert>
+
+</mapper>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.root.join.service.JoinService;
 import com.project.root.place.service.PlaceService;
+import com.project.root.reservation.service.ReservationService;
 
 /**
  * Handles requests for the application home page.
@@ -27,6 +28,8 @@ public class HomeController {
 	@Autowired
 	PlaceService ps;
 	
+	@Autowired
+	ReservationService rs;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -51,6 +54,7 @@ public class HomeController {
 	public String index(Model model) {
 		js.JoinAllList(model);
 		ps.PlaceAllList(model);
+		rs.ticketingAllList(model);
 		return "index";
 	}
 

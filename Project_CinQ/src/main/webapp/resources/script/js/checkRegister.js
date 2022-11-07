@@ -75,10 +75,11 @@ function checkEmail() {
 		$('#emailLabel1').css('display','block');
 		$('#emailLabel2').css('display','none');
 	}
+	
 }
 
 function checkTel() {
-	if($("#tel1").val() != "" && $("#tel2").val() != "" && $("#tel3").val() != ""){
+	if($("#tel2").val() != "" && $("#tel3").val() != "" && $("#tel2").val().length == 4 && $("#tel3").val().length == 4){
 		var tel1 = $("#tel1").val();
 		var tel2 = $("#tel2").val();
 		var tel3 = $("#tel3").val();
@@ -104,30 +105,76 @@ function checkBd() {
 
 
 function checkWrite(){
-	if(document.registerForm.id.value==""){
-		alert("id 를 입력하세요");
-		document.registerForm.id.focus();
-	}  else if(document.registerForm.pw.value==""){
-		alert("비밀번호를 입력하세요");
-		document.registerForm.pw.focus();
-	} else if(document.registerForm.pw.value != document.registerForm.pwChk.value){
+	var email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	var id = $("#id").val();
+	var pw = $("#pw").val();
+	var pwChk = $("#pwChk").val();
+	var name = $("#name").val();
+	var email = $("#email").val();
+	var tel2 = $("#tel2").val();
+	var tel3 = $("#tel3").val();
+	var birthday = $("#birthday").val();
+	
+	if(id ==""){
+		alert("id를 입력하세요.");
+		$("#id").focus();
+		return false;
+	}  else if(pw == ""){
+		alert("비밀번호를 입력하세요.");
+		$("#pw").focus();
+		return false;
+	} else if(pw != pwChk){
 		alert("비밀번호가 일치하지 않습니다.");
-		document.registerForm.pwChk.focus();
-	} else if(document.registerForm.name.value==""){
-		alert("이름을 입력하세요");
-		document.registerForm.name.focus();
-	} else if(document.registerForm.email.value==""){
-		alert("이메일을 입력하세요");
-		document.registerForm.email.focus();
-	} else if(document.registerForm.tel2.value==""){
-		alert("전화번호 입력하세요");
-		document.registerForm.tel2.focus();
-	} else if(document.registerForm.tel3.value==""){
-		alert("전화번호 입력하세요");
-		document.registerForm.tel3.focus();
-	} else if(document.registerForm.birthDay.value==""){
-		alert("생일을 입력하세요");
-		document.registerForm.birthDay.focus();
+		$("#pwChk").focus();
+		return false;
+	} else if(name == ""){
+		alert("이름을 입력하세요.");
+		$("#name").focus();
+		return false;
+	} else if(email == ""){
+		alert("이메일 입력하세요.");
+		$("#email").focus();
+		return false;
+	} else if(!email_rule.test(email)){
+		alert("이메일 형식을 확인하세요. ex) test@test.com");
+		$("#email").focus();
+		return false;
+	} else if(tel2 == ""){
+		alert("전화번호를 입력하세요.");
+		$("#tel2").focus();
+		return false;
+	} else if(!Number(tel2)){
+		alert("전화번호에는 숫자만 입력하세요");
+		$("#tel2").focus();
+		return false;
+	} else if(tel2.length != 4){
+		alert("전화번호 중간번호 4자리를 확인하고 입력하세요.");
+		$("#tel2").focus();
+		return false;
+	} else if(tel3 == ""){
+		alert("전화번호를 입력하세요.");
+		$("#tel3").focus();
+		return false;
+	} else if(!Number(tel3)){
+		alert("전화번호에는 숫자만 입력하세요");
+		$("#tel3").focus();
+		return false;
+	} else if(tel3.length != 4){
+		alert("전화번호 끝번호 4자리를 확인하고 입력하세요.");
+		$("#tel3").focus();
+		return false;
+	} else if(birthday==""){
+		alert("생일을 입력하세요.");
+		$("#birthday").focus();
+		return false;
+	} else if(birthday.length != 8){
+		alert("생년월일 8자리를 확인하고 입력하세요.");
+		$("#birthday").focus();
+		return false;
+	} else if(!Number(birthday)){
+		alert("생년월일에 숫자만 입력하세요");
+		$("#birthday").focus();
+		return false;
 	} else {
 		document.registerForm.submit();
 	}

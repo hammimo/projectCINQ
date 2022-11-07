@@ -38,6 +38,7 @@ public class ReservationServiceImpl implements ReservationService{
 		dto.setEnd_date(mul.getParameter("end_date"));
 		dto.setTeam_count(Integer.parseInt(mul.getParameter("team_count")));
 		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
+		dto.setCur_count(Integer.parseInt(mul.getParameter("max_count")));
 		dto.setPrice(Integer.parseInt(mul.getParameter("price")));
 		dto.setTel(mul.getParameter("tel"));
 		MultipartFile file = mul.getFile("image");
@@ -86,6 +87,10 @@ public class ReservationServiceImpl implements ReservationService{
 		
 	}
 	
+	@Override
+	public void ticketingAllList(Model model) {
+		model.addAttribute("ticketingList", mapper.ticketingAllList());
+	}
 	
 	
 	@Override
@@ -122,6 +127,7 @@ public class ReservationServiceImpl implements ReservationService{
 		dto.setEnd_date(mul.getParameter("end_date"));
 		dto.setTeam_count(Integer.parseInt(mul.getParameter("team_count")));
 		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
+		dto.setCur_count(Integer.parseInt(mul.getParameter("max_count")));
 		dto.setPrice(Integer.parseInt(mul.getParameter("price")));
 		dto.setTel(mul.getParameter("tel"));
 		
@@ -152,6 +158,18 @@ public class ReservationServiceImpl implements ReservationService{
 		return rfs.getMessage(request, msg, url);
 	}
 	
+	@Override
+	public void ticketingAllListNum(Model model, int num) {
+		int pageLetter = 9;// 한 페이지 당 글 목록수
+		int allCount = mapper.selectTicketCount();// 전체 글수
+		int repeat = allCount/pageLetter;
+		if(allCount % pageLetter != 0)
+			repeat += 1;
+			int end = num * pageLetter;
+			int start = end + 1 - pageLetter;
+			model.addAttribute("repeat", repeat);
+			model.addAttribute("ticketingList", mapper.ticketingAllListNum(start, end)); 
+	}
 }
 	
 

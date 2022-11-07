@@ -9,32 +9,52 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>member/modify_form.jsp</title>
+<title>CINQ</title>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <link href="${contextPath}/resources/script/css/form.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src='<c:url value="/resources/script/js/checkRegister.js"/>'></script>
 <style type="text/css">
 *{
-	font-family: 'Hahmlet', serif;
-	}
-.modify_title {
-	text-align: center;
+font-family: 'Hahmlet', serif;
 }
-.modify {
-	width: 500px;
-	margin: auto;
+.div_1{
+	width: 40%
+}
+.textbox label {
+  position: absolute;
+  top: 1px;  
+  left: 1px;  
+  padding: .8em .5em; 
+  color: 	#464646;
+  cursor: text;
+  font-size: 17px;
+  font-weight: bold;
+  
+}
+.textbox input[type="text"] {
+  width: 80%;  
+  height: auto; 
+  line-height : normal;  
+  padding: .8em .5em; 
+  font-family: inherit; 
+  border: 1.3px solid 	#464646;
+  border-radius: 0em;  
+  outline-style: none;  
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
 }
 </style>
 </head>
 <body>
 	<c:import url="../default/header.jsp"/>
-	<c:import url="../default/aside.jsp"/>
 	<hr>
+	<div id="wrapper">
+	<br><br>
+   	<div class="div_1" align="center">
 	<h1 class="modify_title">${info.name } 님의 회원정보 수정</h1>
 	<br><br>
-	<div class="wrapper">
-	<div class="modify" align="center">
 		<div class="modify_form">
 		<form name="modifyForm" action="${contextPath }/member/modify" enctype="multipart/form-data" method="post">
 			<input type="hidden" name="id" value="${info.id}">
@@ -77,8 +97,9 @@
 		</form>
 		</div>
 	</div>
-	</div>
 	<br><br><br><br>
+	<br><br><br><br><br>
+	</div>
 	<c:import url="../default/footer.jsp"/>
 </body>
 </html>
