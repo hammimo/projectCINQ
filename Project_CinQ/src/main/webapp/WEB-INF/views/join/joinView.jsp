@@ -10,7 +10,7 @@
 <link href="${contextPath}/resources/script/css/joinView.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-
+ 
 
 function slide_click(){
 	$("#first").slideDown("slow");

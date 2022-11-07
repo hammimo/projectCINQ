@@ -12,7 +12,7 @@
 <title>PlaceView</title>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <link href="${contextPath}/resources/script/css/placeView.css" rel="stylesheet" type="text/css">
-
+ 
 </head>
 <body>
 	<c:import url="../default/header.jsp"/>
