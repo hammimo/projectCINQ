@@ -61,7 +61,7 @@
 		</c:if>
 		<c:forEach var="dto" items="${ticketingList}">
   			<div class="ticket_list">
- 				<img src="${contextPath}/reservation/download?imageFileName=${dto.image}" width="250px" height="250px"><br>
+ 				<a href="${contextPath}/reservation/ticketView?write_no=${dto.write_no}&location=${dto.location}"><img src="${contextPath}/reservation/download?imageFileName=${dto.image}" width="250px" height="250px"></a><br>
   				<label>제목 : ${dto.title}</label><br>
   				<label>날짜 : ${dto.start_date} ~ ${dto.end_date}</label>
   			</div>
