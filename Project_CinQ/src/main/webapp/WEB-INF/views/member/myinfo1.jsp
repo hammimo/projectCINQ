@@ -12,7 +12,7 @@
 <script src="https://kit.fontawesome.com/5ed7ca1980.js" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&family=Song+Myung&display=swap" rel="stylesheet">
 <title>CINQ</title>
-<style type="text/css">
+<style type="text/css"> 
 .title{
 	font-family: 'Song Myung', serif;
 	font-size : 40px;
