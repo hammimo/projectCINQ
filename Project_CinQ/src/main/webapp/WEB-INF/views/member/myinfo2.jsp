@@ -18,8 +18,7 @@
 	font-size: 25px;
 }
  #wrapper{
-	height: auto;
- 	 min-height: 100%;
+ 	 height: 100%;
  	 padding-bottom: 10px;
  	 background-color :rgba(0, 13, 0, 0.04);
 }
@@ -65,8 +64,10 @@ button:hover {
 	}
 
 .participating {
+	position:relative;
 	margin-left: 5%;
 	width: 80%;
+	
 }
 .img{
 	display: inline-block;
@@ -75,12 +76,12 @@ button:hover {
 .info{
 	display: inline-block;
 	width: 40%;
-	height: 244.94px;
+	height: 300px;
 	vertical-align: top;
 }
-.participating button {
+.info button{
 	position: relative;
-	top: 65%;
+	top: 30%;
 }
 img{
 	width: 90%;
@@ -104,6 +105,7 @@ img{
 		<br>
 		<h2 align="center">Project</h2>
 		<br><br>
+		
  		<c:if test="${ProjectInfo.size() == 0}">
 		<div class="img">
             <p>진행중인 프로젝트가 없습니다</p>
@@ -112,6 +114,7 @@ img{
             <p>진행중인 프로젝트가 없습니다</p>
         </div>
         </c:if> 
+        <div class="JoinProject">
 		 <c:if test="${ProjectInfo.size() != 0}">	 
 			<c:forEach var="data" items="${ProjectInfo}">
 			<div class="img">
@@ -139,20 +142,8 @@ img{
 	        </div>
 	        </c:forEach>
 		</c:if> 
+		</div>
 	</div>
-    <br>
-    <!--  
-	<div class="endParticipating"> 
-        <h2 align="center">Participation is over</h2>
-        <br>
-        <nav class="img">
-            데이터가 들어오면 이미지
-        </nav>
-        <nav class="info">
-            데이터가 들어오면 설명
-        </nav>
-	</div>-->
-    <br><br>
 	</div>
 	<c:import url="../default/footer.jsp"/>
 </body>
