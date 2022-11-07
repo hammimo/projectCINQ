@@ -9,15 +9,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&family=Song+Myung&display=swap" rel="stylesheet">
 <title>member/info.jsp</title>
 <style type="text/css">
-label{
-	font-family: 'Noto Sans KR', sans-serif;
+.title{
+	font-family: 'Song Myung', serif;
+	font-size : 40px;
 }
-b {
+label{
+	font-family: 'Song Myung', serif;
+	font-size: 36px;
+	border-bottom: 1px solid #bcbcbc;
+}
+p {
 	font-family: 'Noto Sans KR', sans-serif;
+	padding-left: 3%;
+	font-size: 20px;
+	font-weight: lighter;
 }
 #wrapper{
 	height: auto;
@@ -29,7 +37,7 @@ b {
 #infoSection{
 	float: right;
 	width: 150px;
-	height: 700px;
+	height: 1000px;
 	line-height: 100px;
 	font-family: 'Hahmlet', serif;
 }
@@ -52,7 +60,7 @@ button {
     font-family: "paybooc-Light", sans-serif;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 200;
     transition: 0.25s;
 	box-sizing: border-box;
 	margin: 20px;
@@ -67,7 +75,11 @@ button:hover {
 	background-color: #323232;
     color: white;
 	}
-
+.member_info{
+	margin-left: 7%;
+	width: 70%;
+	padding-left: 6%;
+}
 </style>
 </head>
 <body>
@@ -83,62 +95,59 @@ button:hover {
    </section>
    <br>
    <br>
-   <div class="member_info" align="center">
+   <div class="member_info" >
       
-      <h1>MY INFO</h1>
+      <h1 class="title">MY INFO</h1>
       <br><br>
       <form id="memberInfo">
-      <label>NAME : </label>
-      <b>${info.name}</b>
+      <label>NAME </label> 
+      <p>${info.name}</p>
       <br><br>
-      <label>ID : </label>
-      <b>${info.id }</b>
+      <label>ID </label>
+      <p>${info.id }</p>
       <br><br>
        <c:choose>
          <c:when test="${info.tel eq '' }">
-            <label>TEL : </label>
+            <label>TEL </label>
          </c:when>
          <c:when test="${info.tel ne '' }">
-         	<label>TEL : </label>
-            <b>${info.tel } </b>
+         	<label>TEL </label>
+            <p>${info.tel } </p>
          </c:when>
          <c:otherwise>
-         	<label>TEL : </label>
-            <b>오류 발생</b>
+         	<label>TEL</label>
+            <p>오류 발생</p>
          </c:otherwise>
        </c:choose>
        <br><br>
        <c:choose>
          <c:when test="${info.gender eq 'm' }">
-         	<label>GENDER : </label>
-            <b>MAN</b>
+         	<label>GENDER </label>
+            <p>MAN</p>
          </c:when>
          <c:when test="${info.gender eq 'f' }">
-         	<label>GENDER : </label>
-            <b>WOMAN </b>
+         	<label>GENDER</label>
+            <p>WOMAN </p>
          </c:when>
          <c:otherwise>
-         	<label>GENDER : </label>
-            <b>오류 발생</b>
+         	<label>GENDER </label>
+            <p>오류 발생</p>
          </c:otherwise>
       </c:choose>
       <br><br>
-      <label>E-mail : </label>
-      <b>${info.email }</b>
+      <label>E-mail </label>
+      <p>${info.email }</p>
       <br><br>
-      <label>BirthDay : </label>
-      <b>${info.birthday }</b>
+      <label>BirthDay </label>
+      <p>${info.birthday }</p>
       <br><br><br>
-      <div class="member_info_btn">
+      <div class="member_info_btn" align="center">
       <button type="button" onclick="location.href='/root/member/modify_form?id=${loginUser}'">회원정보 수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <button type="button" onclick="location.href='/root/member/delete?id=${loginUser}'">회원탈퇴</button>
-      <!-- <a href="/root/member/modify_form?id=${loginUser}"><input type="button" value="회원정보 수정"></a>&nbsp;-->
-      <!--<a href="/root/member/delete?id=${loginUser}"><input type="button" value="회원탈퇴"></a>-->
-   </div>
+   	  </div>
       </form>
    </div>
    <br>
-   
    <br>
    <!--  
    <div class="Ticketing"> 
@@ -150,8 +159,7 @@ button:hover {
         <div class="info">
             데이터가 들어오면 설명
         </div>-->
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-   </div>
+        <br><br><br><br>
    </div>
    <c:import url="../default/footer.jsp"/>
 
