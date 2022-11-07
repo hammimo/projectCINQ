@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto Sans Korean:Medium 500&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 <style type="text/css">
 .placeTable {
