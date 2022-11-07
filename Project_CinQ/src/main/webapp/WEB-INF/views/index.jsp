@@ -64,12 +64,15 @@
 * {
 	font-family: 'Hahmlet', serif;
 }
-
-.wrapper {
+body {
 	background-color: rgba(0, 13, 0, 0.04);
 	height: 100%;
 	min-height: 100%;
 	padding-bottom: 10px;
+}
+
+.wrapper {
+	
 }
 
 #project {
@@ -185,9 +188,9 @@ img {
 				</c:forEach>
 			</div>
 		</div>
-		<br> <br>
+		<br> <br> <br> <br>
 		<h3 align="center">JOIN MEMBER</h3>
-		<br> <br> <br>
+		<br> <br>
 		<c:forEach var="dto" items="${joinList }">
 			<div class="join">
 				<br>

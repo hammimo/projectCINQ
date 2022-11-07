@@ -44,7 +44,7 @@ font-family: 'Hahmlet', serif;
        <tr height="80px"></tr>
         <c:if test="${joinList.size() == 0}">
             <tr>
-                  <th colspan="2">등록된 글이 없습니다</th>
+                <th colspan="2">등록된 글이 없습니다</th>
             </tr>   
         </c:if>
          <c:forEach var="dto" items="${joinList}">
@@ -57,7 +57,9 @@ font-family: 'Hahmlet', serif;
                 </c:if>
                 <c:if test="${dto.image != 'nan'}">
                     <td id="content_image" rowspan="5">
-                    <a href="/root/join/joinView?write_no=${dto.write_no}"><img src="${contextPath}/join/download?imageFileName=${dto.image}" width="650px" height="400px"></a>
+                    	<a href="/root/join/joinView?write_no=${dto.write_no}">
+                    		<img id="divImg" src="${contextPath}/join/download?imageFileName=${dto.image}" width="650px" height="400px">
+                    	</a>
                      </td>
                 </c:if>
             </tr>
