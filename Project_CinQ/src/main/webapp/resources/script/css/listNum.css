@@ -2,7 +2,7 @@
 
 
 *{
-   font-family: 'Hahmlet', serif;
+   
 }
    
 
@@ -16,6 +16,8 @@ body {
 
 
 .main {
+	font-family: 'Hahmlet', serif;
+	height: 100%;
 }
 
 .list{
@@ -172,4 +174,8 @@ button:hover {
    max-width: 450px;
    min-width: 450px;
    max-height: 300px;
+}
+
+.Table{
+	width: 100%
 }

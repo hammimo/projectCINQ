@@ -38,7 +38,12 @@
     	  <c:if test="${reservationList.size() == 0}">
             <tr>
                <th colspan="6">등록된 글이 없습니다</th>
-            </tr>   
+            </tr> 
+            <tr height="100px"></tr>
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>   
       	  </c:if>
       	  <c:forEach var="dto" items="${reservationList}">
       		<tr height="100px"></tr>
@@ -84,7 +89,8 @@
 				<td>
 					<button type="button" onclick="location.href='${contextPath}/reservation/reservationDelete?write_no=${dto.write_no}&imageFileName=${data.image}'">삭제</button>
 				</td>
-			</tr> 
+			</tr>
+			<tr height="100px"></tr> 
     	  </c:forEach>
       	  <tr>
          	<td colspan="6" align="center">
