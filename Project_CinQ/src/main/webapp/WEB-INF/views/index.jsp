@@ -81,13 +81,15 @@
 	text-align: center;
 	position: relative;
 	width: 100%;
-	height: 3%;
 }
 
 .project_img {
 	position: relative;
 }
-
+.project_img img {
+   width: 300px;
+   height: 200px;
+}
 img {
 	width: 80%;
 	height: 30%;
@@ -213,7 +215,7 @@ img {
 		<br>
 		<h3 align="center">LENT PLACE</h3>
 
-		<br>
+		<br><br>
 		<c:forEach var="dto_P" items="${placeList }">
 			<div class="place">
 				<div class="Place_list">
