@@ -6,31 +6,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Noto Sans Korean:Medium 500&display=swap" rel="stylesheet">
-<title>Insert title here</title>
-<style type="text/css">
-.placeTable {
-	width: 400px;
-}
-td {
-	text-align: center;
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
+<title>장소 선택</title>
+<link href="${contextPath}/resources/script/css/popup.css" 
+	  rel="stylesheet" type="text/css">	
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src='<c:url value="/resources/script/js/reservation.js"/>'></script>
 <script src='<c:url value="/resources/script/js/ticketingRegister.js"/>'></script>
 </head>
 <body>
    <div>
-   <table class="placeTable" border="1">
+   <table class="placeTable">
       <tr class= "title1">
          <th width="100px">NUMBER</th>
-         <th width="500px">TITLE</th>
-        <th width="300px">PROFILE</th>
+         <th width="100px">TITLE</th>
+        <th width="200px">PROFILE</th>
          <th width="100px">LOCATION</th>
-         <th width="800px">CONTENT</th>
-         <th width="800px">신청</th>
-         
+         <th width="100px">CONTENT</th>
+         <th width="130px">신청</th> 
       </tr>
       <c:if test="${rentOkList.size() == 0}">
             <tr>
@@ -42,7 +35,7 @@ td {
 				<td>
 				${dto.write_no}
 				</td>
-				<td>${dto.title}</td>
+				<td id="t_title">${dto.title}</td>
 				  <c:if test="${dto.image == 'nan'}">
                     <td>
                      	<b>이미지가 없습니다..</b>
@@ -50,23 +43,23 @@ td {
                   </c:if>
                   <c:if test="${dto.image != 'nan'}">
                  	<td>
-                 	<img src="${contextPath}/place/download?imageFileName=${dto.image}" width="200px" height="200px">
+                 	<img src="${contextPath}/place/download?imageFileName=${dto.image}" width="150px" height="150px">
                   	</td>
                   </c:if>
                 <td>${dto.loc_sep_name}</td>
-				<td>${dto.content}</td>
+				<td id="t_content">${dto.content}</td>
 	            <td>
 	            	<input type="hidden" id="place_no" value="${dto.write_no} ">
-	            	<input type="button" value="신청하기" onclick="placeSubmit()">
+	            	<input id="i_button" type="button" value="신청하기" onclick="placeSubmit()">
 	            </td>
             </tr>
       </c:forEach>
 	      <tr>
-		         <td colspan="6" align="center">
-		             <c:forEach var="num" begin="1" end="${repeat}">
-		                 <a href="rentOkPlaceView?num=${num}">[${num}]</a>
-		             </c:forEach>
-		         </td>
+		      <td id="t_paging" colspan="6" align="center">
+		          <c:forEach var="num" begin="1" end="${repeat}">
+		              <a href="rentOkPlaceView?num=${num}">[${num}]</a>
+		          </c:forEach>
+		      </td>
 	     </tr>
      </table>
      </div>

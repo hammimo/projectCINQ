@@ -10,7 +10,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src='<c:url value="/resources/script/js/checkRegister.js"/>'></script>
 <link href="${contextPath}/resources/script/css/login.css" 
-	  rel="stylesheet" type="text/css">
+	  rel="stylesheet" type="text/css">	  
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
@@ -18,8 +18,7 @@
         <div class="login-html">
           <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign-up</label>
           <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign-in</label>
-          <div class="login-form">
-             
+          <div class="login-form">  
                <div class="sign-up-htm">
                   <form action="${contextPath }/member/user_check" method="post" autocomplete="off">
                     <div class="group">
