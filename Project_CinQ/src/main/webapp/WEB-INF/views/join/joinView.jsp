@@ -7,6 +7,110 @@
 <head>
 <meta charset="UTF-8">
 <title>JoinView</title>
+<style type="text/css">
+
+*{
+	font-family: 'Hahmlet', serif;
+}
+
+.main{
+	background-color: rgba(0, 0, 0, 0.04);
+	align: center;
+	width:100%;
+	height:100vh%;
+}
+
+.subject{
+	text-align:center;
+	font-size:36px;
+	width:65%;
+	border-bottom: 3px solid black;
+	margin:0 auto;
+	text-align: left;
+	color: #bfbfbf;
+}
+
+.view{
+	width: 60%;
+	margin: 0 auto;
+	font-size: 28px;
+}
+
+.Sproject{
+   border-collapse: collapse;
+} 
+tr {border-top: 1px solid black;}
+td {padding: 15px;}
+.custom-btn {
+	width: 130px;
+	height: 40px;
+	padding: 10px 25px;
+	border: 2px solid #000;
+	font-family: 'Lato', sans-serif;
+	font-weight: 500;
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+}
+
+button {
+   /* margin: 0;
+   padding: 0; */
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+   box-sizing: border-box;
+   margin: 20px;
+   background-color: #323232;
+    color: white;
+    font-family: 'Hahmlet', serif;
+    
+   }
+button:hover {
+	letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+	background-color: #323232;
+    color: white;
+	}
+
+#i_button{
+	position: relative;
+    border: none;
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+   box-sizing: border-box;
+   margin: 20px;
+   background-color: #323232;
+    color: white;
+    font-family: 'Hahmlet', serif;
+}	
+	
+#i_button:hover{
+	letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+	background-color: #323232;
+	color: white;
+}
+
+
+</style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 
@@ -107,7 +211,7 @@ $.ajax({
 	height: 350px;
 	background-color: rgba(212, 244, 250, 0.9);
 }
-.view_title {
+/* .view_title {
 	text-align: center;
 }
 
@@ -115,16 +219,16 @@ $.ajax({
    align : center;
    border-collapse: collapse;
 }
-tr {border-top: 1px solid black;}
-td {padding: 5px;}
-p {
-	font-size: 8px;
-	color: red;
- 
+ */
+
+img{
+	max-width: 900px;
+	max-height: 550px;
 }
 </style>
 </head>
 <body onload="reply_data()">
+	<div class="main">
 	<div id="modal_wrap">
 		<div id="first">
 			<div style="width: 250px; margin: 0 auto; padding-top: 20px;">
@@ -151,50 +255,53 @@ p {
 		</div>	
 	</div>
    <c:import url="../default/header.jsp"/>
+      
+      <h1 align="center"><b>등록된 프로젝트</b></h1>
       <br><br>
-      <h1 class="view_title" align="center">구인중인 프로젝트</h1>
-      <br><br>
-      <div class ="join_view" align="center">
+      <div class ="view" align="center">
          <table class="Sproject" >
             <tr>
-               <th width="150px">작성자</th><td colspan="2">${data.id }</td>
+               <td colspan="2"><b>작성자</b>&emsp;:&emsp; ${data.id }</td>
             </tr>
             <tr>
-               <th>제 목</th><td colspan="2">${data.title }</td>
+               <td colspan="2"><b>제 목</b>&emsp;:&emsp;${data.title }</td>
             </tr>
             <tr>
-               <th>지 역</th><td colspan="2">${data.loc_sep_name}</td>
+               <td colspan="2"><b>위 치</b>&emsp;:&emsp;${data.loc_name}</td>
             </tr>
+            <tr>
             
-            <tr>
-               <th>내용</th>
-               <td colspan="2">
+           <tr>
+               <td><b>사진</b></td>
+               <td>
                   <c:if test="${data.image == 'nan'}">
                      <b>이미지가 없습니다..</b>
                   </c:if>
                   <c:if test="${data.image != 'nan'}">
-                 	<img src="${contextPath}/join/download?imageFileName=${data.image}" width="200px" height="200px">
+                 	<img src="${contextPath}/join/download?imageFileName=${data.image}" width="100%" height="60%">
                   </c:if>
                </td>
-               <td>${data.content}</td>
+            </tr>
+            <tr>
+            	<td colspan="2"><b>내용</b>&emsp;:&emsp; ${data.content}</td>
+            	<%-- <td>${placeData.content}</td> --%>
             </tr>
             <tr>
 				<td colspan="4" align="center">
                   <c:if test="${data.id == loginUser}">
-					<input type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
-					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">
-                  	<input type="button" value="제출하기" onclick="location.href='#'">
+					<input id="i_button" type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
+					<input id="i_button" type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">
+                  	<input id="i_button" type="button" value="제출하기" onclick="location.href='#'">
                   </c:if>
-                  <input type="button" value="글목록" onclick="location.href='${contextPath}/join/joinAllListNum'">
-                 <input type="button" value="답글달기" onclick="slide_click()"> &nbsp;
+                  <input id="i_button" type="button" value="글목록" onclick="location.href='${contextPath}/join/joinAllListNum'">
+                 <input id="i_button" type="button" value="답글달기" onclick="slide_click()"> &nbsp;
                <div id ="reply"></div>
                </td>
             </tr>		     
          </table>
       	
       </div>
-      
-      <br><br><br>
+      </div>
    <c:import url="../default/footer.jsp"/>
 
 </body>
