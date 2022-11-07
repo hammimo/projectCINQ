@@ -15,21 +15,45 @@
  	 padding-bottom: 10px;
  	 background-color :rgba(0, 13, 0, 0.04);
 }
-
-.div_1 { 
-   width: 700px;
-   margin: auto;
-   background-color: red;
-   position: relative;
-   right: 350px;
+#infoSection{
+	float: right;
+	width: 150px;
+	height: 700px;
+	line-height: 100px;
+	font-family: 'Hahmlet', serif;
 }
-
+li {
+	font-family: 'Hahmlet', serif;
+	list-style: none;
+	font-size: 18px;
+	line-height: 50px;
+	}
+textarea {
+	resize: none;
+}
+.div_1 { 
+	right:30%;
+   width: 100%;
+   margin: auto;
+}
+#writeForm {
+	width: 45%;
+	display: inline-block;
+}
+#fileForm{
+	width: 45%;
+	display: inline-block;
+	
+}
+/*
 .img {
-	width:500px;
-	right: 200px;
-	position: fixed;
-	right: 15%;
+	width:45%;
 	border: 1.3px solid #464646;
+}*/
+img{
+	width: 90%;
+  	height: 90%;
+  	object-fit: cover;
 }
 #fileChoice{
 	position: fixed;
