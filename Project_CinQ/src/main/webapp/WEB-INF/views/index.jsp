@@ -59,9 +59,9 @@ $('.responsive').slick({
 </script>
 
 <style type="text/css">
-	*{
+  *{
 	font-family: 'Hahmlet', serif;
-	}
+  }
   .wrapper{
     background-color :rgba(0, 13, 0, 0.04);
     height: 100%;

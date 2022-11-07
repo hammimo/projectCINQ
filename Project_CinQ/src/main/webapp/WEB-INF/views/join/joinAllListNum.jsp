@@ -39,56 +39,57 @@ font-family: 'Hahmlet', serif;
     <br><br>
     <!-- table 부분 -->
     <div class="list">
-    <table class="Table">
-    	<tr height="80px"></tr>
-        <c:if test="${joinList.size() == 0}">
-            <tr>
-               	<th colspan="2">등록된 글이 없습니다</th>
-            </tr>   
-        </c:if>
-      	<c:forEach var="dto" items="${joinList}">
-         	<tr height="100px">
-            	<td id="content_loc">${dto.loc_sep_name}</td>
-            	<c:if test="${dto.image == 'nan'}">
-                    <td id="content_image" rowspan="5">
-                        <b>이미지가 없습니다..</b>
-                  	</td>
-                </c:if>
-                <c:if test="${dto.image != 'nan'}">
-                 	<td id="content_image" rowspan="5">
-                 	<a href="/root/join/joinView?write_no=${dto.write_no}"><img src="${contextPath}/join/download?imageFileName=${dto.image}" width="650px" height="400px"></a>
-                  	</td>
-                </c:if>
-            </tr>
-        
-            <tr id="content_row">
-            	 <td id="content_title"><a href="/root/join/joinView?write_no=${dto.write_no}">제목 : ${dto.title}</a></td>
-            </tr>
-            <tr id="content_row">
-            	<td id="content_loc_name">상세 위치 : ${dto.loc_name}</td>
-            </tr>
-            <tr id="content_row">
-            	<td></td>
-            </tr>
-            <tr id="content_row">
-				<td id="content_con">내용 : ${dto.content}</td>
-			</tr>
-		    <tr height="100px"></tr>
-      	</c:forEach>
-      	<tr>
-            <td colspan="6" align="center">
-            	<c:forEach var="num" begin="1" end="${repeat}">
-            		<button onclick="location.href='joinAllListNum?num=${num}'">${num}</button>
-            	</c:forEach>
-            </td>
-     	</tr>
-     	<tr>
-        	<td colspan="6">
-        		 <button onclick="location.href='${contextPath }/join/artistForm'">글작성</button>
-            </td>
-     	</tr>   
-    </table>
-    </div>
+    	<table class="Table">
+    		<tr height="80px"></tr>
+        		<c:if test="${joinList.size() == 0}">
+            		<tr>
+            	   		<th colspan="2">등록된 글이 없습니다</th>
+            		</tr>   
+       			</c:if>
+      			<c:forEach var="dto" items="${joinList}">
+         			<tr height="100px">
+            			<td id="content_loc">${dto.loc_sep_name}</td>
+            			<c:if test="${dto.image == 'nan'}">
+            	    	    <td id="content_image" rowspan="5">
+            	    	        <b>이미지가 없습니다..</b>
+            		   	  	</td>
+               	 		</c:if>
+                		<c:if test="${dto.image != 'nan'}">
+                		 	<td id="content_image" rowspan="5">
+                			 	<a href="/root/join/joinView?write_no=${dto.write_no}">
+                			 		<img src="${contextPath}/join/download?imageFileName=${dto.image}" width="650px" height="400px">
+                			 	</a>
+                		  	</td>
+             	   		</c:if>
+            		</tr>
+            		<tr id="content_row">
+            			 <td id="content_title"><a href="/root/join/joinView?write_no=${dto.write_no}">제목 : ${dto.title}</a></td>
+            		</tr>
+            		<tr id="content_row">
+            			<td id="content_loc_name">상세 위치 : ${dto.loc_name}</td>
+            		</tr>
+            		<tr id="content_row">
+            			<td></td>
+            		</tr>
+            		<tr id="content_row">
+						<td id="content_con">내용 : ${dto.content}</td>
+					</tr>
+		    		<tr height="100px"></tr>
+      			</c:forEach>
+      			<tr>
+            		<td colspan="6" align="center">
+            			<c:forEach var="num" begin="1" end="${repeat}">
+            				<button onclick="location.href='joinAllListNum?num=${num}'">${num}</button>
+            			</c:forEach>
+            		</td>
+     			</tr>
+     			<tr>
+        			<td colspan="6">
+        				 <button onclick="location.href='${contextPath }/join/artistForm'">글작성</button>
+         		   </td>
+     			</tr>   
+    		</table>
+    	</div>
     </div>
     <c:import url="../default/footer.jsp"/>
 </body>
