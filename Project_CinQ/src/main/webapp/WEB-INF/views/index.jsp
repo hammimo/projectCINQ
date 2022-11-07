@@ -145,7 +145,6 @@ $('.responsive').slick({
 </head>
 <body>
 	<c:import url="default/header.jsp"/>
-	<c:import url="default/adminMenu.jsp"/>
 	<div class="wrapper">
 	<div class="projects">
 	<br>

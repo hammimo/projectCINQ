@@ -33,7 +33,7 @@ b {
 	line-height: 100px;
 	font-family: 'Hahmlet', serif;
 }
-li {
+#infoSection li {
 	font-family: 'Hahmlet', serif;
 	list-style: none;
 	font-size: 18px;
