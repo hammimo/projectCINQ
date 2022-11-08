@@ -30,7 +30,12 @@
             		<c:if test="${data.location == 0}">
             			<td colspan="2"><b>대관 신청 장소</b>&emsp;:&emsp; 장소 추천 해주세요</td>
             		</c:if>
-               	<td colspan="2"><b>대관 신청 장소</b>&emsp;:&emsp; <button type="button" onclick="location.href='${contextPath}/place/placeView?write_no=${data.location}'">장소 보러 가기</button></td>
+            		<c:if test="${data.location != 0}">
+               			<td colspan="2">
+               					<b>대관 신청 장소</b>&emsp;:&emsp; 
+               					<button type="button" onclick="location.href='${contextPath}/place/placeView?write_no=${data.location}'">장소 보러 가기</button>
+               				</td>
+            		</c:if>
             	</tr>
             	<tr>
                		<td>
