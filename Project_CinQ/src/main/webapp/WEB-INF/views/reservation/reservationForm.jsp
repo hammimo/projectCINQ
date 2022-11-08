@@ -21,39 +21,64 @@ body {
    font-family: 'Hahmlet', serif;
 }
 #reservationForm {
+   margin-top : 3%;
    text-align: center;
+   background-color: rgba(0, 3, 0, 0.03);
+   width: 60%;
+   border-radius: 30px;
+   margin-left: 18%;
+   box-shadow: 8px 8px 8px gray;
    
 }
 .Box{
+   padding-top: 5%;
    display:inline-block;
    position: relative;
-   width: 60%;
+   width: 40%;
    height: 40%;
    }
 
-
+.Box_1{
+	display: inline-block;
+	width: 65%;
+}
+.Box_2{
+	display: inline-block;
+	width: 40%;
+	height: 40%;
+	margin-bottom: 5%;
+}
 .Box1{
    padding-right: 10%;
    position: relative;
    width: 80%;
-   height: 40%;
+   height: 50%;
    display:inline-block;
 }
 .Box1_1{
    display: inline-block;
    float: left;
-   width: 35%;
-   padding-left: 20%;
+   width: 40%;
+   padding-left: 10%;
    text-align: right;
 }
 .Box1_2{
    display: inline-block;
    float:right;
-   width: 35%;
+   width: 40%;
    padding-right: 10%;
    text-align: right;
    }
-
+#ProfileTitle {
+  position: relative;
+  top: 1px;  
+  left: 1px;  
+  padding: .8em .5em; 
+  color:    #464646;
+  cursor: text;
+  font-size: 17px;
+  font-weight: bold;
+}
 label {
   position: relative;
   top: 1px;  
@@ -94,12 +119,13 @@ label {
 }
 
 img {
-      width: 50%;
+      width: 100%;
       height: 100%
       object-fit: cover;
    }
 textarea {
    resize: none;
+   border-radius: 3%;
 }
 button {
    margin: 0;
@@ -143,8 +169,6 @@ button:hover {
    <div id="reservationForm">
       <br>
       <br>
-      <!-- <button type="button" onclick="location.href='reservationForm'">취소</button><br><br>-->
-      
       <form id="form" class="reservationForm"
          action="${contextPath }/reservation/reservation"
          enctype="multipart/form-data" method="post">
@@ -153,10 +177,13 @@ button:hover {
             <br>
          </div>
       <div class="Box">
+        <div class="Box_1">
+        <br>
          <c:if test="${placeData == null}">
+         	<label>장소추천받을게요 </label><input type="checkbox" id="location" name="location"
+               value="0" checked="checked"><br><br>
+            <img src="#" id="preview" width="350px" height="250px"><br> 
             <button type="button" onclick="rentOkView()">대관가능 장소보기</button>
-            장소추천받을게요 <input type="checkbox" id="location" name="location"
-               value="0" checked="checked">
          </c:if>
          <c:if test="${placeData != null}">
             <input type="hidden" id="location" name="location"
@@ -168,7 +195,7 @@ button:hover {
             <c:if test="${placeData.image != 'nan'}">
                <img
                   src="${contextPath}/place/download?imageFileName=${placeData.image}"
-                  width="450px" height="200px">
+                  width="350px" height="250px">
                <br>
             </c:if>
             <div class="textbox">
@@ -180,10 +207,17 @@ button:hover {
             <br>
             <br>
          </c:if>
-         <br> <img src="#" id="preview" width="450px" height="250px"><br> 
+         </div>
+         </div>
+         <div class="Box_2">
+           <div class="TeamProfile">
+         	<br> 
+         	<p id="ProfileTitle">프로필 사진을 등록해주세요</p>
+         	<img src="#" id="preview" width="350px" height="250px"><br> 
             <input type="file" name="image"
             value="팀원프로필" onchange="readURL(this)"><br>
-      </div>
+             </div>
+      	   </div>
       <br><br>
       <div class="Box1">
          <div class="Box1_1">
@@ -197,7 +231,7 @@ button:hover {
          </div>
          <div class="textbox">
             <label>내용</label>
-            <textarea  id="contentc" rows="8" cols="41" name="content"
+            <textarea  id="contentc" rows="8" cols="35" name="content"
                placeholder="필수 입력 사항 *관람연령 *공연시간"></textarea>
             <br>
             <br>

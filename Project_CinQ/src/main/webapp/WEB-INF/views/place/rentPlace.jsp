@@ -17,6 +17,9 @@
 <script src='<c:url value="/resources/script/js/file.js"/>'></script>
 
 <style type="text/css">
+body {
+	background-color :rgba(0, 13, 0, 0.04);
+}
 *{
 font-family: 'Hahmlet', serif;
 }
@@ -24,7 +27,6 @@ font-family: 'Hahmlet', serif;
 	height: auto;
  	 min-height: 100%;
  	 padding-bottom: 10px;
- 	 background-color :rgba(0, 13, 0, 0.04);
 }
 #infoSection{
 	float: right;
@@ -45,26 +47,26 @@ font-family: 'Hahmlet', serif;
   
 }
 .textbox input[type="text"] {
-  width: 38%;  
+  width: 50%;  
   height: auto; 
   line-height : normal;  
   padding: .5em .4em; 
   font-family: inherit; 
   border: 1.3px solid 	#464646;
-  border-radius: .4em;  
+  border-radius: .2em;  
   outline-style: none;  
   -webkit-appearance: none; 
   -moz-appearance: none;
   appearance: none;
 }
 .textbox input[type="number"] {
-  width: 15%;  
+  width: 25%;  
   height: auto; 
   line-height : normal;  
   padding: .4em .3em; 
   font-family: inherit; 
   border: 1.3px solid 	#464646;
-  border-radius: .4em;  
+  border-radius: .2em;  
   outline-style: none;  
   -webkit-appearance: none; 
   -moz-appearance: none;
@@ -104,16 +106,34 @@ li {
 	}
 textarea {
 	resize: none;
-	border-radius: .7em;  
+	border-radius: .3em;  
 }
 .title_content {
+	padding-top: 2%;
 	vertical-align: top;
 	display: inline-block;
 	width : 30%;
+	text-align: right;
 }
 .addr_num {
+	padding-top: 5%;
+	padding-left: 3%;
 	display: inline-block;
 	width: 30%;
+	text-align: left;
+}
+#upProfile {
+  position: relative;
+  top: 1px;  
+  left: 1px;  
+  padding: .8em .5em; 
+  color:    #464646;
+  cursor: text;
+  font-size: 17px;
+  font-weight: bold;
+}
+.buttonS {
+	padding-right: 8%;
 }
 </style>
 </head>
@@ -134,27 +154,27 @@ textarea {
    		<div class="div_1" align="center"> 
       		<form id="form" action="rentPlaceSave" method="post" enctype='multipart/form-data'> 
       			<div id="writeForm">
-      			<div class="title_content">
+      			
 	      		<div class="textbox">
-				  <label for="input" >작성자</label>
-	 			  <input type="text" name="id" value="${loginUser}" readonly><br><br>
+				  <label>작성자</label>
+	 			  <input type="hidden" name="id" value="${loginUser}" readonly>${loginUser}<br><br>
 				</div>
+				<div class="title_content">
+				<p id="upProfile">프로필 올리기</p>
+	        	<img src="#" id="preview" width="300px" height="200px"><br>	      
+	      			<label for="upload-file"></label>
+	   				<input type="file" name="image" id="upload-file" onchange="readURL(this)"><br><br>
 				<div class="textbox">
 			  		<label for="input">제목</label>
 	 		 		<input type="text"  name="title" size="50"><br><br>
 				</div>
-	        	
-				<!--<input type="file" name="image" value="장소사진" onchange="readURL(this)"><br><br>-->
 				<div class="textbox">
 					<label for="input">내용</label>
-			  		<textarea rows="10" cols="50" name="content" placeholder="모집 분야, 일시, 희망 가격을 입력해 주세요"></textarea><br><br>
+			  		<textarea rows="10" cols="38" name="content" placeholder="모집 분야, 일시, 희망 가격을 입력해 주세요"></textarea><br><br>
 				</div>
 				</div>
-				<div class="addr_num">
 				
-	        	<img src="#" id="preview" width="300px" height="200px"><br>	      
-	      			<label for="upload-file"></label>
-	   				<input type="file" name="image" id="upload-file" onchange="readURL(this)">
+				<div class="addr_num">
 	   			<div class="textbox">
 			  		<label for="input">지역</label><br>
 			  		<input type="text" id="addr1" name="addr" readonly><br><br>
@@ -172,7 +192,9 @@ textarea {
 	   			</div>
 	   			</div>
 	        	<br>
+	        	<div class="buttonS">
 	        	<button type="button" onclick="writeSave()" value="작성완료">작성완료</button>
+	     		</div>
 	      </form>
 	   </div>
 	</div>
