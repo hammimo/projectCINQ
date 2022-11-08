@@ -11,21 +11,14 @@
 <meta charset="UTF-8">
 <title>CINQ</title>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
-<link href="${contextPath}/resources/script/css/listNum.css" rel="stylesheet" type="text/css">
+<link href="${contextPath}/resources/script/css/joinAllListNum.css" rel="stylesheet" type="text/css">
 <link href="${contextPath}/resources/script/css/search.css" rel="stylesheet" type="text/css">
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 
-<style type="text/css">
-*{
-font-family: 'Hahmlet', serif;
-}
-
-</style>
 </head>
 <body>
     <c:import url="../default/header.jsp"/>
-    <%-- <input type="hidden" name="join" value="${title }">--%>
     <div class="main">
     <br>
 	   <div class="subject" >
@@ -41,24 +34,29 @@ font-family: 'Hahmlet', serif;
 	    <!-- table 부분 -->
 	    <div class="list">
 	    <table class="Table">
-	       <tr height="80px"></tr>
+	       <tr height="50px"></tr>
 	        <c:if test="${joinList.size() == 0}">
 	            <tr>
 	                <th colspan="2">등록된 글이 없습니다</th>
-	            </tr>   
+	            </tr> 
+	            <tr height="100px"></tr>
+        		<tr height="100px"></tr>
+        		<tr height="100px"></tr>
+        		<tr height="100px"></tr>
+        		<tr height="100px"></tr>   
 	        </c:if>
 	         <c:forEach var="dto" items="${joinList}">
-	            <tr height="100px">
+	            <tr height="50px">
 	               <td id="content_loc">${dto.loc_sep_name}</td>
 	               <c:if test="${dto.image == 'nan'}">
-	                    <td id="content_image" rowspan="5">
+	                    <td id="content_image" rowspan="4">
 	                        <b>이미지가 없습니다..</b>
 	                     </td>
 	                </c:if>
 	                <c:if test="${dto.image != 'nan'}">
-	                    <td id="content_image" rowspan="5">
+	                    <td id="content_image" rowspan="4">
 	                    	<a href="/root/join/joinView?write_no=${dto.write_no}">
-	                    		<img id="divImg" src="${contextPath}/join/download?imageFileName=${dto.image}" width="650px" height="400px">
+	                    		<img src="${contextPath}/join/download?imageFileName=${dto.image}" width="350px" height="250px">
 	                    	</a>
 	                     </td>
 	                </c:if>
@@ -71,12 +69,9 @@ font-family: 'Hahmlet', serif;
 	               <td id="content_loc_name">상세 위치 : ${dto.loc_name}</td>
 	            </tr>
 	            <tr id="content_row">
-	               <td></td>
-	            </tr>
-	            <tr id="content_row">
 	            <td id="content_con">내용 : ${dto.content}</td>
 	         </tr>
-	          <tr height="100px"></tr>
+	          <tr height="50px"></tr>
 	         </c:forEach>
 	         <tr>
 	            <td colspan="6" align="center">
@@ -100,7 +95,8 @@ font-family: 'Hahmlet', serif;
 	           <td colspan="6">
 	               <button onclick="location.href='${contextPath }/join/artistForm'">글작성</button>
 	            </td>
-	        </tr>   
+	        </tr>
+	        <tr height="100px"></tr>    
 	    </table>
 	    </div>
     </div>
