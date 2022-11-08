@@ -241,7 +241,7 @@ body {
 			<h3 align="center">LENT PLACE</h3>
 			<br>
 			<div id="more">
-				<a href="${contextPath }/place/placeAllListNum"> +더보기 </a>
+				<a href="${contextPath }/place/placeAllListNum"> 더보기+ </a>
 			</div>
 			<br>
 			<c:forEach var="dto_P" items="${placeList }">
