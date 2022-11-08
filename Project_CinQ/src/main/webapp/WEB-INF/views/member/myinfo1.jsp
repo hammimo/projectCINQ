@@ -10,9 +10,25 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://kit.fontawesome.com/5ed7ca1980.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+function deleteMember() {
+	var res =confirm("정말로 탈퇴하시겠습니까?");
+	if(res == true){
+		alert("탈퇴되었습니다.");
+		location.href="/root/member/delete?id=${loginUser}";
+	} else {
+		alert("탈퇴 취소되었습니다.");
+	}
+}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&family=Song+Myung&display=swap" rel="stylesheet">
 <title>CINQ</title>
 <style type="text/css"> 
+
+body{
+	background-color :rgba(0, 13, 0, 0.04);
+}
+}
 .title{
 	font-family: 'Song Myung', serif;
 	font-size : 40px;
@@ -31,7 +47,6 @@ span {
 	height: auto;
  	 min-height: 100%;
  	 padding-bottom: 10px;
- 	 background-color :rgba(0, 13, 0, 0.04);
 }
 
 #infoSection{
@@ -171,7 +186,7 @@ button:hover {
       <br><br><br>
       <div class="member_info_btn" align="center">
       <button type="button" onclick="location.href='/root/member/modify_form?id=${loginUser}'">회원정보 수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="button" onclick="location.href='/root/member/delete?id=${loginUser}'">회원탈퇴</button>
+      <button type="button" onclick="deleteMember()">회원탈퇴</button>
    	  </div>
       </form>
    </div>
