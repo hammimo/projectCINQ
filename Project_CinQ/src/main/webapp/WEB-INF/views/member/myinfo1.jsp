@@ -94,6 +94,10 @@ button:hover {
 	margin-left: 25%;
 	width: 50%;
 }
+#hidden_div{
+   width : 100%;
+   height : 500px;
+}
 </style>
 </head>
 <body>
@@ -191,20 +195,9 @@ button:hover {
       </form>
    </div>
    <br>
-   <br>
-   <!--  
-   <div class="Ticketing"> 
-        <h2>Ticketing</h2>
-        <br>
-        <div class="img">
-            데이터가 들어오면 이미지
-        </div>
-        <div class="info">
-            데이터가 들어오면 설명
-        </div>-->
-        <br><br><br><br>
+   <br><br><br><br><br>
    </div>
+   <div id="hidden_div"></div>
    <c:import url="../default/footer.jsp"/>
-
 </body>
 </html>
