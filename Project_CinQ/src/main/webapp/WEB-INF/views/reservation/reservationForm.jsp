@@ -23,12 +23,10 @@ body {
 #reservationForm {
    margin-top : 3%;
    text-align: center;
-   background-color: rgba(0, 3, 0, 0.03);
+   background-color: rgba(0, 3, 0, 0.02);
    width: 60%;
-   border-radius: 30px;
    margin-left: 18%;
-   box-shadow: 8px 8px 8px gray;
-   
+   border: 1px solid silver;
 }
 .Box{
    padding-top: 5%;
@@ -51,7 +49,7 @@ body {
 .Box1{
    padding-right: 10%;
    position: relative;
-   width: 80%;
+   width: 90%;
    height: 50%;
    display:inline-block;
 }
@@ -59,13 +57,13 @@ body {
    display: inline-block;
    float: left;
    width: 40%;
-   padding-left: 10%;
+   padding-left: 5%;
    text-align: right;
 }
 .Box1_2{
    display: inline-block;
    float:right;
-   width: 40%;
+   width: 45%;
    padding-right: 10%;
    text-align: right;
    }
@@ -134,7 +132,7 @@ button {
     border: none;
     display: inline-block;
     padding: 5px 15px;
-    border-radius: 15px;
+    border-radius: 5px;
     font-family: "paybooc-Light", sans-serif;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
@@ -271,6 +269,7 @@ button:hover {
          <button type="submit" value="제출하기">제출하기</button>
          <button type="button" onclick="location.href='../member/myinfo2?id=${loginUser}'">돌아가기</button>
       </div>
+      <br><br>
    </form>
 </div>
 

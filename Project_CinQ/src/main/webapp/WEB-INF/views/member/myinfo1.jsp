@@ -52,7 +52,7 @@ span {
 #infoSection{
 	float: right;
 	width: 150px;
-	height: 1000px;
+	height: 800px;
 	line-height: 100px;
 	font-family: 'Hahmlet', serif;
 }
@@ -192,17 +192,9 @@ button:hover {
    </div>
    <br>
    <br>
-   <!--  
-   <div class="Ticketing"> 
-        <h2>Ticketing</h2>
-        <br>
-        <div class="img">
-            데이터가 들어오면 이미지
-        </div>
-        <div class="info">
-            데이터가 들어오면 설명
-        </div>-->
         <br><br><br><br>
+        <br><br>
+        
    </div>
    <c:import url="../default/footer.jsp"/>
 
