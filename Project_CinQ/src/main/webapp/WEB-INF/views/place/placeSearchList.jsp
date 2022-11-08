@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <title>CINQ</title>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
-<link href="${contextPath}/resources/script/css/listNum.css" rel="stylesheet" type="text/css">
+<link href="${contextPath}/resources/script/css/placeAllListNum.css" rel="stylesheet" type="text/css">
 <link href="${contextPath}/resources/script/css/search.css" rel="stylesheet" type="text/css">
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
@@ -57,7 +57,8 @@ font-family: 'Hahmlet', serif;
         	<tr height="100px"></tr>
         	<tr height="100px"></tr>
         	<tr height="100px"></tr>
-        	<tr height="100px"></tr>    
+        	<tr height="100px"></tr>
+        	<tr height="100px"></tr>     
         </c:if>
       	<c:forEach var="dto_s" items="${placeList}">
           	<tr height="100px">
@@ -88,12 +89,23 @@ font-family: 'Hahmlet', serif;
 			<tr height="100px"></tr>
      	</c:forEach>
         <tr>
-        	<td colspan="6" align="center">
-            	<c:forEach var="num" begin="1" end="${repeat}">
-                 	<button onclick="location.href='placeSearchList?loc_sep_name=${loc_sep_name}&num=${num}'">${num}</button>
-            	</c:forEach>
-         	</td>
-     	</tr>
+	            <td colspan="6" align="center">
+	          		<c:if test="${startPage > block}">
+	            		<button onclick="location.href='placeSearchList?num=${startPage-1}'">이전</button>
+	            	</c:if>
+	               <c:forEach var="num1" begin="${startPage}" end="${endPage}">
+	               	   <c:if test="${num1 == currentPage }">
+	               	   	<button id="currrentPage" onclick="location.href='placeSearchList?num=${num1}'">${num1}</button>
+	               	   </c:if>
+	                  <c:if test="${num1 != currentPage }">
+	                  	<button id="page" onclick="location.href='placeSearchList?num=${num1}'">${num1}</button>
+	                  </c:if>
+	               </c:forEach>
+	            	<c:if test="${endPage<totalPage}">
+	            		<button onclick="location.href='placeSearchList?num=${endPage+1}'">다음</button>
+	            	</c:if>
+	            </td>
+	        </tr>
      	<tr>
         	<td colspan="6">
             	<button onclick="location.href='${contextPath }/place/rentPlace'">글작성</button>

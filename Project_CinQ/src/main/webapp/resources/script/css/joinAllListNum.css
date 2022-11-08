@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+
+body {
+	background-color: rgba(0, 0, 0, 0.04);
+   	align: center;
+   	width:100%;
+   	height:100%;
+
+}
+
+
+.main {
+	font-family: 'Hahmlet', serif;
+	height: 100%;
+}
+
+.list{
+   width: 990px;
+   margin: 0 auto;
+}
+
+.subject{
+   font-size:36px;
+   width:1300px;
+   border-bottom: 3px solid black;
+   margin:0 auto;
+   text-align: left;
+   color: #bfbfbf;
+}
+
+b{
+   color: black;
+}
+.Table{
+   width: 990px;
+   margin:0 auto;
+   font-size: 20px;
+} 
+
+
+#content_row {
+   font-size: 24px;
+}
+
+
+#content_image:hover {
+   background-color: rgba();
+}
+
+#content_image:hover > a{
+   cursor: pointer;
+}
+
+#content_id{
+   vertical-align: top;
+   text-align: left;
+   font-size: 20px;
+}
+
+#content_title  {
+   vertical-align: top;
+   text-align: left;
+   font-size: 30px;    
+}
+#content_title a { 
+   font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
+   font-weight: bold;
+   color:#1B382F
+}
+
+#content_loc{
+   vertical-align: top;
+   text-align: left;
+   font-weight: bold;
+   font-size: 22px;
+   
+}
+
+#content_loc_name{
+   vertical-align: top;
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+}
+#content_con{
+   vertical-align: bottom;
+   text-align: left;
+   font-size: 20px;
+   
+}
+
+td {
+   padding: 5px;
+   text-align: center;
+   
+}
+#content_td{
+   
+}
+
+a {
+   text-decoration: none;
+}
+
+a:link {
+   color: black;
+}
+
+a:visited {
+   color: #000069;
+}
+
+
+
+
+.custom-btn {
+   width: 130px;
+   height: 40px;
+   padding: 10px 25px;
+   border: 2px solid #000;
+   font-family: 'Lato', sans-serif;
+   font-weight: 500;
+   background: transparent;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   position: relative;
+   display: inline-block;
+}
+
+button {
+   /* margin: 0;
+   padding: 0; */
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+   box-sizing: border-box;
+   margin: 20px;
+   background-color: #323232;
+    color: white;
+    font-family: 'Hahmlet', serif;
+    
+   }
+button:hover {
+   letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+   background-color: #323232;
+    color: white;
+   }
+
+#currrentPage{
+	background-color: red;
+}
+

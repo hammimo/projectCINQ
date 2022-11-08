@@ -138,7 +138,7 @@ $.ajax({
                      <b>이미지가 없습니다..</b>
                   </c:if>
                   <c:if test="${data.image != 'nan'}">
-                 	<img src="${contextPath}/join/download?imageFileName=${data.image}" width="100%" height="60%">
+                 	<img src="${contextPath}/join/download?imageFileName=${data.image}" width="100%" height="460px">
                   </c:if>
                </td>
             </tr>

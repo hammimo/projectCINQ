@@ -12,7 +12,6 @@
 <title>CINQ</title>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
 <link href="${contextPath}/resources/script/css/listNum.css" rel="stylesheet" type="text/css">
-<link href="${contextPath}/resources/script/css/search.css" rel="stylesheet" type="text/css">
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 
@@ -22,17 +21,10 @@
 </head>
 <body>
    <c:import url="../default/header.jsp"/>
-   <!-- <div align="center"> -->
    <div class="main">
    	<div class="subject" >
 		 <b>등록된 프로젝트 목록</b> &ensp; Project List
    	</div>
-       <form action="placeSearchList" method="post" enctype='multipart/form-data'>
-		    <div class="search-box">
-			    <input type="text" class="search-txt" name="loc_sep_name" placeholder="지역 검색  (예시 : 강남)"> 
-				    <a class="search-btn" href="#"> <i class="fas fa-search"></i></a>
-			</div>
-		</form>
     <div class="list">
     	<table class="Table">
     	  <c:if test="${reservationList.size() == 0}">
@@ -93,12 +85,23 @@
 			<tr height="100px"></tr> 
     	  </c:forEach>
       	  <tr>
-         	<td colspan="6" align="center">
-             <c:forEach var="num" begin="1" end="${repeat}">
-                 <a href="reservationAllListNum?num=${num}">[${num}]</a>
-             </c:forEach>
-         	</td>
-     	 </tr>
+	            <td colspan="6" align="center">
+	          		<c:if test="${startPage > block}">
+	            		<button onclick="location.href='reservationAllListNum?num=${startPage-1}'">이전</button>
+	            	</c:if>
+	               <c:forEach var="num1" begin="${startPage}" end="${endPage}">
+	               	   <c:if test="${num1 == currentPage }">
+	               	   	<button id="currrentPage" onclick="location.href='reservationAllListNum?num=${num1}'">${num1}</button>
+	               	   </c:if>
+	                  <c:if test="${num1 != currentPage }">
+	                  	<button id="page" onclick="location.href='reservationAllListNum?num=${num1}'">${num1}</button>
+	                  </c:if>
+	               </c:forEach>
+	            	<c:if test="${endPage<totalPage}">
+	            		<button onclick="location.href='reservationAllListNum?num=${endPage+1}'">다음</button>
+	            	</c:if>
+	            </td>
+	        </tr>
 
      </table>
     </div>

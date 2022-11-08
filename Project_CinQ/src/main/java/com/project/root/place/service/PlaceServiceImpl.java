@@ -124,13 +124,29 @@ public class PlaceServiceImpl implements PlaceService{
 	
 	@Override
 	public void PlaceAllListNum(Model model, int num) {
+		int currentPage = num;	// 현재 페이지 번호
 		int pageLetter = 5;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectPlaceCount();// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)
 			repeat += 1;
-			int end = num * pageLetter;
-			int start = end + 1 - pageLetter;
+			int start = (currentPage-1) * pageLetter + 1;
+			int end = start + pageLetter - 1;
+			
+			//페이징 블록 내용 추가
+			int block = 3;
+			int totalPage = (allCount-1)/pageLetter+1;
+			int startPage = (currentPage-1)/block * block + 1;
+			int endPage = startPage + block -1;
+			if(endPage>totalPage) {
+				endPage = totalPage;
+			}
+			
+			model.addAttribute("block", block);
+			model.addAttribute("currentPage", currentPage);
+			model.addAttribute("totalPage",totalPage);
+			model.addAttribute("startPage", startPage);
+			model.addAttribute("endPage", endPage);
 			model.addAttribute("repeat", repeat);
 			model.addAttribute("placeList", mapper.placeAllListNum(start, end)); 
 			
@@ -150,13 +166,29 @@ public class PlaceServiceImpl implements PlaceService{
 
 	@Override
 	public void PlaceSearchList(String loc_sep_name, Model model, int num) {
+		int currentPage = num;	// 현재 페이지 번호
 		int pageLetter = 2;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectPlaceSearchCount(loc_sep_name);// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)
 			repeat += 1;
-			int end = num * pageLetter;
-			int start = end + 1 - pageLetter;
+			int start = (currentPage-1) * pageLetter + 1;
+			int end = start + pageLetter - 1;
+			
+			//페이징 블록 내용 추가
+			int block = 3;
+			int totalPage = (allCount-1)/pageLetter+1;
+			int startPage = (currentPage-1)/block * block + 1;
+			int endPage = startPage + block -1;
+			if(endPage>totalPage) {
+				endPage = totalPage;
+			}
+			
+			model.addAttribute("block", block);
+			model.addAttribute("currentPage", currentPage);
+			model.addAttribute("totalPage",totalPage);
+			model.addAttribute("startPage", startPage);
+			model.addAttribute("endPage", endPage);
 			model.addAttribute("loc_sep_name", loc_sep_name);
 			model.addAttribute("repeat", repeat);
 			model.addAttribute("placeList", mapper.placeSearchList(loc_sep_name, start, end));
