@@ -1,5 +1,9 @@
 package com.project.root.reservation.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +13,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
-import com.project.root.mybatis.place.PlaceMapper;
+
 import com.project.root.mybatis.reservation.ReservationMapper;
-import com.project.root.place.dto.PlaceDTO;
+import com.project.root.mybatis.ticket.TicketMapper;
 import com.project.root.reservation.dto.ReservationDTO;
+import com.project.root.ticket.dto.TicketCountDTO;
 
 @Service
 public class ReservationServiceImpl implements ReservationService{
@@ -21,6 +26,8 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	@Autowired
 	ReservationMapper mapper;
+	@Autowired
+	TicketMapper Tmapper;
 	
 	@Autowired
 	ReservationFileService rfs;
@@ -146,6 +153,37 @@ public class ReservationServiceImpl implements ReservationService{
 		dto.setCur_count(Integer.parseInt(mul.getParameter("max_count")));
 		dto.setPrice(Integer.parseInt(mul.getParameter("price")));
 		dto.setTel(mul.getParameter("tel"));
+		
+		String show_num = dto.getShow_num();
+		int max = dto.getMax_count();
+		String start = dto.getStart_date();
+		String end = dto.getEnd_date();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		try {
+			Date startDay = format.parse(start);
+			Date endDay  = format.parse(end);
+			long ms = endDay.getTime() - startDay.getTime();
+			int mTod = 1000*60*60*24;
+			int day = (int)ms/mTod;
+			TicketCountDTO dto_t = new TicketCountDTO();
+			start = format.format(startDay);
+			Calendar cal = Calendar.getInstance();
+			
+			for(int i=0;i<day;i++) {
+				dto_t.setShow_num(show_num);
+				dto_t.setShow_date(start);
+				dto_t.setTicket_count(max);
+				Tmapper.ticketingCountSave(dto_t);
+				cal.setTime(startDay);
+				cal.add(Calendar.DATE,1);
+				start = format.format(cal.getTime());
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		
 		MultipartFile file = mul.getFile("image");
 		if(file.getSize() != 0) {

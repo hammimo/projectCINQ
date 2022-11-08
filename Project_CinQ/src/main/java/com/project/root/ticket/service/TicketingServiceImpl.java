@@ -4,41 +4,22 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-
-import com.project.root.mybatis.place.PlaceMapper;
-import com.project.root.mybatis.reservation.ReservationMapper;
 import com.project.root.mybatis.ticket.TicketMapper;
-import com.project.root.place.dto.PlaceDTO;
-import com.project.root.reservation.dto.ReservationDTO;
+
 import com.project.root.ticket.dto.TicketDTO;
 
 @Service
 public class TicketingServiceImpl implements TicketingService{
-
-	
 	
 	@Autowired
 	TicketMapper Tmapper;
-	@Autowired
-	ReservationMapper Rmapper;
-		
+
 	@Override
 	public String ticketingSave(MultipartHttpServletRequest mul, HttpServletRequest request) {
 		
-		/*
-		 * private String id;
-			private String title;
-			private String location;
-			private String image;
-			private String show_date;
-			private String show_num;
-			private int price;
-			private int ticket_count;*/
 		
 		TicketDTO dto = new TicketDTO();
 		dto.setId(mul.getParameter("id"));
@@ -51,11 +32,11 @@ public class TicketingServiceImpl implements TicketingService{
 		dto.setPrice(Integer.parseInt(mul.getParameter("price")));
 		
 		try {
-			int chk = Rmapper.currentCountCheck(dto.getShow_num());
+			int chk = Tmapper.currentCountCheck(dto.getShow_num());
 			
 			if(chk >= dto.getTicket_count()) {
 				Tmapper.ticketingSave(dto);
-				Rmapper.currentUp(dto.getShow_num(), dto.getTicket_count());
+				Tmapper.ticketUpdate(dto.getShow_num(),dto.getShow_date(), dto.getTicket_count());
 				return "ticketSuccess";
 			}
 							
@@ -63,9 +44,12 @@ public class TicketingServiceImpl implements TicketingService{
 			e.printStackTrace();
 		}
 		return "ticketFail";
-
 	}
-
+	
+	
+	//ticketList(show_num,model)
+	
+	
 }
 
 

@@ -231,6 +231,14 @@ public class JoinServiceImpl implements JoinService{
 		
 	}
 
+
+	@Override
+	public void adminDelete(String id) {
+		mapper.joinIdDelete(id);
+		
+	}
+	
+
 	
 }
 

@@ -41,6 +41,8 @@ public interface JoinService {
 
 	public void joinSearchList(String title, Model model, int num);
 
+	public void adminDelete(String id);
+
 
 	
 }
