@@ -9,6 +9,10 @@
 <meta charset="UTF-8">
 <title>CINQ</title>
 <style type="text/css">
+
+body{
+	background-color: rgba(0, 0, 0, 0.04);
+}
 #Y {
 	opacity : 0.3;
 }
@@ -49,6 +53,38 @@
 label {
 	color: red;
 	font-weight: bold;
+}
+
+button {
+   /* margin: 0;
+   padding: 0; */
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+   box-sizing: border-box;
+   margin: 20px;
+   background-color: #323232;
+    color: white;
+    font-family: 'Hahmlet', serif;
+    
+   }
+button:hover {
+   letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+   background-color: #323232;
+    color: white;
+   }
+
+#currrentPage{
+	background-color: red;
 }
 
 </style>
@@ -129,12 +165,24 @@ label {
 			<br>
 		</c:forEach>
 		<tr>
-		     <td colspan="5" align="center">
-		         <c:forEach var="num" begin="1" end="${repeat}">
-		           <a href="placeAllList?num=${num}">[${num}]</a>
-		         </c:forEach>
-		     </td>
-		</tr>
+	            	<td colspan="6" align="center">
+	          			<c:if test="${startPage > block}">
+	            			<button onclick="location.href='placeAllList?num=${startPage-1}'">이전</button>
+	            		</c:if>
+	               		<c:forEach var="num1" begin="${startPage}" end="${endPage}">
+	               	   		<c:if test="${num1 == currentPage }">
+	               	   			<button id="currrentPage" onclick="location.href='placeAllList?num=${num1}'">${num1}</button>
+	               	   		</c:if>
+	                  		<c:if test="${num1 != currentPage }">
+	                  			<button id="page" onclick="location.href='placeAllList?num=${num1}'">${num1}</button>
+	                  		</c:if>
+	               		</c:forEach>
+	            		<c:if test="${endPage<totalPage}">
+	            			<button onclick="location.href='placeAllList?num=${endPage+1}'">다음</button>
+	            		</c:if>
+	            	</td>
+	        	</tr>
+        		<tr>
 	</table>
 	</div>
 	<c:import url="../default/footer.jsp"/>
