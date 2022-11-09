@@ -179,10 +179,10 @@ button:hover {
 	padding-left: 60px;
 }
 #checkButton{
-	display : none;
+	display : block;
 }
 #notCheckButton{
-	display : block;
+	display : none;
 }
 </style>
 </head>

@@ -141,7 +141,7 @@ button:hover {
          	<input type="hidden" id="StartDate" value="${data.start_date }">
          	<input type="hidden" id="EndDate" value="${data.end_date }">
          	<label for="show_date"> 날짜선택</label>
-         	<input id="show_date" class="datepicker" name="show_date"><br>
+         	<input id="show_date" class="datepicker" name="show_date" autocomplete="off"><br>
          	<input type="hidden" name="show_num" value="${data.show_num }">
          	<input type="hidden" name="price" value="${data.price }">
          	<label for="ticket_count"> 구매수량</label>
@@ -149,6 +149,10 @@ button:hover {
          	<button id="check_module" type="button">예매하기</button>&nbsp;
          	<script type="text/javascript">
 				$("#check_module").click(function () {
+					if(${loginUser == null}){
+						alert('로그인이 필요합니다');
+						location.href='${contextPath}/member/login';
+					}
 					var count = $("#ticket_count").val();
 					var IMP = window.IMP; // 생략가능
 					IMP.init('imp52681348'); 
