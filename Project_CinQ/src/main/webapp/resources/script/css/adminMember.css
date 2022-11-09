@@ -6,8 +6,9 @@
 
 body{
 	height:100%;
-	background-color: rgba(0, 0, 0, 0.04);
 	width: 100%;
+	background-color: rgba(0, 0, 0, 0.04);
+	
 }
 .main{
 	font-family: 'Hahmlet', serif;
@@ -15,7 +16,7 @@ body{
 
 #memberList {
 	margin: 50px; 
-	width: 600px;
+	width: 1000px;
 	height: 500px;
     border-spacing: 0;
     border-collapse: collapse; 
@@ -28,15 +29,12 @@ body{
 #memberList th{
 	border-top: 1px solid black;
 	font-size: 28px;
-	padding: 0 10px
+	background-color: #B1C6CF;
+	color: white;
 }
 
 #memberList td {
 	border-top: 1px solid black;
 	font-size: 20px;
-	padding: 0 5px
-}
-#memberList th{
-	background-color: #B1C6CF;
-	color: white;
+	padding: 0 5px;
 }

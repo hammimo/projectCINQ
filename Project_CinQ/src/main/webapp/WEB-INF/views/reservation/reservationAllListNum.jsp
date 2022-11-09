@@ -82,7 +82,7 @@
 			</tr>
 			<tr height="50px"></tr> 
     	  </c:forEach>
-      	  <tr>
+      	  	<tr>
 	            <td colspan="6" align="center">
 	          		<c:if test="${startPage > block}">
 	            		<button onclick="location.href='reservationAllListNum?num=${startPage-1}'">이전</button>

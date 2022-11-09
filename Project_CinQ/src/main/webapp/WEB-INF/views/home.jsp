@@ -2,13 +2,9 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>CINQ</title>
 </head>
-<body>
-<h1>
-	Hello world!  
-</h1>
+<body onload="location.href='/root/index'">
 
-<P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>

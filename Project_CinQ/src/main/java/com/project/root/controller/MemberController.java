@@ -149,6 +149,12 @@ public class MemberController implements MemberSession {
 		out.println(message);
 	
 	}
+	@GetMapping("adminDelete")
+	public void adminDelete(@RequestParam String id) {
+		js.adminDelete(id);
+		ms.deleteFile(id);
+	}
+	
 	
 	
 }

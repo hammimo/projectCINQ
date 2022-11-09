@@ -14,7 +14,7 @@
 	padding: 0;
 }
 
-.main{
+body{
 	background-color : rgba(0, 0, 0, 0.04);
 	width: 100%;
 	height: 90vh;

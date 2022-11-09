@@ -230,7 +230,8 @@ public class JoinServiceImpl implements JoinService{
 			model.addAttribute("joinSearchList", mapper.joinSearchList(title, start, end));
 		
 	}
-
+	
+	
 	
 }
 
