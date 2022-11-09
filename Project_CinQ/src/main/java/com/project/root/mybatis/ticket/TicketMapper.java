@@ -14,7 +14,7 @@ public interface TicketMapper {
 	
 	public void ticketingCountSave(TicketCountDTO dto);
 
-	public int currentCountCheck(@Param("sN")String show_num);
+	public int currentCountCheck(@Param("sN")String show_num, @Param("sD")String show_date);
 	
 	public int ticketUpdate(@Param("sN")String show_num,@Param("d")String show_date, @Param("c")int ticket_count);
 	

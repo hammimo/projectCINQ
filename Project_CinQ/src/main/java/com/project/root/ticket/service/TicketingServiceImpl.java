@@ -32,7 +32,7 @@ public class TicketingServiceImpl implements TicketingService{
 		dto.setPrice(Integer.parseInt(mul.getParameter("price")));
 		
 		try {
-			int chk = Tmapper.currentCountCheck(dto.getShow_num());
+			int chk = Tmapper.currentCountCheck(mul.getParameter("show_num"),mul.getParameter("show_date"));
 			
 			if(chk >= dto.getTicket_count()) {
 				Tmapper.ticketingSave(dto);

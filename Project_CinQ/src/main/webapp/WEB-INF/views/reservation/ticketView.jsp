@@ -97,6 +97,9 @@ button:hover {
 	}
 #countList {
 	list-style : none;
+}
+#ticket_date{
+	font-weight : lighter;
 }	
 </style>
 </head>
@@ -119,11 +122,10 @@ button:hover {
          			<span>공연 세부 내용 : ${data.content }</span><br><br>
          			<span>총관람인원 : ${data.max_count}</span><br><br>
          			<c:if test="${tData.size() != 0 }">
-         				<span>회차별 표 매수</span><br>
+         				<span>날짜별 표 매수</span><br>
 	         			<c:forEach var="dto_t" items="${tData}">
 	         				<ul id="countList">	
-	         					<li><span id="ticket_date">날짜 : ${dto_t.show_date }</span><br>
-	         						<span id="ticket_count">잔여수량 : ${dto_t.ticket_count } 매</span>
+	         					<li><span id="ticket_date">${dto_t.show_date } &nbsp;&nbsp; ${dto_t.ticket_count } 매</span>
 	         					</li>
 	         				</ul>
 	         			</c:forEach>

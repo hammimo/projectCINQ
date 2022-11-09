@@ -47,11 +47,11 @@ constraint fk_showNum foreign key(show_num) references reservation(show_num)on d
 	</insert>
 	
 	<select id="currentCountCheck" resultType="Integer">
-		select ticket_count from ticketCount where show_num = #{sN}
+		select ticket_count from ticketCount where show_num = #{sN} and show_date = #{sD}
 	</select>
 	
 	<select id="ticketAllCount" resultMap="ticketCount">
-		select * from ticketCount where show_num = #{sN}
+		select * from ticketCount where show_num = #{sN} order by show_date desc
 	</select>
 	
 	<update id="ticketUpdate">
