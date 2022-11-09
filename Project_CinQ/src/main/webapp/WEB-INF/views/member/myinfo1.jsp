@@ -52,7 +52,7 @@ span {
 #infoSection{
 	float: right;
 	width: 150px;
-	height: 1000px;
+	height: 800px;
 	line-height: 100px;
 	font-family: 'Hahmlet', serif;
 }
@@ -195,7 +195,7 @@ button:hover {
       </form>
    </div>
    <br>
-   <br><br><br><br><br>
+   <br><br><br><br><br><br><br>
    </div>
    <div id="hidden_div"></div>
    <c:import url="../default/footer.jsp"/>

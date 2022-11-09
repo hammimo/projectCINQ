@@ -15,6 +15,9 @@
 <script src='<c:url value="/resources/script/js/post.js"/>'></script>
 
 <style type="text/css">
+body {
+	background-color :rgba(0, 13, 0, 0.04);
+}
 *{
 	font-family: 'Hahmlet', serif;
 }
@@ -22,7 +25,7 @@
 	height: auto;
  	 min-height: 100%;
  	 padding-bottom: 10px;
- 	 background-color :rgba(0, 13, 0, 0.04);
+ 	 
 }
 #infoSection{
 	float: right;
@@ -43,26 +46,26 @@
   
 }
 .textbox input[type="text"] {
-  width: 38%;  
+  width: 50%;  
   height: auto; 
   line-height : normal;  
   padding: .5em .4em; 
   font-family: inherit; 
   border: 1.3px solid 	#464646;
-  border-radius: .4em;  
+  border-radius: .2em;  
   outline-style: none;  
   -webkit-appearance: none; 
   -moz-appearance: none;
   appearance: none;
 }
 .textbox input[type="number"] {
-  width: 15%;  
+  width: 25%;  
   height: auto; 
   line-height : normal;  
   padding: .4em .3em; 
   font-family: inherit; 
   border: 1.3px solid 	#464646;
-  border-radius: .4em;  
+  border-radius: .2em;  
   outline-style: none;  
   -webkit-appearance: none; 
   -moz-appearance: none;
@@ -102,17 +105,35 @@ li {
 	}
 textarea {
 	resize: none;
-	border-radius: .7em;  
+	border-radius: .3em;  
 }
 
 .title_content {
+	padding-top: 2%;
 	vertical-align: top;
 	display: inline-block;
 	width : 30%;
+	text-align: right;
 }
 .addr_num {
+	padding-top: 5%;
+	padding-left: 3%;
 	display: inline-block;
 	width: 30%;
+	text-align: left;
+}
+#upProfile {
+  position: relative;
+  top: 1px;  
+  left: 1px;  
+  padding: .8em .5em; 
+  color:    #464646;
+  cursor: text;
+  font-size: 17px;
+  font-weight: bold;
+}
+.buttonS {
+	padding-right: 8%;
 }
 </style>
 </head>
@@ -134,27 +155,28 @@ textarea {
       <form  id="form" class="artist_form"  action="${contextPath }/join/JoinSave" enctype="multipart/form-data" method="post">
       	 <!--<input type="file" id="fileChoice" name="image" value="팀장프로필" onchange="readURL(this)"></div>--><br><br> 
       	 <div class="writeForm">
-      	 <div class="title_content">
       	 <div class="textbox">
 		  <label>작성자</label>
- 		  <input type="text" name="id" value="${loginUser}" readonly><br><br>
+ 		  <input type="hidden" name="id" value="${loginUser}" readonly>${loginUser}<br><br>
  		 </div>
-		 
+      	 <div class="title_content">
+		 <p id="upProfile">프로필 올리기</p>
+		 <img src="#" id="preview" width="300px" height="200px"><br>
+      		<label for="upload-file"></label>
+   			<input type="file" name="image" id="upload-file" onchange="readURL(this)">
+   			<br><br>
          <div class="textbox">
 		  <label for="title">제목</label>
  		  <input type="text" name="title" size="100"><br><br>
 		 </div>
          <div class="textbox">
 		  <label for="content">내용</label>
- 		  <textarea rows="10" cols="50" name="content"></textarea><br><br>
+ 		  <textarea rows="10" cols="38" name="content" placeholder="필수 입력 사항 *연령*조건"></textarea><br><br>
 		 </div>
 		 </div>
 		
       	 
 		 <div class="addr_num">
-		 <img src="#" id="preview" width="300px" height="200px"><br>
-      		<label for="upload-file"></label>
-   			<input type="file" name="image" id="upload-file" onchange="readURL(this)">
 		 <div class="textbox">
 		  <label>지역</label>
 		  <div class="address">
@@ -178,10 +200,11 @@ textarea {
  		 </div>
  		 </div>
          <br><br>   
-         <b>프로필 올리기</b>
          <br>
+         <div class="buttonS">
          <button type="button"  onclick="writeSave()" value="작성완료">작성완료</button>
          <button type="button" onclick="location.href='../index'" value="돌아가기">돌아가기</button>
+         </div>
          <br><br><br>
       </form>
       </div>
