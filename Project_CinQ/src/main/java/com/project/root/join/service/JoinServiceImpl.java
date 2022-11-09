@@ -199,7 +199,7 @@ public class JoinServiceImpl implements JoinService{
 	@Override
 	public void joinSearchList(String title, Model model, int num) {
 		int currentPage = num;	// 현재 페이지 번호
-		int pageLetter = 3;// 한 페이지 당 글 목록수
+		int pageLetter = 5;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectJoinSearchCount(title);// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)
@@ -231,14 +231,11 @@ public class JoinServiceImpl implements JoinService{
 		
 	}
 
-
 	@Override
 	public void adminDelete(String id) {
 		mapper.joinIdDelete(id);
 		
 	}
-	
-
 	
 }
 
