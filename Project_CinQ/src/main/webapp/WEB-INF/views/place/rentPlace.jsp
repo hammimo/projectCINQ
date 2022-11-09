@@ -186,7 +186,7 @@ textarea {
 				</div>
 	          	<br>
 	          	<div class="textbox">
-			  		<label for="input">모집인원</label>
+			  		<label for="input">최대 수용 인원</label>
 			  		<input type="number" min="0" max="100" id="max_count" name="max_count" />      
 				</div>
 	   			</div>
