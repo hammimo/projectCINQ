@@ -215,7 +215,7 @@ button:hover {
            <div class="TeamProfile">
          	<br> 
          	<p id="ProfileTitle">프로필 사진을 등록해주세요</p>
-         	<img src="#" id="placeImg" width="300px" height="300px"><br> 
+         	<img src="#" id="preview" width="300px" height="300px"><br> 
             <input type="file" name="image"
             value="팀원프로필" onchange="readURL(this)"><br>
              </div>
