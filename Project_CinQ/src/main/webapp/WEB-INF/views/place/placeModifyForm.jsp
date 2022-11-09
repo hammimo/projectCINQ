@@ -26,6 +26,10 @@
 	}
 </script>
 <style type="text/css">
+body{
+	background-color: rgba(0, 0, 0, 0.04);
+}
+
 *{
 font-family: 'Hahmlet', serif;
 }

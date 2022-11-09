@@ -61,7 +61,7 @@ b{
 #content_title  {
    vertical-align: top;
    text-align: left;
-   font-size: 30px;    
+   font-size: 26px;    
 }
 #content_title a { 
    font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
@@ -73,7 +73,7 @@ b{
    vertical-align: top;
    text-align: left;
    font-weight: bold;
-   font-size: 22px;
+   font-size: 20px;
    
 }
 
@@ -81,7 +81,7 @@ b{
    vertical-align: top;
    text-align: left;
    font-weight: bold;
-   font-size: 24px;
+   font-size: 22px;
 }
 #content_con{
    vertical-align: bottom;

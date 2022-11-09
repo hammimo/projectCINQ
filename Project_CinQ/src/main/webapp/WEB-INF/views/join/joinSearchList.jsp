@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
@@ -69,7 +70,16 @@
             	<td id="content_loc_name">상세 위치 : ${dto_s.loc_name}</td>
             </tr>
             <tr id="content_row">
-				<td id="content_con">내용 : ${dto_s.content}</td>
+				<td id="content_con">
+            		<c:choose>
+						<c:when test="${fn:length(dto_s.content) > 27}">
+							내용 : ${fn:substring(dto_s.content, 0, 25)}...	
+						</c:when>
+						<c:otherwise>
+							내용 : ${dto_s.content}
+						</c:otherwise>
+					</c:choose>
+            	</td>
 			</tr>
 		    <tr height="50px"></tr>
 		</c:forEach>

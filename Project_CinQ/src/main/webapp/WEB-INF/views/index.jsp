@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -204,7 +205,14 @@ body {
 					${dto_t.title }
 				</div>
 				<div class="project_Content">
-					${dto_t.content }
+					<c:choose>
+						<c:when test="${fn:length(dto_t.content) > 50}">
+							내용 : ${fn:substring(dto_t.content, 0, 48)}...	
+						</c:when>
+						<c:otherwise>
+							내용 : ${dto_t.content}
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 			</c:forEach>
