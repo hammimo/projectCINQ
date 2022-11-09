@@ -21,6 +21,8 @@ public interface ReservationService {
 	
 	public void ticketingAllList(Model model);
 
-	public void ticketingAllListNum(Model model, int num); 
+	public void ticketingAllListNum(Model model, int num);
+
+	public void ticketingStop(int write_no, String show_num); 
 }
  

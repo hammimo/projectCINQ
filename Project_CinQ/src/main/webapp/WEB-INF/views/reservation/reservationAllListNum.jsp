@@ -74,7 +74,13 @@
 			</tr>
 			<tr>
 				<td>
-					<button type="button" onclick="location.href='${contextPath}/reservation/ticketingRegister?write_no=${dto.write_no}&location=${dto.location}'">예매등록</button>
+					<c:if test="${dto.ticketing =='N' }">
+      	  				<button type="button" onclick="location.href='${contextPath}/reservation/ticketingRegister?write_no=${dto.write_no}&location=${dto.location}'">예매등록</button>
+      	  			</c:if>
+					<c:if test="${dto.ticketing =='Y' }">
+						<button type="button" onclick="location.href='${contextPath}/reservation/ticketView?write_no=${dto.write_no }&location=${dto.location}&show_num=${dto.show_num }'">예매 정보 확인</button>
+						<button type="button" onclick="location.href='${contextPath}/ticket/ticketStop?write_no=${dto.write_no }&show_num=${dto.show_num }'">예매중지</button>
+					</c:if>
 				</td>
 				<td>
 					<button type="button" onclick="location.href='${contextPath}/reservation/reservationDelete?write_no=${dto.write_no}&imageFileName=${data.image}'">삭제</button>

@@ -230,6 +230,12 @@ public class ReservationServiceImpl implements ReservationService{
 			model.addAttribute("repeat", repeat);
 			model.addAttribute("ticketingList", mapper.ticketingAllListNum(start, end)); 
 	}
+
+	@Override
+	public void ticketingStop(int write_no, String show_num) {
+		mapper.ticketingStop(write_no,show_num);
+	}
+	
 }
 	
 

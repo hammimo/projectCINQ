@@ -100,6 +100,11 @@ ticketing varchar2(2) default 'N'
 	<update id="currentUp">
 		update reservation set cur_count= cur_count-#{c} where show_num=#{sN}
 	</update>
+	
+	<update id="ticketingStop">
+		update reservation set ticketing='N' where write_no=#{No} and show_num=#{sN}
+	</update>
+	
 </mapper>
 
  
