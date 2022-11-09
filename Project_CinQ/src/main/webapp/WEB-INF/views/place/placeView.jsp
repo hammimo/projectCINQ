@@ -47,6 +47,9 @@
             		
             	</tr>
             	<tr>
+               		<td colspan="2"><b>최대 수용 인원</b>&emsp;:&emsp;${placeData.max_count} 명</td>
+            	</tr>
+            	<tr>
 					<td colspan="4" align="center">
                   		<c:if test="${placeData.id == loginUser}">
                   			<input id="i_button" type="button" value="수정하기" onclick="location.href='${contextPath}/place/placeModifyForm?write_no=${placeData.write_no}'">

@@ -167,7 +167,7 @@ public class PlaceServiceImpl implements PlaceService{
 	@Override
 	public void PlaceSearchList(String loc_sep_name, Model model, int num) {
 		int currentPage = num;	// 현재 페이지 번호
-		int pageLetter = 2;// 한 페이지 당 글 목록수
+		int pageLetter = 5;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectPlaceSearchCount(loc_sep_name);// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)
