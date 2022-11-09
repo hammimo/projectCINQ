@@ -24,7 +24,7 @@ body {
    margin-top : 3%;
    text-align: center;
    background-color: rgba(0, 3, 0, 0.02);
-   width: 60%;
+   width: 1000px;
    margin-left: 18%;
    border: 1px solid silver;
 }
@@ -32,7 +32,7 @@ body {
    padding-top: 5%;
    display:inline-block;
    position: relative;
-   width: 40%;
+   width: 400px;
    height: 40%;
    }
 
@@ -42,7 +42,7 @@ body {
 }
 .Box_2{
 	display: inline-block;
-	width: 40%;
+	width: 550px;
 	height: 40%;
 	margin-bottom: 5%;
 }
@@ -116,9 +116,13 @@ label {
   appearance: none;
 }
 
-img {
-      width: 100%;
-      height: 100%
+#img {
+	  max-width: 250px;
+	  min-width: 250px;
+	  max-height: 250px;
+	  min-height: 250px;
+     /* width: 100%;
+      height: 100%*/
       object-fit: cover;
    }
 textarea {
@@ -180,7 +184,7 @@ button:hover {
          <c:if test="${placeData == null}">
          	<label>장소추천받을게요 </label><input type="checkbox" id="location" name="location"
                value="0" checked="checked"><br><br>
-            <img src="#" id="preview" width="350px" height="250px"><br> 
+            <img id="placeImg" src="#" id="preview" width="300px" height="300px"><br> 
             <button type="button" onclick="rentOkView()">대관가능 장소보기</button>
          </c:if>
          <c:if test="${placeData != null}">
@@ -191,9 +195,9 @@ button:hover {
                <br>
             </c:if>
             <c:if test="${placeData.image != 'nan'}">
-               <img
+               <img id="placeImg"
                   src="${contextPath}/place/download?imageFileName=${placeData.image}"
-                  width="350px" height="250px">
+                  width="250px" height="250px">
                <br>
             </c:if>
             <div class="textbox">
@@ -211,7 +215,7 @@ button:hover {
            <div class="TeamProfile">
          	<br> 
          	<p id="ProfileTitle">프로필 사진을 등록해주세요</p>
-         	<img src="#" id="preview" width="350px" height="250px"><br> 
+         	<img src="#" id="placeImg" width="300px" height="300px"><br> 
             <input type="file" name="image"
             value="팀원프로필" onchange="readURL(this)"><br>
              </div>
