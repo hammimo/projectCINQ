@@ -13,11 +13,6 @@
 <script src='<c:url value="/resources/script/js/checkRegister.js"/>'></script>
 <link href="${contextPath}/resources/script/css/login.css" 
 	  rel="stylesheet" type="text/css">
-<style type="text/css">
-body {
-background-color :rgba(0, 13, 0, 0.04);
-}
-</style>
 </head>
 <body>
    <c:import url="../default/header.jsp"/>

@@ -86,10 +86,14 @@ button:hover {
    position: relative;
    top: 30%;
 }
-img{
+#img_project{
    width: 90%;
-     height: 90%;
-     object-fit: cover;
+   height: 90%;
+   object-fit: cover;
+}
+#hidden_div{
+   width : 100%;
+   height : 500px;
 }
 </style>
 </head>
@@ -126,7 +130,7 @@ img{
                <b>이미지가 없습니다</b>
             </c:if>
             <c:if test="${data.image != 'nan'}">
-               <img src="${contextPath}/join/download?imageFileName=${data.image}" width="200px" height="200px">
+               <img id="img_project" src="${contextPath}/join/download?imageFileName=${data.image}" width="200px" height="200px">
             </c:if> 
            </a>
            </div>
@@ -135,19 +139,15 @@ img{
               <p id="contentP"> ${data.title }</p><br>
               <p id="titleP">프로젝트 내용</p>
               <p id="contentP"> ${data.content }</p><br>
-              
                <button type="button" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">수정하기</button>&nbsp;
                <button type="button" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">삭제하기</button>
-               <button type="button" onclick="location.href='#'">제출하기</button>
-              <!-- <input type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
-            <input type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">   
-               <input type="button" value="제출하기" onclick="location.href='#'">-->
            </div>
            </c:forEach>
       </c:if> 
       </div>
    </div>
    </div>
+   <div id="hidden_div"></div>
    <c:import url="../default/footer.jsp"/>
 </body>
 </html>
