@@ -110,7 +110,7 @@ button:hover {
    </section>
       <div class="participating"> 
       <br>
-      <h2 align="center">Project</h2>
+      <h2 align="center">내가올린 구인정보</h2>
       <br><br>
       
        <c:if test="${ProjectInfo.size() == 0}">
@@ -135,9 +135,9 @@ button:hover {
            </a>
            </div>
          <div class="info">
-              <p id="titleP1">프로젝트 </p>
+              <p id="titleP1">제목 </p>
               <p id="contentP"> ${data.title }</p><br>
-              <p id="titleP">프로젝트 내용</p>
+              <p id="titleP">내용</p>
               <p id="contentP"> ${data.content }</p><br>
                <button type="button" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">수정하기</button>&nbsp;
                <button type="button" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">삭제하기</button>
