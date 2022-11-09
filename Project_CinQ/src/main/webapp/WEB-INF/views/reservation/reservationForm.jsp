@@ -13,6 +13,18 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src='<c:url value="/resources/script/js/reservation.js"/>'></script>
+<script type="text/javascript">
+	function check() {
+		if($(".checkBox").is(':checked')){
+			$("#checkButton").css('display','none');
+			$("#notCheckButton").css('display','block');
+		} else {
+			$("#checkButton").css('display','block');
+			$("#notCheckButton").css('display','none');
+		}
+		
+	}
+</script>
 <style type="text/css">
 body {
 	background-color: rgba(0, 13, 0, 0.04);
@@ -117,10 +129,10 @@ label {
 }
 
 #img {
-	  max-width: 250px;
-	  min-width: 250px;
-	  max-height: 250px;
-	  min-height: 250px;
+	  max-width: 300px;
+	  min-width: 300px;
+	  max-height: 300px;
+	  min-height: 300px;
      /* width: 100%;
       height: 100%*/
       object-fit: cover;
@@ -163,6 +175,15 @@ button:hover {
 	position: relative;
 	
 }
+.checkButtonBox {
+	padding-left: 60px;
+}
+#checkButton{
+	display : none;
+}
+#notCheckButton{
+	display : block;
+}
 </style>
 </head>
 <body>
@@ -171,21 +192,25 @@ button:hover {
    <div id="reservationForm">
       <br>
       <br>
-      <form id="form" class="reservationForm"
+      <form id="form" name="reservation" class="reservationForm"
          action="${contextPath }/reservation/reservation"
          enctype="multipart/form-data" method="post">
          <div class="textbox">
-            <label>작성자</label><input type="hidden" id="id" name="id" value="${loginUser}">${loginUser}
+            <label>작성자</label><input type="hidden" id="agree" name="id" value="${loginUser}">${loginUser}
             <br>
          </div>
       <div class="Box">
         <div class="Box_1">
         <br>
          <c:if test="${placeData == null}">
-         	<label>장소추천받을게요 </label><input type="checkbox" id="location" name="location"
-               value="0" checked="checked"><br><br>
+         	<label>장소추천받을게요 </label>
+         	<input type="checkbox" id="location" class="checkBox" name="location"
+               value="0" onchange="check()" ><br><br>
             <img id="placeImg" src="#" id="preview" width="300px" height="300px"><br> 
-            <button type="button" onclick="rentOkView()">대관가능 장소보기</button>
+            <div class="checkButtonBox">
+            <button type="button" id="checkButton" onclick="rentOkView()">대관가능 장소보기</button>
+            <button type="button" id="notCheckButton">장소추천이 가능해요 !</button>
+            </div>
          </c:if>
          <c:if test="${placeData != null}">
             <input type="hidden" id="location" name="location"
@@ -198,6 +223,8 @@ button:hover {
                <img id="placeImg"
                   src="${contextPath}/place/download?imageFileName=${placeData.image}"
                   width="250px" height="250px">
+               <button type="button" onclick="location.href='reservationForm'">취소</button>
+            
                <br>
             </c:if>
             <div class="textbox">
