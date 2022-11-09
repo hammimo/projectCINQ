@@ -58,4 +58,8 @@ constraint fk_showNum foreign key(show_num) references reservation(show_num)on d
 		update ticketCount set ticket_count= ticket_count-#{c} where show_date=#{d} and show_num=#{sN}
 	</update>
 	
+	<select id="myTicket" resultMap="ticket">
+		select * from ticket where id =#{id}
+	</select>
+	
 </mapper>

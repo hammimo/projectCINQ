@@ -108,7 +108,7 @@ button:hover {
    <ul>
       <li><a href="/root/member/myinfo1?id=${loginUser}">MY INFO</a></li>
       <li><a href="/root/member/myinfo2?id=${loginUser}">PROJECT</a></li>
-      <li>HISTORY</li>
+      <li><a href="/root/member/myinfo3?id=${loginUser}">HISTORY</a></li>
    </ul>
    </section>
    <br>

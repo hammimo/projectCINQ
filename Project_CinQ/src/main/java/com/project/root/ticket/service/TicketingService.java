@@ -11,7 +11,9 @@ public interface TicketingService {
 	
 	public String ticketingSave(MultipartHttpServletRequest mul, HttpServletRequest request);
 
-	void ticketList(String show_num,Model model);		
+	void ticketList(String show_num,Model model);
+
+	public void myTicket(String id, Model model);		
 	
 	
 }
