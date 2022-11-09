@@ -19,4 +19,6 @@ public interface TicketMapper {
 	public int ticketUpdate(@Param("sN")String show_num,@Param("d")String show_date, @Param("c")int ticket_count);
 	
 	public List<TicketCountDTO> ticketAllCount(@Param("sN")String show_num);
+
+	public List<TicketDTO> myTicket(String id);
 }

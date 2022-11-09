@@ -51,6 +51,14 @@ public class TicketingServiceImpl implements TicketingService{
 	public void ticketList(String show_num,Model model) {
 		model.addAttribute("tData", Tmapper.ticketAllCount(show_num));
 	}
+
+
+	@Override
+	public void myTicket(String id, Model model) {
+		model.addAttribute("myTicketList", Tmapper.myTicket(id));
+		
+	}
+	
 	
 	
 }
