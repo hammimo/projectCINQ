@@ -42,12 +42,16 @@ constraint fk_showNum foreign key(show_num) references reservation(show_num)on d
 	</insert>
 	
 	<insert id="ticketingCountSave" parameterType="com.project.root.ticket.dto.TicketCountDTO">
-		insert into ticket_count(show_num,show_date,ticket_count)
+		insert into ticketCount(show_num,show_date,ticket_count)
 		values(#{show_num},#{show_date},#{ticket_count})
 	</insert>
 	
 	<select id="currentCountCheck" resultType="Integer">
-		select ticket_count from ticketCount where show_num = #{show_num}
+		select ticket_count from ticketCount where show_num = #{sN}
+	</select>
+	
+	<select id="ticketAllCount" resultMap="ticketCount">
+		select * from ticketCount where show_num = #{sN}
 	</select>
 	
 	<update id="ticketUpdate">

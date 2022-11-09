@@ -198,7 +198,7 @@ body {
 		<div id="project" class="responsive">
 			<c:forEach var="dto_t" items="${ticketingList}">
 			<div class="project_img" align="center">
-				<a href="${contextPath}/reservation/ticketView?write_no=${dto_t.write_no}&location=${dto_t.location}">
+				<a href="${contextPath}/reservation/ticketView?write_no=${dto_t.write_no}&location=${dto_t.location}&show_num=${dto_t.show_num}">
 					<img id="test" src="${contextPath}/reservation/download?imageFileName=${dto_t.image}"></a>
 				<div class="project_title">
 					${dto_t.title }

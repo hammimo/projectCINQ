@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.project.root.mybatis.ticket.TicketMapper;
@@ -47,7 +47,10 @@ public class TicketingServiceImpl implements TicketingService{
 	}
 	
 	
-	//ticketList(show_num,model)
+	@Override
+	public void ticketList(String show_num,Model model) {
+		model.addAttribute("tData", Tmapper.ticketAllCount(show_num));
+	}
 	
 	
 }

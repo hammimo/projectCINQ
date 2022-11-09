@@ -45,7 +45,6 @@ public class ReservationServiceImpl implements ReservationService{
 		dto.setEnd_date(mul.getParameter("end_date"));
 		dto.setTeam_count(Integer.parseInt(mul.getParameter("team_count")));
 		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
-		dto.setCur_count(Integer.parseInt(mul.getParameter("max_count")));
 		dto.setPrice(Integer.parseInt(mul.getParameter("price")));
 		dto.setTel(mul.getParameter("tel"));
 		MultipartFile file = mul.getFile("image");
@@ -150,10 +149,29 @@ public class ReservationServiceImpl implements ReservationService{
 		dto.setEnd_date(mul.getParameter("end_date"));
 		dto.setTeam_count(Integer.parseInt(mul.getParameter("team_count")));
 		dto.setMax_count(Integer.parseInt(mul.getParameter("max_count")));
-		dto.setCur_count(Integer.parseInt(mul.getParameter("max_count")));
 		dto.setPrice(Integer.parseInt(mul.getParameter("price")));
 		dto.setTel(mul.getParameter("tel"));
+
+		MultipartFile file = mul.getFile("image");
+		if(file.getSize() != 0) {
+			dto.setImage(rfs.saveFile(dto.getId(), file));
+			rfs.deleteImage(mul.getParameter("originFileName"));
+		} else {
+			dto.setImage(mul.getParameter("originFileName"));
+		}
 		
+		int result = 0;
+		
+		try {
+			result = mapper.ticketingStart(dto);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		dto = mapper.reservationView(dto.getWrite_no());
+		
+		// 날짜 연산을 위한 부분
 		String show_num = dto.getShow_num();
 		int max = dto.getMax_count();
 		String start = dto.getStart_date();
@@ -164,13 +182,15 @@ public class ReservationServiceImpl implements ReservationService{
 			Date startDay = format.parse(start);
 			Date endDay  = format.parse(end);
 			long ms = endDay.getTime() - startDay.getTime();
-			int mTod = 1000*60*60*24;
+			int mTod = 1000*60*60*24; // getTime()이 ms(밀리초 1/1000초) 이기 때문에 일 단위로 변환
 			int day = (int)ms/mTod;
+			
 			TicketCountDTO dto_t = new TicketCountDTO();
+			
 			start = format.format(startDay);
 			Calendar cal = Calendar.getInstance();
 			
-			for(int i=0;i<day;i++) {
+			for(int i=0;i<=day;i++) {
 				dto_t.setShow_num(show_num);
 				dto_t.setShow_date(start);
 				dto_t.setTicket_count(max);
@@ -178,27 +198,13 @@ public class ReservationServiceImpl implements ReservationService{
 				cal.setTime(startDay);
 				cal.add(Calendar.DATE,1);
 				start = format.format(cal.getTime());
+				startDay = format.parse(start);
 			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		
-		MultipartFile file = mul.getFile("image");
-		if(file.getSize() != 0) {
-			dto.setImage(rfs.saveFile(dto.getId(), file));
-			rfs.deleteImage(mul.getParameter("originFileName"));
-		} else {
-			dto.setImage(mul.getParameter("originFileName"));
-		}
-		
-		int result = 0;
-		try {
-			result = mapper.ticketingStart(dto);
-		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		
 		String msg, url;
 		if(result == 1) {

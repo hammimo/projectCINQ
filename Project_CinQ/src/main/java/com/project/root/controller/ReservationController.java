@@ -95,7 +95,6 @@ public class ReservationController implements MemberSession {
 		@RequestMapping("ticketingRegister")
 		public  String modify_form(@RequestParam int write_no, Model model, @RequestParam(value = "location")String location) {
 			rs.reservationView(write_no, model);
-			//ts.ticketList(show_num,model);
 			int num = Integer.parseInt(location);
 			ps.placeView(num, model);
 			return "reservation/ticketingRegister";
@@ -115,10 +114,11 @@ public class ReservationController implements MemberSession {
 	}
 	
 	@RequestMapping("ticketView")
-	public  String ticketView(@RequestParam int write_no, Model model, @RequestParam(value = "location")String location) {
+	public  String ticketView(@RequestParam int write_no, Model model, @RequestParam(value = "location")String location, @RequestParam String show_num) {
 		rs.reservationView(write_no, model);
 		int num = Integer.parseInt(location);
 		ps.placeView(num, model);
+		ts.ticketList(show_num,model);
 		return "reservation/ticketView";
 	} 
 	

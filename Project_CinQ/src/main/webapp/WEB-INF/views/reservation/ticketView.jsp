@@ -14,6 +14,7 @@
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="${contextPath}/resources/script/css/datepicker.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <script>
 	$.datepicker.setDefaults({
 	  dateFormat: 'yy-mm-dd',
@@ -36,6 +37,7 @@
 		 maxDate : new Date(end)
 	  });
 	});
+	
 </script>
 <style type="text/css">
 body{
@@ -93,6 +95,9 @@ button:hover {
 	background-color: #323232;
     color: white;
 	}
+#countList {
+	list-style : none;
+}	
 </style>
 </head>
 <body>
@@ -113,13 +118,16 @@ button:hover {
          			<span>가격 : ${data.price} 원</span><br><br><br>
          			<span>공연 세부 내용 : ${data.content }</span><br><br>
          			<span>총관람인원 : ${data.max_count}</span><br><br>
-         			<c:if test="${data.cur_count != 0 }">
-         			<span>잔여티켓 : ${data.cur_count}</span><br><br>
+         			<c:if test="${tData.size() != 0 }">
+         				<span>회차별 표 매수</span><br>
+	         			<c:forEach var="dto_t" items="${tData}">
+	         				<ul id="countList">	
+	         					<li><span id="ticket_date">날짜 : ${dto_t.show_date }</span><br>
+	         						<span id="ticket_count">잔여수량 : ${dto_t.ticket_count } 매</span>
+	         					</li>
+	         				</ul>
+	         			</c:forEach>
          			</c:if>
-         			<c:if test="${data.cur_count == 0 }">
-         			<span>티켓매진</span><br><br>
-         			</c:if>
-         			
          		</td>
          	</tr>
          </table>
