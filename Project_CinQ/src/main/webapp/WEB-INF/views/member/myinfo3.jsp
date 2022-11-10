@@ -37,7 +37,6 @@ li {
 	border-radius: 13px;
 	overflow: hidden;
 	box-shadow: 3px 3px 3px 3px silver;
-	border: 1px solid black;
 }
 .img{
 	display: inline-block;
