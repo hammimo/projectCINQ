@@ -198,10 +198,13 @@ public class MemberServiceImpl implements MemberService {
    public void deleteFile(String id) {
       String path = "C:\\spring\\image_repo\\"+id;
       String path2 = path+"\\join";
+      String path3 = path+"\\reservation";
       
       
       File folder = new File(path);
       File folder2 = new File(path2);
+      File folder3 = new File(path3);
+      
       
       try {
          while(folder2.exists()) {
@@ -220,6 +223,26 @@ public class MemberServiceImpl implements MemberService {
       } catch (Exception e) {
          e.getStackTrace();
       }
+      
+      try {
+          while(folder3.exists()) {
+             File[] listFiles = folder3.listFiles();
+             
+             for(File file : listFiles) {
+                file.delete();
+                System.out.println("파일이 삭제되었습니다");
+             }
+             
+             if(listFiles.length == 0 && folder3.isDirectory()) {
+                folder3.delete();
+                System.out.println("폴더가 삭제되었습니다.");
+             }
+          }
+       } catch (Exception e) {
+          e.getStackTrace();
+       }
+      
+      
       
       
       
@@ -256,4 +279,12 @@ public class MemberServiceImpl implements MemberService {
 
     }
 	
+  @Override
+	public boolean adminDelete(String id) {
+	  int num = mapper.delete(id);
+	  if(num == 1) {
+		  return true;
+	  }
+	  return false;
+  }
 }

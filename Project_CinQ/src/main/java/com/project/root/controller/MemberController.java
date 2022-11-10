@@ -160,9 +160,13 @@ public class MemberController implements MemberSession {
 	
 	}
 	@GetMapping("adminDelete")
-	public void adminDelete(@RequestParam String id) {
+	public String adminDelete(@RequestParam String id) {
 		js.adminDelete(id);
 		ms.deleteFile(id);
+		System.out.println("성공");
+		ms.adminDelete(id);
+		System.out.println("성공");
+		return "admin/memberDeleteSuccess";
 	}
 	
 	

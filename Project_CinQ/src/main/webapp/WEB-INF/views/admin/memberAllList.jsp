@@ -42,7 +42,7 @@
                 <td>${dto.gender }</td>
                 <td>${dto.birthday }</td>
                 <td>
-                	<button type="button" onclick="memberDelete(${dto.id}+'\')"> 삭제 </button>
+                	<button type="button" onclick="memberDelete('${dto.id}')"> 삭제 </button>
                 </td>
             </tr>
             </c:forEach>
