@@ -44,16 +44,6 @@ textarea {
 	display: inline-block;
 	
 }
-/*
-.img {
-	width:45%;
-	border: 1.3px solid #464646;
-}*/
-img{
-	width: 90%;
-  	height: 90%;
-  	object-fit: cover;
-}
 #fileChoice{
 	position: fixed;
 }

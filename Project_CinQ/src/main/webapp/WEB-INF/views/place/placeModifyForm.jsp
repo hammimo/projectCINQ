@@ -40,6 +40,10 @@ font-family: 'Hahmlet', serif;
 	width: 500px;
 	margin: auto;
 }
+img {
+	width: 450px;
+	height: 350px;
+}
 p{
 	font-size: 18px;
 	font-weight : bold;

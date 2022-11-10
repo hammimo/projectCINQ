@@ -30,6 +30,10 @@ font-family: 'Hahmlet', serif;
 	width:100%;
 	margin: auto;
 }
+img {
+	width: 450px;
+	height: 350px;
+}
 p{
 	font-size: 18px;
 	font-weight : bold;
@@ -37,15 +41,18 @@ p{
 }
 .join_modi{
 	padding-top: 5%;
-	padding-left:8.5%;
+	padding-left:30px;
 	width: 70%;
 }
 .title_content{
 	vertical-align: top;
 	display: inline-block;
+	padding-right: 50px;
+	margin-right: 20px;
 }
 .File_num{
 	display: inline-block;
+	margin-left: 10px;
 }
 </style>
 </head>
