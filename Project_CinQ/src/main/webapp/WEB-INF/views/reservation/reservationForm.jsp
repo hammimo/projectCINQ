@@ -184,6 +184,18 @@ button:hover {
 #notCheckButton{
 	display : none;
 }
+
+.button{
+	padding-right: 280px;
+}
+
+.back{
+	position: absolute;
+	/* top: 126%;
+	right: 45%; */
+	top: 1182px;
+	right: 850px;
+}
 </style>
 </head>
 <body>
@@ -298,10 +310,13 @@ button:hover {
       </div>
       <div class="button">
          <button type="submit" value="제출하기">제출하기</button>
-         <button type="button" onclick="location.href='../member/myinfo2?id=${loginUser}'">돌아가기</button>
+         <%-- <button type="button" onclick="location.href='../member/myinfo2?id=${loginUser}'">돌아가기</button> --%>
       </div>
       <br><br>
    </form>
+   <div class="back">
+   <button type="button" onclick="location.href='../member/myinfo2?id=${loginUser}'">돌아가기</button>
+   </div>
 </div>
 
 <br><br><br><br><br>
