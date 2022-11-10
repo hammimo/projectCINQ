@@ -148,7 +148,7 @@ $.ajax({
             </tr>
             <tr>
 				<td colspan="4" align="center">
-                  <c:if test="${data.id == loginUser}">
+                  <c:if test="${data.id == loginUser || loginUser == 'admin'}">
 					<input id="i_button" type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
 					<input id="i_button" type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">
                   </c:if>
