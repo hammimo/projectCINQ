@@ -4,11 +4,15 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>     
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
 <head>
 <meta charset="UTF-8"> <!-- myTicketList -->
 <style type="text/css">
 body {
 	background-color: rgba(0, 13, 0, 0.04);
+}
+#title {
+	font-family: 'IBM Plex Sans KR', sans-serif;
 }
 #infoSection{
    float: right;
@@ -24,16 +28,25 @@ li {
    line-height: 50px;
    }
 .ticket{
-	width: 400px;
-	height: 270px;
+	width: 580x;
+	height: 250px;
 	display: inline-block;
-	margin-left: 20px;
+	margin-left: 80px;
+	margin-bottom: 50px;
+	background-color: white;
+	border-radius: 13px;
+	overflow: hidden;
+	box-shadow: 3px 3px 3px 3px silver;
 }
 .img{
-
+	display: inline-block;
 }
 .info{
-
+	width:150px;
+	display: inline-block;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	padding-top: 30px;
+	vertical-align: top;
 }
 #wrap {
 	height : 100%;
@@ -56,7 +69,7 @@ li {
     </section>
     	<br>
     	<div id="wrap">
-	    	<h2 align="center">MY TICKET</h2>
+	    	<h1  align="center">MY TICKET</h1>
 	    	<br><br>
 	    	<c:if test="${myTicketList.size()==0 }">
 	    		<p>결제하신 내역이 없습니다 !</p>
@@ -64,18 +77,18 @@ li {
 	    	<c:if test="${myTicketList.size()!=0 }">
 	    		<c:forEach var="data" items="${myTicketList}">
 	    		<div class="ticket">
-	    		<div class="img" align="center">
+	    		<div class="img">
 	    			<c:if test="${data.image == 'nan'}">
 	               			<b>이미지가 없습니다</b>
 	            	</c:if>
 	            	<c:if test="${data.image != 'nan'}">
-	               			<img id="img_ticket" src="${contextPath}/join/download?imageFileName=${data.image}" width="200px" height="200px">
+	               			<img id="img_ticket" src="${contextPath}/join/download?imageFileName=${data.image}" width="340px" height="250px">
 	            	</c:if> 
 	            </div>
-	           	<div class="info">
-	           	<p id="title" align="center">${data.title}</p>
-	           	<p id="date" align="center">${data.show_date}</p>
-	           	<p id="ticketCount" align="center">${data.ticket_count}인</p>
+	           	<div class="info" align="center">
+	           		<p id="title">${data.title}</p>
+	           		<p id="date">${data.show_date}</p>
+	           		<p id="ticketCount">${data.ticket_count}인</p>
 	           	</div>
 	           	</div>
 	    		</c:forEach>
