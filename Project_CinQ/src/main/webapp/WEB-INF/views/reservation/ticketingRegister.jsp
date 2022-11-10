@@ -223,12 +223,22 @@ body {
                  <div class="location">
                  <b>공연장소</b><br>
                     <c:if test="${data.location == 0}">
-                     <img src="https://via.placeholder.com/200" width="200px" height="200px"><br>
-                     <b>장소를 추천받고 싶어요</b><br><br>
-                  </c:if>
+                     <input type="hidden" id="location" name="location" value="${placeData.write_no}"><br>
+                    	<c:if test="${placeData.image == 'nan'}">
+                     		<img src="https://via.placeholder.com/200" width="200px" height="200px"><br>
+                     		<b>장소를 추천받고 싶어요</b><br><br>
+                  		</c:if>
+                  		<c:if test="${placeData.image != 'nan'}">
+                          <img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="200px" height="200px">
+                           <div class="location_name">
+                          	지역 : ${placeData.loc_sep_name}<br>
+                          	장소명 : ${placeData.loc_name} <br>
+                     		</div>
+                       	</c:if>
+                  	</c:if>
                   <c:if test="${data.location != 0}">
                      <input type="hidden" id="location" name="location" value="${placeData.write_no}">
-                     <c:if test="${placeData.image == 'nan'}">
+                     	<c:if test="${placeData.image == 'nan'}">
                              <img src="https://via.placeholder.com/200" width="200px" height="200px">
                              <p>이미지가 없습니다</p><br>
                        </c:if>
