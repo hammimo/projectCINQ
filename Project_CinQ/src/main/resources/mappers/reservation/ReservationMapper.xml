@@ -92,7 +92,7 @@ ticketing varchar2(2) default 'N'
 	</update>
 	
 	<select id="ticketingAllList" resultMap="reservation">
-      select * from reservation where ticketing='Y'
+      select * from reservation where ticketing='Y' order by write_no desc
     </select>
 	<select id="currentCountCheck" resultType="Integer">
 		select cur_count from reservation where show_num = #{show_num}
