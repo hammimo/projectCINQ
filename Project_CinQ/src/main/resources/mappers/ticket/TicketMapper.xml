@@ -51,7 +51,7 @@ constraint fk_showNum foreign key(show_num) references reservation(show_num)on d
 	</select>
 	
 	<select id="ticketAllCount" resultMap="ticketCount">
-		select * from ticketCount where show_num = #{sN} order by show_date desc
+		select * from ticketCount where show_num = #{sN} order by show_date asc
 	</select>
 	
 	<update id="ticketUpdate">
