@@ -80,6 +80,7 @@ ticketing varchar2(2) default 'N'
 		update reservation set title=#{title},
 		content=#{content},
 		image=#{image},
+		location=#{location},
 		team_count=#{team_count},		
 		max_count=#{max_count},
 		start_date=#{start_date},

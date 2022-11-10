@@ -255,7 +255,7 @@ button:hover {
          </div>
          <br>
          <div class="textbox">
-            <label>관람인원</label> <input type="number" name="max_count"><br>
+            <label>관람인원</label> <input type="number" min="0" max="100" name="max_count"><br>
             <br>
          </div>
          <div class="textbox">
