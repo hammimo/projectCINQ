@@ -9,6 +9,7 @@
 <title>CINQ</title>
 <script src='<c:url value="/resources/script/js/file.js"/>'></script>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap" rel="stylesheet">
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -190,11 +191,18 @@ button:hover {
 }
 
 .back{
-	position: absolute;
+	position: relative;
 	/* top: 126%;
 	right: 45%; */
-	top: 1182px;
-	right: 850px;
+	top: -117px;
+	right: -100px;
+}
+
+#resetButton {
+	position:relative;
+	left : -280px;
+	top : 520px;
+	
 }
 </style>
 </head>
@@ -204,6 +212,9 @@ button:hover {
    <div id="reservationForm">
       <br>
       <br>
+      <c:if test="${placeData != null }">
+      	<button id="resetButton" type="button" onclick="location.href='../reservation/reservationForm'">취소</button>
+      </c:if>
       <form id="form" name="reservation" class="reservationForm"
          action="${contextPath }/reservation/reservation"
          enctype="multipart/form-data" method="post">
@@ -235,7 +246,6 @@ button:hover {
                <img id="placeImg"
                   src="${contextPath}/place/download?imageFileName=${placeData.image}"
                   width="250px" height="250px">
-               <button type="button" onclick="location.href='reservationForm'">취소</button>
             
                <br>
             </c:if>
@@ -314,9 +324,9 @@ button:hover {
       </div>
       <br><br>
    </form>
-   <div class="back">
-   <button type="button" onclick="location.href='../member/myinfo2?id=${loginUser}'">돌아가기</button>
-   </div>
+   
+   <button class="back" type="button" onclick="location.href='../index'">홈으로</button>
+   
 </div>
 
 <br><br><br><br><br>
