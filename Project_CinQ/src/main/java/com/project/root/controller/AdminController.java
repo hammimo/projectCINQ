@@ -62,5 +62,10 @@ public class AdminController implements MemberSession{
     	ps.DeletePlace(model,write_no);
     	return "redirect:placeAllList";
     }
- 
+    
+    @RequestMapping("memberDeleteSuccess")
+    public String memberDeleteSuccess() {
+    	return "admin/memberDeleteSucess";
+    }
+    
 }

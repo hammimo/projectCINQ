@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -198,13 +199,20 @@ body {
 		<div id="project" class="responsive">
 			<c:forEach var="dto_t" items="${ticketingList}">
 			<div class="project_img" align="center">
-				<a href="${contextPath}/reservation/ticketView?write_no=${dto_t.write_no}&location=${dto_t.location}">
+				<a href="${contextPath}/reservation/ticketView?write_no=${dto_t.write_no}&location=${dto_t.location}&show_num=${dto_t.show_num}">
 					<img id="test" src="${contextPath}/reservation/download?imageFileName=${dto_t.image}"></a>
 				<div class="project_title">
 					${dto_t.title }
 				</div>
 				<div class="project_Content">
-					${dto_t.content }
+					<c:choose>
+						<c:when test="${fn:length(dto_t.content) > 50}">
+							내용 : ${fn:substring(dto_t.content, 0, 48)}...	
+						</c:when>
+						<c:otherwise>
+							내용 : ${dto_t.content}
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 			</c:forEach>
@@ -241,7 +249,7 @@ body {
 			<h3 align="center">LENT PLACE</h3>
 			<br>
 			<div id="more">
-				<a href="${contextPath }/place/placeAllListNum"> +더보기 </a>
+				<a href="${contextPath }/place/placeAllListNum"> 더보기+ </a>
 			</div>
 			<br>
 			<c:forEach var="dto_P" items="${placeList }">

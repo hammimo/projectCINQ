@@ -30,9 +30,36 @@ constraint fk_showNum foreign key(show_num) references reservation(show_num)on d
 		<result property="ticket_count" column="ticket_count"/>
 	</resultMap>
 	
+	<resultMap type="com.project.root.ticket.dto.TicketCountDTO" id="ticketCount">
+		<id property="show_num" column="show_num"/>
+		<result property="show_date" column="show_date"/>
+		<result property="ticket_count" column="ticket_count"/>
+	</resultMap>
+	
 	<insert id="ticketingSave" parameterType="com.project.root.ticket.dto.TicketDTO">
 		insert into ticket(id,title,location,image,show_date,show_num,price,ticket_count)  
 		values(#{id}, #{title}, #{location}, #{image}, #{show_date}, #{show_num}, #{price}, #{ticket_count})
 	</insert>
-
+	
+	<insert id="ticketingCountSave" parameterType="com.project.root.ticket.dto.TicketCountDTO">
+		insert into ticketCount(show_num,show_date,ticket_count)
+		values(#{show_num},#{show_date},#{ticket_count})
+	</insert>
+	
+	<select id="currentCountCheck" resultType="Integer">
+		select ticket_count from ticketCount where show_num = #{sN} and show_date = #{sD}
+	</select>
+	
+	<select id="ticketAllCount" resultMap="ticketCount">
+		select * from ticketCount where show_num = #{sN} order by show_date desc
+	</select>
+	
+	<update id="ticketUpdate">
+		update ticketCount set ticket_count= ticket_count-#{c} where show_date=#{d} and show_num=#{sN}
+	</update>
+	
+	<select id="myTicket" resultMap="ticket">
+		select * from ticket where id =#{id}
+	</select>
+	
 </mapper>

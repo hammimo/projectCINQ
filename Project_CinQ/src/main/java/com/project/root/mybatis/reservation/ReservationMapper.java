@@ -30,4 +30,6 @@ public interface ReservationMapper {
 	public List<ReservationDTO> ticketingAllListNum(@Param("s")int start, @Param("e")int end);
 
 	public int selectTicketCount();
+
+	public void ticketingStop(@Param("No")int write_no, @Param("sN")String show_num);
 }  

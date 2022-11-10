@@ -16,6 +16,10 @@
 <link href="${contextPath}/resources/script/css/form.css" rel="stylesheet" type="text/css">
 
 <style type="text/css">
+body{
+	background-color: rgba(0, 0, 0, 0.04);
+}
+
 *{
 font-family: 'Hahmlet', serif;
 }

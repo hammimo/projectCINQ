@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.project.root.join.service.JoinFileService;
-import com.project.root.join.service.JoinService;
 import com.project.root.place.service.PlaceService;
 import com.project.root.reservation.service.ReservationService;
 import com.project.root.session.name.MemberSession;
+import com.project.root.ticket.service.TicketingService;
 
 @Controller
 @RequestMapping("reservation")
@@ -31,6 +31,8 @@ public class ReservationController implements MemberSession {
 	@Autowired
 	private PlaceService ps;
 	  
+	@Autowired
+	private TicketingService ts;
 	
 	@Autowired
 	private ReservationService rs;
@@ -112,10 +114,11 @@ public class ReservationController implements MemberSession {
 	}
 	
 	@RequestMapping("ticketView")
-	public  String ticketView(@RequestParam int write_no, Model model, @RequestParam(value = "location")String location) {
+	public  String ticketView(@RequestParam int write_no, Model model, @RequestParam(value = "location")String location, @RequestParam String show_num) {
 		rs.reservationView(write_no, model);
 		int num = Integer.parseInt(location);
 		ps.placeView(num, model);
+		ts.ticketList(show_num,model);
 		return "reservation/ticketView";
 	} 
 	

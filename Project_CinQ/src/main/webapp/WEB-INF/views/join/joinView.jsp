@@ -138,7 +138,7 @@ $.ajax({
                      <b>이미지가 없습니다..</b>
                   </c:if>
                   <c:if test="${data.image != 'nan'}">
-                 	<img src="${contextPath}/join/download?imageFileName=${data.image}" width="100%" height="60%">
+                 	<img src="${contextPath}/join/download?imageFileName=${data.image}" width="100%" height="460px">
                   </c:if>
                </td>
             </tr>
@@ -151,7 +151,6 @@ $.ajax({
                   <c:if test="${data.id == loginUser}">
 					<input id="i_button" type="button" value="수정하기" onclick="location.href='${contextPath}/join/modify_form?write_no=${data.write_no}'">&nbsp;
 					<input id="i_button" type="button" value="삭제하기" onclick="location.href='${contextPath}/join/delete?id=${data.id}&write_no=${data.write_no}&imageFileName=${data.image}'">
-                  	<input id="i_button" type="button" value="제출하기" onclick="location.href='#'">
                   </c:if>
                   <input id="i_button" type="button" value="글목록" onclick="location.href='${contextPath}/join/joinAllListNum'">
                   <c:if test="${loginUser != null }">

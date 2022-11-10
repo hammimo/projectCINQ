@@ -1,7 +1,6 @@
 package com.project.root.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,7 +45,11 @@ public class TicketController {
 	public String ticketingAllListNum(Model model,@RequestParam(value = "num", required = false, defaultValue="1") int num ) {
 		rs.ticketingAllListNum(model,num);
 		return "/reservation/ticketingAllListNum";
-		
+	}
+	@GetMapping("ticketStop")
+	public String ticketStop(@RequestParam int write_no,@RequestParam String show_num) {
+		rs.ticketingStop(write_no,show_num);
+		return "/reservation/ticketStopSuccess";
 	}
 	
 	

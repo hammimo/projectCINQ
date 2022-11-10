@@ -22,6 +22,7 @@ import com.project.root.join.service.JoinService;
 import com.project.root.member.dto.MemberDTO;
 import com.project.root.member.service.MemberService;
 import com.project.root.session.name.MemberSession;
+import com.project.root.ticket.service.TicketingService;
 
 @Controller
 @RequestMapping("member")
@@ -29,6 +30,9 @@ public class MemberController implements MemberSession {
 	
 	@Autowired
 	private MemberService ms;
+	
+	@Autowired
+	private TicketingService ts;
 	
 //	@RequestMapping("index")
 //	public String index() {
@@ -110,6 +114,12 @@ public class MemberController implements MemberSession {
 		return "member/myinfo2";
 	}
 	
+	@GetMapping("myinfo3")
+	public String myinfo3(@RequestParam("id") String id, Model model) {
+		ts.myTicket(id,model);
+		return "member/myinfo3";
+	}
+	
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
 		if(session.getAttribute("loginUser") != null) {
@@ -149,6 +159,16 @@ public class MemberController implements MemberSession {
 		out.println(message);
 	
 	}
+	@GetMapping("adminDelete")
+	public String adminDelete(@RequestParam String id) {
+		js.adminDelete(id);
+		ms.deleteFile(id);
+		System.out.println("성공");
+		ms.adminDelete(id);
+		System.out.println("성공");
+		return "admin/memberDeleteSuccess";
+	}
+	
 	
 	
 }

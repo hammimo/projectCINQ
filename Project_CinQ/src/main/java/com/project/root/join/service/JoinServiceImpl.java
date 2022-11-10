@@ -139,7 +139,7 @@ public class JoinServiceImpl implements JoinService{
 	@Override
 	public void JoinAllListNum(Model model, int num) {
 		int currentPage = num;	// 현재 페이지 번호
-		int pageLetter = 2;// 한 페이지 당 글 목록수
+		int pageLetter = 5;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectJoinCount();// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)
@@ -198,20 +198,44 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public void joinSearchList(String title, Model model, int num) {
-		int pageLetter = 2;// 한 페이지 당 글 목록수
+		int currentPage = num;	// 현재 페이지 번호
+		int pageLetter = 5;// 한 페이지 당 글 목록수
 		int allCount = mapper.selectJoinSearchCount(title);// 전체 글수
 		int repeat = allCount/pageLetter;
 		if(allCount % pageLetter != 0)
 			repeat += 1;
+			int start = (currentPage-1) * pageLetter + 1;
+			int end = start + pageLetter - 1;
 			
-		int end = num * pageLetter;
-		int start = end + 1 - pageLetter;
-		model.addAttribute("title",title);
-		model.addAttribute("repeat", repeat);
-		model.addAttribute("joinSearchList", mapper.joinSearchList(title, start, end));
+			//페이징 블록 내용 추가
+			int block = 3;
+			int totalPage = (allCount-1)/pageLetter+1;
+			int startPage = (currentPage-1)/block * block + 1;
+			int endPage = startPage + block -1;
+			if(endPage>totalPage) {
+				endPage = totalPage;
+			}
+			/*
+			 * int end = num * pageLetter; int start = end + 1 - pageLetter;
+		
+			 */
+		
+			model.addAttribute("block", block);
+			model.addAttribute("currentPage", currentPage);
+			model.addAttribute("totalPage",totalPage);
+			model.addAttribute("startPage", startPage);
+			model.addAttribute("endPage", endPage);
+			model.addAttribute("title",title);
+			model.addAttribute("repeat", repeat);
+			model.addAttribute("joinSearchList", mapper.joinSearchList(title, start, end));
 		
 	}
-
+	
+	@Override
+	public void adminDelete(String id) {
+		mapper.joinIdDelete(id);
+		
+	}
 	
 }
 
