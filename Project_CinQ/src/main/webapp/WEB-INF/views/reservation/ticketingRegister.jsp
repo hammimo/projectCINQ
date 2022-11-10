@@ -68,7 +68,7 @@ body {
 .locationButton {
 	position : absolute;
 	display: block;
-	top : 300px;
+	top : 320px;
 	right : 600px;
 	height : 50px;
 	width : 300px;
@@ -230,7 +230,7 @@ body {
                   		</c:if>
                   		<c:if test="${placeData.image != 'nan'}">
                           <img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="200px" height="200px">
-                           <div class="location_name">
+                          <div class="location_name">
                           	지역 : ${placeData.loc_sep_name}<br>
                           	장소명 : ${placeData.loc_name} <br>
                      		</div>
@@ -246,8 +246,8 @@ body {
                           <img src="${contextPath}/place/download?imageFileName=${placeData.image}" width="200px" height="200px">
                        </c:if>
                        <div class="location_name">
-                          지역 : ${placeData.loc_sep_name}<br>
-                          장소명 : ${placeData.loc_name} <br>
+                          	지역 : ${placeData.loc_sep_name}<br>
+                          	장소명 : ${placeData.loc_name} <br>
                      </div>
                   </c:if>
                  </div>
