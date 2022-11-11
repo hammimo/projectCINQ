@@ -116,7 +116,7 @@ $.ajax({
 	</div>
    <c:import url="../default/header.jsp"/>
       
-      <h1 align="center"><b>등록된 프로젝트</b></h1>
+      <h1 align="center"><b>함께하실분 구해요</b></h1>
       <br><br>
       <div class ="view" align="center">
          <table class="Sproject" >
